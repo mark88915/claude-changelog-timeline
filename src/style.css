@@ -20,6 +20,8 @@
   --cat-bug-soft: oklch(0.78 0.16 55 / 0.14);
   --cat-brk: oklch(0.70 0.20 25);
   --cat-brk-soft: oklch(0.70 0.20 25 / 0.14);
+  --cat-milestone: oklch(0.75 0.15 310);
+  --cat-milestone-soft: oklch(0.75 0.15 310 / 0.14);
 
   --rail-x: 132px;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -597,6 +599,8 @@ body::before {
 .cat-bug .cat-tag-dot { background: var(--cat-bug); box-shadow: 0 0 6px var(--cat-bug); }
 .cat-brk { background: var(--cat-brk-soft); color: var(--cat-brk); }
 .cat-brk .cat-tag-dot { background: var(--cat-brk); box-shadow: 0 0 6px var(--cat-brk); }
+.cat-milestone { background: var(--cat-milestone-soft); color: var(--cat-milestone); }
+.cat-milestone .cat-tag-dot { background: var(--cat-milestone); box-shadow: 0 0 6px var(--cat-milestone); }
 
 .card-area-tag {
   font-family: var(--font-mono);

@@ -819,6 +819,29 @@ export const CHANGELOG = [
     }
   },
   {
+    id: "cc-channels-discord",
+    date: "2026-03-20",
+    version: "v2.1.81",
+    category: "new",
+    area: "integration",
+    product: "claude-code",
+    title: "Claude Code Channels 研究預覽：透過 Discord、Telegram 與 iMessage 控制程式碼代理",
+    summary: "全新 Channels 功能讓你從 Discord、Telegram 或 iMessage 直接傳送訊息到正在運行的 Claude Code 工作階段。",
+    body: {
+      kind: "feature",
+      description: "Claude Code Channels 作為研究預覽推出，支援透過 Discord、Telegram 和 iMessage 三大平台與本機 Claude Code 工作階段互動。當訊息到達時，伺服器會將其包裝為 channel 事件並推送至你的 Claude Code 工作階段，Claude 使用你完整的本機環境處理請求後透過 MCP 伺服器回覆。每個 channel 插件維護一份發送者允許清單，僅你明確配對並核准的使用者 ID 可推送訊息。此功能基於 Anthropic 於 2024 年推出的 Model Context Protocol (MCP) 開放標準建構。Discord 插件支援傳送訊息至頻道、原生執行緒回覆、檔案附件，以及自動顯示正在輸入指示器。",
+      steps: [
+        { title: "安裝 Discord 插件", text: "透過 claude plugin install discord 安裝 Discord channel 插件。" },
+        { title: "配對 Bot", text: "將 Discord Bot Token 設定好後，私訊 bot 會收到配對碼。" },
+        { title: "開始互動", text: "在 Discord 頻道中傳送訊息，Claude Code 會在本機處理並回覆。" }
+      ],
+      links: [
+        { label: "docs/channels", href: "https://code.claude.com/docs/en/channels", kind: "doc" },
+        { label: "docs/channels-reference", href: "https://code.claude.com/docs/en/channels-reference", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.81-bare",
     date: "2026-03-20",
     version: "v2.1.81",
@@ -943,6 +966,705 @@ export const CHANGELOG = [
         { label: "anthropic/blog", href: "https://www.anthropic.com/news", kind: "doc" }
       ]
     }
+  },
+  // ── 歷史條目：2026年2月 → 2025年2月 ──
+  {
+    id: "cc-2.1.0-agents",
+    date: "2026-02-10",
+    version: "v2.1.0",
+    category: "new",
+    area: "agents",
+    product: "claude-code",
+    title: "Claude Code 2.1.0：Agent Teams 研究預覽與快速模式",
+    summary: "Agent Teams 研究預覽讓多個代理程式協作完成任務，快速模式使用 Haiku 加速簡單操作。",
+    body: {
+      kind: "feature",
+      description: "Claude Code 2.1.0 帶來多項重大更新。Agent Teams 研究預覽允許多個代理程式在同一工作區協作。新增快速模式（Fast Mode），對簡單查詢自動使用 Haiku 模型以降低延遲和成本。自動記憶功能可將重要上下文自動儲存至 CLAUDE.md。PDF 頁面範圍讀取、技能熱重載、會話傳送（/teleport）等功能同步推出。",
+      links: [
+        { label: "github/claude-code/v2.1.0", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.0", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.80-opus46",
+    date: "2026-02-05",
+    version: "v2.0.80",
+    category: "new",
+    area: "model",
+    product: "claude-code",
+    title: "支援 Claude Opus 4.6 與 Sonnet 4.6 模型",
+    summary: "Claude Code 新增對 Opus 4.6 和 Sonnet 4.6 的支援，延伸思考能力大幅提升。",
+    body: {
+      kind: "feature",
+      description: "Claude Code 新增對 Claude Opus 4.6 和 Sonnet 4.6 模型的完整支援。Opus 4.6 在 SWE-bench Verified 上達到 72.8% 解決率。延伸思考 token 預設值提升，程式碼生成品質和推理能力均有顯著改善。使用者可透過 /model 指令切換至新模型。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.75-security-review",
+    date: "2026-02-01",
+    version: "v2.0.75",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "新增 /security-review 程式碼安全審查指令",
+    summary: "Claude Code Security 功能上線，可對程式碼庫進行全面的安全漏洞掃描和審查。",
+    body: {
+      kind: "command",
+      description: "/security-review 指令可對當前分支的程式碼變更進行全面的安全審查，識別潛在的安全漏洞、注入攻擊面和敏感資料洩漏風險。支援自訂安全規則和嚴重等級分類。",
+      syntax: "/security-review",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.70-skill-md",
+    date: "2026-01-20",
+    version: "v2.0.70",
+    category: "new",
+    area: "skills",
+    product: "claude-code",
+    title: "SKILL.md 支援與技能系統正式推出",
+    summary: "透過 SKILL.md 檔案定義可重用技能，支援 frontmatter 設定與路徑篩選。",
+    body: {
+      kind: "feature",
+      description: "技能系統正式推出。開發者可在 .claude/skills/ 目錄下建立 SKILL.md 檔案，透過 YAML frontmatter 定義技能名稱、描述、允許的工具和路徑篩選條件。Claude 會根據上下文動態載入相關技能。支援專案級和全域級技能，以及從外部倉庫匯入技能。",
+      links: [
+        { label: "docs/skills", href: "https://code.claude.com/docs/en/skills", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.68-session-fork",
+    date: "2026-01-15",
+    version: "v2.0.68",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "工作階段分支、雲端交接與箭頭鍵歷史",
+    summary: "新增 /fork 分支工作階段、& 雲端交接、--from-pr 旗標、以及上下方向鍵瀏覽提示歷史。",
+    body: {
+      kind: "feature",
+      description: "多項工作流程改進：/fork 可將當前工作階段分支成獨立副本。在提示結尾加上 & 可將任務交接至雲端代理繼續執行。--from-pr 旗標可直接從 GitHub PR 載入上下文開始工作。上下方向鍵可瀏覽先前的提示歷史。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.65-rules",
+    date: "2026-01-08",
+    version: "v2.0.65",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "新增 .claude/rules/ 目錄與提示建議功能",
+    summary: "支援 .claude/rules/ 放置領域專屬規則檔案，新增互動式提示建議幫助新使用者上手。",
+    body: {
+      kind: "feature",
+      description: ".claude/rules/ 目錄讓開發者可放置 Markdown 規則檔案，透過路徑篩選提供領域專屬的指導。新增提示建議功能，在空白提示時顯示情境相關的建議選項。支援 paths: 欄位進行 glob 模式匹配，僅在編輯特定檔案類型時載入對應規則。",
+      links: [
+        { label: "docs/rules", href: "https://code.claude.com/docs/en/rules", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.62-named-sessions",
+    date: "2026-01-03",
+    version: "v2.0.62",
+    category: "enh",
+    area: "sessions",
+    product: "claude-code",
+    title: "具名工作階段與 /stats 統計功能",
+    summary: "使用 /rename 為工作階段命名，/resume 恢復，/stats 查看個人使用統計資料。",
+    body: {
+      kind: "feature",
+      description: "新增具名工作階段功能。使用 /rename 為當前工作階段命名，/resume <name> 恢復指定工作階段。/stats 提供個人使用統計，包括最常用模型、使用連續天數等有趣資訊。這些改進讓長期專案的工作階段管理更加方便。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.60-background-agents",
+    date: "2025-12-20",
+    version: "v2.0.60",
+    category: "new",
+    area: "agents",
+    product: "claude-code",
+    title: "背景代理程式與 Ctrl+B 一鍵推送",
+    summary: "按 Ctrl+B 將任務推送至背景執行，代理程式完成後自動回報結果。",
+    body: {
+      kind: "feature",
+      description: "全新的背景代理程式功能讓你可以將長時間執行的任務推送至背景。按 Ctrl+B 即可將當前任務轉為背景執行，釋放終端進行其他工作。結合 Git Worktree 功能（claude --worktree），每個背景代理程式在獨立的程式碼副本中工作，互不干擾。代理程式完成後會自動通知並回報結果。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.58-model-switch",
+    date: "2025-12-15",
+    version: "v2.0.58",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "Alt+P 即時模型切換與狀態列上下文資訊",
+    summary: "撰寫提示時按 Alt+P 即時切換模型，狀態列新增上下文視窗使用量顯示。",
+    body: {
+      kind: "feature",
+      description: "新增 Alt+P（macOS 為 Option+P）快捷鍵，可在撰寫提示時即時切換模型，無需中斷工作流程。狀態列新增上下文視窗使用量資訊，顯示已使用和剩餘的 token 數量。新增 fileSuggestion 設定，可自訂 @ 檔案搜尋指令。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.55-agent-skills",
+    date: "2025-12-10",
+    version: "v2.0.55",
+    category: "new",
+    area: "skills",
+    product: "claude-code",
+    title: "Agent Skills 開放標準發布",
+    summary: "Agent Skills 作為開放標準推出，支援 PowerPoint、Excel、Word 和 PDF 的預建技能。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 發布 Agent Skills 作為開放標準，定義了一套讓 AI 代理程式學習和使用特定能力的框架。首批預建技能包括處理 PowerPoint 簡報、Excel 試算表、Word 文件和 PDF 檔案的能力。開發者可建立自訂技能並透過技能市集分享。",
+      links: [
+        { label: "docs/skills", href: "https://code.claude.com/docs/en/skills", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.50-worktree",
+    date: "2025-11-28",
+    version: "v2.0.50",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "Git Worktree 隔離支援與子代理程式整合",
+    summary: "claude --worktree 在獨立的 git worktree 中運行，子代理程式可使用 isolation: worktree 避免衝突。",
+    body: {
+      kind: "feature",
+      description: "新增 Git Worktree 支援，透過 claude --worktree 或子代理程式的 isolation: \"worktree\" 設定，可在獨立的 git worktree 中運行 Claude Code。每個 worktree 是倉庫的完整工作副本，多個代理程式可以平行工作而不互相干擾。EnterWorktree 工具可切換至現有的 worktree。",
+      links: [
+        { label: "docs/worktrees", href: "https://code.claude.com/docs/en/worktrees", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-sonnet-4.5",
+    date: "2025-11-20",
+    version: "Sonnet 4.5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Sonnet 4.5 發布：程式碼能力領先業界",
+    summary: "Sonnet 4.5 在 SWE-bench Verified 上達到 77.2% 解決率，成為全球最佳程式碼模型。",
+    body: {
+      kind: "feature",
+      description: "Claude Sonnet 4.5 正式發布，在程式碼生成和軟體工程任務上達到業界最高水準。SWE-bench Verified 解決率達 77.2%，超越所有競爭對手。在保持快速回應速度的同時，推理能力和指令遵循度大幅提升。支援延伸思考和 200K 上下文視窗。",
+      links: [
+        { label: "docs/models", href: "https://docs.anthropic.com/en/docs/about-claude/models", kind: "doc" },
+        { label: "anthropic/blog", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.45-hooks-v2",
+    date: "2025-11-15",
+    version: "v2.0.45",
+    category: "new",
+    area: "hooks",
+    product: "claude-code",
+    title: "Hooks 系統正式推出：PreToolUse、PostToolUse 等生命週期事件",
+    summary: "完整的 Hook 生命週期事件系統上線，支援 PreToolUse、PostToolUse、SessionStart 等事件。",
+    body: {
+      kind: "feature",
+      description: "Hooks 系統從實驗性功能升級為正式功能。支援完整的生命週期事件：SessionStart、UserPromptSubmit、PreToolUse、PostToolUse、PermissionRequest、SubagentStart、SubagentStop 等。Hook 可透過 shell 指令、prompt 或 agent 類型觸發，支援允許、拒絕或修改工具呼叫。在 settings.json 中配置 hooks 區段即可使用。",
+      links: [
+        { label: "docs/hooks", href: "https://code.claude.com/docs/en/hooks", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-opus-4.1",
+    date: "2025-10-25",
+    version: "Opus 4.1",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Opus 4.1 發布：最高智慧模型",
+    summary: "Opus 4.1 專為複雜推理和長時間代理任務設計，是 Claude 家族中最具智慧的模型。",
+    body: {
+      kind: "feature",
+      description: "Claude Opus 4.1 正式發布，專為需要最高推理能力的場景設計。在數學證明、複雜程式碼架構設計和多步驟分析任務上表現卓越。支援延伸思考模式，可進行長達數分鐘的深度推理。特別適合長時間代理任務和需要高度準確性的專業應用。",
+      links: [
+        { label: "docs/models", href: "https://docs.anthropic.com/en/docs/about-claude/models", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.40-mcp-elicitation",
+    date: "2025-10-20",
+    version: "v2.0.40",
+    category: "new",
+    area: "mcp",
+    product: "claude-code",
+    title: "MCP Elicitation 支援：伺服器可請求結構化輸入",
+    summary: "MCP 伺服器現可在任務中途請求結構化輸入，透過互動對話框或瀏覽器 URL 收集資訊。",
+    body: {
+      kind: "feature",
+      description: "MCP Elicitation 功能讓 MCP 伺服器可在自動化工作流程中暫停，請求使用者提供特定的結構化輸入。支援透過互動式對話框或瀏覽器 URL 收集資訊，不會中斷上下文。新增 Elicitation 和 ElicitationResult hook 事件，開發者可攔截和覆寫 elicitation 行為。",
+      links: [
+        { label: "docs/mcp", href: "https://code.claude.com/docs/en/mcp", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.35-context-cmd",
+    date: "2025-10-10",
+    version: "v2.0.35",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "新增 /context 指令與延伸思考顯示欄位",
+    summary: "/context 指令檢視上下文使用狀況，API 新增延伸思考 display 欄位可省略思考內容加速串流。",
+    body: {
+      kind: "feature",
+      description: "/context 指令讓使用者即時查看當前上下文視窗的使用狀況，包括已用 token 數、剩餘空間和各來源佔比。API 同步推出延伸思考 display 欄位，允許省略思考內容以加速回應串流。延伸思考關鍵字 \"ultrathink\" 可啟用最深度的推理模式。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.30-vscode",
+    date: "2025-09-29",
+    version: "v2.0.30",
+    category: "new",
+    area: "integration",
+    product: "claude-code",
+    title: "原生 VS Code 擴充套件（Beta）發布",
+    summary: "Claude Code 原生 VS Code 擴充套件正式推出 Beta 版，支援內聯差異比對、側邊欄面板和圖形化互動。",
+    body: {
+      kind: "feature",
+      description: "Claude Code 正式登陸 VS Code！原生 VS Code 擴充套件（Beta）帶來內聯差異比對（inline diffs）、專屬側邊欄面板和完整的圖形化互動介面。開發者無需離開 IDE 即可使用 Claude Code 的所有功能。擴充套件與終端版本共享相同的配置和工作階段，可無縫切換。",
+      links: [
+        { label: "docs/vscode", href: "https://code.claude.com/docs/en/vs-code", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.25-jetbrains",
+    date: "2025-09-29",
+    version: "v2.0.25",
+    category: "new",
+    area: "integration",
+    product: "claude-code",
+    title: "JetBrains IDE 整合推出",
+    summary: "Claude Agent 整合至 JetBrains IDE，透過 AI 聊天面板提供代理式工作流程。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 與 JetBrains 合作，將 Claude Agent 整合至 JetBrains IDE 系列產品中。使用者可透過 AI 聊天面板直接與 Claude 互動，執行代理式工作流程。支援 IntelliJ IDEA、PyCharm、WebStorm 等所有主要 JetBrains IDE。獨立的 Claude Code Beta 插件也同步推出，提供更深度的整合。",
+      links: [
+        { label: "jetbrains/blog", href: "https://blog.jetbrains.com/ai/2025/09/introducing-claude-agent-in-jetbrains-ides/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.20-checkpoints",
+    date: "2025-09-25",
+    version: "v2.0.20",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "Claude Code 2.0：檢查點系統與自主操作升級",
+    summary: "全新檢查點系統在每次變更前自動儲存狀態，支援 Esc×2 或 /rewind 即時回退。",
+    body: {
+      kind: "feature",
+      description: "Claude Code 2.0 帶來革命性的檢查點系統。每次程式碼變更前自動儲存完整狀態，讓你可以放心委派更大膽的任務。按兩次 Esc 或使用 /rewind 指令即可即時回退到任何先前版本。此功能讓 Claude Code 的自主操作更加可靠，使用者可以授予更大的自主權而不擔心破壞性變更。",
+      links: [
+        { label: "github/claude-code/v2.0.0", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.15-subagents",
+    date: "2025-09-20",
+    version: "v2.0.15",
+    category: "new",
+    area: "agents",
+    product: "claude-code",
+    title: "子代理程式系統：前景與背景雙模式",
+    summary: "子代理程式系統支援前景（阻塞式）和背景（獨立式）兩種模式，可平行處理多項任務。",
+    body: {
+      kind: "feature",
+      description: "子代理程式（Subagents）系統正式推出。前景模式會阻塞父代理直到完成並內聯回傳結果，適合快速的研究和驗證任務。背景模式獨立運行，完成時通知父代理，適合長時間的建構和測試任務。每個子代理程式有獨立的上下文視窗和工具權限，互不干擾。/agents 指令可管理所有活動中的子代理程式。",
+      links: [
+        { label: "docs/subagents", href: "https://code.claude.com/docs/en/sub-agents", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-2.0.10-plan-mode",
+    date: "2025-09-15",
+    version: "v2.0.10",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "Plan 模式：先規劃再執行的工作流程",
+    summary: "新增 Plan 模式，Claude 先產生詳細執行計畫供使用者審核，確認後再開始執行。",
+    body: {
+      kind: "feature",
+      description: "Plan 模式讓 Claude Code 在執行任務前先產生詳細的執行計畫。使用者可審核計畫中的每個步驟，提出修改意見或確認執行。此模式特別適合複雜的重構任務和需要精確控制的場景。計畫會根據使用者回饋即時調整，確保執行方向正確。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.80-claude-md",
+    date: "2025-08-25",
+    version: "v1.0.80",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "CLAUDE.md 持久指令檔與 /init 指令",
+    summary: "CLAUDE.md 檔案作為專案的持久記憶，/init 指令可自動分析程式碼庫並生成初始 CLAUDE.md。",
+    body: {
+      kind: "feature",
+      description: "CLAUDE.md 是放置在專案根目錄的 Markdown 檔案，每次工作階段啟動時 Claude 都會自動讀取。可記錄專案慣例、建構指令、架構決策等持久上下文。/init 指令可自動掃描程式碼庫結構，生成包含專案概述、技術棧、建構指令和編碼規範的初始 CLAUDE.md。支援專案級（.claude/CLAUDE.md）和全域級（~/.claude/CLAUDE.md）配置。",
+      links: [
+        { label: "docs/claude-md", href: "https://code.claude.com/docs/en/claude-md", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.75-chrome",
+    date: "2025-08-15",
+    version: "v1.0.75",
+    category: "new",
+    area: "integration",
+    product: "claude-code",
+    title: "Claude for Chrome 擴充功能發布",
+    summary: "Google Chrome 擴充功能讓 Claude Code 直接控制瀏覽器，實現網頁自動化操作。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 推出 Claude for Chrome，一個 Google Chrome 擴充功能，讓 Claude Code 可以直接控制瀏覽器。支援網頁導航、表單填寫、資料擷取和螢幕截圖分析。特別適合前端開發測試、網頁爬蟲和自動化工作流程。與 Claude Code 終端工具無縫整合。",
+      links: [
+        { label: "anthropic/blog", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.70-extended-thinking",
+    date: "2025-08-01",
+    version: "v1.0.70",
+    category: "enh",
+    area: "model",
+    product: "claude-code",
+    title: "延伸思考模式改進：Tab 鍵切換與 Budget 控制",
+    summary: "按 Tab 鍵可快速切換延伸思考模式開關，新增 token 預算控制設定。",
+    body: {
+      kind: "feature",
+      description: "延伸思考模式獲得多項改進。按 Tab 鍵可在互動介面中快速切換延伸思考開關。新增 token 預算控制，允許設定延伸思考的最大 token 數量。延伸思考內容會在側邊面板中即時顯示，讓使用者觀察 Claude 的推理過程。\"ultrathink\" 關鍵字可觸發最深度的推理模式。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.65-mcp-ga",
+    date: "2025-07-20",
+    version: "v1.0.65",
+    category: "new",
+    area: "mcp",
+    product: "claude-code",
+    title: "MCP（Model Context Protocol）整合正式上線",
+    summary: "Claude Code 完整支援 MCP 協定，可連接資料庫、API、GitHub、Slack 等外部服務。",
+    body: {
+      kind: "feature",
+      description: "Model Context Protocol (MCP) 整合正式上線。MCP 是 Anthropic 於 2024 年推出的開放標準，用於連接 AI 代理與外部工具和資料來源。Claude Code 現可透過 MCP 伺服器連接資料庫、GitHub、Slack、Jira 等服務。在 settings.json 中配置 mcpServers 區段即可添加新的 MCP 連線。支援 stdio 和 SSE 兩種傳輸方式。",
+      links: [
+        { label: "docs/mcp", href: "https://code.claude.com/docs/en/mcp", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.58-hooks-preview",
+    date: "2025-07-05",
+    version: "v1.0.58",
+    category: "new",
+    area: "hooks",
+    product: "claude-code",
+    title: "Hooks 系統實驗性預覽推出",
+    summary: "可在 settings.json 中配置生命週期 hook，在工具呼叫前後執行自訂腳本。",
+    body: {
+      kind: "feature",
+      description: "Hooks 系統作為實驗性功能首次推出。開發者可在 settings.json 中配置 hooks，在 Claude Code 的各個生命週期事件中執行自訂 shell 腳本。初始支援 PreToolUse 和 PostToolUse 事件，可用於在工具呼叫前進行驗證、在程式碼變更後自動執行測試等場景。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.50-review",
+    date: "2025-06-25",
+    version: "v1.0.50",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "新增 /review 程式碼審查指令",
+    summary: "/review 指令可對當前分支的變更進行全面的程式碼審查並提供改善建議。",
+    body: {
+      kind: "command",
+      description: "/review 指令可對當前分支的程式碼變更進行全面審查。會分析程式碼品質、潛在 bug、效能問題和最佳實踐遵循情況，並提供具體的改善建議。支援審查整個分支或指定的 commit 範圍。",
+      syntax: "/review",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.45-commit",
+    date: "2025-06-15",
+    version: "v1.0.45",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "新增 /commit 智慧提交指令",
+    summary: "/commit 自動分析暫存和未暫存的變更，生成語意化 commit 訊息並提交。",
+    body: {
+      kind: "command",
+      description: "/commit 指令會自動分析 git 中暫存和未暫存的變更，根據變更內容生成語意化的 commit 訊息。支援 conventional commits 格式。使用者可在提交前審核和編輯訊息。與 Git hooks 完全相容。",
+      syntax: "/commit",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.40-prompt-caching",
+    date: "2025-06-05",
+    version: "v1.0.40",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "Prompt Caching 整合降低 API 費用與延遲",
+    summary: "Claude Code 自動利用 Anthropic 的 Prompt Caching 功能，長對話的 API 費用和延遲大幅降低。",
+    body: {
+      kind: "perf",
+      description: "Claude Code 現在自動利用 Anthropic 的 Prompt Caching 功能。在長時間工作階段中，重複的系統提示和上下文不再需要重新處理，大幅降低 API 呼叫費用和回應延遲。快取命中時，重複的前綴 token 處理費用降低 90%。5 分鐘 TTL 確保快取在活躍工作階段中保持有效。",
+      metrics: [
+        { label: "快取命中費用", value: "−90%", delta: "相較無快取", direction: "down" },
+        { label: "延遲改善", value: "−40%", delta: "長對話場景", direction: "down" }
+      ],
+      links: [
+        { label: "docs/prompt-caching", href: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-opus-4-sonnet-4",
+    date: "2025-05-22",
+    version: "Claude 4",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude 4 模型家族發布：Opus 4 與 Sonnet 4",
+    summary: "Claude Opus 4 和 Sonnet 4 正式發布，在程式碼、推理和長時間代理任務上實現重大突破。",
+    body: {
+      kind: "feature",
+      description: "Claude 4 模型家族正式發布，包含 Opus 4 和 Sonnet 4 兩款模型。Opus 4 專為需要最高智慧的複雜任務設計。Sonnet 4 在速度和能力之間取得最佳平衡，成為最受歡迎的開發者模型。兩款模型在程式碼生成、數學推理和指令遵循方面均有重大突破，並原生支援延伸思考和長時間代理任務。",
+      links: [
+        { label: "docs/models", href: "https://docs.anthropic.com/en/docs/about-claude/models", kind: "doc" },
+        { label: "anthropic/blog", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-1.0.0-ga",
+    date: "2025-05-22",
+    version: "v1.0.0",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "Claude Code 1.0 正式版發布（GA）",
+    summary: "Claude Code 結束 Beta 階段，v1.0.0 正式版隨 Claude 4 模型同步上線。",
+    body: {
+      kind: "feature",
+      description: "Claude Code 正式脫離 Beta，發布 v1.0.0 穩定版本。隨 Claude Opus 4 和 Sonnet 4 同步上線，標誌著從研究預覽工具到生產就緒的程式碼代理平台的轉變。正式版帶來穩定的 API、完善的權限系統、可靠的檔案編輯和 Git 操作。企業使用者可放心將 Claude Code 整合至生產工作流程。",
+      links: [
+        { label: "github/claude-code/v1.0.0", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" },
+        { label: "anthropic/blog", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-0.2.125-final-beta",
+    date: "2025-05-21",
+    version: "v0.2.125",
+    category: "brk",
+    area: "cli",
+    product: "claude-code",
+    title: "最終 Beta 版：重大變更與 Settings 配置系統",
+    summary: "Beta 階段最後一版，包含 JSON 輸出格式變更和全新的 settings.json 配置系統。",
+    body: {
+      kind: "breaking",
+      description: "Claude Code Beta 階段的最終版本，為正式發布做準備。包含多項重大變更：JSON 輸出格式更新以符合正式版規範、settings.json 配置系統全面上線取代舊有的環境變數配置方式。現有使用者需檢查並遷移自訂配置。",
+      migration: {
+        text: "將環境變數配置遷移至 settings.json 格式，並更新依賴 JSON 輸出的腳本以符合新格式。"
+      },
+      links: [
+        { label: "github/claude-code/v0.2.125", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-0.2.108-interactive-thinking",
+    date: "2025-05-18",
+    version: "v0.2.108",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "互動式思考：即時引導 Claude 的推理方向",
+    summary: "新增互動式思考功能，可在 Claude 推理過程中即時提供引導和修正。",
+    body: {
+      kind: "feature",
+      description: "互動式思考（Interactive Thinking）讓使用者可以在 Claude 進行延伸思考時即時介入。當 Claude 的推理方向偏離時，使用者可透過即時引導（Real-Time Steering）修正方向。此功能在複雜的架構設計和多步驟重構任務中特別有用，確保 Claude 的思考過程符合使用者意圖。",
+      links: [
+        { label: "github/claude-code/v0.2.108", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-0.2.90-permissions",
+    date: "2025-04-25",
+    version: "v0.2.90",
+    category: "enh",
+    area: "permissions",
+    product: "claude-code",
+    title: "細粒度權限系統與 Allow/Deny 規則",
+    summary: "全新的權限系統支援按工具和命令設定 allow/deny 規則，減少重複的權限確認。",
+    body: {
+      kind: "feature",
+      description: "全面重新設計的權限系統上線。支援按工具類型（Bash、Read、Write、MCP）和具體命令設定 allow/deny 規則。規則可在專案級（.claude/settings.json）和使用者級（~/.claude/settings.json）配置。「永遠允許」選項可記住常用操作的權限決定，大幅減少互動中斷。Bash 工具支援命令前綴匹配。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-0.2.75-compact",
+    date: "2025-04-10",
+    version: "v0.2.75",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "上下文壓縮（Compact）與 /clear 指令改進",
+    summary: "自動上下文壓縮功能在接近上下文限制時觸發，/clear 完全重置工作階段。",
+    body: {
+      kind: "feature",
+      description: "新增自動上下文壓縮功能。當對話接近上下文視窗限制時，Claude Code 會自動壓縮較早的對話內容，保留關鍵上下文同時釋放空間。/compact 指令可手動觸發壓縮。/clear 指令完全重置工作階段，清除所有對話歷史。壓縮後的摘要保留重要的決策和程式碼變更記錄。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-3.7-sonnet",
+    date: "2025-03-15",
+    version: "Sonnet 3.7",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude 3.7 Sonnet 與延伸思考模式發布",
+    summary: "Claude 3.7 Sonnet 推出延伸思考（Extended Thinking）功能，在推理任務上大幅提升。",
+    body: {
+      kind: "feature",
+      description: "Claude 3.7 Sonnet 是 Anthropic 首款支援延伸思考（Extended Thinking）的模型，讓 Claude 可以在回應前進行更深入的推理。延伸思考模式特別適合數學、程式碼分析和複雜邏輯推理任務。使用者可透過 API 的 thinking 參數或在 Claude Code 中按 Tab 鍵啟用此功能。",
+      links: [
+        { label: "docs/models", href: "https://docs.anthropic.com/en/docs/about-claude/models", kind: "doc" },
+        { label: "anthropic/blog", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "cc-0.2.50-git-ops",
+    date: "2025-03-10",
+    version: "v0.2.50",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "Git 操作強化：分支管理與 PR 工作流程",
+    summary: "改進 Git 操作支援，包括智慧分支管理、PR 建立和衝突解決輔助。",
+    body: {
+      kind: "feature",
+      description: "Git 操作獲得全面強化。Claude Code 現可更智慧地管理 Git 分支，自動建議分支名稱，協助建立 Pull Request 並生成描述。衝突解決輔助功能可分析合併衝突並提供解決建議。所有 Git 操作都在權限系統保護下執行，確保安全。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-0.2.30-sandbox",
+    date: "2025-03-01",
+    version: "v0.2.30",
+    category: "enh",
+    area: "security",
+    product: "claude-code",
+    title: "沙箱安全模型與網路存取控制",
+    summary: "新增沙箱安全模型，限制檔案系統存取範圍和網路連線，防止意外的破壞性操作。",
+    body: {
+      kind: "feature",
+      description: "沙箱安全模型正式上線，為 Claude Code 的操作提供額外的安全層。檔案系統存取限制在專案目錄及其子目錄中，網路連線可透過 sandbox.network 設定控制允許和封鎖的網域。危險操作（如刪除系統檔案、修改 dotfiles）會被自動攔截。macOS 使用者額外受到系統級沙箱保護。",
+      links: [
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cc-0.2.0-launch",
+    date: "2025-02-24",
+    version: "v0.2.0",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "Claude Code 研究預覽版首次發布",
+    summary: "Anthropic 推出 Claude Code 研究預覽版，一個在終端中運行的代理式程式碼工具。",
+    body: {
+      kind: "feature",
+      description: "Claude Code 作為限定研究預覽版首次亮相，與 Claude 3.7 Sonnet 同日發布。這是 Anthropic 的首個代理式程式碼工具，直接在終端中運行，可搜尋和理解程式碼庫、智慧搜尋程式碼、在獲得權限後編輯檔案、執行測試套件、運行 shell 指令，以及進行 Git 操作（commit、push、branch）。內建權限系統讓使用者完全控制 Claude 可執行的操作。",
+      steps: [
+        { title: "安裝", text: "透過 npm install -g @anthropic-ai/claude-code 全域安裝。" },
+        { title: "啟動", text: "在專案目錄中執行 claude 啟動互動式工作階段。" },
+        { title: "開始使用", text: "用自然語言描述任務，Claude 會分析程式碼庫並協助完成。" }
+      ],
+      links: [
+        { label: "anthropic/blog", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "github/claude-code", href: "https://github.com/anthropics/claude-code", kind: "gh" }
+      ]
+    }
+  },
+  // ── 里程碑：Claude 產品歷史起點 ──
+  {
+    id: "claude-product-origin",
+    date: "2023-03-14",
+    version: "Claude 1.0",
+    category: "milestone",
+    area: "platform",
+    product: "claude",
+    title: "Claude 產品歷史起點",
+    summary: "Claude 作為產品自 2023 年 3 月問世以來，歷經多代模型演進與平台擴展，積累了龐大的更新歷史。",
+    body: {
+      kind: "feature",
+      description: "Claude 由 Anthropic 於 2023 年 3 月首次公開發布，命名致敬資訊理論之父 Claude Shannon。自問世以來，Claude 經歷了多代重要演進：Claude 1 與 Claude Instant（2023 年 3 月）、Claude 2 公開版（2023 年 7 月）、Claude 3 模型家族 — Opus、Sonnet、Haiku（2024 年 3 月）、claude.ai 網頁平台、行動應用程式（iOS/Android）、Projects 專案功能、Artifacts 互動成品、Claude 3.5 Sonnet（2024 年 6 月）、API Tool Use、Computer Use、Model Context Protocol (MCP)、200K 上下文視窗等豐富功能。由於 Claude 產品的完整更新歷史極為龐大，本時間軸僅追蹤自 Claude Code 於 2025 年 2 月誕生以來的相關更新記錄。"
+    }
   }
 ];
 
@@ -952,4 +1674,5 @@ export const CATEGORIES = {
   enh:  { label: "功能增強",   short: "增強",         className: "cat-enh" },
   bug:  { label: "錯誤修正",   short: "修正",         className: "cat-bug" },
   brk:  { label: "重大變更",   short: "重大變更",     className: "cat-brk" },
+  milestone: { label: "里程碑", short: "里程碑",     className: "cat-milestone" },
 };

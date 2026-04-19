@@ -97,7 +97,7 @@ export function useChangelog() {
       const q = search.value.trim().toLowerCase()
       const hay = [
         entry.title, entry.summary, entry.version, entry.area,
-        JSON.stringify(entry.body || {})
+        entry.body?.description || ''
       ].join(' ').toLowerCase()
       if (!hay.includes(q)) return false
     }
