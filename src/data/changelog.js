@@ -1,6 +1,58 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-haiku3-retired",
+    date: "2026-04-19",
+    version: "Haiku 3",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Claude Haiku 3 正式退役",
+    summary: "claude-3-haiku-20240307 已於 4/19 正式退役，所有請求回傳錯誤，需立即遷移至 Claude Haiku 4.5。",
+    body: {
+      kind: "breaking",
+      description: "Claude Haiku 3（claude-3-haiku-20240307）已於 2026 年 4 月 19 日正式退役，無過渡期。所有使用該模型 ID 的 API 請求現在會回傳錯誤。Haiku 4.5 標準定價為 Haiku 3 的 4 倍，但批次處理僅 2 倍。",
+      migration: {
+        title: "遷移指南",
+        text: "將模型 ID 從 claude-3-haiku-20240307 更換為 claude-haiku-4-5-20250415。注意定價差異：標準請求為 4 倍，批次處理為 2 倍。建議評估是否有部分場景可改用批次處理以降低成本。"
+      },
+      diff: {
+        before: [
+          { t: "com", v: "# 舊版（已退役）\n" },
+          { t: "kw", v: "model" }, { t: "", v: ": " }, { t: "str", v: "claude-3-haiku-20240307" }
+        ],
+        after: [
+          { t: "com", v: "# 新版\n" },
+          { t: "kw", v: "model" }, { t: "", v: ": " }, { t: "str", v: "claude-haiku-4-5-20250415" }
+        ]
+      },
+      links: [
+        { label: "platform/release-notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-sonnet4-opus4-deprecation",
+    date: "2026-04-19",
+    version: "Sonnet 4 / Opus 4",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "提醒：Claude Sonnet 4 及 Opus 4 將於 6/15 退役",
+    summary: "Claude Sonnet 4 和 Opus 4 已宣告將於 2026/06/15 退役，建議儘早遷移至 Sonnet 4.6 / Opus 4.7。",
+    body: {
+      kind: "breaking",
+      description: "Anthropic 官方提醒：Claude Sonnet 4 及 Claude Opus 4 將於 2026 年 6 月 15 日退役。另外，Claude Sonnet 4.5 及 Sonnet 4 的 1M token context window beta（context-1m-2025-08-07 header）將於 2026/04/30 停止支援。建議開發者儘早遷移至最新版本。",
+      migration: {
+        title: "遷移指南",
+        text: "Sonnet 4 → Sonnet 4.6（claude-sonnet-4-6）；Opus 4 → Opus 4.7（claude-opus-4-7）。1M context window 使用者需移除 context-1m-2025-08-07 beta header，改用 GA 版本的 1M context 支援。"
+      },
+      links: [
+        { label: "platform/release-notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.114",
     date: "2026-04-18",
     version: "v2.1.114",
