@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.116",
+    date: "2026-04-20",
+    version: "v2.1.116",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.116：/resume 加速 67%、安全修復沙箱路徑檢查",
+    summary: "/resume 大型 session 速度提升 67%；修復 Sandbox auto-allow 繞過危險路徑安全檢查的漏洞；多項 UI 與 bug 修復。",
+    body: {
+      kind: "bug",
+      description: "v2.1.116 帶來三大改進：（1）效能：/resume 對 40MB+ 大型 session 速度提升 67%，並加速 MCP 多 stdio server 啟動；（2）安全修復：Sandbox auto-allow 不再繞過針對 `/`、`$HOME` 等系統關鍵目錄的 rm/rmdir 安全檢查；（3）UI 修復：思考 spinner 顯示進度文字（still thinking / thinking more / almost done thinking）、修復 VS Code/Cursor/Windsurf 全螢幕捲動、Devanagari 文字渲染、Ctrl+Z 掛起、/branch 拒絕大型 transcript 等問題。",
+      problem: "大型 session resume 緩慢；Sandbox 安全檢查可被繞過；多個 UI 渲染問題。",
+      fix: "最佳化 session 讀取邏輯並過濾 dead-fork 項目；補強沙箱路徑白名單邏輯；逐一修復各 UI 元件。",
+      links: [
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.116", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-haiku3-retired",
     date: "2026-04-19",
     version: "Haiku 3",
