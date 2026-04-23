@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.118",
+    date: "2026-04-23",
+    version: "v2.1.118",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.118：Vim 視覺模式、/usage 整合指令、Hooks 呼叫 MCP 工具",
+    summary: "新增 Vim 視覺模式（v/V）、/usage 整合 /cost 與 /stats、Hooks 可直接呼叫 MCP 工具（type: mcp_tool）、DISABLE_UPDATES 環境變數，並修復多項 MCP/OAuth 問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.118 帶來多項功能增強：（1）新增 Vim 視覺模式（v）與視覺行模式（V），支援選取、運算子與視覺回饋；（2）/usage 整合原有的 /cost 與 /stats 指令；（3）支援 /theme 指令以 JSON 檔自訂主題及插件提供主題；（4）Hooks 可透過 type: \"mcp_tool\" 直接呼叫 MCP 工具；（5）新增 DISABLE_UPDATES 環境變數以封鎖所有更新機制；（6）WSL 可繼承 Windows 端受管設定；（7）Auto 模式支援 allow/deny 規則中的 \"$defaults\"；（8）修復 /fork 將完整父對話寫入磁碟問題（改為指標 + 讀取時還原）以節省儲存空間；（9）多項 MCP OAuth 與憑證儲存修復。",
+      links: [
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.118", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.117",
+    date: "2026-04-22",
+    version: "v2.1.117",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.117：分支 Subagent 支援、模型選擇持久化、Pro/Max 預設 effort 升至 high",
+    summary: "支援外部建置啟用分支 subagent（CLAUDE_CODE_FORK_SUBAGENT=1）、模型選擇跨重啟持久化、Pro/Max 預設 effort 升至 high，並新增 OpenTelemetry 屬性。",
+    body: {
+      kind: "feature",
+      description: "v2.1.117 主要更新：（1）外部建置可透過設定 CLAUDE_CODE_FORK_SUBAGENT=1 啟用分支 subagent；（2）Agent frontmatter 的 mcpServers 現在套用至透過 --agent 執行的主執行緒 agent sessions；（3）模型選擇即使在專案 pin 不同模型的情況下也能跨重啟持久化；（4）/resume 遇到過期大型 session 時主動提供摘要選項；（5）本地與 claude.ai MCP 伺服器同時設定時啟動速度提升；（6）安裝插件時自動安裝缺少的相依套件；（7）Pro/Max 訂閱者在 Opus 4.6 和 Sonnet 4.6 的預設 effort 等級從 medium 升為 high；（8）OpenTelemetry 新增 command_name、command_source 和 effort 屬性；（9）修復 OAuth token 過期、WebFetch 掛起、prompt-input undo 等多項 bug。",
+      links: [
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.117", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.116",
     date: "2026-04-20",
     version: "v2.1.116",
