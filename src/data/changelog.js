@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.119",
+    date: "2026-04-23",
+    version: "v2.1.119",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.119：設定持久化、多平台 PR 整合與 Hooks 觀測性強化",
+    summary: "/config 設定現可持久化至 ~/.claude/settings.json；--from-pr 支援 GitLab/Bitbucket；Hooks 新增 duration_ms 執行時間；MCP 伺服器並行連線。",
+    body: {
+      kind: "feature",
+      description: "v2.1.119 帶來多項重要改進：/config 設定（主題、編輯器模式、詳細輸出等）現在會持久化至 ~/.claude/settings.json，並支援 project/local/policy 優先覆蓋順序。新增 prUrlTemplate 設定可自訂 code-review URL；--from-pr 現在接受 GitLab merge request、Bitbucket pull request 及 GitHub Enterprise URL。--print 模式現在遵守 agent frontmatter 中的 tools: 和 disallowedTools: 設定。Hooks 的 PostToolUse 和 PostToolUseFailure 事件新增 duration_ms 欄位，可追蹤工具執行時間；OpenTelemetry 事件也新增 tool_use_id 和 tool_input_size_bytes。MCP 伺服器重新設定時改為並行連線，加速啟動。此外修正 CRLF 貼上問題、Glob/Grep 工具在原生建置時消失、全螢幕捲動自動回底部、MCP OAuth 連線等多項 bug。",
+      links: [
+        { label: "github/claude-code/v2.1.119", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.119", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.118",
+    date: "2026-04-23",
+    version: "v2.1.118",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.118：Vim Visual Mode、自訂主題與 /usage 指令整合",
+    summary: "新增 Vim Visual/Visual-Line 模式；/cost 與 /stats 合併為 /usage；支援自訂主題 /theme；Hooks 可直接呼叫 MCP 工具。",
+    body: {
+      kind: "feature",
+      description: "v2.1.118 新增多項功能：Vim visual mode (v) 和 visual-line mode (V)，支援選取操作和視覺回饋。/cost 和 /stats 指令已合併為 /usage，提供統一的使用量查看介面。新增自訂主題功能，可透過 /theme 指令切換，並在 ~/.claude/themes/ 目錄手動編輯 JSON 主題檔案，插件也可透過 themes/ 目錄附帶主題。Hooks 現在可透過 type: \"mcp_tool\" 直接呼叫 MCP 工具。Auto 模式新增 \"$defaults\" 支援，可在自訂允許/拒絕規則中包含內建清單。新增 DISABLE_UPDATES 環境變數，比 DISABLE_AUTOUPDATER 更嚴格地封鎖所有更新路徑。WSL 使用者可透過 wslInheritsWindowsSettings 政策繼承 Windows 側的管理設定。此外修正 /login 在 CLAUDE_CODE_OAUTH_TOKEN 環境下失效、Linux/Windows 憑證儲存崩潰、/fork 寫入完整父對話等多項 bug。",
+      links: [
+        { label: "github/claude-code/v2.1.118", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.118", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.114",
     date: "2026-04-18",
     version: "v2.1.114",
