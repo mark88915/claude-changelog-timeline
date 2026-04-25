@@ -1,6 +1,75 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.120",
+    date: "2026-04-25",
+    version: "v2.1.120",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.120：Windows 免 Git Bash、claude ultrareview CI 模式、AI_AGENT 環境變數",
+    summary: "Windows 不再需要 Git Bash，改用 PowerShell；新增 claude ultrareview 非互動模式供 CI/腳本使用；子程序注入 AI_AGENT 環境變數以利 gh 流量歸因；多項 UI 改善與 bug 修正。",
+    body: {
+      kind: "feature",
+      description: "v2.1.120 帶來多項重要更新：（1）Windows 環境不再需要安裝 Git for Windows（Git Bash）——當 Git Bash 不存在時，Claude Code 改以 PowerShell 作為 shell 工具；（2）新增 claude ultrareview 非互動子命令，適合在 CI 流水線或腳本中使用，支援 stdout 輸出與 --json 選項；（3）Skills 可透過 ${CLAUDE_EFFORT} 變數取得目前 effort 等級；（4）子程序啟動時自動設定 AI_AGENT 環境變數，讓 gh CLI 等工具可正確將流量歸因至 Claude Code；（5）UI 改善：session 啟動速度加快（多 claude.ai connector 場景）、auto-compact 顯示小寫 "auto"（不顯示 token 計數）、終端機新增 PgUp/PgDn 捲動提示；（6）bug 修正：修復 stdio MCP 工具呼叫期間按 Esc 導致整個 server 連線關閉、--resume 後 /rewind 鍵盤輸入失效、非全螢幕模式終端機捲動回顯重複、auto 模式多行 bash 指令的危險 rm 權限提示、macOS/Linux 上 find 在大型目錄樹耗盡檔案描述符等問題。",
+      links: [
+        { label: "github/claude-code/v2.1.120", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.120", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "rate-limits-api-2026-04-24",
+    date: "2026-04-24",
+    version: "Rate Limits API",
+    category: "new",
+    area: "api",
+    product: "claude",
+    title: "Rate Limits API 正式上線：以程式化方式查詢速率限制",
+    summary: "管理員現可透過 Rate Limits API 以程式化方式查詢組織及工作區的速率限制設定，無需手動查閱 Console。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 正式推出 Rate Limits API，允許組織管理員以程式化方式查詢其帳戶及各工作區（Workspace）目前設定的速率限制。此 API 適合需要動態調整請求頻率、監控配額使用狀況，或自動化速率限制管理的開發團隊，省去手動登入 Console 查看的繁瑣步驟。",
+      links: [
+        { label: "platform/release-notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "election-safeguards-2026",
+    date: "2026-04-24",
+    version: "選舉防護 2026",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Claude 選舉防護機制更新：2026 美國期中選舉前強化中立性與防操控",
+    summary: "Anthropic 公布 2026 年選舉防護報告，Opus 4.7 與 Sonnet 4.6 政治中立測試分別達 95%/96%，並整合 TurboVote 資源橫幅引導投票資訊。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 針對 2026 年美國期中選舉及全球重要選舉，發布最新選舉防護機制更新報告。主要亮點：（1）模型中立性測試：Claude Opus 4.7 和 Sonnet 4.6 在政治中立測試中分別達到 95% 和 96% 的中立分數；（2）影響力操作防護：兩款模型面對影響力操作測試的適當回應率分別達 90% 和 94%；（3）自主操控測試：首次測試模型能否在沒有人類提示的情況下自主規劃並執行多步驟影響力操作活動，結果顯示在防護機制下最新模型幾乎拒絕所有此類任務；（4）TurboVote 整合：當用戶在 Claude.ai 詢問選民登記、投票地點、選舉日期或選票資訊時，Claude 將顯示引導至 TurboVote（Democracy Works 的無黨派選民資源）的橫幅。",
+      links: [
+        { label: "anthropic.com/news", href: "https://www.anthropic.com/news/election-safeguards-update", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-nec-partnership",
+    date: "2026-04-24",
+    version: "Anthropic × NEC",
+    category: "new",
+    area: "enterprise",
+    product: "claude",
+    title: "Anthropic 與 NEC 策略合作：打造日本最大 AI 原生工程組織",
+    summary: "NEC 成為 Anthropic 首個日本全球合作夥伴，約 3 萬名 NEC 員工將使用 Claude，聚焦建立 AI 原生工程組織及金融、製造、地方政府解決方案。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 與 NEC Corporation 宣布策略合作，NEC 成為 Anthropic 首個日本籍全球合作夥伴。合作重點包含：（1）規模部署：約 3 萬名 NEC 集團全球員工將使用 Claude，工程師並將在工作中導入 Claude Code；（2）AI 工程組織建設：NEC 將成立卓越中心（Center of Excellence），在 Anthropic 技術支援下培訓高度 AI 化的工程組織，目標打造日本最大 AI 原生工程團隊；（3）行業解決方案：初期聚焦金融、製造與地方政府三大領域的行業解決方案開發；（4）Client Zero 計畫：NEC 將在對外提供服務前，先在自身業務中擴大 Claude 的使用（延續其 Client Zero 理念）。",
+      links: [
+        { label: "anthropic.com/news", href: "https://www.anthropic.com/news/anthropic-nec", kind: "doc" },
+        { label: "nec.com press release", href: "https://www.nec.com/en/press/202604/global_20260423_01.html", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.119",
     date: "2026-04-23",
     version: "v2.1.119",
