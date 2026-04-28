@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.121",
+    date: "2026-04-28",
+    version: "v2.1.121",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.121：MCP alwaysLoad、plugin prune、/skills 篩選、PostToolUse 輸出替換、全螢幕改善",
+    summary: "MCP 設定新增 alwaysLoad 選項略過 Tool Search 延遲；plugin prune 清除孤立依賴；/skills 新增文字篩選框；PostToolUse Hooks 可替換所有工具輸出；全螢幕模式輸入與捲動體驗改善；修復記憶體洩漏。",
+    body: {
+      kind: "feature",
+      description: "v2.1.121 包含多項改進：（1）MCP 設定新增 alwaysLoad 選項，設為 true 時該 server 所有工具直接可用，略過 Tool Search 延遲載入；（2）新增 claude plugin prune 指令，移除孤立的自動安裝套件依賴，plugin uninstall --prune 可同時串聯清除；（3）/skills 頁面新增輸入篩選框，可在長清單中快速搜尋 skill；（4）PostToolUse Hooks 現可透過 hookSpecificOutput.updatedToolOutput 替換所有工具輸出（原本僅限 MCP 工具）；（5）全螢幕模式改善：輸入時不再強制跳回底部、溢出終端機的彈窗可用方向鍵/PgUp/PgDn/Home/End/滾輪捲動、長 URL 跨行時點任意行即可開啟完整連結；（6）/terminal-setup 現在自動啟用 iTerm2「允許應用程式存取剪貼簿」設定；（7）MCP 伺服器啟動時遇到暫時性錯誤會自動重試最多 3 次；（8）修復處理影像及使用 /usage 時的多個記憶體洩漏問題。",
+      links: [
+        { label: "github/claude-code/v2.1.121", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.121", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-sydney-office-2026-04-27",
+    date: "2026-04-27",
+    version: "Anthropic 雪梨辦公室",
+    category: "new",
+    area: "enterprise",
+    product: "claude",
+    title: "Anthropic 正式開設雪梨辦公室，任命 Theo Hourmouzis 為澳紐總經理",
+    summary: "Anthropic 任命 Theo Hourmouzis 為澳洲及紐西蘭總經理，並正式在雪梨開設辦公室，強化亞太地區業務布局。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 宣布任命 Theo Hourmouzis 為澳洲及紐西蘭（ANZ）區域總經理，並正式開設雪梨辦公室。此舉標誌著 Anthropic 在亞太地區的戰略擴張，將為當地企業、政府機構及開發者提供更直接的在地支援與服務。雪梨辦公室是繼倫敦、都柏林之後，Anthropic 在英語系市場的重要據點。",
+      links: [
+        { label: "anthropic.com/news", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.120",
     date: "2026-04-25",
     version: "v2.1.120",
