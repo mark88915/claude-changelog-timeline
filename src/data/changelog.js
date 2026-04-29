@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.122",
+    date: "2026-04-28",
+    version: "v2.1.122",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.122：Bedrock 服務層級選擇、PR URL Resume、OpenTelemetry 改善與多項 Bug 修正",
+    summary: "新增 ANTHROPIC_BEDROCK_SERVICE_TIER 環境變數可選擇 Bedrock 服務層級；/resume 搜尋支援貼上 PR URL；OpenTelemetry numeric 屬性改善；修復 /branch 分叉錯誤、Vertex AI/Bedrock structured-output 問題、圖片最大尺寸超標等多項 bug。",
+    body: {
+      kind: "feature",
+      description: "v2.1.122 帶來以下更新：（1）新增 ANTHROPIC_BEDROCK_SERVICE_TIER 環境變數，可選擇 default、flex 或 priority 服務層級（以 X-Amzn-Bedrock-Service-Tier header 傳送）；（2）/resume 搜尋框支援貼上 PR URL，自動找到建立該 PR 的 session，支援 GitHub、GitHub Enterprise、GitLab 及 Bitbucket；（3）/mcp 現在顯示因重複 URL 被手動新增 server 隱藏的 claude.ai connector，並提示移除重複項；（4）OpenTelemetry 改善：api_request/api_error 事件的 numeric attributes 改為數字格式輸出，新增 claude_code.at_mention 日誌事件；（5）Bug 修正：修復 /branch 分叉產生「tool_use ids were found without tool_result blocks」錯誤、/model 未顯示 Bedrock ARN 的 Effort 選項、Vertex AI/Bedrock structured-output 請求回傳 invalid_request_error、Vertex AI count_tokens proxy 400 錯誤、圖片最大尺寸由 2576px 修正為 2000px、assistant 訊息空白、settings.json 格式錯誤的 hooks 導致整個檔案失效、voice mode Caps Lock 按鍵綁定錯誤等。",
+      links: [
+        { label: "github/claude-code/v2.1.122", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.122", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-creative-work-2026-04-28",
+    date: "2026-04-28",
+    version: "Creative Work 整合",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude for Creative Work：新增 Adobe CC、Blender、Autodesk 等 8 款創意軟體整合",
+    summary: "Anthropic 宣布 Claude 與 Adobe Creative Cloud、Blender、Autodesk Fusion 等 8 款主流創意工具深度整合，可透過自然語言輔助 3D 建模、音樂製作、視覺設計等工作流程。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 發布 Claude for Creative Work，宣布 Claude 與多款主流創意軟體建立深度整合：（1）Adobe Creative Cloud（50+ 工具支援）；（2）Blender（以自然語言進行 3D 建模）；（3）Autodesk Fusion（3D 設計與修改）；（4）SketchUp（對話式 3D 建模）；（5）Ableton（音樂製作文件輔助）；（6）Resolume Arena/Wire（現場視覺演出）；（7）Affinity by Canva（批次生產任務）；（8）Splice（免版稅音樂素材搜尋）。Claude 可作為創意工作者的「隨需教學導師」，協助跨工具工作流程橋接、擴展自訂程式碼，並自動化批次處理與資產管理等重複性工作。Anthropic 亦宣布加入 Blender Development Fund，並與 Rhode Island School of Design、Ringling College 及 Goldsmiths University 藝術學程合作，支持創意計算教育課程。",
+      links: [
+        { label: "anthropic.com/news", href: "https://www.anthropic.com/news/claude-for-creative-work", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.121",
     date: "2026-04-28",
     version: "v2.1.121",
