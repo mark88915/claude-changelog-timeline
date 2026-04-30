@@ -1,6 +1,57 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "context-1m-retirement-2026-04-30",
+    date: "2026-04-30",
+    version: "API 重大變更",
+    category: "brk",
+    area: "performance",
+    product: "claude",
+    title: "1M Token 長文脈 Beta 正式退役：Sonnet 4.5 及 Sonnet 4 不再支援",
+    summary: "Claude Sonnet 4.5 及 Claude Sonnet 4 的 1M token 長文脈視窗 beta（context-1m-2025-08-07）今日正式停止支援，超過 20 萬 token 的請求將回傳錯誤，請遷移至 Sonnet 4.6 或 Opus 4.6。",
+    body: {
+      kind: "breaking",
+      description: "自 2026-04-30 起，原先針對 Claude Sonnet 4.5（claude-sonnet-4-5-20250929）及 Claude Sonnet 4（claude-sonnet-4-20250514）提供的 1M token 長文脈視窗 beta 正式退役。\n\n即使請求中帶有 `anthropic-beta: context-1m-2025-08-07` header，該 header 將不再生效；輸入超過 20 萬 token 的請求將回傳 400 錯誤。如需繼續使用 1M token 長文脈視窗，請遷移至 Claude Sonnet 4.6 或 Claude Opus 4.6，這兩款模型以標準定價原生支援 1M token 長文脈視窗，無需任何 beta header。",
+      migration: {
+        title: "遷移至 Sonnet 4.6 或 Opus 4.6",
+        text: "將模型 ID 改為 claude-sonnet-4-6-20260217 或 claude-opus-4-6-20260205，並移除 context-1m-2025-08-07 beta header，1M token 長文脈視窗即自動生效。"
+      },
+      diff: {
+        before: [
+          "model: claude-sonnet-4-5-20250929",
+          "anthropic-beta: context-1m-2025-08-07"
+        ],
+        after: [
+          "model: claude-sonnet-4-6-20260217",
+          "// 無需 beta header，1M context 自動生效"
+        ]
+      },
+      links: [
+        { label: "platform.claude.com 發布說明", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.123",
+    date: "2026-04-29",
+    version: "v2.1.123",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.123：修復 CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 時 OAuth 401 重試迴圈",
+    summary: "修復設定 CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 環境變數時，OAuth 認證失敗並陷入 401 錯誤重試迴圈的問題。",
+    body: {
+      kind: "bug",
+      description: "當使用者設定環境變數 `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1` 時，OAuth 認證流程會因 401 錯誤進入無限重試迴圈，導致無法正常登入。此版本修復了該問題，認證流程恢復正常。",
+      problem: "設定 CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 後，OAuth 認證回傳 401 並持續重試，造成登入失敗。",
+      rootCause: "實驗性 beta 功能停用時，相關認證請求標頭未正確處理，導致 OAuth 端點拒絕請求並進入重試迴圈。",
+      fix: "修正認證請求在停用實驗性 beta 時的標頭組合，使 OAuth 流程可正常完成。",
+      links: [
+        { label: "github/claude-code/v2.1.123", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.123", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.122",
     date: "2026-04-28",
     version: "v2.1.122",
