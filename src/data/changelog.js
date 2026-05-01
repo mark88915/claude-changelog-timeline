@@ -1,6 +1,51 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-security-public-beta-2026-04-30",
+    date: "2026-04-30",
+    version: "Claude Security Beta",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Claude Security 公開 Beta 上線：由 Opus 4.7 驅動的企業級漏洞掃描工具",
+    summary: "Anthropic 宣布 Claude Security 正式進入 Claude Enterprise 公開 Beta，可自動掃描程式碼庫的安全漏洞並生成修補方案，整合 CrowdStrike、Microsoft Security 等主要資安夥伴。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-04-30 宣布 Claude Security 進入 Claude Enterprise 客戶公開 Beta。此產品由旗艦模型 Opus 4.7 驅動，提供以下核心能力：\n\n• 自動掃描程式碼庫，發現包括傳統工具長期未偵測到的漏洞\n• 針對已發現的安全問題生成修補方案（patch）\n• 可透過 Claude Platform 或技術夥伴整合使用\n\n已整合的技術夥伴包括 CrowdStrike（Falcon Platform）、Microsoft Security、Palo Alto Networks、SentinelOne、TrendAI 及 Wiz；服務夥伴包括 Accenture、BCG、Deloitte、Infosys 及 PwC。\n\nClaude Security 源自今年 2 月以 Claude Code Security research preview 形式上線的功能，目前已有數百個組織使用，發現並修復了生產程式碼中的多個長期存在的安全漏洞。Team 及 Max 方案客戶將於後續開放。",
+      steps: [
+        "以 Claude Enterprise 帳戶登入 claude.com",
+        "前往 Claude Security 功能區塊",
+        "連接程式碼庫或上傳目標程式碼",
+        "執行漏洞掃描，檢閱報告並套用建議的修補方案"
+      ],
+      links: [
+        { label: "claude.com/blog/claude-security-public-beta", href: "https://claude.com/blog/claude-security-public-beta", kind: "doc" },
+        { label: "SiliconANGLE 報導", href: "https://siliconangle.com/2026/04/30/anthropic-announces-claude-security-public-beta-find-fix-software-vulnerabilities/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-hermes-billing-bug-2026-04-30",
+    date: "2026-04-30",
+    version: "Bug Report",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "HERMES.md 計費 Bug：commit history 含特定字串導致額外計費",
+    summary: "Claude Code（v2.1.119）發現計費異常 Bug：git commit history 中含有 \"HERMES.md\" 字串時，API 請求將被異常計入「額外使用量」，有使用者反映損失 $200 點數，Anthropic 已知悉但尚未修復。",
+    body: {
+      kind: "bug",
+      description: "2026-04-30 社群回報一個影響 Claude Code 的嚴重計費 Bug（Issue #53262）：\n\n當 git 倉庫的 commit history 中含有大小寫敏感的字串 \"HERMES.md\" 時，Claude Code（v2.1.119）會將 API 請求錯誤路由至「額外使用量（extra usage）」計費，而非從使用者方案的包含額度中扣除。\n\n受影響的使用者反映：系統不會主動警告，直到額外點數耗盡才出現「API Error: 400」錯誤。一位 Max 20x 方案使用者在方案用量僅 13% 時，即被消耗 $200 額外點數。\n\nAnthropic 已知悉此問題並受理退款，但截至 2026-04-30 尚未發布修復版本。",
+      problem: "git commit history 含有字串 \"HERMES.md\" 時，Claude Code 異常計費至額外使用量，導致使用者意外損失點數。",
+      rootCause: "Claude Code 在處理 API 請求路由時，特定字串觸發了內部邏輯錯誤，將請求導向不正確的計費類別。",
+      fix: "Anthropic 已知悉並受理個案退款，正式修復版本尚未釋出（截至 2026-04-30）。",
+      links: [
+        { label: "GIGAZINE 報導", href: "https://gigazine.net/gsc_news/en/20260430-hermes-claude-code/", kind: "doc" },
+        { label: "Issue #53262", href: "https://github.com/anthropics/claude-code/issues/53262", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "context-1m-retirement-2026-04-30",
     date: "2026-04-30",
     version: "API 重大變更",
