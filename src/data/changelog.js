@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.126",
+    date: "2026-05-01",
+    version: "v2.1.126",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.126：新增 project purge 指令、/model 支援 Gateway 模型列表、擴大 skip-permissions 範圍及多項修復",
+    summary: "新增 claude project purge 指令清除專案狀態；/model 支援自訂 Gateway /v1/models 列表；--dangerously-skip-permissions 擴大免提示範圍；OAuth 支援終端機貼入授權碼；修復圖片超過 2000px 導致 session 中斷及多項安全與相容性 bug。",
+    body: {
+      kind: "feature",
+      description: "v2.1.126（2026-05-01）帶來以下更新：\n\n**新功能**\n• `/model` 指令：當 ANTHROPIC_BASE_URL 指向相容 Anthropic API 的 gateway 時，現在會從 /v1/models 端點列出可用模型\n• `claude project purge [path]`：新增專案狀態清除指令，可刪除指定專案的所有 Claude Code 狀態（逐字記錄、任務、檔案歷程、設定條目），支援 --dry-run、-y/--yes、-i/--interactive 及 --all 旗標\n• `claude auth login`：現在支援在終端機直接貼入 OAuth 授權碼，解決 WSL2、SSH、Container 等環境中瀏覽器無法回呼 localhost 的問題\n• `claude_code.skill_activated` OpenTelemetry 事件：新增 invocation_trigger 屬性（\"user-slash\"、\"claude-proactive\" 或 \"nested-skill\"）\n• Auto Mode：權限檢查停頓時，轉動圖示改為紅色提示\n• Windows：改善 PowerShell 7 偵測，啟用時視為主要 Shell\n\n**安全與修復**\n• `--dangerously-skip-permissions` 擴大免提示寫入範圍至 .claude/、.git/、.vscode/ 及 Shell 設定檔（破壞性刪除指令仍會提示）\n• 修復貼上超過 2000px 圖片導致 session 中斷的問題（圖片現在自動縮小至 2000px）\n• 修復 `allowManagedDomainsOnly`/`allowManagedReadPathsOnly` 在高優先級 managed-settings 來源缺少 sandbox 區塊時被忽略的安全設定問題\n• 修復 OAuth 逾時、Mac 休眠後串流閒置逾時、Windows 日文/韓文/中文文字渲染、EDR/SIEM 遙測剪貼簿處理、工具名稱格式錯誤導致 Agent SDK 卡住等多項 bug",
+      links: [
+        { label: "github/claude-code/v2.1.126", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.126", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-security-public-beta-2026-04-30",
     date: "2026-04-30",
     version: "Claude Security Beta",
