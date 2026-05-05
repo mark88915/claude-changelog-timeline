@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-enterprise-ai-services-2026-05-04",
+    date: "2026-05-04",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 與 Blackstone、Goldman Sachs 等合作成立新企業 AI 服務公司",
+    summary: "Anthropic 宣布與 Blackstone、Hellman & Friedman、Goldman Sachs 等投資機構共同成立新企業 AI 服務公司，規模約 15 億美元，目標協助私募股權旗下中型企業導入以 Claude 代理為核心的業務轉型。",
+    body: {
+      kind: "feature",
+      description: "2026-05-04，Anthropic 宣布與 Blackstone、Hellman & Friedman 及 Goldman Sachs 共同成立一家全新的企業 AI 服務公司。\n\n**交易架構**\n• Anthropic、Blackstone 及 H&F 各出資約 3 億美元，Goldman Sachs 出資約 1.5 億美元，合計規模約 15 億美元\n• 其他投資方包含 General Atlantic、Leonard Green、Apollo Global Management、GIC 及 Sequoia Capital\n\n**商業模式**\n• 新公司將派駐工程師深入中型企業，協助以 AI 代理重新設計核心工作流程\n• 主要客群為私募股權旗下的企業組合\n• 此舉使 Anthropic 直接與 Accenture、麥肯錫、德勤等頂尖顧問公司競爭企業 AI 轉型市場",
+      links: [
+        { label: "anthropic.com 官方公告", href: "https://www.anthropic.com/news/enterprise-ai-services-company", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/05/04/anthropic-goldman-blackstone-ai-venture.html", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.128",
+    date: "2026-05-04",
+    version: "v2.1.128",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.128：隨機色彩選取、MCP 工具計數顯示、.zip 外掛支援及多項修復",
+    summary: "新增 /color 無參數隨機色彩、/mcp 顯示伺服器工具數量、--plugin-dir 支援 .zip 封存檔；修復 EnterWorktree 從本地 HEAD 建立分支、圖片上傳卡住、長網址無法點擊及平行 Shell 工具失敗等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.128（2026-05-04）帶來以下更新：\n\n**新功能**\n• `/color`：無參數執行時自動隨機選取工作階段色彩\n• `/mcp`：顯示每個已連線伺服器的工具數量，並標記 0 工具的伺服器\n• `--plugin-dir`：除目錄外，現接受 `.zip` 外掛封存檔\n• `--channels`：現可搭配主控台（API 金鑰）認證使用\n• 模型選擇器：合併重複的 Opus 4.7 項目，目前 Opus 顯示為 \"Opus\" 而非 \"Opus 4.7\"\n• 環境隔離：子行程不再繼承 `OTEL_*` 環境變數\n• MCP 保留名稱：`workspace` 現為保留伺服器名稱\n\n**修復**\n• `EnterWorktree` 改從本地 HEAD 而非 `origin/<預設分支>` 建立分支\n• 修復圖片上傳卡住問題\n• 修復長網址無法點擊問題\n• 修復含圍欄程式碼區塊時的剪貼板問題\n• 修復平行 Shell 工具呼叫失敗問題",
+      links: [
+        { label: "github/claude-code/v2.1.128", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.128", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.126",
     date: "2026-05-01",
     version: "v2.1.126",
