@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "finance-agents-2026-05-05",
+    date: "2026-05-05",
+    version: "官方公告",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 發布金融服務 AI 代理人範本與 Microsoft 365 整合",
+    summary: "Anthropic 推出 10 款預建金融服務 AI 代理人範本、Microsoft 365 全套整合、8 家新資料連接器，以及 Moody's MCP 應用程式，使金融機構能在數日內部署 Claude 代理人至核心業務流程。",
+    body: {
+      kind: "feature",
+      description: "2026-05-05，Anthropic 宣布推出金融服務完整 AI 解決方案：\n\n**10 款預建代理人範本**\n研究類：Pitch Builder（投資簡報）、Meeting Preparer（會議準備）、Earnings Reviewer（財報審查）、Model Builder（財務模型）、Market Researcher（市場研究）\n運作類：Valuation Reviewer（估值審查）、General Ledger Reconciler（總帳對帳）、Month-end Closer（月末結帳）、Statement Auditor（財務稽核）、KYC Screener（了解客戶篩查）\n\n**Microsoft 365 整合**\nClaude 現可作為統一代理人跨 Excel、PowerPoint、Word、Outlook 運作，應用程式切換時自動攜帶上下文。\n\n**8 家新資料連接器**\nDun & Bradstreet、Fiscal AI、Financial Modeling Prep、Guidepoint、IBISWorld、SS&C IntraLinks、Third Bridge、Verisk，以及 Moody's 將完整平台嵌入 Claude 作為原生 MCP 應用程式。\n\n**模型表現**\nClaude Opus 4.7 在 Vals AI Finance Agent 基準測試達到 64.37%，居業界首位。JPMorgan Chase、Goldman Sachs、Citi、AIG、Visa 等已進入生產部署。",
+      links: [
+        { label: "anthropic.com 官方公告", href: "https://www.anthropic.com/news/finance-agents", kind: "doc" },
+        { label: "Fortune 報導", href: "https://fortune.com/2026/05/05/anthropic-wall-street-financial-services-agents-jamie-dimon/", kind: "doc" },
+        { label: "Bloomberg 報導", href: "https://www.bloomberg.com/news/articles/2026-05-05/anthropic-unveils-ai-agents-to-field-financial-services-tasks", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-enterprise-ai-services-2026-05-04",
     date: "2026-05-04",
     version: "官方公告",
