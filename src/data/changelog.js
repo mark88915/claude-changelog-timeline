@@ -1,6 +1,77 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.132",
+    date: "2026-05-06",
+    version: "v2.1.132",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.132：新增 SESSION_ID 環境變數注入、修復多項終端機與 MCP 問題",
+    summary: "新增 CLAUDE_CODE_SESSION_ID 注入 Bash 子程序及 CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN 選項；修復 SIGINT 優雅關閉、emoji 截斷、plan-mode 權限旗標、Kitty/JetBrains/Windows Terminal 相容性、MCP 記憶體洩漏及 Bedrock/Vertex prompt caching 錯誤等多項問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.132（2026-05-06）帶來以下更新：\n\n**新功能**\n• 新增 `CLAUDE_CODE_SESSION_ID` 環境變數，自動注入 Bash 工具的子程序環境\n• 新增 `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1` 環境變數，可選擇退出全螢幕渲染器\n• Ctrl+V 貼上圖片時，底部列顯示「Pasting…」提示\n\n**修復**\n• 修復外部 SIGINT（IDE 停止按鈕、kill -INT）未執行優雅關閉的問題\n• 修復 --resume 因 emoji 截斷錯誤導致失敗的問題\n• 修復 --permission-mode 旗標在恢復 plan-mode 工作階段時被忽略的問題\n• 修復筆電休眠喚醒後全螢幕模式顯示空白畫面的問題\n• 修復 Indic 連字及 ZWJ emoji 的游標定位問題\n• 修復 vim 操作符損毀分解式（NFD）重音字符的問題\n• 修復 Kitty、JetBrains 2025.2、Windows Terminal 的終端機相容性問題\n• 修復 stdio MCP 伺服器記憶體無界成長的問題\n• 修復 MCP 伺服器 tools/list 失敗現在會自動重試並顯示狀態\n• 修復 Bedrock 和 Vertex prompt caching 的 400 錯誤",
+      links: [
+        { label: "github/claude-code/v2.1.132", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.132", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "usage-limits-spacex-2026-05-06",
+    date: "2026-05-06",
+    version: "官方公告",
+    category: "enh",
+    area: "performance",
+    product: "claude",
+    title: "Anthropic 與 SpaceX 簽署算力合作，大幅提升 Claude 使用限制",
+    summary: "Anthropic 與 SpaceX 簽署協議取得 Colossus 1 資料中心 300+ MW（逾 220,000 張 NVIDIA GPU）算力；Claude Code 五小時速率限制翻倍，移除 Pro/Max 尖峰時段限制，Opus API Tier 1 輸入速率提升 1500%、輸出速率提升 900%。",
+    body: {
+      kind: "feature",
+      description: "2026-05-06，Anthropic 宣布與 SpaceX 簽署算力合作協議，並同步調整使用限制：\n\n**SpaceX 算力合作**\n• 取得 Colossus 1 資料中心所有算力：300+ MW 容量（逾 220,000 張 NVIDIA GPU）\n• 預計一個月內上線，大幅提升 Claude 整體服務容量\n• Anthropic 同時表達興趣，探索開發多 GW 級軌道 AI 算力合作\n\n**使用限制調整**\n• Claude Code 五小時速率限制翻倍（Pro、Max、Team、Enterprise 方案）\n• 移除 Claude Code 在 Pro/Max 帳戶的尖峰時段限制\n• 大幅提升 Claude Opus 模型的 API 速率限制\n• Tier 1 最大輸入 token 每分鐘提升 1500%\n• Tier 1 最大輸出 token 每分鐘提升 900%",
+      links: [
+        { label: "anthropic.com 官方公告", href: "https://www.anthropic.com/news/higher-limits-spacex", kind: "doc" },
+        { label: "Engadget 報導", href: "https://www.engadget.com/2166315/anthropic-is-doubling-claude-code-rate-limits-after-deal-with-spacex/", kind: "doc" },
+        { label: "Bloomberg 報導", href: "https://www.bloomberg.com/news/articles/2026-05-06/anthropic-inks-computing-deal-with-spacex-to-meet-ai-demand", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "api-managed-agents-beta-2026-05-06",
+    date: "2026-05-06",
+    version: "API 更新",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Managed Agents 多代理工作階段與 Webhook 進入公開 Beta",
+    summary: "Multiagent sessions 和 Outcomes 正式進入公開 Beta；新增 Managed Agents Webhook 支援工作階段與保管庫生命週期事件通知；Vault credential 背景更新現支援 mcp_oauth；工作階段與事件支援更多過濾和排序選項。",
+    body: {
+      kind: "feature",
+      description: "2026-05-06，Claude API 平台更新：\n\n• **Multiagent sessions 和 Outcomes** 正式進入公開 Beta，使用標準 `managed-agents-2026-04-01` Beta 標頭即可啟用\n• **Vault credential 背景更新**：現支援 `mcp_oauth` 憑證的背景自動更新\n• **Managed Agents Webhook**：現支援訂閱 Webhook 事件，事件類型包括工作階段與保管庫生命週期事件\n• **過濾與排序增強**：工作階段可依狀態過濾；事件可依類型過濾，並支援依建立時間排序",
+      links: [
+        { label: "API 發布說明", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "Managed Agents 文件", href: "https://platform.claude.com/docs/en/managed-agents/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.131",
+    date: "2026-05-06",
+    version: "v2.1.131",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.131：修復 Windows VS Code 擴充套件啟動失敗及 Mantle 驗證問題",
+    summary: "修復 Windows 上 VS Code 擴充套件因 bundled SDK 路徑問題導致無法啟動，以及 Mantle 端點驗證缺少 x-api-key 標頭的問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.131（2026-05-06）修復兩項緊急問題：\n\n• 修復 Windows 上 VS Code 擴充套件因 bundled SDK createRequire polyfill 中硬編碼路徑導致無法啟動的問題\n• 修復 Mantle 端點驗證因請求缺少 x-api-key 標頭而失敗的問題",
+      links: [
+        { label: "github/claude-code/v2.1.131", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.131", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "finance-agents-2026-05-05",
     date: "2026-05-05",
     version: "官方公告",
