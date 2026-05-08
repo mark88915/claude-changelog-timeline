@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-institute-2026-05-07",
+    date: "2026-05-07",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 發布 The Anthropic Institute 研究議程",
+    summary: "Anthropic 設立 The Anthropic Institute（TAI），以前沿實驗室內部視角研究 AI 社會影響，聚焦四大方向：經濟擴散、威脅與韌性、野外 AI 系統、AI 驅動的研發。",
+    body: {
+      kind: "feature",
+      description: "2026-05-07，Anthropic 發布 The Anthropic Institute（TAI）的研究議程。TAI 將利用身處前沿實驗室的獨特視角，研究 AI 對世界的影響，並將研究成果公開分享，協助外部組織、政府與大眾做出更好的 AI 決策。\n\n**四大研究方向**\n• **經濟擴散**：研究 AI 部署如何改變各地區與產業的勞動市場、就業創造、生產力及經濟成長\n• **威脅與韌性**：審視 AI 雙重用途能力、網路安全風險、生物安全疑慮，以及社會如何建立防禦能力\n• **野外 AI 系統**：研究人與機構如何與已部署的 AI 互動，包括對批判性思維、認識論及人類能動性的影響\n• **AI 驅動的研發**：調查 AI 自主研究開發及遞迴自我改進的潛力",
+      links: [
+        { label: "anthropic.com 研究議程", href: "https://www.anthropic.com/research/anthropic-institute-agenda", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.133",
+    date: "2026-05-07",
+    version: "v2.1.133",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.133：新增 worktree 分支基準設定、Hooks 努力等級注入及多項修復",
+    summary: "新增 worktree.baseRef 設定（fresh|head）、sandbox 自訂路徑、parentSettingsBehavior 金鑰；Hooks 透過 effort.level 取得努力等級；修復平行 session 401、網路磁碟機存取、/effort 干擾、子代理技能發現、VSCode 平台錯誤、iTerm2+tmux 字元撕裂、LSP 診斷、Bedrock/Vertex 429 及 Windows 環境檔案等問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.133（2026-05-07）帶來以下更新：\n\n**新功能**\n• 新增 `worktree.baseRef` 設定（`fresh` | `head`），可選擇 worktree 從 `origin/<預設分支>` 或本地 `HEAD` 建立分支\n• 新增 `sandbox.bwrapPath` 和 `sandbox.socatPath` managed 設定，支援 Linux/WSL 自訂二進位路徑\n• 新增 `parentSettingsBehavior` admin 層級金鑰，允許 SDK `managedSettings` 的策略合併\n• Hooks 現可透過 `effort.level` JSON 輸入及 `$CLAUDE_EFFORT` 環境變數取得當前努力等級\n• 改善 focus mode 行為與記憶體使用\n\n**修復**\n• 修復 refresh-token 競爭後平行 session 出現 401 錯誤的問題\n• 修復磁碟機根目錄的 `Edit`/`Write` 允許規則匹配不正確的問題\n• 修復損壞的歷程/session 日誌檔案導致未處理的拒絕（`ECOMPROMISED`）問題\n• 修復完整 MCP OAuth 流程未遵守 `HTTP(S)_PROXY` / `NO_PROXY` / mTLS 的問題\n• 修復映射網路磁碟機上 Read/Write/Edit 被拒絕的問題\n• 修復 Remote Control 停止/中斷無法完全取消 CLI session 的問題\n• 修復 `/effort` 意外改變並行 session 努力等級的問題\n• 修復子代理無法發現專案、使用者或外掛技能的問題\n• 修復 iTerm2 + tmux 發送終端機通知時隨機字元撕裂和輸入漂移的問題\n• 修復編輯後出現舊 LSP 診斷導致 Claude 重新讀取剛編輯檔案的問題\n• 修復 Bedrock/Vertex/Foundry 的 429 速率限制錯誤錯誤引用 status.claude.com 的問題\n• Windows 修復：`CLAUDE_ENV_FILE` 和 SessionStart hook 環境檔案現在可在 Windows 正確套用\n• 修復 @ 檔案建議在非 git 目錄每回合重新掃描、/resume tab 補全自動恢復、/context 空行渲染、/clear 遺失 /rename 名稱等問題\n• [VSCode] 修復 `claudeCode.claudeProcessWrapper` 因「不支援的平台」失敗的問題",
+      links: [
+        { label: "github/claude-code/v2.1.133", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.133", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.132",
     date: "2026-05-06",
     version: "v2.1.132",
