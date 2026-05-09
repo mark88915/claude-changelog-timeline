@@ -405,7 +405,7 @@ export const CHANGELOG = [
     summary: "Windows 不再需要 Git Bash，改用 PowerShell；新增 claude ultrareview 非互動模式供 CI/腳本使用；子程序注入 AI_AGENT 環境變數以利 gh 流量歸因；多項 UI 改善與 bug 修正。",
     body: {
       kind: "feature",
-      description: "v2.1.120 帶來多項重要更新：（1）Windows 環境不再需要安裝 Git for Windows（Git Bash）——當 Git Bash 不存在時，Claude Code 改以 PowerShell 作為 shell 工具；（2）新增 claude ultrareview 非互動子命令，適合在 CI 流水線或腳本中使用，支援 stdout 輸出與 --json 選項；（3）Skills 可透過 ${CLAUDE_EFFORT} 變數取得目前 effort 等級；（4）子程序啟動時自動設定 AI_AGENT 環境變數，讓 gh CLI 等工具可正確將流量歸因至 Claude Code；（5）UI 改善：session 啟動速度加快（多 claude.ai connector 場景）、auto-compact 顯示小寫 "auto"（不顯示 token 計數）、終端機新增 PgUp/PgDn 捲動提示；（6）bug 修正：修復 stdio MCP 工具呼叫期間按 Esc 導致整個 server 連線關閉、--resume 後 /rewind 鍵盤輸入失效、非全螢幕模式終端機捲動回顯重複、auto 模式多行 bash 指令的危險 rm 權限提示、macOS/Linux 上 find 在大型目錄樹耗盡檔案描述符等問題。",
+      description: "v2.1.120 帶來多項重要更新：（1）Windows 環境不再需要安裝 Git for Windows（Git Bash）——當 Git Bash 不存在時，Claude Code 改以 PowerShell 作為 shell 工具；（2）新增 claude ultrareview 非互動子命令，適合在 CI 流水線或腳本中使用，支援 stdout 輸出與 --json 選項；（3）Skills 可透過 \${CLAUDE_EFFORT} 變數取得目前 effort 等級；（4）子程序啟動時自動設定 AI_AGENT 環境變數，讓 gh CLI 等工具可正確將流量歸因至 Claude Code；（5）UI 改善：session 啟動速度加快（多 claude.ai connector 場景）、auto-compact 顯示小寫 'auto'（不顯示 token 計數）、終端機新增 PgUp/PgDn 捲動提示；（6）bug 修正：修復 stdio MCP 工具呼叫期間按 Esc 導致整個 server 連線關閉、--resume 後 /rewind 鍵盤輸入失效、非全螢幕模式終端機捲動回顯重複、auto 模式多行 bash 指令的危險 rm 權限提示、macOS/Linux 上 find 在大型目錄樹耗盡檔案描述符等問題。",
       links: [
         { label: "github/claude-code/v2.1.120", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.120", kind: "gh" }
       ]
@@ -1468,10 +1468,10 @@ export const CHANGELOG = [
     area: "hooks",
     product: "claude-code",
     title: "新增 StopFailure Hook 與插件持久資料支援",
-    summary: "新增 StopFailure hook 事件、${CLAUDE_PLUGIN_DATA} 變數用於插件持久化狀態，回應文字逐行串流。",
+    summary: "新增 StopFailure hook 事件、\${CLAUDE_PLUGIN_DATA} 變數用於插件持久化狀態，回應文字逐行串流。",
     body: {
       kind: "feature",
-      description: "新增 StopFailure hook 事件，在停止操作失敗時觸發。新增 ${CLAUDE_PLUGIN_DATA} 變數供插件儲存持久化狀態。插件代理程式新增 effort、maxTurns、disallowedTools 設定。終端通知可穿透 tmux 到達外層終端。回應文字現在逐行串流顯示。修正沙箱中 git log HEAD 的問題、cc log 在大型工作階段中靜默截斷、停止 hook 的無限迴圈等。",
+      description: "新增 StopFailure hook 事件，在停止操作失敗時觸發。新增 \${CLAUDE_PLUGIN_DATA} 變數供插件儲存持久化狀態。插件代理程式新增 effort、maxTurns、disallowedTools 設定。終端通知可穿透 tmux 到達外層終端。回應文字現在逐行串流顯示。修正沙箱中 git log HEAD 的問題、cc log 在大型工作階段中靜默截斷、停止 hook 的無限迴圈等。",
       links: [
         { label: "docs/hooks", href: "#", kind: "doc" },
         { label: "github/claude-code/v2.1.78", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.78", kind: "gh" }
