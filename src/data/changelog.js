@@ -1,6 +1,59 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.137",
+    date: "2026-05-09",
+    version: "v2.1.137",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.137：修復 Windows 上 VS Code 擴充套件無法啟動",
+    summary: "修復 VS Code 擴充套件在 Windows 平台上無法啟動的問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.137（2026-05-09）修復一項關鍵問題：\n\n• [VSCode] 修復擴充套件在 Windows 上無法啟動的問題",
+      links: [
+        { label: "github/claude-code/v2.1.137", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.137", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.136",
+    date: "2026-05-08",
+    version: "v2.1.136",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.136：新增 autoMode.hard_deny 設定及大量修復（50+ 項）",
+    summary: "新增 autoMode.hard_deny 設定與企業 OTEL 問卷環境變數；修復 MCP 伺服器 /clear 後消失、OAuth token 並發遺失、擴展思考後 400 錯誤、plan mode 不阻擋寫入、CJK 顯示、Backspace 鍵位交換等 50+ 項問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.136（2026-05-08）帶來以下更新：\n\n**新功能**\n• 新增 `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL` 環境變數，讓使用 OpenTelemetry 的企業重新啟用工作階段品質問卷\n• 新增 `settings.autoMode.hard_deny`，用於 auto mode 分類器規則，可無條件封鎖而不受使用者例外允許\n\n**MCP 與整合修復**\n• 修復 `.mcp.json`、插件和 claude.ai 連接器設定的 MCP 伺服器在 `/clear` 後消失的問題\n• 修復多個 MCP 伺服器同時更新時 OAuth refresh token 遺失的問題\n• 修復 `/doctor` 對 MCP schema 錯誤未顯示缺失欄位名稱及來源路徑的問題\n\n**驗證與工作階段**\n• 修復並發憑證寫入覆蓋新輪換 OAuth token 導致罕見登入迴圈的問題\n• 修復 `CLAUDE_ENV_FILE` SessionStart hook 的環境變數在 `/resume` 或 `/clear` 後失效的問題\n• 修復 `--resume` / `--continue` 在專案路徑含底線時找不到工作階段的問題\n\n**UI/UX 改善**\n• 改善 slash command 對話框（頁尾提示、間距、方向鍵樣式）的視覺一致性\n• 修復 bash 命令輸出和 markdown 程式碼區塊中顏色位置錯誤的問題\n• 修復寬 markdown 表格在終端機捲動歷程留下殘留邊框的問題\n• 修復全螢幕模式「跳至底部」覆蓋層在 CJK 字元上留下顏色殘影的問題\n• 修復串流複製終端機輸出時出現尾隨空白的問題\n\n**擴展思考與工具呼叫**\n• 修復擴展思考在工具呼叫後發出已編輯思考區塊時出現 API 400 錯誤的問題\n• 修復全螢幕截斷時失敗的工具呼叫無法點擊展開的問題\n• 修復 MCP 工具結果在伺服器回傳 content block 時不可見的問題\n\n**Plan Mode 與檔案操作**\n• 修復 plan mode 在有對應 `Edit(...)` 允許規則時不阻擋檔案寫入的問題\n• 修復 `@` 檔案選擇器在小型非 git 目錄中找不到工作階段中新建檔案的問題\n• 修復 `@` 提及選擇器在目錄超過 100 個項目時找不到檔案的問題\n\n**插件與擴充套件**\n• 修復快取清理刪除仍在使用版本時插件 Stop/UserPromptSubmit hook 失敗的問題\n• 修復 plugin.json 中 skills 項目遮蔽插件預設 skills/ 目錄的問題\n• 修復插件解除安裝及啟用/停用不區分大小寫匹配 slug 的問題\n\n**其他修復**\n• 修復 ReasonML diff 渲染出「undefined」文字殘影的問題\n• 修復 Backspace 和 Ctrl+Backspace 在使用 Ctrl+G 後互換的問題\n• 修復 `/usage` 每週重置顯示時間而非日期的問題\n• 修復 `AskUserQuestion` 在以陣列提供多選答案時被捨棄的問題\n• 修復 `/clear <name>` 未為 `/resume` 標記已清除工作階段的問題\n• WSL2：透過 PowerShell 後備方案修復 xclip/wl-paste 無法讀取圖像資料時的圖片貼上問題",
+      links: [
+        { label: "github/claude-code/v2.1.136", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.136", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "akamai-deal-2026-05-08",
+    date: "2026-05-08",
+    version: "官方公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Anthropic 與 Akamai 簽署 18 億美元七年期雲端算力協議",
+    summary: "Anthropic 與 Akamai Technologies 簽署 18 億美元、為期七年的雲端算力協議，為 Akamai 史上最大合約，旨在應對 Claude 用量 Q1 爆增 80 倍的需求。",
+    body: {
+      kind: "feature",
+      description: "2026-05-08，Anthropic 宣布與雲端服務商 Akamai Technologies 簽署 18 億美元、七年期算力合作協議：\n\n• 這是 Akamai 有史以來最大的單筆合約，Akamai 股價當日大漲 27%\n• CEO Dario Amodei 表示 Anthropic 正「以最快速度」擴充算力資源，以應對 Q1 年化營收和用量爆增 80 倍的需求\n• 目前年化收入已達 300 億美元，三倍於去年\n• 此協議是繼 SpaceX Colossus 算力合作（5/6）後，Anthropic 進一步擴充基礎設施的舉措\n• Akamai 正從內容傳遞和資安服務積極向算力服務擴張",
+      links: [
+        { label: "Bloomberg 報導", href: "https://www.bloomberg.com/news/articles/2026-05-08/anthropic-inks-1-8-billion-computing-deal-with-akamai", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/05/08/akamai-stock-ai-cloud-infrastructure-deal.html", kind: "doc" },
+        { label: "Fortune 報導", href: "https://fortune.com/2026/05/08/anthropic-80fold-growth-quarter-renting-elon-musk-data-center/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-institute-2026-05-07",
     date: "2026-05-07",
     version: "官方公告",
