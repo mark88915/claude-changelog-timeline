@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.138",
+    date: "2026-05-09",
+    version: "v2.1.138",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.138：內部修復",
+    summary: "進行內部修復，提升整體穩定性。",
+    body: {
+      kind: "bug",
+      description: "v2.1.138（2026-05-09）進行內部修復：\n\n• 內部修復，提升整體穩定性",
+      links: [
+        { label: "github/claude-code/v2.1.138", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.138", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.137",
     date: "2026-05-09",
     version: "v2.1.137",
