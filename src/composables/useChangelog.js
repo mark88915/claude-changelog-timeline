@@ -163,6 +163,11 @@ export function useChangelog() {
     window.removeEventListener('scroll', onScroll)
   })
 
+  const latestDate = computed(() => {
+    if (CHANGELOG.length === 0) return ''
+    return formatDate(CHANGELOG[0].date)
+  })
+
   return {
     search,
     filter,
@@ -181,6 +186,7 @@ export function useChangelog() {
     totalVisible,
     totalAll,
     currentMonthKey,
+    latestDate,
     CATEGORIES
   }
 }

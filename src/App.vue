@@ -21,6 +21,7 @@ const {
   totalVisible,
   totalAll,
   currentMonthKey,
+  latestDate,
 } = useChangelog()
 
 function setMonthRef(key, el) {
@@ -52,7 +53,7 @@ function matchCount(entries) {
       <div class="timeline-intro-meta">
         <span>共 <strong>{{ totalAll }}</strong> 項更新</span>
         <span v-if="search || filter.length > 0 || activeProduct !== 'all'"><strong>{{ totalVisible }}</strong> 項符合篩選</span>
-        <span>最後更新 <strong>Apr 18, 2026</strong></span>
+        <span>最後更新 <strong>{{ latestDate }}</strong></span>
       </div>
     </div>
 
