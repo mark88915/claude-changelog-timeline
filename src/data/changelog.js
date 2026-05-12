@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.139",
+    date: "2026-05-11",
+    version: "v2.1.139",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.139：Agent View、/goal 指令、記錄瀏覽改善及大量修復",
+    summary: "新增 Agent View 研究預覽版（`claude agents`）、`/goal` 持續執行指令、`/scroll-speed` 指令、plugin details 指令及記錄瀏覽快捷鍵；修復過期憑證死結、SSE 記憶體無界增長、串流閒置超時等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.139（2026-05-11）帶來以下更新：\n\n**新功能**\n• **Agent View（研究預覽版）**：執行 `claude agents` 可檢視所有工作階段（執行中、等待中、已完成）的統一清單\n• **`/goal` 指令**：設定完成條件，Claude 將跨回合持續執行直到目標達成；支援互動模式、`-p` 模式及遠端控制模式，並在覆蓋面板即時顯示耗時、回合數與 token 用量\n• **`/scroll-speed` 指令**：可調整滑鼠滾輪速度並即時預覽效果\n• **`claude plugin details <name>`**：顯示插件的元件清單及預估每次工作階段的 token 成本\n• **記錄瀏覽改善**：`?` 顯示鍵盤快捷鍵、`{`/`}` 在使用者提示間跳轉、`v` 切換快捷鍵面板\n\n**修復**\n• 修復過期憑證阻擋 `claude auth login`/`logout`/`status` 時的死結問題\n• 修復 `autoAllowBashIfSandboxed` 未允許含 shell 展開（如 `$VAR`、`$(cmd)`）指令的問題\n• 修復 HTTP/SSE MCP 伺服器無界記憶體增長（每個 SSE frame 上限 16 MB）\n• 修復 `Skill(name *)` 前綴匹配的權限規則\n• 修復回應完成後 5 分鐘出現的虛假「串流閒置超時」錯誤\n• 修復透過符號連結 `~/.claude/settings.json` 的設定熱重載\n• 改善深色主題的超連結可見度",
+      links: [
+        { label: "github/claude-code/v2.1.139", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.139", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-platform-aws-2026-05-11",
+    date: "2026-05-11",
+    version: "API 更新",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "推出 Claude Platform on AWS：原生 AWS 基礎設施支援",
+    summary: "Claude API 正式支援 AWS 原生基礎設施，提供 AWS 帳單與 IAM 身份驗證，可存取完整 Messages API、Files API、Message Batches API、Claude Managed Agents、Agent Skills、程式碼執行及工具呼叫等功能。",
+    body: {
+      kind: "feature",
+      description: "2026-05-11，Anthropic 推出 Claude Platform on AWS，將 Claude API 帶至由 Anthropic 管理、可透過 AWS 存取的基礎設施：\n\n• 提供 AWS 帳單整合，費用直接計入 AWS 帳戶\n• 使用 AWS IAM 身份驗證，無須另行管理 Anthropic API 金鑰\n• 支援完整 Messages API、Files API、Message Batches API\n• 支援 Claude Managed Agents、Agent Skills、程式碼執行及工具呼叫\n• 透過原生 AWS 端點存取，適合已在 AWS 生態系的企業用戶",
+      links: [
+        { label: "Claude Platform on AWS 文件", href: "https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.138",
     date: "2026-05-09",
     version: "v2.1.138",
