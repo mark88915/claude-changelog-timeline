@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.140",
+    date: "2026-05-12",
+    version: "v2.1.140",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.140：Agent 工具匹配改善、/goal 修復及多項穩定性修復",
+    summary: "改善 Agent 工具 subagent_type 大小寫/分隔符不敏感匹配；修復 /goal 在停用 hooks 時掛起、符號連結設定熱重載、claude --bg 連線中斷、企業端點安全啟動失敗、Windows event-loop 停滯、Read 工具 offset 驗證及插件預設資料夾警告等多項問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.140（2026-05-12）帶來以下更新：\n\n**改善**\n• **Agent 工具 subagent_type 匹配**：現支援大小寫與分隔符不敏感，如 `\"Code Reviewer\"` 可自動解析為 `code-reviewer`\n• 更新 Agent 顏色配色\n\n**修復**\n• 修復 `/goal` 在 `disableAllHooks` 或 `allowManagedHooksOnly` 啟用時無聲掛起的問題，現在會顯示清楚提示訊息\n• 修復符號連結設定檔熱重載觸發錯誤變更事件的回歸問題\n• 修復 `managed extraKnownMarketplaces` 自動更新政策未持久化至 `known_marketplaces.json` 的問題\n• 修復遠端受管設定在 401 錯誤時未重試的問題，現在會以強制刷新 token 重試\n• 修復 `claude --bg` 在服務即將閒置退出時出現連線中斷的問題\n• 修復企業端點安全機器上後台服務啟動失敗的問題\n• 修復 `/loop` 排程重複喚醒後台任務輪詢的問題\n• 修復 Windows event-loop 因同步 `where.exe` 重複呼叫導致停滯的問題\n• 修復 `Read` 工具在 `offset` 傳入含空白或 `+` 前綴字串時驗證失敗的問題\n• 修復插件預設元件資料夾（如 `commands/`）因 `plugin.json` 設定而被忽略時未顯示警告的問題\n• 修復終端機失去焦點時原生游標位置問題",
+      links: [
+        { label: "github/claude-code/v2.1.140", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.140", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.139",
     date: "2026-05-11",
     version: "v2.1.139",
