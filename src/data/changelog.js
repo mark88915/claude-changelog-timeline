@@ -1,6 +1,59 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-for-legal-2026-05-13",
+    date: "2026-05-13",
+    version: "產品更新",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Claude for Legal：20+ 法律 MCP 連接器與 12 個專業領域插件",
+    summary: "Anthropic 推出 Claude for Legal，包含 20+ 個法律 MCP 連接器及 12 個專業領域插件，整合 Thomson Reuters、Westlaw、Harvey、Everlaw、Box 及 DocuSign 等主流法律平台。",
+    body: {
+      kind: "feature",
+      description: "2026-05-13，Anthropic 正式推出 Claude for Legal，標誌著其在法律科技領域最大規模的佈局：\n\n• 20+ 個新法律 MCP 連接器，串連廣泛使用的法律系統與資料庫\n• 12 個專業領域插件，針對特定工作流程與執業領域設計\n• 整合平台包括：Thomson Reuters、Westlaw、Practical Law、Harvey、Everlaw、Box 及 DocuSign\n• 涵蓋法律研究、合約審查、案件管理、發現程序及法律援助等場景\n• 適用於律師事務所及企業內部法務團隊",
+      links: [
+        { label: "Claude for Legal 公告", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "Legal IT Insider 報導", href: "https://legaltechnology.com/2026/05/13/claude-for-legal-what-the-industry-needs-to-know/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-for-small-business-2026-05-13",
+    date: "2026-05-13",
+    version: "產品更新",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "推出 Claude for Small Business：整合 15 項預建工作流程",
+    summary: "Anthropic 正式推出 Claude for Small Business，整合 QuickBooks、PayPal、HubSpot、Canva、DocuSign、Google Workspace 及 Microsoft 365，提供 15 項覆蓋財務、銷售、行銷、HR 及客服的預建代理工作流程。",
+    body: {
+      kind: "feature",
+      description: "2026-05-13，Anthropic 推出 Claude for Small Business，讓小型企業主在既有工具中直接使用 Claude：\n\n**整合工具**\n• Intuit QuickBooks、PayPal、HubSpot、Canva、DocuSign、Google Workspace、Microsoft 365\n\n**預建工作流程（15 項）**\n• 財務：薪資規劃、月結帳務、現金流預測、發票追蹤\n• 銷售：銷售活動管理、績效分析\n• 行銷：廣告文案生成、社群內容規劃\n• HR：員工排班、績效評估\n• 客服：自動回覆草稿、收件箱分類\n\n**信任與安全**\n• 執行前 Claude 會提出計畫供用戶確認，才執行對外通訊、發布內容或付款操作\n• Team/Enterprise 方案資料不用於訓練\n\n**配套資源**\n• 與 PayPal 合作推出免費「AI Fluency for Small Business」線上課程\n• 美國 10 大城市巡迴半日工作坊（首場 2026-05-14 芝加哥）",
+      links: [
+        { label: "Introducing Claude for Small Business", href: "https://www.anthropic.com/news/claude-for-small-business", kind: "doc" },
+        { label: "9to5Mac 報導", href: "https://9to5mac.com/2026/05/13/anthropics-latest-claude-release-turns-your-mac-into-a-small-business-powerhouse/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.141",
+    date: "2026-05-13",
+    version: "v2.1.141",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.141：terminalSequence 通知支援、claude agents 範圍過濾及 50+ 項修復",
+    summary: "新增 terminalSequence hook 欄位、CLAUDE_CODE_PLUGIN_PREFER_HTTPS 環境變數、claude agents --cwd 範圍過濾及 Rewind「Summarize up to here」；修復 Bedrock/Vertex 背景查詢、Windows daemon pipe、markdown 表格渲染及 50+ 項問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.141（2026-05-13）帶來以下更新：\n\n**新功能**\n• **terminalSequence**：hook JSON 輸出新增 `terminalSequence` 欄位，支援桌面通知、視窗標題及響鈴，無須控制終端機\n• **CLAUDE_CODE_PLUGIN_PREFER_HTTPS**：透過此環境變數可改用 HTTPS 而非 SSH 克隆 GitHub 插件來源\n• **ANTHROPIC_WORKSPACE_ID**：新增環境變數支援工作負載身份聯合\n• **claude agents --cwd <path>**：將工作階段清單範圍限定於指定目錄\n• **/feedback 改善**：現在包含最近 24 小時或 7 天的工作階段\n• **Rewind 選單**：新增「Summarize up to here」可壓縮較早的上下文\n• **Auto mode 權限對話框**：現在說明 `permissions.ask` 規則觸發原因\n• **IDE diff 選項還原**：IDE 已連線時，檔案編輯權限提示中重新顯示「在 IDE 中查看差異」\n• **背景代理保留權限模式**：背景代理現在保留目前的權限模式，不再回復預設值\n• **長時間思考回饋**：超過 10 秒後轉為琥珀色旋轉動畫\n\n**修復（50+ 項）**\n• 修復 Bedrock/Vertex/Foundry 在未設定小型模型覆蓋時的背景側查詢問題\n• 修復 Windows 上鎖定 daemon pipe 金鑰檔案時 `claude daemon status` 及 `/doctor` 失敗\n• 修復 `/model` 在並行工作階段中靜默更改 autocompact 閾值\n• 修復 markdown 表格中儲存格換行渲染回歸問題\n• 修復在對話框中按 Enter 同時觸發輸入欄位送出的問題\n• 多項終端機、MCP 及 UI 渲染問題修復",
+      links: [
+        { label: "github/claude-code/v2.1.141", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.141", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.140",
     date: "2026-05-12",
     version: "v2.1.140",
