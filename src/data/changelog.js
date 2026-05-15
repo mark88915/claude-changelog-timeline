@@ -1,6 +1,62 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-gates-foundation-2026-05-14",
+    date: "2026-05-14",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 與 Gates Foundation 宣布 2 億美元合作夥伴關係",
+    summary: "Anthropic 與比爾及梅琳達·蓋茲基金會簽署 2 億美元合作協議，聚焦於全球衛生、教育及氣候變遷等領域的 AI 應用。",
+    body: {
+      kind: "feature",
+      description: "2026-05-14，Anthropic 宣布與比爾及梅琳達·蓋茲基金會建立 2 億美元的合作夥伴關係：\n\n• 合作聚焦三大領域：全球衛生、教育機會平等及氣候行動\n• 目標是讓 AI 工具能夠觸及世界上最弱勢的社群\n• 這是 Anthropic 有史以來規模最大的非商業合作夥伴關係之一\n• 合作成果將優先部署於低收入與中等收入國家",
+      links: [
+        { label: "Anthropic 官方新聞", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "agent-sdk-billing-split-2026-05-14",
+    date: "2026-05-14",
+    version: "計費變更",
+    category: "brk",
+    area: "performance",
+    product: "claude",
+    title: "訂閱計費拆分：互動式與程式化用量獨立計算（2026-06-15 生效）",
+    summary: "Anthropic 宣布自 2026-06-15 起，將訂閱用量拆分為互動式（claude.ai、Claude Code 互動操作）與程式化（Agent SDK、headless mode、第三方工具）兩個獨立配額，程式化用量依 API 費率計費且月底過期不結轉。",
+    body: {
+      kind: "breaking",
+      description: "2026-05-14，Anthropic 宣布重大計費政策變更，自 2026-06-15 起生效：\n\n**變更內容**\n• 訂閱用量分為兩個獨立配額池：\n  - 互動式用量：透過 claude.ai、Claude Code 互動操作、Claude Cowork 使用\n  - 程式化用量：透過 Agent SDK、headless 模式（`-p` 旗標）、第三方整合工具\n• 程式化配額等同於訂閱費的月度點數，但依 API 費率計費（成本較互動式更高）\n• 程式化點數月底過期，不可結轉至下個月\n\n**影響**\n• $20/月 Pro 訂閱者將獲得兩個獨立 token 配額\n• 大量使用自動化工作流程或第三方 AI 工具（如 OpenClaw）的用戶受影響最大\n• 此為 Anthropic 六週內第三次重大訂閱條款調整\n\n**社群反應**\n• 引發大量用戶不滿，部分聲稱將轉用 OpenAI Codex\n• 批評者認為此舉缺乏透明度",
+      migration: {
+        title: "因應方式",
+        text: "2026-06-15 前請評估您的程式化使用量。若大量使用 Agent SDK 或第三方整合，建議考慮改用 Anthropic API 直接付費方案以獲得更可預測的成本。"
+      },
+      links: [
+        { label: "The Register 報導", href: "https://www.theregister.com/ai-ml/2026/05/14/anthropic-tosses-agents-into-the-api-billing-pool/5240748", kind: "doc" },
+        { label: "Axios 報導", href: "https://www.axios.com/2026/05/14/anthropic-claude-price-openai-tokens", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.142",
+    date: "2026-05-14",
+    version: "v2.1.142",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.142：claude agents 新旗標、Fast Mode 升級 Opus 4.7 及多項修復",
+    summary: "新增 claude agents 八項旗標（--add-dir、--settings、--mcp-config、--plugin-dir、--permission-mode、--model、--effort、--dangerously-skip-permissions）；Fast Mode 預設模型升級為 Opus 4.7；修復 git worktree、macOS 睡眠喚醒、daemon 升級等背景 session 問題及 MCP_TOOL_TIMEOUT 失效問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.142（2026-05-14）帶來以下更新：\n\n**新功能**\n• **claude agents 新旗標**：新增八項旗標讓使用者能更精細控制 agents 執行：\n  - `--add-dir`：加入額外工作目錄\n  - `--settings`：指定自訂設定檔路徑\n  - `--mcp-config`：指定 MCP 設定\n  - `--plugin-dir`：指定插件目錄\n  - `--permission-mode`：設定權限模式\n  - `--model`：指定使用模型\n  - `--effort`：設定推理深度等級\n  - `--dangerously-skip-permissions`：跳過權限檢查（需謹慎使用）\n• **Fast Mode 升級**：Fast Mode 預設模型從 Opus 4.6 升級為 Opus 4.7，提供更強的推理能力\n\n**修復**\n• 修復 git worktree 環境下背景 session 崩潰的問題\n• 修復 macOS 睡眠喚醒後背景 session 異常的問題\n• 修復 daemon 升級期間背景 session 中斷的問題\n• 修復 `MCP_TOOL_TIMEOUT` 未套用至遠端 HTTP/SSE MCP 伺服器的問題\n• 修復連結顯示、編輯器快捷鍵及插件快取等多項 UI 問題",
+      links: [
+        { label: "github/claude-code/v2.1.142", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.142", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-for-legal-2026-05-13",
     date: "2026-05-13",
     version: "產品更新",
