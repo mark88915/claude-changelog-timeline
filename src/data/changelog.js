@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.143",
+    date: "2026-05-15",
+    version: "v2.1.143",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.143：插件相依性強制驗證、Token 費用預估顯示及多項修復",
+    summary: "新增插件相依性強制驗證（disable/enable 自動處理依賴鏈）、/plugin 市集顯示預估 Token 費用、worktree.bgIsolation:\"none\" 設定；修復 .credentials.json 損毀、stop hooks 無限循環、macOS 目錄存取及 Windows Terminal 相容性等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.143（2026-05-15）帶來以下更新：\n\n**新功能**\n• **插件相依性強制驗證**：`claude plugin disable` 現在會拒絕停用被其他已啟用插件依賴的目標（並提供可直接複製的停用鏈提示）；`claude plugin enable` 會自動強制啟用所有遞移依賴項\n• **預估 Token 費用顯示**：在 `/plugin` 市集瀏覽介面新增每回合與每次呼叫的 Token 估算資訊\n• **Worktree 隔離設定**：新增 `worktree.bgIsolation: \"none\"` 設定，讓背景 session 可直接編輯工作目錄（不需要 EnterWorktree），適用於不適合使用 worktree 的專案\n• **PowerShell 改善**：工具現在預設加入 `-ExecutionPolicy Bypass`（可透過 `CLAUDE_CODE_POWERSHELL_RESPECT_EXECUTION_POLICY=1` 環境變數關閉）；Bedrock、Vertex 及 Foundry 用戶預設啟用\n• **背景 Session 保留設定**：從閒置喚醒後保留模型與 effort 等級設定\n• **Session 卸離保留設定**：`/bg` 與 `←` 卸離現在保留 `--mcp-config`、`--settings`、`--fallback-model` 及權限設定\n\n**修復**\n• 修復損毀的 `.credentials.json` 導致 CLI 啟動卡住的問題\n• 修復 stop hooks 連續封鎖導致的無限循環（連續封鎖 8 次後自動結束）\n• 修復背景 shell 執行期間 `/goal` 評估器誤觸發的問題\n• 修復 `NO_COLOR`/`FORCE_COLOR` 誤移除 Claude Code UI 顏色的問題\n• 修復 macOS `~/Documents`、`~/Desktop`、`~/Downloads` 目錄存取問題\n• 修復缺少啟動程式時背景 daemon 無法備用啟動的問題\n• 修復多項 Windows Terminal/WSL 相容性問題",
+      links: [
+        { label: "github/claude-code/v2.1.143", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.143", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-gates-foundation-2026-05-14",
     date: "2026-05-14",
     version: "官方公告",
