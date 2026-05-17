@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "salesforce-300m-anthropic-2026-05-16",
+    date: "2026-05-16",
+    version: "社群動態",
+    category: "enh",
+    area: "performance",
+    product: "claude",
+    title: "Salesforce CEO 宣布 2026 年 Anthropic token 花費預估達 3 億美元",
+    summary: "Salesforce CEO Marc Benioff 在 All-In Podcast 宣布，Salesforce 預計 2026 年在 Anthropic token 上花費約 3 億美元，幾乎全用於程式碼生成，並計劃在 Slack 中強化 AI 編程功能。",
+    body: {
+      kind: "feature",
+      description: "2026-05-16，Salesforce CEO Marc Benioff 在 All-In Podcast 公開宣布：\n\n• Salesforce 預計 2026 年在 Anthropic token 上花費約 **3 億美元**，幾乎全部用於程式碼生成\n• 稱 AI coding agents 帶來「前所未有」的效率提升，在服務、支援、通路、行銷等領域發揮重大效益\n• 計劃在 Slack 平台中強化 AI 編程功能（具體細節尚未公開）\n• 呼籲企業建立「中介層」：複雜推理任務路由至 Claude 等頂級模型，簡單任務則路由至更小型、低成本的模型以優化成本\n• Salesforce 已投資超過 3 億美元於 Anthropic，持有約 1% 股份\n\n此消息顯示大型企業已將 AI token 消費視為核心營運成本，Claude 在企業編程應用中的地位持續鞏固。",
+      links: [
+        { label: "The Next Web 報導", href: "https://thenextweb.com/news/salesforce-benioff-300-million-anthropic-tokens-slack-coding", kind: "doc" },
+        { label: "Cryptonomist 報導", href: "https://en.cryptonomist.ch/2026/05/16/salesforce-anthropic-token-spend-coding-agents/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.143",
     date: "2026-05-15",
     version: "v2.1.143",
