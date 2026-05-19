@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-acquires-stainless-2026-05-18",
+    date: "2026-05-18",
+    version: "官方公告",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Anthropic 以約 3 億美元收購 SDK 工具商 Stainless",
+    summary: "Anthropic 宣布收購 SDK/CLI/MCP server 生成工具商 Stainless，強化代理人連線能力與開發者體驗；Stainless 現有托管服務將陸續關閉，現有客戶保有已生成 SDK 的完整所有權。",
+    body: {
+      kind: "feature",
+      description: "2026-05-18，Anthropic 正式宣布收購 Stainless（2022 年成立），交易金額約 3 億美元：\n\n• **Stainless 是什麼**：專門協助 API 提供商自動生成 SDK、CLI 及 MCP server 的工具商，客戶包括 OpenAI、Google DeepMind、Meta、Anthropic、Cloudflare 等頂尖科技公司\n• **Anthropic 的 SDK 淵源**：Stainless 自 Anthropic API 最早期就協助生成所有官方 SDK（TypeScript、Python、Go、Java、Kotlin 等）\n• **收購動機**：Anthropic 認為「代理人只有在能夠連接到足夠多系統時才真正有用」，收購 Stainless 旨在改善開發者體驗與代理人連線基礎設施\n• **Stainless 服務終止**：Anthropic 將關閉所有 Stainless 托管產品（含 SDK 生成器），但現有客戶保有已生成 SDK 的完整所有權與修改權\n• **競爭意涵**：此次收購意味著 Anthropic 取得了 OpenAI 等競爭對手長期依賴的 SDK 基礎設施，業界高度關注後續影響",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/anthropic-acquires-stainless", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "api-web-search-sec-data-2026-05-18",
+    date: "2026-05-18",
+    version: "API 更新",
+    category: "enh",
+    area: "model",
+    product: "claude",
+    title: "Claude API 網路搜尋工具新增豐富 SEC 申報文件資料",
+    summary: "網路搜尋工具（web search tool）現在返回更豐富的 SEC 申報文件資料，讓金融研究代理人、財報分析及盡職調查工作流程更容易以一手資料做為引用依據。",
+    body: {
+      kind: "feature",
+      description: "2026-05-18，Claude Platform 發布說明新增：\n\n• 網路搜尋工具（web search tool）現在返回更豐富的 SEC（美國證管會）申報文件資料\n• 適合用於**金融研究代理人**、**財報分析**及**盡職調查**工作流程\n• 支援以一手資料做為引用依據，提升財務分析的準確性與可信度",
+      links: [
+        { label: "Claude Platform 發布說明", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "salesforce-300m-anthropic-2026-05-16",
     date: "2026-05-16",
     version: "社群動態",
