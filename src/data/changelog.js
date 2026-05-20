@@ -1,6 +1,75 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.145",
+    date: "2026-05-19",
+    version: "v2.1.145",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.145：新增 claude agents --json、安全漏洞修復及多項 UI 改善",
+    summary: "新增 claude agents --json 以 JSON 格式列出執行中 session；修復裸變數賦值可繞過權限提示的安全漏洞；OTEL span 新增 agent_id/parent_agent_id；插件探索頁面可於安裝前預覽完整功能清單；修復多項 UI/UX 問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.145（2026-05-19）帶來以下更新：\n\n**新功能**\n• **`claude agents --json`**：以 JSON 格式列出所有執行中的 Claude session，方便 tmux-resurrect、狀態列及 session 選擇器等腳本整合\n• **OTEL span 改善**：`claude_code.tool` span 新增 `agent_id` 與 `parent_agent_id` 屬性；修復 trace parenting，讓背景 subagent span 正確巢狀於分配的 Agent tool span 下\n• **狀態列 JSON 強化**：偵測到 GitHub repo 與 PR 資訊時自動加入輸出\n• **插件探索改善**：`/plugin` Discover 與 Browse 頁面現在於安裝前即可顯示插件的指令、agents、skills、hooks 及 MCP/LSP servers\n• **Agent view 分頁標題**：`claude agents` 分頁標題現在顯示等待輸入的 agent 數量\n• **全螢幕滑鼠支援**：全螢幕模式下的 slash 指令與 @-mention 建議清單支援滑鼠懸停與點擊\n• **Hook 輸入欄位**：Stop 與 SubagentStop hook 輸入現在包含 `background_tasks` 與 `session_crons` 欄位\n\n**安全修復**\n• 修復 Bash 指令中裸變數賦值（如 `VAR=value`）可繞過非允許清單環境變數的權限提示問題\n\n**Bug 修復**\n• 修復 MCP prompt slash 指令顯示原始伺服器驗證錯誤的問題\n• 修復終端大小改變或重新聚焦後 spinner 凍結的問題\n• 修復 Windows PowerShell 5.1 中跨專案 resume 提示失敗問題\n• 修復 Agent view reply pane 的語音推播功能\n• 修復任務清單以隨機順序渲染的問題\n• 修復 `gh pr create` 後 PR badge 未立即更新的問題\n• 修復 Agent Teams 中含非 ASCII 名稱的成員觸發 API 呼叫失敗問題\n• 修復 `/review` 使用已棄用 `projectCards` GraphQL query 的問題\n• 修復使用 `context: fork` 的 skill 可能無限自我調用的問題\n• Read 工具改為回傳截斷的首頁並附帶「PARTIAL view」提示，而非在全檔讀取超過 token 限制時直接報錯",
+      links: [
+        { label: "github/claude-code/v2.1.145", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.145", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.144",
+    date: "2026-05-19",
+    version: "v2.1.144",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.144：背景 Session /resume 支援、/model 僅影響當前 Session 及多項修復",
+    summary: "新增 /resume 支援背景 session（以 bg 標記顯示）；/model 改為僅影響當前 session（按 d 設定預設）；「extra usage」更名為「usage credits」；修復 API 無法連線時長達 75 秒啟動卡頓（改為 15 秒逾時）及多項終端顯示問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.144（2026-05-19）帶來以下更新：\n\n**新功能**\n• **背景 Session `/resume` 支援**：透過 `claude --bg` 或 agent view 啟動的背景 session 現在會出現在互動式 session 旁，並以 `bg` 標記區別；同時新增完成通知中的已用時間顯示\n• **插件時間戳記**：`/plugin` browse 與 discover 頁面新增顯示插件最後更新時間\n• **`/model` 行為調整**：`/model` 現在只改變當前 session 的模型；在模型選擇器中按 `d` 可設定新 session 的預設值\n• **名稱更新**：「extra usage（額外使用量）」全面更名為「usage credits（使用點數）」（舊名稱仍可相容使用）\n\n**Bug 修復**\n• 修復 `api.anthropic.com` 無法連線時 CLI 啟動最長卡頓 75 秒的問題（現改為 15 秒逾時）\n• 修復錯過視窗大小調整事件後導致終端輸出亂碼的問題\n• 修復長時間 session 中的漸進式終端顯示損毀問題\n• 修復 macOS 在受 Full Disk Access 保護的資料夾執行時背景 session 崩潰（exit 1 before init）的問題\n• 修復讀取副檔名不符的圖片檔案時導致對話不可恢復的問題\n• 修復搜尋期間偶發的工具錯誤\n• 修復 `/branch`、模型選擇、Bedrock/Vertex 用戶、MCP server 及 session 管理的多項問題",
+      links: [
+        { label: "github/claude-code/v2.1.144", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.144", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "kpmg-anthropic-2026-05-19",
+    date: "2026-05-19",
+    version: "官方公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "KPMG 與 Anthropic 宣布全球戰略聯盟，逾 27.6 萬員工將使用 Claude",
+    summary: "KPMG 與 Anthropic 簽署全球戰略聯盟協議，KPMG 逾 27.6 萬名員工將透過 Digital Gateway 平台使用 Claude，初期聚焦稅務及私募股權客戶，並推出 Claude Code 驅動的 KPMG Blaze 新產品。",
+    body: {
+      kind: "feature",
+      description: "2026-05-19，KPMG 與 Anthropic 宣布全球戰略聯盟，以下為主要內容：\n\n• **聯盟規模**：KPMG 全球逾 27.6 萬名員工將可使用 Anthropic 的 Claude AI 能力\n• **Digital Gateway 整合**：Claude 嵌入 KPMG 全球 AI 平台 Digital Gateway（建構於 Microsoft Azure 上），客戶可即時建立代理人工作流程\n• **初期重點**：聚焦稅務客戶與私募股權（PE）公司；Anthropic 同時將 KPMG 列為 PE 領域首選合作夥伴\n• **新產品 KPMG Blaze**：嵌入 Claude Code 協助客戶加速 IT 現代化、縮短開發週期，並加快 AI 驅動技術系統的交付速度\n• **安全治理**：聯盟全程嵌入網路安全、風險及 AI 保證機制\n• **意義**：繼 PwC 之後，四大會計師事務所中再有一家全面採用 Claude，反映 Claude 在專業服務領域的快速滲透",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/anthropic-kpmg", kind: "doc" },
+        { label: "KPMG 官方新聞稿", href: "https://kpmg.com/xx/en/media/press-releases/2026/05/kpmg-and-anthropic-sign-global-alliance-and-launch-digital-gateway-powered-by-claude.html", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "widening-frontier-ai-2026-05-19",
+    date: "2026-05-19",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 發表〈Widening the conversation on frontier AI〉",
+    summary: "Anthropic 發文呼籲擴大社會各界對前沿 AI 開發的公共對話，主張 AI 治理不應只在技術圈內討論，需要更廣泛的公民參與。",
+    body: {
+      kind: "feature",
+      description: "2026-05-19，Anthropic 在官方部落格發表〈Widening the conversation on frontier AI〉，重點包括：\n\n• 呼籲擴大社會各界對前沿 AI 開發決策的參與\n• 主張 AI 發展議題不應只由技術圈內部討論，需要更廣泛的公民對話\n• 此文章與 Code with Claude London 開發者大會（5/19-21）同期發表，顯示 Anthropic 積極強化其在 AI 治理對話中的公共形象",
+      links: [
+        { label: "Anthropic 官方部落格", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-acquires-stainless-2026-05-18",
     date: "2026-05-18",
     version: "官方公告",
