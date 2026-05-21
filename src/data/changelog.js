@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "code-with-claude-london-2026-05-20",
+    date: "2026-05-20",
+    version: "社群活動",
+    category: "new",
+    area: "desktop",
+    product: "claude-code",
+    title: "Code with Claude London 開發者大會（5/20-21）",
+    summary: "Anthropic 在倫敦舉辦 Code with Claude 開發者大會，提供代理人基礎設施工作坊、現場示範及主題演講直播，為 2026 年繼舊金山後的第二站。",
+    body: {
+      kind: "feature",
+      description: "2026-05-20，Anthropic 在倫敦舉辦 Code with Claude 開發者大會（5/20-21）：\n\n• **活動形式**：工作坊（hands-on workshops）、現場示範（live demos）及主題演講，Day 1 主題演講全程網路直播\n• **主題重點**：代理人基礎設施（agent infrastructure）、企業級代理人開發、多代理人編排等\n• **特色廠商**：Asana、Cursor、GitHub、Replit、Vercel 等企業分享生產環境代理人設計經驗\n• **背景**：此為 2026 年 Code with Claude 巡迴活動第二站（第一站：舊金山 5/6；下一站：東京 6/5-6）\n• **注意**：本次活動聚焦代理人開發實作，未發布新模型",
+      links: [
+        { label: "Code with Claude London 活動頁面", href: "https://claude.com/code-with-claude/london-extended", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.145",
     date: "2026-05-19",
     version: "v2.1.145",
@@ -66,6 +83,43 @@ export const CHANGELOG = [
       description: "2026-05-19，Anthropic 在官方部落格發表〈Widening the conversation on frontier AI〉，重點包括：\n\n• 呼籲擴大社會各界對前沿 AI 開發決策的參與\n• 主張 AI 發展議題不應只由技術圈內部討論，需要更廣泛的公民對話\n• 此文章與 Code with Claude London 開發者大會（5/19-21）同期發表，顯示 Anthropic 積極強化其在 AI 治理對話中的公共形象",
       links: [
         { label: "Anthropic 官方部落格", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "karpathy-joins-anthropic-2026-05-19",
+    date: "2026-05-19",
+    version: "官方公告",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Andrej Karpathy 宣布加入 Anthropic 預訓練團隊",
+    summary: "OpenAI 共同創辦人、前 Tesla AI 總監 Andrej Karpathy 宣布加入 Anthropic 預訓練團隊，協助建立利用 Claude 加速預訓練研究的新團隊。",
+    body: {
+      kind: "feature",
+      description: "2026-05-19，Andrej Karpathy 宣布加入 Anthropic：\n\n• **職位**：加入 Anthropic 預訓練（pre-training）團隊，由 Nick Joseph 領導\n• **新任務**：協助建立以 Claude 加速預訓練研究的全新團隊，探索 AI 自動化 AI 開發的可能性\n• **背景**：Karpathy 為 OpenAI 共同創辦人、前 Tesla AI 總監（主導 Autopilot 電腦視覺研發），2022 年離開 Tesla 後持續從事 AI 教育推廣\n• **意義**：這是 Anthropic 在 AI 人才競爭中的重大勝利，顯示 Anthropic 在頂尖研究者中的吸引力持續提升\n• **個人聲明**：Karpathy 表示「未來幾年的 LLM 前沿尤為關鍵」，並表示將繼續從事教育推廣工作",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/", kind: "doc" },
+        { label: "Axios 報導", href: "https://www.axios.com/2026/05/19/anthropic-openai-karpathy-andrej-claude", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "api-mcp-tunnels-managed-agents-2026-05-19",
+    date: "2026-05-19",
+    version: "API 更新",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Claude Platform 新增 MCP Tunnels 研究預覽與 Managed Agents 四項更新",
+    summary: "Claude Platform 發布四項更新：MCP Tunnels 研究預覽（連接私有網路 MCP 伺服器）、Managed Agents 自托管沙盒、作用中 session 支援更新 MCP 設定、大型輸出自動溢出至檔案（超過 10 萬 token）。",
+    body: {
+      kind: "feature",
+      description: "2026-05-19，Claude Platform 發布以下 API 更新：\n\n**1. MCP Tunnels 研究預覽**\n• 新功能 MCP tunnels 現提供研究預覽，可連接私有網路中的 MCP 伺服器\n• 適合需要存取企業內網或本地服務的代理人工作流程\n\n**2. Managed Agents 自托管沙盒**\n• Claude Managed Agents 現提供自托管沙盒（Self-hosted Sandboxes）選項\n• 可作為 Anthropic 基礎設施執行工具的替代方案，讓企業在自有環境中執行工具\n\n**3. 作用中 Session 更新 MCP 設定**\n• Claude Managed Agents 現支援在作用中 session 即時更新代理人的 MCP 伺服器與工具設定\n• 無需重新建立 session 即可動態調整工具配置\n\n**4. 大型輸出自動溢出**\n• `agent_toolset` 與 MCP 工具輸出超過 10 萬 token 時，現自動溢出（spill）至沙盒中的檔案\n• 模型接收截斷預覽並附檔案路徑，可從該路徑讀取完整內容",
+      links: [
+        { label: "Claude Platform 發布說明", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "MCP Tunnels 文件", href: "https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview", kind: "doc" },
+        { label: "自托管沙盒文件", href: "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes", kind: "doc" }
       ]
     }
   },
