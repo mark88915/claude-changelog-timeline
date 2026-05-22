@@ -1,6 +1,57 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.147",
+    date: "2026-05-21",
+    version: "v2.1.147",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.147：/code-review 指令、固定背景 Session 及多項修復",
+    summary: "將 /simplify 更名為 /code-review（支援努力等級如 /code-review high 及 --comment 旗標）；固定背景 Session（Ctrl+T）在閒置時保持存活；改善自動更新器；修復企業登入、Windows PowerShell 及多項 UI 問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.147（2026-05-21）帶來以下更新：\n\n**新功能**\n• **固定背景 Session**：`claude agents` 中按 `Ctrl+T` 固定的 session 在閒置時保持存活，更新時原地重啟，僅在記憶體壓力下才先於非固定 session 釋放\n• **`/simplify` 更名為 `/code-review`**：支援可選努力等級（如 `/code-review high`）及 `--comment` 旗標，可直接在 GitHub PR 發佈內嵌評論\n• **改善自動更新器**：可重試暫時性網路失敗，並在失敗時回報具體錯誤類別及作業系統錯誤碼\n\n**效能改善**\n• 大型檔案編輯的 diff 渲染效能提升\n\n**Bug 修復**\n• 修復企業登入限制（`forceLoginOrgUUID`、`forceLoginMethod`）的執行問題\n• 修復 `&` 字元在指令輸出中顯示為 `&amp;` 的問題\n• 修復未知 slash 指令在無頭/SDK 模式顯示錯誤訊息的問題\n• 修復 PowerShell 工具在 Windows 上遺失輸出及退出碼錯誤的問題\n• Prompt 歷史不再記錄連續重複項目",
+      links: [
+        { label: "github/claude-code/v2.1.147", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.147", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.146",
+    date: "2026-05-21",
+    version: "v2.1.146",
+    category: "bug",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.146：MCP 分頁修復、Auto 模式改善及 Windows PowerShell 修復",
+    summary: "修復 MCP 分頁超過第 1 頁項目遺失的問題；Auto 模式不再不當抑制明確需要的 AskUserQuestion；修復 winget 安裝 Windows PowerShell 「command line is invalid」錯誤；/simplify 更名為 /code-review。",
+    body: {
+      kind: "bug",
+      description: "v2.1.146（2026-05-21）帶來以下更新：\n\n• **`/simplify` 更名為 `/code-review`**：支援可選努力等級參數（如 `/code-review high`）\n• **Auto 模式改善**：修復 Auto 模式在使用者或 skill 明確依賴 `AskUserQuestion` 時不當抑制的問題\n• **Windows PowerShell 修復**：修復透過 winget/Microsoft Store 安裝時出現「command line is invalid」錯誤的問題\n• **MCP 分頁修復**：修復 MCP 分頁中超過第 1 頁的項目被遺漏的問題",
+      links: [
+        { label: "github/claude-code/v2.1.146", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.146", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-compliance-integrations-2026-05-21",
+    date: "2026-05-21",
+    version: "產品更新",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Claude 新增安全合規工具整合",
+    summary: "IT 與安全團隊現可透過主流安全和合規平台整合統一治理 Claude 的使用，與管理其他企業應用程式的方式相同。",
+    body: {
+      kind: "feature",
+      description: "2026-05-21，Anthropic 宣布 Claude 現在支援更多安全與合規工具整合：\n\n• IT 與安全團隊可透過主流安全及合規平台的整合，以統一方式治理 Claude 的使用\n• 使用與管理技術堆疊中其他應用程式相同的治理流程\n• 協助企業在部署 Claude 時符合既有的安全政策與合規要求",
+      links: [
+        { label: "Claude 產品 Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "code-with-claude-london-2026-05-20",
     date: "2026-05-20",
     version: "社群活動",
