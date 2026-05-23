@@ -1,6 +1,58 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.149",
+    date: "2026-05-22",
+    version: "v2.1.149",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.149：/usage 分類明細、/diff 鍵盤捲動及多項修復",
+    summary: "/usage 新增分類費用明細（skills/subagents/plugins/MCP）；/diff 視圖支援鍵盤捲動；Markdown 支援 GFM 任務清單核取方塊；Enterprise 新增 allowAllClaudeAiMcps 設定；修復 PowerShell 權限繞過、git worktree 沙箱及 macOS find 指令耗盡系統檔案表問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.149（2026-05-22）帶來以下更新：\n\n**新功能**\n• **`/usage` 分類明細**：現在顯示 skills、subagents、plugins 及 MCP server 的個別費用分類\n• **`/diff` 鍵盤捲動**：詳細視圖支援方向鍵、j/k、PgUp/PgDn、Space、Home/End 捲動\n• **GFM 任務清單**：Markdown 現在渲染 `- [ ] todo` / `- [x] done` 核取方塊\n• **Enterprise 設定**：新增 `allowAllClaudeAiMcps` 管理設定\n\n**Bug 修復**\n• 修復 PowerShell 使用內建 `cd` 函數可繞過權限提示的安全問題\n• 修復 git worktree 沙箱寫入允許清單問題\n• 修復 `find` 指令在大型目錄下耗盡 macOS 系統檔案表的問題\n• 各項 UI 及權限修復",
+      links: [
+        { label: "github/claude-code/v2.1.149", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.149", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "project-glasswing-update-2026-05-22",
+    date: "2026-05-22",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Project Glasswing 初步更新：發現逾萬個高危漏洞",
+    summary: "Anthropic 發布 Project Glasswing 初步成果報告，AI 輔助安全測試已發現超過 10,000 個高或嚴重嚴重性漏洞，Cloudflare 與 Mozilla 等合作夥伴已回報顯著成效。",
+    body: {
+      kind: "feature",
+      description: "2026-05-22，Anthropic 發布 Project Glasswing 初步更新，主要成果如下：\n\n• **規模**：AI 輔助安全測試已在廣泛使用的軟體系統中發現超過 10,000 個高或嚴重嚴重性漏洞\n• **Cloudflare**：內部測試發現約 2,000 個 bug，包含 400 個高或嚴重嚴重性漏洞，且誤報率低於傳統人工測試\n• **Mozilla**：在 Firefox 150 測試中修復 271 個漏洞，效果優於使用 Claude Opus 4.6 的早期測試\n• **部分合作夥伴**回報 bug 發現率提升超過 10 倍\n• **未來計劃**：Anthropic 表示將與美國及盟友政府等重要夥伴擴大合作範圍，並在開發出更強保護機制後計劃普及 Mythos 級別模型",
+      links: [
+        { label: "Project Glasswing 官方頁面", href: "https://www.anthropic.com/glasswing", kind: "doc" },
+        { label: "Benzinga 報導", href: "https://www.benzinga.com/markets/private-markets/26/05/52759147/anthropics-project-glasswing-finds-more-than-10000-critical-bugs-expands-to-additional-pa", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.148",
+    date: "2026-05-22",
+    version: "v2.1.148",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.148：修復 Bash 工具退出碼 127 回歸問題",
+    summary: "修復 v2.1.147 引入的回歸：Bash 工具對每個指令都回傳退出碼 127 的問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.148（2026-05-22）修復 v2.1.147 引入的回歸問題：\n\n• **問題**：Bash 工具對部分使用者的每個指令都回傳退出碼 127（command not found）\n• **原因**：v2.1.147 更新引入的回歸\n• **修復**：恢復正確的退出碼行為",
+      links: [
+        { label: "github/claude-code/v2.1.148", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.148", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.147",
     date: "2026-05-21",
     version: "v2.1.147",
