@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.150",
+    date: "2026-05-23",
+    version: "v2.1.150",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.150：內部基礎設施改善",
+    summary: "本版本僅包含內部基礎設施改善，無使用者可見的功能變更。",
+    body: {
+      kind: "feature",
+      description: "v2.1.150（2026-05-23）：內部基礎設施改善，本版本無使用者可見的功能或行為變更。",
+      links: [
+        { label: "github/claude-code/v2.1.150", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.150", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.149",
     date: "2026-05-22",
     version: "v2.1.149",
