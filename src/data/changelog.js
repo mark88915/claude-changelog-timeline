@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-korea-seoul-2026-05-26",
+    date: "2026-05-26",
+    version: "官方公告",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Anthropic 任命韓國代表董事，首爾辦公室即將開幕",
+    summary: "Anthropic 任命 KiYoung Choi 擔任韓國法人代表，首爾辦公室即將開幕，成為亞太第三個辦公室；韓國 Claude Code 週活躍用戶四個月成長六倍。",
+    body: {
+      kind: "feature",
+      description: "2026-05-26，Anthropic 宣布任命 KiYoung Choi 擔任韓國法人代表，並計劃在首爾開設辦公室：\n\n• 首爾辦公室將成為 Anthropic 亞太地區第三個辦公室（繼東京和班加羅爾之後）\n• 韓國用戶在全球排名前五，無論總使用量或人均使用量均表現亮眼\n• Claude Code 在韓國的週活躍用戶在四個月內成長六倍\n• 此舉與韓國政府將 AI 列為國家戰略產業的方向一致",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "chris-olah-pope-leo-encyclical-2026-05-25",
+    date: "2026-05-25",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Chris Olah 出席梵蒂岡教宗通諭發表，呼籲 AI 全球道德監督",
+    summary: "Anthropic 共同創辦人 Chris Olah 受邀於梵蒂岡出席教宗 Leo XIV 通諭「Magnifica humanitas」發表，強調 AI 發展需要外部問責與宗教社會參與。",
+    body: {
+      kind: "feature",
+      description: "2026-05-25，Anthropic 共同創辦人 Chris Olah 受邀出席梵蒂岡，在教宗 Leo XIV 第一份通諭「Magnifica humanitas：人工智慧時代保護人類」的發表會上演說：\n\n• 強調 AI 實驗室面臨商業與地緣政治壓力，需要來自這些壓力之外的獨立監督\n• 指出 AI 模型是在人類思想與語言上「生長」出來的，其內部結構映射出人類神經科學與情感狀態\n• 呼籲確保 AI 利益惠及全球而非集中在少數富裕國家\n• 邀請宗教組織、公民社會、學者和政府認真參與 AI 倫理討論",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/chris-olah-pope-leo-encyclical", kind: "doc" },
+        { label: "CNN 報導", href: "https://www.cnn.com/2026/05/25/europe/pope-leo-ai-encyclical-magnifica-humanitas-intl", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.150",
     date: "2026-05-23",
     version: "v2.1.150",
