@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.152",
+    date: "2026-05-27",
+    version: "v2.1.152",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.152：/code-review --fix 直接修改工作目錄、/reload-skills 及 Auto mode 改善",
+    summary: "/code-review --fix 可將審查結果直接套用至工作目錄；/simplify 呼叫 /code-review --fix；新增 /reload-skills 指令；MessageDisplay hook；Auto mode 取消強制選擇加入；Vim 模式 NORMAL 下 / 開啟反向歷史搜尋；Thinking summaries 最短顯示 3 秒。",
+    body: {
+      kind: "feature",
+      description: "v2.1.152（2026-05-27）帶來以下更新：\n\n**代碼審查**\n• `/code-review --fix` 現在可直接將修改套用到工作目錄，呈現可重用性、簡化與效率建議\n• `/simplify` 指令現在呼叫 `/code-review --fix`\n\n**Skills 與指令**\n• Skills 和 slash commands 可在 frontmatter 設定 `disallowed-tools`，暫時移除工具\n• 新增 `/reload-skills` 指令，無需重啟即可重新掃描 skills 目錄\n• `SessionStart` hook 可設定 session 標題（`hookSpecificOutput.sessionTitle`）\n\n**Session 管理**\n• 新增 `MessageDisplay` hook 事件，可轉換或隱藏助手訊息文字\n• Auto mode 不再需要選擇加入同意\n\n**模型與備援**\n• 當主要模型找不到時，Claude Code 切換到 `--fallback-model` 繼續工作階段\n• 新增 `pluginSuggestionMarketplaces` 管理設定，管理員可允許清單中的 plugin 市集\n\n**UI/UX 改善**\n• Vim 模式：NORMAL 模式下 `/` 開啟反向歷史搜尋\n• Thinking summaries 最短顯示 3 秒，以 Markdown 渲染，上限 10 行\n• 修復長時間 session 的終端機樣式退化問題\n• 修復 Markdown 表格渲染及工具結果連結處理",
+      links: [
+        { label: "github/claude-code/v2.1.152", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.152", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-korea-seoul-2026-05-26",
     date: "2026-05-26",
     version: "官方公告",
