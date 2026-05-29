@@ -1,6 +1,58 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-opus-4-8",
+    date: "2026-05-28",
+    version: "Claude Opus 4.8",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Opus 4.8 正式發布：更聰明、更誠實、動態工作流程",
+    summary: "Claude Opus 4.8 正式發布，Agentic coding 分數從 64.3% 升至 69.2%，比 Opus 4.7 少 4 倍讓代碼缺陷通過未標記；Fast mode 便宜 3 倍；新增動態工作流程；預告 Claude Mythos 數週內廣泛發布。",
+    body: {
+      kind: "feature",
+      description: "2026-05-28，Anthropic 發布 Claude Opus 4.8，帶來以下重要更新：\n\n**效能提升**\n• Agentic coding 分數：64.3% → 69.2%\n• 多學科工具推理：54.7% → 57.9%\n• 知識工作分數：1753 → 1890\n• 比 Opus 4.7 少 4 倍讓代碼缺陷通過未標記\n• Super-Agent 基準測試中唯一完成所有案例的模型\n\n**定價與可用性**\n• 定價同 Opus 4.7：輸入 $5/M token、輸出 $25/M token\n• Fast mode（2.5 倍速）：輸入 $10/M、輸出 $50/M（比 4.7 便宜 3 倍）\n• API model ID：`claude-opus-4-8`\n• 可在 Claude Pro/Max/Team/Enterprise、Claude Platform、AWS、Google Cloud、Microsoft Foundry 使用\n\n**新功能**\n• 動態工作流程（Dynamic Workflows）：可在 Claude Code 中協調數百個並行代理\n• Messages API 新增支援在訊息陣列中插入 system 條目\n• claude.ai 新增努力控制（Effort Control）：Faster/Smarter 滑桿\n\n**Claude Mythos 預告**\n• Anthropic 表示 Mythos 等級模型將在數週內廣泛發布\n• 目前僅在有限的網路安全使用場景提供 Claude Mythos Preview",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/claude-opus-4-8", kind: "doc" },
+        { label: "Claude Opus 4.8 模型頁", href: "https://www.anthropic.com/claude/opus", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.154",
+    date: "2026-05-28",
+    version: "v2.1.154",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.154：Opus 4.8 預設、動態工作流程、Fast mode 降價",
+    summary: "Opus 4.8 成為預設模型並啟用高努力模式；新增動態工作流程（Dynamic Workflows）可協調百個並行代理；Fast mode 降至 2x 費率換 2.5 倍速度；背景 Session 支援 shell 指令；Plugin 可設 defaultEnabled: false；多項 bug 修復。",
+    body: {
+      kind: "feature",
+      description: "v2.1.154（2026-05-28）帶來以下更新：\n\n**Opus 4.8 整合**\n• Opus 4.8 成為預設模型，自動啟用高努力模式（`/effort xhigh`）\n• Fast mode 降至 2x 費率換 2.5 倍速度（相比 Opus 4.7 大幅降價）\n• Lean system prompt 現在成為所有模型預設值（Haiku/Sonnet/Opus 4.7 及更早版本除外）\n\n**動態工作流程**\n• 新增 Dynamic Workflows：向 Claude 請求建立工作流程，可在背景協調數十至數百個代理\n• 使用 `/workflows` 查看工作流程執行記錄\n\n**CLI 改善**\n• 背景 Session：輸入 `! <command>` 以背景 session 執行 shell 指令\n• `/logout` 現在正確登出而非建立背景 session\n• 背景控制（`←←`）現在支援 Bedrock、Vertex、Foundry\n• Chrome 整合：透過 `/chrome` → 「Select browser…」選擇連線的瀏覽器\n• `/effort` 滑桿標籤從「Speed/Intelligence」改為「Faster/Smarter」\n\n**Plugin 與 MCP 更新**\n• Plugin 可在 `plugin.json` 宣告 `defaultEnabled: false`，透過 `/plugin` 啟用\n• Plugin Discover 分頁現在標注與當前目錄相關的建議 plugin\n• Stdio MCP server 收到 `CLAUDE_CODE_SESSION_ID` 和 `CLAUDECODE=1` 環境變數\n\n**Bug 修復**\n• 修復 `rm -rf $HOME/` 結尾斜線的危險路徑封鎖\n• 修復 $TMPDIR 在沙箱/非沙箱 Bash 之間不一致的問題\n• 修復 claude agents 中文字難以閱讀的問題\n• 修復背景代理完成通知導致上下文提前耗盡\n• 修復子代理繞過 worktree 隔離保護的問題\n• 修復 macOS 上孤立的 claude --bg-pty-host 進程佔用 100% CPU",
+      links: [
+        { label: "github/claude-code/v2.1.154", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.154", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.153",
+    date: "2026-05-28",
+    version: "v2.1.153",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.153：Git LFS skipLfs、claude agents 自動補全、/model 預設儲存",
+    summary: "新增 skipLfs 選項跳過 Git LFS 下載；claude agents 自動補全現在建議原生 slash commands 和技能；/model 儲存選擇為新 session 預設；多項背景 session 和 MCP server 修復。",
+    body: {
+      kind: "feature",
+      description: "v2.1.153（2026-05-28）帶來以下更新：\n\n**Git 整合**\n• 新增 `skipLfs` 選項至 GitHub/git plugin 市集來源，可跳過 clone/update 時的 Git LFS 下載\n\n**CLI 改善**\n• claude agents 自動補全現在建議原生 slash commands 和 bundled skills\n• `/model` 指令現在將選擇儲存為新 session 的預設值\n• 當 npm global install 無法自動更新時，顯示一次性通知\n• Status line 指令現在收到 `COLUMNS` 和 `LINES` 環境變數，可依終端機寬度調整輸出\n\n**macOS 改善**\n• macOS 背景代理現在在「隱私權與安全性」中顯示為「Claude Code」，且升級後保留權限授予\n\n**Bug 修復**\n• 修復背景 session、MCP server 和 Windows PowerShell 相關問題",
+      links: [
+        { label: "github/claude-code/v2.1.153", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.153", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.152",
     date: "2026-05-27",
     version: "v2.1.152",
