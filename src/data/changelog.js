@@ -1,6 +1,61 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.157",
+    date: "2026-05-29",
+    version: "v2.1.157",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.157：Plugin 自動載入、claude plugin init、代理設定改善",
+    summary: ".claude/skills 目錄 Plugin 自動載入、新增 claude plugin init 指令、/plugin 自動補全、claude agents 支援 settings.json agent 欄位、多項 bug 修復（WSL 圖片、VS Code 貼上等）。",
+    body: {
+      kind: "feature",
+      description: "v2.1.157（2026-05-29）帶來以下更新：\n\n**Plugin 系統**\n• `.claude/skills` 目錄中的 Plugin 現在自動載入，無需透過 marketplace\n• 新增 `claude plugin init <name>` 指令，可在 `.claude/skills` 中快速建立新 Plugin\n• 新增 `/plugin` 參數自動補全（子指令、已安裝 Plugin 名稱、marketplace Plugin）\n\n**代理與 Worktree**\n• `claude agents`：dispatched sessions 現在遵從 `settings.json` 中的 `agent` 欄位，可用 `--agent <name>` 覆蓋\n• `EnterWorktree` 現在可在 session 中途切換 Claude 管理的 worktrees\n• Claude 管理的 worktrees 完成後保持解鎖，方便手動清理\n\n**Bug 修復**\n• 修復零位元組或損壞圖片讓請求崩潰的問題（現在轉為文字佔位符）\n• 修復 auto/bypass-permissions 模式下出現沙箱網路權限提示\n• 修復背景代理 worktrees 在 30 天保留掃描後被孤立\n• 修復休眠/喚醒後背景 session 重連不報告正確日期\n• 修復 tmux 中 copy-on-select 無法到達系統剪貼板\n• 修復 `--resume` 不報告仍在執行中的背景子代理\n• 修復 `/model` 選擇器顯示錯誤的「有較新版本」提示\n• 修復批准 managed-settings 安全對話框後終端機凍結\n• 修復在 VS Code/Cursor/Windsurf 中右鍵貼上複製剪貼板\n• 修復 WSL 圖片貼上問題，新增 Windows 檔案總管拖放支援\n\n**其他**\n• `/terminal-setup` 現在在整合終端機中停用 GPU 加速以防止亂碼\n• 移除「bash 指令將在沙箱中執行」啟動橫幅\n• 新增「Workflow keyword trigger」設定防止提示中的「workflow」觸發動態工作流程",
+      links: [
+        { label: "github/claude-code/v2.1.157", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.157", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.156",
+    date: "2026-05-29",
+    version: "v2.1.156",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.156：緊急修復 Opus 4.8 thinking blocks API 錯誤",
+    summary: "緊急修復在使用 Claude Opus 4.8 時，thinking blocks 被修改導致 API 呼叫失敗的問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.156（2026-05-29）緊急修復：\n\n• 修復在使用 Claude Opus 4.8 時，thinking blocks 被修改導致 API 錯誤的問題\n• Opus 4.8 的 thinking blocks 具有不可修改的限制，舊版邏輯未正確處理此情況，導致 API 呼叫失敗",
+      problem: "使用 Claude Opus 4.8 時，若 thinking blocks 被修改，會導致 API 呼叫失敗並返回錯誤",
+      rootCause: "Opus 4.8 的 thinking blocks 不可被修改，但舊版邏輯未正確遵守此限制",
+      fix: "修正 thinking blocks 的處理邏輯，確保在 Opus 4.8 下不修改 thinking blocks",
+      links: [
+        { label: "github/claude-code/v2.1.156", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.156", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "api-platform-aws-managed-agents-2026-05-29",
+    date: "2026-05-29",
+    version: "API 更新",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Claude Platform on AWS：Managed Agents 完整功能上線",
+    summary: "Claude Managed Agents 的 webhooks、多代理協作及自建沙箱現已在 Claude Platform on AWS 可用，並新增 AnthropicSelfHostedEnvironmentAccess 受管 IAM 策略。",
+    body: {
+      kind: "feature",
+      description: "2026-05-29，Anthropic 宣布 Claude Managed Agents 的三項主要功能現已在 Claude Platform on AWS 上全面支援：\n\n• **Webhooks**：可訂閱 Managed Agents 的 session 和 vault 生命週期事件通知\n• **多代理協作（Multiagent orchestration）**：支援複雜的多代理任務協調編排\n• **自建沙箱（Self-hosted sandboxes）**：允許在自己控制的環境中執行代理工具，並連接私有 MCP 服務，兼顧企業安全邊界\n\n**新增 IAM 支援**\n• 新增對應的 IAM actions\n• 提供 `AnthropicSelfHostedEnvironmentAccess` 受管策略，簡化 AWS 環境中的權限管理",
+      links: [
+        { label: "Claude Platform on AWS 文件", href: "https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws", kind: "doc" },
+        { label: "IAM Actions 參考", href: "https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-opus-4-8",
     date: "2026-05-28",
     version: "Claude Opus 4.8",
