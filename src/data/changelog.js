@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.158",
+    date: "2026-05-30",
+    version: "v2.1.158",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.158：Auto mode 擴展至 Bedrock、Vertex 和 Foundry",
+    summary: "Auto mode 現已在 Bedrock、Vertex 和 Foundry 上支援 Opus 4.7 和 Opus 4.8，透過設定 CLAUDE_CODE_ENABLE_AUTO_MODE=1 環境變數啟用。",
+    body: {
+      kind: "feature",
+      description: "v2.1.158（2026-05-30）：\n\n• Auto mode 現已在 Bedrock、Vertex 和 Foundry 上支援 Claude Opus 4.7 和 Opus 4.8\n• 設定環境變數 `CLAUDE_CODE_ENABLE_AUTO_MODE=1` 即可啟用\n• 此功能讓使用第三方雲端平台的用戶也能享受 Auto mode 的智能任務處理能力",
+      links: [
+        { label: "github/claude-code/v2.1.158", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.158", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.157",
     date: "2026-05-29",
     version: "v2.1.157",
