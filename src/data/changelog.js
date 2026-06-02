@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ipo-sec-filing-2026-06-01",
+    date: "2026-06-01",
+    version: "公司公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 向 SEC 機密遞交 S-1，正式啟動 IPO 程序",
+    summary: "Anthropic 於 2026 年 6 月 1 日機密遞交 S-1 至 SEC，目標估值 1.75–1.8 兆美元，最高可能籌資 750 億美元，最早或於 2026 年 10 月上市。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 正式向美國證券交易委員會（SEC）機密遞交 S-1 草稿，啟動 IPO 程序。\n\n主要細節：\n• 機密遞交日期：2026 年 6 月 1 日\n• 目標估值：1.75–1.8 兆美元\n• 計畫最高籌資：750 億美元（若實現，將是史上最大 IPO 之一）\n• 預計上市時間：最早 2026 年 10 月\n• 聘請 Wilson Sonsini 律師事務所（曾協助 Google 2004 年 IPO）協助上市準備\n\n背景：Anthropic 於機密申請前完成 H 輪融資，以 9650 億美元估值籌得 650 億美元，年化營收達 470 億美元。Claude 現為全球最廣泛使用的 AI 助理之一。",
+      links: [
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html", kind: "doc" },
+        { label: "Anthropic 官方新聞", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.158",
     date: "2026-05-30",
     version: "v2.1.158",
