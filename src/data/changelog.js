@@ -1,6 +1,59 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "project-glasswing-expansion-2026-06-02",
+    date: "2026-06-02",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Project Glasswing 擴展至 15+ 國 150+ 機構，Claude Mythos 協助偵測關鍵基礎設施漏洞",
+    summary: "Anthropic 將 Project Glasswing 擴展至全球 15+ 個國家約 150 個新組織，含 Okta、Samsung、SK Hynix、NATO 及 ENISA，利用 Claude Mythos 偵測電力、醫療、通訊等關鍵基礎設施的零日漏洞。",
+    body: {
+      kind: "feature",
+      description: "2026-06-02，Anthropic 宣布 Project Glasswing 大幅擴展：\n\n• 新加入約 150 個組織，遍及澳洲、加拿大、法國、德國、義大利、瑞士、荷蘭、西班牙、比利時、瑞典、印度、日本、紐西蘭及南韓等 15+ 國\n• 涵蓋電力、水力、醫療、通訊及硬體等關鍵基礎設施領域\n• 重要夥伴包括：Okta、Samsung、SK Hynix、SK Telecom、NATO、歐盟網路安全局（ENISA）\n• Anthropic 表示多數參與機構若遭攻擊，受影響人數將超過 1 億\n• 核心技術為 Claude Mythos，Anthropic 目前最強大的模型，可在數週內識別數千個零日漏洞\n\n背景：Project Glasswing 於 2026 年 4 月初以 50 個合作夥伴（含美國政府）啟動；OpenAI 亦推出競品 GPT-5.5-Cyber 進行測試。",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/", kind: "doc" },
+        { label: "Anthropic 官方新聞", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "api-platform-advisor-refusal-2026-06-02",
+    date: "2026-06-02",
+    version: "API 更新",
+    category: "enh",
+    area: "performance",
+    product: "claude",
+    title: "Platform API：advisor tool 支援 max_tokens、refusal 請求不再計費",
+    summary: "advisor tool 新增 max_tokens 參數可限制輸出上限以降低延遲；API 請求因 stop_reason: \"refusal\" 且無任何輸出時不再向用戶收費。",
+    body: {
+      kind: "feature",
+      description: "2026-06-02，Claude Platform API 推出兩項更新：\n\n**advisor tool max_tokens 支援**\n• advisor tool 定義中新增 `tools[].max_tokens` 欄位\n• 可限制顧問模型每次呼叫的最大輸出 token 數\n• 適用於不需要完整長度回應的工作流，可顯著降低延遲與輸出 token 費用\n• 詳見文件：Capping advisor output\n\n**refusal 請求不再計費**\n• 當 API 請求因安全機制觸發返回 `stop_reason: \"refusal\"` 且 Claude 未生成任何輸出時，該請求不再計費\n• 有助於使用安全過濾的工作流降低意外費用",
+      links: [
+        { label: "advisor tool 文件", href: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool", kind: "doc" },
+        { label: "API Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.161",
+    date: "2026-06-02",
+    version: "v2.1.161",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.161：OTEL 標籤、agents 進度顯示、並行工具呼叫修復、Linux 剪貼板改善",
+    summary: "OTEL_RESOURCE_ATTRIBUTES 值作為 metric 標籤、claude agents 顯示 done/total 進度、/mcp 折疊未使用連接器、並行 Bash 失敗不取消同批呼叫、Linux 剪貼板支援 wl-copy/xclip/xsel，以及多項 bug 修復。",
+    body: {
+      kind: "feature",
+      description: "v2.1.161（2026-06-02）更新內容：\n\n**新功能與改善**\n• `OTEL_RESOURCE_ATTRIBUTES` 值現在作為 metric datapoints 的標籤，可依自訂維度（team、repo 等）切分使用量\n• `claude agents` 行在展開詳情前顯示 `done/total`，讓任務扇出進度一目了然\n• `/mcp` 將未使用的 claude.ai 連接器折疊在「顯示未使用連接器」列後方\n• 並行工具呼叫：同批中失敗的 Bash 命令不再取消其他仍在執行的呼叫\n• Linux 全螢幕模式剪貼板改善，新增 `wl-copy`、`xclip`、`xsel` 支援\n\n**Bug 修復**\n• 修復 `/effort` 對話框、workflow 動畫、prompt 關鍵字光暈不遵守「減少動態效果」設定\n• 修復 `forceLoginOrgUUID`/`forceLoginMethod` managed-settings 阻擋第三方 provider session\n• 修復背景子代理輸出污染 `claude -p` 的 stdout\n• 修復 `/usage-credits` 在 Team 和 Enterprise 管理員重新登入問題\n• 修復 git worktrees 中 `/autofix-pr` 出現「無法在預設分支執行」錯誤\n• 多項 OpenTelemetry、MCP、workflow agent 及渲染效能修復",
+      links: [
+        { label: "github/claude-code/v2.1.161", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.161", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ipo-sec-filing-2026-06-01",
     date: "2026-06-01",
     version: "公司公告",
