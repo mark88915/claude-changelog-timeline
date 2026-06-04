@@ -1,6 +1,57 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.162",
+    date: "2026-06-03",
+    version: "v2.1.162",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.162：agents --json waitingFor 欄位、/effort 持久化確認、Slash 補全填入提示框、Remote Control 頁尾顯示",
+    summary: "claude agents --json 新增 waitingFor 欄位顯示阻塞原因、/effort 確認持久化為預設、Slash 指令自動補全改為填入提示框再按 Enter 執行、遠端控制改為永久頁尾 pill、Windsurf 更名 Devin Desktop，以及多項 Bug 修復。",
+    body: {
+      kind: "feature",
+      description: "v2.1.162（2026-06-03）更新內容：\n\n**新功能與改善**\n• `claude agents --json` 新增 `waitingFor` 欄位，顯示等待中工作階段的阻塞原因（如權限提示）\n• 明確列出 `--tools` Grep/Glob 時，在原生建構版本提供專用搜尋工具\n• `/effort` 指令現在確認所選等級是否持久化為新工作階段的預設\n• Slash 指令自動補全改為將指令填入提示框，按 Enter 才執行\n• 遠端控制（Remote Control）改為顯示為永久頁尾 pill，附帶工作階段連結\n• 將 Windsurf 更名為 Devin Desktop（出現在 `/ide`、`/terminal-setup`、`/scroll-speed` 選單）\n\n**Bug 修復**\n• 修復設定目錄為唯讀時的靜默啟動卡頓（改為使用記憶體設定啟動）\n• 修復 WebFetch 權限規則未套用於內建預批准網域\n• 修復 Windows 權限規則不匹配反斜線路徑或大小寫變體路徑\n• 修復 Esc 中斷在 stream-json/SDK 工作階段起始時被靜默丟棄\n• 修復 MCP 每伺服器 timeout 設定值低於 1000ms 被截斷為 1 秒\n• 修復 LSP workspaceSymbol 操作不返回結果（現接受 query 參數）\n• 修復 claude agents 狀態文字在 60-120 欄時截斷；現使用完整終端機寬度\n• 修復 claude agents 各種問題：附加彈跳、Ctrl+V 貼上圖片失敗、背景化後遺失對話\n• 修復傳送失敗的回覆遺失問題（現在排隊等下次工作階段啟動時傳送）\n• 改善背景服務啟動與更新驗證，等待端點安全掃描完成",
+      links: [
+        { label: "github/claude-code/v2.1.162", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.162", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-partner-network-services-track-2026-06-03",
+    date: "2026-06-03",
+    version: "官方公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Claude Partner Network 推出服務軌道（Services Track）與夥伴中心（Partner Hub）",
+    summary: "Anthropic 推出三級服務軌道（Select、Preferred、Global Premier）與 Partner Hub 入口，協助企業找到合格的 Claude 服務夥伴；自 3 月啟動以來已逾 40,000 家企業申請、10,000+ 顧問取得認證。",
+    body: {
+      kind: "feature",
+      description: "2026-06-03，Anthropic 宣布 Claude Partner Network 新增服務軌道（Services Track）與夥伴中心（Partner Hub）：\n\n**服務軌道三級制度**\n• **Select**：需 10 位 Claude 認證實踐者、2 個上線客戶部署、1 份公開客戶背書\n• **Preferred**：需 100 位認證實踐者、15 個活躍客戶部署、3 份公開背書\n• **Global Premier**：需 1,000 位認證實踐者、跨 3 個以上地區的 100 個客戶部署、15 份公開背書，並須有具名高層主管支持的聯合業務計畫\n\n**Partner Hub**\n• 夥伴可即時查看自己在計畫要求中的進度\n• 企業客戶可依據專案規模找到最合適的服務夥伴\n• 晉級每年處理兩次（1/1 及 7/1），2026 年首年額外增設 10/1 審核\n\n**背景**\n• 自 2026 年 3 月啟動以來，已有逾 40,000 家企業申請，超過 10,000 位顧問取得 Claude 認證",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/services-track-partner-hub", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "ai-cyber-threats-mitre-report-2026-06-03",
+    date: "2026-06-03",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 與 MITRE 合作發布《一年份 AI 啟用網路威脅地圖》研究報告",
+    summary: "Anthropic 與 MITRE 攜手分析過去一年 AI 啟用網路威脅的模式，記錄新型攻擊手法並提供防禦建議，作為強化 Claude 安全性的政策參考依據。",
+    body: {
+      kind: "feature",
+      description: "2026-06-03，Anthropic 發布政策研究報告《What we learned mapping a year's worth of AI-enabled cyber threats》，與 MITRE 合作完成：\n\n• 分析過去一年中 AI 如何被用於網路攻擊\n• 記錄新興攻擊模式與手法\n• 提供防禦策略建議\n• 作為 Anthropic 持續強化 Claude 安全性的政策參考依據",
+      links: [
+        { label: "Anthropic 官方新聞", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "project-glasswing-expansion-2026-06-02",
     date: "2026-06-02",
     version: "官方公告",
