@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.163",
+    date: "2026-06-04",
+    version: "v2.1.163",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.163：版本範圍管理設定、/plugin list 指令、/btw 複製快捷鍵、Hook additionalContext、背景 Session 自動更新",
+    summary: "新增 requiredMinimumVersion/requiredMaximumVersion 管理設定、/plugin list 指令、/btw 的「c」複製快捷鍵、Stop/SubagentStop hook 可回傳 additionalContext、背景 session 自動升版，以及多項 Bug 修復。",
+    body: {
+      kind: "feature",
+      description: "v2.1.163（2026-06-04）更新內容：\n\n**新功能與改善**\n• 新增 `requiredMinimumVersion` 與 `requiredMaximumVersion` 管理設定，Claude Code 版本超出允許範圍時拒絕啟動並引導使用者至核准版本\n• 新增 `/plugin list` 指令，可列出已安裝的插件，並支援 `--enabled`/`--disabled` 過濾選項\n• `/btw` 新增「c」快捷鍵，可將原始 Markdown 回答複製到剪貼板並保留格式\n• `Stop` 與 `SubagentStop` hook 現可回傳 `hookSpecificOutput.additionalContext`，提供 Claude 回饋並繼續執行而不觸發 hook 錯誤\n• Skills 新增 `\\$` 跳脫語法，可在指令內容中於數字前插入字面 `$` 字元\n• stdio MCP 伺服器於 `--resume` 時現可接收與 hook/Bash 相同的 `CLAUDE_CODE_SESSION_ID`\n• 背景 agent sessions 現在自動在背景更新至新版 Claude Code，開啟 session 時不再需要等待更新\n\n**Bug 修復**\n• 修復 `claude -p` 在背景指令未結束時無限掛起（背景 shell 現在於 stdin 關閉後約 5 秒停止）\n• 修復 `claude -p` 在 Bedrock/Vertex/Foundry 且 `CI=true` 但無 Anthropic API key 時出現「ANTHROPIC_API_KEY required」錯誤\n• 修復在 bazel 及 EDR 保護的 Go 工作流程中，`$TMPDIR` 被錯誤覆蓋導致 Bash 指令失敗\n• 修復 Windows 上 session-env 目錄具唯讀屬性或位於 OneDrive 內時出現「EEXIST: file already exists」錯誤\n• 修復組織管理的權限規則在 settings fetch 於啟動期間完成時，整個 session 未套用的問題\n• 修復背景 session 在 Claude Code 更新後重新附加時遺失執行中任務\n• 修復以 Esc 退出 agent view 時的終端機錯位與多秒掛起\n• 修復背景任務 chip 上的停止按鈕在底層程序已結束時未清除\n• 修復貼上操作後鍵盤輸入無回應（終端機丟棄結束標記時）\n• 修復 hook `if: \"Bash(...)\"` 條件在包含 `$()` 或 `$VAR` 的任意 Bash 指令上錯誤觸發\n• 修復主目錄路徑的 deny 規則（如 `Read(~/Desktop/**)`) 無法阻擋使用 `$HOME` 參照的 Bash 指令\n• 修復關閉 /mcp、/plugins 等面板對話後，轉錄中出現多餘「(no content)」行",
+      links: [
+        { label: "github/claude-code/v2.1.163", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.163", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.162",
     date: "2026-06-03",
     version: "v2.1.162",
