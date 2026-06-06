@@ -1,6 +1,80 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.165",
+    date: "2026-06-05",
+    version: "v2.1.165",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.165：Bug 修復與穩定性改善",
+    summary: "本次更新專注於錯誤修復與可靠性提升，無新增功能。",
+    body: {
+      kind: "bug",
+      problem: "多項穩定性問題影響日常使用。",
+      rootCause: "詳見 GitHub 提交紀錄 feabcc3。",
+      fix: "更新至 v2.1.165 即可獲得修復。",
+      description: "v2.1.165（2026-06-05）更新內容：\n\n• Bug 修復與穩定性改善",
+      links: [
+        { label: "github/claude-code/v2.1.165", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.165", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "when-ai-builds-itself-2026-06-05",
+    date: "2026-06-05",
+    version: "官方公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Anthropic 發表《When AI Builds Itself》報告：Claude 撰寫 80% 程式碼，呼籲建立 AI 暫停機制",
+    summary: "Anthropic 報告指出 Claude 在 2026 年 5 月撰寫超過 80% 的 Anthropic 程式碼、工程師生產力提升 8 倍，並首次公開呼籲各國建立可驗證的遞迴自我改進 AI 暫停機制。",
+    body: {
+      kind: "feature",
+      description: "2026-06-05，Anthropic 發表《When AI Builds Itself》報告（由 Marina Favaro 與 Jack Clark 共同撰寫）：\n\n**主要發現**\n• Claude 在 2026 年 5 月撰寫了超過 80% 合併至 Anthropic 程式庫的程式碼（2025 年 2 月 Claude Code 推出前僅個位數百分比）\n• Q2 2026 典型工程師每天合併程式碼量達 2024 年的 8 倍\n• Claude Mythos Preview 在程式碼優化任務上達到約 52 倍加速\n• Claude 在開放式程式設計問題的成功率達 76%（六個月內上升 50 個百分點）\n• Claude 在研究判斷上超越人類建議的比例達 64%\n\n**政策呼籲**\n• Anthropic 首次公開呼籲各國建立可驗證的國際機制，以便在必要時暫停前沿 AI 開發\n• 表示若其他前沿實驗室在可驗證條件下同意，願意放慢或暫停開發步伐",
+      links: [
+        { label: "Anthropic Institute 報告", href: "https://www.anthropic.com/institute/recursive-self-improvement", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-action-security-2026-06-05",
+    date: "2026-06-05",
+    version: "安全公告",
+    category: "bug",
+    area: "security",
+    product: "claude-code",
+    title: "Claude Code GitHub Action 間接提示注入漏洞修補（CVSS 7.8）",
+    summary: "安全研究員發現 Claude Code GitHub Action 存在間接提示注入漏洞，允許惡意 GitHub Issue 劫持公開儲存庫；已於 claude-code-action v1.0.94+ 修復。",
+    body: {
+      kind: "bug",
+      problem: "bot 偵測機制錯誤信任所有名稱結尾為 [bot] 的帳號，任何人均可建立 GitHub App 觸發攻擊，透過植入惡意 GitHub Issue 實施間接提示注入，存取敏感環境變數與憑證。",
+      rootCause: "bot 偵測邏輯過於寬鬆，Action 預設權限過廣（涵蓋程式碼、Issue、PR、Workflow）。",
+      fix: "更新至 claude-code-action v1.0.94 或更新版本。",
+      description: "2026-06-04～05，安全研究員 RyotaK 揭露 Claude Code GitHub Action 中的間接提示注入漏洞（CVSS v4.0: 7.8）：\n\n**攻擊方式**\n• 攻擊者建立惡意 GitHub Issue，植入隱藏指令，Claude 會執行這些指令\n• 可存取 `/proc/self/environ` 等敏感檔案，取得環境變數與憑證\n• 影響所有使用 claude-code-action 的公開儲存庫\n\n**修復措施**\n• 更新至 claude-code-action v1.0.94+\n• Anthropic 通報後 4 天內完成修補並頒發 bug bounty",
+      links: [
+        { label: "The Hacker News 報導", href: "https://thehackernews.com/2026/06/claude-code-github-action-flaw-let-one.html", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "code-with-claude-tokyo-2026-06-05",
+    date: "2026-06-05",
+    version: "活動公告",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "Code w/ Claude 東京開發者大會（2026-06-05～06）",
+    summary: "Anthropic 於東京舉辦 Code w/ Claude 開發者大會，Day 1 主題演講與分組工作坊全程直播，6 月 11 日另有延伸場次。",
+    body: {
+      kind: "feature",
+      description: "2026-06-05～06，Anthropic 於東京舉辦 Code w/ Claude 開發者大會：\n\n• 為 2026 年系列活動第二站（繼舊金山、倫敦之後）\n• Day 1 主題演講與分組工作坊全程直播\n• 展示 Claude 最新功能，包括 Managed Agents、Proactive Workflows 等\n• 2026-06-11 將舉辦延伸場次（Tokyo Extended），面向獨立開發者與早期創業者",
+      links: [
+        { label: "Code w/ Claude Tokyo 官方頁面", href: "https://claude.com/code-with-claude/tokyo", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.163",
     date: "2026-06-04",
     version: "v2.1.163",
