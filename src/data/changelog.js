@@ -1,6 +1,63 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.168",
+    date: "2026-06-06",
+    version: "v2.1.168",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.168：Bug 修復與穩定性改善",
+    summary: "本次更新專注於錯誤修復與可靠性提升，無新增功能。",
+    body: {
+      kind: "bug",
+      problem: "多項穩定性問題影響日常使用。",
+      rootCause: "詳見 GitHub 提交紀錄 7228175。",
+      fix: "更新至 v2.1.168 即可獲得修復。",
+      description: "v2.1.168（2026-06-06）更新內容：\n\n• Bug 修復與穩定性改善",
+      links: [
+        { label: "github/claude-code/v2.1.168", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.168", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.167",
+    date: "2026-06-06",
+    version: "v2.1.167",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.167：Bug 修復與穩定性改善",
+    summary: "本次更新專注於錯誤修復與可靠性提升，無新增功能。",
+    body: {
+      kind: "bug",
+      problem: "多項穩定性問題影響日常使用。",
+      rootCause: "詳見 GitHub 提交紀錄 c1b75cb。",
+      fix: "更新至 v2.1.167 即可獲得修復。",
+      description: "v2.1.167（2026-06-06）更新內容：\n\n• Bug 修復與穩定性改善",
+      links: [
+        { label: "github/claude-code/v2.1.167", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.167", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.166",
+    date: "2026-06-06",
+    version: "v2.1.166",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.166：fallbackModel 備用模型、Deny 規則 Glob 支援、跨 Session 安全加強、思考關閉控制",
+    summary: "新增 fallbackModel 設定（最多三個備用模型）、deny 規則支援 glob 萬用字元、強化跨 session 訊息傳遞安全、MAX_THINKING_TOKENS=0 可關閉預設思考模型的思考功能，以及多項 Bug 修復。",
+    body: {
+      kind: "feature",
+      description: "v2.1.166（2026-06-06）更新內容：\n\n**新功能與改善**\n• 新增 `fallbackModel` 設定，可配置最多三個備用模型，於主要模型過載或無法使用時依序嘗試；`--fallback-model` flag 現也適用於互動 session\n• deny 規則的工具名稱位置新增 glob 萬用字元支援（`\"*\"` 可封鎖所有工具）；allow 規則拒絕非 MCP glob；未知工具名稱於啟動時發出警告\n• 跨 session 訊息傳遞安全強化：透過 `SendMessage` 中繼的訊息不再具備使用者權限，接收方拒絕中繼的權限請求，auto 模式封鎖跨 session 權限請求\n• `MAX_THINKING_TOKENS=0`、`--thinking disabled` 及每模型思考切換，現可關閉 Claude API 上預設會思考的模型之思考功能（第三方供應商不受影響）\n• Claude Code 現在於 API 回傳非預期不可重試錯誤時，自動在備用模型上重試一次（auth、rate-limit、request-size、transport 錯誤仍立即顯示）\n• `claude update` 在下載前會先宣告目標版本，不再靜默執行\n• `claude agents`：於清單中輸入 URL 現可篩選首個提示包含該 URL 的 session\n\n**Bug 修復**\n• 修復 session 中不可處理的圖片反覆出現「image could not be processed」錯誤及額外 token 用量\n• 修復後端於 worker 啟動登錄期間中斷時，遠端 session 永久卡住的問題\n• 修復 JetBrains IDE 終端（IntelliJ、PyCharm、WebStorm 等）在 2026.1+ 上的閃爍問題\n• 修復在使用 Kitty 鍵盤協議的終端機（WezTerm、Ghostty、kitty）中 Shift+非 ASCII 字元（如 Shift+ä → Ä）被丟棄的問題\n• 修復 Windows 上 PowerShell 指令驗證在被終止程序的子程序持有輸出管道時偶爾超時掛起\n• 修復 macOS 上 daemon 結束後孤立的 `claude --bg-pty-host` 程序佔用 100% CPU\n• 修復語音模式在切換 `/voice` 後需重新 `/login` 才能清除過期 auth 的問題\n• 修復管理設定中無效條目靜默停用其餘有效政策的問題\n• 修復管理設定 `allowedMcpServers`/`deniedMcpServers` 與 `${VAR}` 參照不匹配的問題\n• 修復背景 agent session 在 git worktree 崩潰循環「No conversation found」的問題\n• 修復串流時 Ctrl+O 轉錄視圖中重複出現思考文字\n• 修復在遠端 session 內執行 `/doctor` 時顯示矛盾的「Not inside a remote session」\n• 修復在 `claude agents` 派送和回覆輸入中輸入多行提示時，游標卡在第一行末尾\n• 修復在不支援 Unicode 的終端機上，任務清單中背景 agent 列之間出現空行",
+      links: [
+        { label: "github/claude-code/v2.1.166", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.166", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.165",
     date: "2026-06-05",
     version: "v2.1.165",
