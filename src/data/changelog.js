@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.169",
+    date: "2026-06-08",
+    version: "v2.1.169",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.169：安全模式、/cd 指令、停用內建技能",
+    summary: "新增 --safe-mode 旗標停用所有自訂化以便排錯、/cd 指令移至新工作目錄、disableBundledSkills 設定，並修復多項 Bug。",
+    body: {
+      kind: "feature",
+      description: "v2.1.169（2026-06-08）更新內容：\n\n**新功能與改善**\n• 新增 `--safe-mode` 旗標與 `CLAUDE_CODE_SAFE_MODE` 環境變數，可停用所有自訂化設定（CLAUDE.md、插件、技能、hooks、MCP 伺服器）以便排錯\n• 新增 `/cd` 指令，可將 session 移至新工作目錄而不中斷提示緩存\n• 新增 `disableBundledSkills` 設定與 `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` 環境變數，可隱藏內建技能與斜線命令\n• 恢復 Vertex/Foundry 的預設 5 分鐘閒置逾時，避免無限期掛起\n• `/workflows` 現可在對話進行中立即開啟\n\n**Bug 修復**\n• 修復長輸入行中 Up/Down 鍵跳過換行列的問題\n• 修復企業 MCP 政策（allowedMcpServers/deniedMcpServers）在重新連線、IDE 設定及首次安裝後不生效的問題\n• 修復 macOS 使用 claude.ai 憑證登入的使用者在 session 啟動時約 30-50ms 的 UI 卡頓\n• 修復 Windows 上 `claude -p` 在技能掃描時速度緩慢的問題（v2.1.161 引入的 regression）\n• 修復 Remote Control 在 session 恢復後卡在「reconnecting」狀態的問題\n• 修復 Windows 啟動時出現 Git Credential Manager 彈出視窗\n• 修復重新附加至遠端 session 時過時的權限提示重複出現\n• 修復 `claude agents --json` 省略封鎖/派送 session 的問題\n• 修復背景 agent 忽略專案層級設定環境變數的問題\n• 修復 MCPB 插件緩存在 Windows 上被無效化的問題\n• 修復插件 `.in_use` PID 鎖定檔案無限累積的問題\n• 修復不受信任的專案設定繞過 OTEL 用戶端憑證信任確認的問題\n• 減少回應串流與動畫期間的 CPU 使用率\n• 改善 TaskCreate 可靠性並自動修復格式錯誤的輸入",
+      links: [
+        { label: "github/claude-code/v2.1.169", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.169", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.168",
     date: "2026-06-06",
     version: "v2.1.168",
