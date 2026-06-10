@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "fable-5",
+    date: "2026-06-09",
+    version: "claude-fable-5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Fable 5 & Mythos 5 正式發布",
+    summary: "首款公開的 Mythos 級模型 Claude Fable 5 正式上線，支援 100 萬 token 上下文，定價 $10/M 輸入、$50/M 輸出，內建安全分類器；Claude Mythos 5 同步發布，僅限 Project Glasswing 合作夥伴。",
+    body: {
+      kind: "feature",
+      description: "Claude Fable 5 是 Anthropic 首款公開發布的 Mythos 級模型，於 2026 年 6 月 9 日正式上線。\n\n**模型 ID**\n• Claude Fable 5：`claude-fable-5`\n• Claude Mythos 5：`claude-mythos-5`（僅限 Project Glasswing 合作夥伴）\n\n**能力亮點**\n• 上下文視窗：100 萬 token（預設），每次請求最多輸出 128k token\n• 能力超越所有先前公開發布的模型，在軟體工程、知識工作、視覺及科學研究等領域表現卓越\n• 可自主執行更長時間的任務（long-horizon agentic work）\n\n**定價**\n• 輸入：$10 / 百萬 token\n• 輸出：$50 / 百萬 token（約為 Opus 4.8 價格的兩倍）\n\n**安全機制（Fable 5 限定）**\n• 內建安全分類器，針對 cybersecurity、生物化學、蒸餾嘗試等高風險查詢自動回退至 Opus 4.8\n• 拒絕請求時 API 返回 HTTP 200 + `stop_reason: \"refusal\"`（而非錯誤）\n• 超過 95% 的 session 完全由 Fable 5 自身回應（不觸發回退）\n• 資料留存要求：30 天（不支援零資料留存設定）\n\n**思考模式**\n• 採自適應思考（Adaptive Thinking），始終開啟，不可停用\n• 可透過 `effort` 參數控制思考深度\n• 原始思考鏈不返回；可設 `display: \"summarized\"` 獲得摘要版思考內容\n\n**API 新功能**\n• 支援 `fallbacks` 參數（Beta），讓 API 自動在備用模型重試被拒絕的請求\n• 支援 `task-budgets-2026-03-13` header（Beta）、memory tool、context editing、compaction、vision\n\n**訂閱方案**\n• 2026/6/9 至 6/22：Pro、Max、Team、Enterprise 方案免費試用\n• 6/22 起須使用方案用量額度\n\n**可用平台**\n• Claude API、Claude Platform on AWS、Amazon Bedrock、Vertex AI、Microsoft Foundry",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/claude-fable-5-mythos-5", kind: "doc" },
+        { label: "Claude API Docs - Fable 5 介紹", href: "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/06/09/anthropic-released-claude-fable-5-its-most-powerful-model-publicly-days-after-warning-ai-is-getting-too-dangerous/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.170",
+    date: "2026-06-09",
+    version: "v2.1.170",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.170：引入 Claude Fable 5 支援與 Session 轉錄修復",
+    summary: "Claude Code v2.1.170 引入 Claude Fable 5（Mythos 級模型）支援，並修復從 VS Code 整合終端機啟動時 session 未儲存轉錄的問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.170（2026-06-09）更新內容：\n\n**新功能**\n• 引入 Claude Fable 5：Anthropic 首款公開的 Mythos 級模型，需更新至 v2.1.170 才能使用\n\n**Bug 修復**\n• 修復從 VS Code 整合終端機啟動，或任何繼承了 Claude Code 環境變數的 shell 啟動時，session 未儲存轉錄且不出現在 `--resume` 清單的問題",
+      links: [
+        { label: "github/claude-code/v2.1.170", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.170", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.169",
     date: "2026-06-08",
     version: "v2.1.169",
