@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.172",
+    date: "2026-06-10",
+    version: "v2.1.172",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.172：子代理遞迴生成、Bedrock 區域自動偵測、插件市場搜尋",
+    summary: "子代理可遞迴生成子代理（最多 5 層）、Amazon Bedrock 自動從 ~/.aws 讀取 AWS 區域、新增插件市場搜尋列，並修復多項 Bug 及降低閒置 CPU 使用率。",
+    body: {
+      kind: "feature",
+      description: "v2.1.172（2026-06-10）更新內容：\n\n**新功能**\n• 子代理現可遞迴生成子代理，最深支援 5 層巢狀\n• Amazon Bedrock 現可從 `~/.aws` 設定檔自動讀取 AWS 區域（當 `AWS_REGION` 未設定時），`/status` 會顯示區域來源\n• `/plugin` 插件市場新增搜尋列\n• `claude_code.lines_of_code.count` OTEL 指標新增 `model` 屬性\n\n**Bug 修復**\n• 修復使用 1M context 且無使用額度時 session 永久卡住的問題（現自動壓縮至標準限制以下）\n• 修復對話中含多張圖片時反覆出現「image could not be processed」錯誤\n• 修復 Agents 視圖在 worker 回覆後仍顯示繁忙轉圈長達 30 秒的問題\n• 修復背景代理從預熱 worker 讀取錯誤專案設定的問題\n• 修復巢狀代理停止後背景子代理仍顯示為「active」的問題\n• 修復 `/model` 選擇器在 Bedrock 上顯示不可用模型的問題\n• 修復 `WebFetch` 權限中萬用字元域名規則（`*.example.com`）無法匹配子域名的問題\n• 修復遠端 session 中記憶體回溯無法找到掛載的團隊記憶體儲存的問題\n• 修復工作流程驗證拒絕含 `Date.now()`/`Math.random()` 腳本的問題\n\n**效能與 UX 改善**\n• 降低閒置 CPU 使用率（狀態標籤不再以 5Hz 重新渲染）\n• 改善長對話效能（減少不必要的訊息轉換）\n• 改善 Claude in Chrome 工具載入（改為批次呼叫）\n• 停用對滑鼠追蹤支援不佳的 Windows 主控台的滑鼠追蹤\n• Remote Control 頁尾指示縮短為「/rc active」\n• VSCode：修復 PowerShell 工具呼叫顯示為 JSON 而非正確指令格式",
+      links: [
+        { label: "github/claude-code/v2.1.172", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.172", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "fable-5",
     date: "2026-06-09",
     version: "claude-fable-5",
