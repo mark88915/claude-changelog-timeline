@@ -1,6 +1,61 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "dxc-partnership",
+    date: "2026-06-11",
+    version: "官方公告",
+    category: "new",
+    area: "enterprise",
+    product: "claude",
+    title: "DXC Technology 與 Anthropic 宣布多年全球策略聯盟",
+    summary: "DXC Technology 與 Anthropic 簽署多年全球合作協議，將 Claude 部署至銀行、航空、保險等關鍵任務企業系統，DXC 將訓練數萬名 Claude 認證工程師。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 11 日，DXC Technology 與 Anthropic 宣布多年全球策略聯盟，共同將 Claude 引入企業關鍵任務基礎設施。\n\n**合作重點**\n• DXC 成為 Claude Partner Network 的全球頂級合作夥伴之一\n• 目標是將 Claude 部署到 DXC 為全球最大銀行、航空公司、保險商、製造商及政府機構所運營的關鍵任務技術基礎設施\n• 初期聚焦領域：保險、網路安全與應用服務\n\n**工程師培訓計畫**\n• 從 DXC 現有人才中招募，透過 Anthropic Partner Academy 在 90 天內完成培訓與認證\n• 工程師將持續取得 Claude 存取權，並逐步提升設計、部署與治理 AI 系統的能力\n\n**已驗證的成果**\n• DXC 已將 Claude 作為旗艦產品 DXC OASIS 的主要開發工具，軟體交付速度提升約 10 倍\n• 超過 95% 的程式碼由 Claude 生成後再經人工審查\n• DXC OASIS 自 2026 年 4 月起已部署至逾 50 位客戶",
+      links: [
+        { label: "DXC 官方新聞稿", href: "https://dxc.com/newsroom/06112026-dxc-and-anthropic-announce-multi-year-global-alliance-to-bring-ai-into-mission-critical-enterprise-systems", kind: "doc" },
+        { label: "Anthropic 官網公告", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-corps",
+    date: "2026-06-11",
+    version: "官方公告",
+    category: "new",
+    area: "community",
+    product: "claude",
+    title: "Anthropic 推出 Claude Corps 全國研究員計畫",
+    summary: "Anthropic 宣布投入 1.5 億美元設立 Claude Corps，在 12 個月內將 1,000 名早期職涯人員派駐至全美逾 400 家非營利組織，協助推廣 AI 應用，薪資 8.5 萬美元/年。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 11 日，Anthropic 宣布推出 Claude Corps——一個全國性研究員計畫，旨在讓 AI 的效益廣泛惠及美國各地社區。\n\n**計畫規模**\n• 初始投入：1.5 億美元\n• 12 個月內，將 1,000 名研究員派駐至至少 400 家非營利組織\n• 研究員職位為全職、駐點（in-person）、為期 12 個月\n\n**申請條件**\n• 年滿 18 歲，工作經驗不足兩年\n• 無學歷門檻\n• 薪資：每年 8.5 萬美元 + 福利\n\n**培訓內容**\n• 密集初始訓練 + 每週 5 小時持續學習 Claude 使用技能\n\n**合作夥伴**\n• CodePath（雇主代理）\n• Social Finance（成效評估）\n\n**時間表**\n• 第一批（100 名）：申請截止 2026/7/17，2026 年 10 月開始\n• 後續批次：2027 年 1 月與 8 月開始，持續開放申請",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/claude-corps", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.173",
+    date: "2026-06-11",
+    version: "v2.1.173",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.173：修復 Fable 5 模型名稱正規化與 Windows 沙盒警告",
+    summary: "修復帶有 [1m] 後綴的 Fable 5 模型名稱未被正規化的問題，以及 Windows 上啟動時出現虛假「sandbox dependencies missing」警告的問題。",
+    body: {
+      kind: "bug",
+      problem: "Fable 5 模型名稱含 `[1m]` 後綴時未被正規化；Windows 啟動時出現不必要的沙盒警告。",
+      rootCause: "Fable 5 預設即包含 1M context，`[1m]` 後綴為冗餘資訊；Windows 沙盒設定檢測邏輯存在誤判。",
+      fix: "更新至 v2.1.173 後自動去除 `[1m]` 後綴；修復 Windows 沙盒依賴項目的啟動警告誤報。",
+      description: "v2.1.173（2026-06-11）更新內容：\n\n**Bug 修復**\n• 修復帶有 `[1m]` 後綴的 Fable 5 模型名稱未被正規化的問題（Fable 5 預設即支援 1M context，後綴現自動去除）\n• 修復 Windows 上當設定中啟用沙盒時，啟動時出現虛假「sandbox dependencies missing」警告的問題",
+      links: [
+        { label: "github/claude-code/v2.1.173", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.173", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.172",
     date: "2026-06-10",
     version: "v2.1.172",
