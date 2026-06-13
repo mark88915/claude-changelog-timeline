@@ -1,6 +1,75 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "tcs-partnership-2026-06-12",
+    date: "2026-06-12",
+    version: "官方公告",
+    category: "new",
+    area: "enterprise",
+    product: "claude",
+    title: "TCS 與 Anthropic 宣布全球頂級策略夥伴關係",
+    summary: "Tata Consultancy Services（TCS）加入 Claude Partner Network 成為全球頂級合作夥伴，將向 50,000 名員工部署 Claude，並在 56 個國家建立 Claude AI 業務部門，服務金融、醫療等受監管產業。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 12 日，Anthropic 宣布與 Tata Consultancy Services（TCS）建立全球頂級策略夥伴關係。\n\n**合作重點**\n• TCS 加入 Claude Partner Network 成為全球頂級合作夥伴\n• TCS 將透過企業授權向 50,000 名員工部署 Claude，涵蓋工程、財務、法律、行銷與銷售等職能\n• 在 56 個國家推廣 Claude 應用，優先服務金融服務、醫療保健、公共部門等受監管產業\n\n**業務部門**\n• TCS 將建立專屬 Claude AI 業務部門，提供 Claude 驅動的解決方案，並可提前取得 Claude 模型家族的存取權\n\n**具體應用**\n• 英國 Diligenta（TCS 旗下受 FCA 監管的壽險與退休金業務，服務逾 2,200 萬客戶）將使用 Claude 推動代理式流程轉型與客戶體驗提升\n• TCS 的 BFSI 產品與平台團隊也將使用 Claude Code 提升軟體工程與 IT 運營生產力",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/tcs-anthropic-partnership", kind: "doc" },
+        { label: "TCS 官方新聞稿", href: "https://www.tcs.com/who-we-are/newsroom/press-release/tcs-anthropic-launch-global-premier-partnership-drive-enterprise-ai-scaling", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-public-record-2026-06-12",
+    date: "2026-06-12",
+    version: "官方公告",
+    category: "new",
+    area: "community",
+    product: "claude",
+    title: "Anthropic 發布第一次 Public Record 公眾調查結果",
+    summary: "Anthropic 公布約 5.2 萬名美國人的 AI 態度調查：48% 最期待 AI 治癒疾病，64% 最擔心工作流失，僅 15% 信任 AI 公司自主決策，逾 70% 支持政府監管 AI。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 12 日，Anthropic 發布「Anthropic Public Record」系列的第一次調查結果，此調查於 2025 年 11-12 月對近 52,000 名美國人進行，涵蓋所有 50 州。\n\n**AI 的希望**\n• 48% 的美國人將「治癒癌症或阿茲海默症等疾病」列為對 AI 的最大期望之一\n• 36% 希望 AI 能幫助殘障人士\n• 23% 希望 AI 帶來科技進步或讓生活更輕鬆（並列第三）\n\n**AI 的恐懼**\n• 64% 最擔心 AI 造成的工作流失（在所有州均排名第一）\n• 56% 擔心認知依賴\n• 52% 擔心錯誤資訊\n\n**對 AI 公司的信任**\n• 僅 15% 的美國人信任 AI 公司自主做出開發決策（最低）\n• 43% 信任獨立專家\n• 逾 70% 支持政府在 AI 監管中扮演角色，且具跨黨派共識\n\n**使用習慣**\n• 約 6% 的美國人每天在工作與個人生活中同時使用 AI（以年輕、高學歷、科技導向族群為主）\n• 每日 AI 使用者對工作流失的擔憂（54%）明顯低於非使用者（70%）",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/anthropic-public-record", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.176",
+    date: "2026-06-12",
+    version: "v2.1.176",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.176：Session 標題語言化、Bedrock 快取改善與多項修復",
+    summary: "Session 標題改為對話語言自動生成；新增 footerLinksRegexes 頁尾設定；Bedrock 憑證快取依 Expiration 更新；修復 tmux SSH 剪貼板複製、Linux 沙盒 symlink 啟動、availableModels 執行及 Remote Control 多項 Bug。",
+    body: {
+      kind: "feature",
+      description: "v2.1.176（2026-06-12）更新內容：\n\n**新功能與改善**\n• Session 標題現以對話語言自動生成（可透過 `language` 設定固定語言）\n• 新增 `footerLinksRegexes` 設定，可透過用戶或企業管理設定在頁尾列新增正則表達式匹配的連結徽章\n• 改善 Bedrock 憑證快取：來自 `awsCredentialExport` 的憑證現快取至 `Expiration` 時間，而非固定 1 小時\n• 修復 `availableModels` 執行問題：別名模型選擇不再被 `ANTHROPIC_DEFAULT_*_MODEL` 環境變數重定向到被封鎖的模型；`/fast` 在切換會導致使用 allowlist 外模型時拒絕切換\n• 修復 Fable 5 在未啟用 Opus 4.8 的組織中自動模式失敗的問題（分類器現改為回退至最佳可用 Opus 模型）\n\n**Bug 修復**\n• 修復 hook `if` 條件對 Read/Edit/Write 工具路徑的匹配（`Edit(src/**)`, `Read(~/.ssh/**)`, `Read(.env)` 等模式現可正確匹配）\n• 修復 Linux 沙盒在 `.claude/settings.json` 是帶有絕對路徑目標的符號連結時無法啟動的問題\n• 修復 tmux over SSH 中 `/copy` 指令和滑鼠選取複製無法到達系統剪貼板的問題\n• 修復 Remote Control 在從 web/mobile 連線時靜默切換 session 模型的問題\n• 改善斷線通知，提供人類可讀的原因說明\n• 修復 `/cd` 和 worktree 移動後 git 分支報告不正確的問題\n• 改善以 PR URL 搜尋背景 session 的功能\n• 修復 Windows 代理視圖輸入文字游標問題\n• 修復 Windows 網路路徑在持久化狀態中的處理",
+      links: [
+        { label: "github/claude-code/v2.1.176", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.176", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.175",
+    date: "2026-06-12",
+    version: "v2.1.175",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.175：新增 enforceAvailableModels 企業管理設定",
+    summary: "新增 enforceAvailableModels 管理設定，啟用後 availableModels allowlist 同時限制預設模型選擇，防止用戶或專案設定擴展受管 allowlist。",
+    body: {
+      kind: "feature",
+      description: "v2.1.175（2026-06-12）更新內容：\n\n**新功能**\n• 新增 `enforceAvailableModels` 企業管理設定——啟用時，`availableModels` allowlist 同時限制預設模型的選擇；若預設模型會解析為不允許的模型，系統自動回退至 allowlist 中的第一個允許模型；用戶或專案設定無法擴展受管理的 `availableModels` 清單",
+      links: [
+        { label: "github/claude-code/v2.1.175", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.175", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "dxc-partnership",
     date: "2026-06-11",
     version: "官方公告",
