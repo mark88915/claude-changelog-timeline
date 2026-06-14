@@ -1,6 +1,29 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "fable-mythos-ban-2026-06-13",
+    date: "2026-06-13",
+    version: "官方公告",
+    category: "brk",
+    area: "security",
+    product: "claude",
+    title: "美國政府出口管制：暫停 Fable 5 與 Mythos 5 對外籍人士的存取",
+    summary: "美國政府以國家安全為由，於 6 月 12 日下達出口管制指令，要求 Anthropic 暫停 Fable 5 和 Mythos 5 對所有外籍人士的使用權限，實際上導致全體用戶均無法使用這兩款最先進的模型，其他模型不受影響。",
+    body: {
+      kind: "breaking",
+      description: "2026 年 6 月 12 日下午 5:21 ET，美國政府以國家安全為由向 Anthropic 下達出口管制指令，要求暫停所有外籍人士（包含 Anthropic 外籍員工）使用 Fable 5 和 Mythos 5 模型的權限。\n\n**影響範圍**\n• 為確保合規，Anthropic 必須對全體用戶停用 Fable 5 和 Mythos 5\n• 其他模型（包含 Claude Opus 4.8、Sonnet 4.6、Haiku 4.5）均不受影響\n\n**觸發原因**\n• 美國政府發現一個潛在越獄技術：透過請求模型分析並修復程式碼中的軟體漏洞來進行越獄\n• Anthropic 認為此屬「範圍有限的潛在越獄」，而非通用越獄技術，且同樣的漏洞存在於 OpenAI GPT-5.5 等其他主流模型\n\n**Anthropic 立場**\n• 服從指令，但強烈反對此決定\n• 認為 Anthropic 的安全防護措施遠優於任何已部署模型\n• 警告：若此標準適用於整個 AI 產業，將實質上阻止所有新前沿模型的部署\n• 呼籲政府採用「透明、公平、清晰且以技術事實為基礎的法定程序」",
+      migration: {
+        title: "替代方案",
+        text: "Fable 5 和 Mythos 5 停用期間，建議改用 Claude Opus 4.8（claude-opus-4-8）或其他可用模型。"
+      },
+      links: [
+        { label: "Anthropic 官方聲明", href: "https://www.anthropic.com/news/fable-mythos-access", kind: "doc" },
+        { label: "Bloomberg 報導", href: "https://www.bloomberg.com/news/articles/2026-06-13/anthropic-says-us-limits-foreign-access-to-fable-5-mythos-5", kind: "doc" },
+        { label: "The Hacker News 報導", href: "https://thehackernews.com/2026/06/us-orders-anthropic-to-suspend-fable-5.html", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "tcs-partnership-2026-06-12",
     date: "2026-06-12",
     version: "官方公告",
