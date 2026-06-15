@@ -1,6 +1,72 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "model-deprecation-2026-06-15",
+    date: "2026-06-15",
+    version: "API 更新",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "claude-sonnet-4-20250514 與 claude-opus-4-20250514 正式退役",
+    summary: "Anthropic 於今日正式停用原始 Claude 4.0 模型版本，API 呼叫 claude-sonnet-4-20250514 或 claude-opus-4-20250514 將返回錯誤，需分別遷移至 claude-sonnet-4-6 和 claude-opus-4-8。",
+    body: {
+      kind: "breaking",
+      description: "2026 年 6 月 15 日，Anthropic 正式退役兩款 Claude 4 原始版本：\n\n**退役模型**\n• `claude-sonnet-4-20250514` → 請升級至 `claude-sonnet-4-6`\n• `claude-opus-4-20250514` → 請升級至 `claude-opus-4-8`\n\n**影響**\n• 退役後對這些模型 ID 的所有 API 呼叫將立即返回錯誤，沒有緩衝期或自動轉移\n• 大多數情況下只需修改一行程式碼（更新 model 字串）即可完成遷移\n\n**不受影響**\n• 使用 claude-sonnet-4-6、claude-opus-4-8、claude-haiku-4-5 等最新版本的呼叫不受影響",
+      migration: {
+        title: "遷移步驟",
+        text: "將 model 參數中的 'claude-sonnet-4-20250514' 改為 'claude-sonnet-4-6'，或將 'claude-opus-4-20250514' 改為 'claude-opus-4-8'，測試輸出後部署即可。"
+      },
+      links: [
+        { label: "Anthropic 模型廢棄頁面", href: "https://platform.claude.com/docs/en/about-claude/model-deprecations", kind: "doc" },
+        { label: "Enterprise DNA 報導", href: "https://enterprisedna.co/resources/news/anthropic-claude-june-15-retirements-billing-2026/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "programmatic-credit-2026-06-15",
+    date: "2026-06-15",
+    version: "計費更新",
+    category: "brk",
+    area: "performance",
+    product: "claude",
+    title: "付費計畫程式化使用信用正式分離（今日生效）",
+    summary: "自今日起，付費 Claude 計畫的程式化呼叫（Agent SDK、claude -p、Claude Code GitHub Actions、第三方代理）從訂閱上限移至獨立每月信用額度：Pro $20、Max 5x $100、Max 20x $200，以完整 API 費率計量，不累積至下月。",
+    body: {
+      kind: "breaking",
+      description: "2026 年 6 月 15 日起，Anthropic 正式分離 Claude 付費計畫的互動式使用與程式化使用：\n\n**計費結構調整**\n• **互動式使用**（Claude.ai 聊天、終端機 Claude Code）：維持現有訂閱計畫上限，不變動\n• **程式化使用**（Agent SDK、`claude -p`、Claude Code GitHub Actions、第三方代理）：移至獨立每月信用額度\n\n**程式化信用額度（月費）**\n• Pro 計畫：$20\n• Max 5x 計畫：$100\n• Max 20x 計畫：$200\n\n**重要注意事項**\n• 以完整 API 費率計量，超出信用後按用量計費\n• 信用不累積至下個月（不滾動）\n• 此變更影響使用 API 程式化呼叫的開發者與企業用戶",
+      migration: {
+        title: "行動建議",
+        text: "檢查現有程式化呼叫的用量，評估是否需要升級至更高計畫層級，或改為直接使用 Anthropic API 並搭配適合的帳單方式。"
+      },
+      links: [
+        { label: "Cointelegraph 報導", href: "https://x.com/Cointelegraph/status/2054650608045482308", kind: "doc" },
+        { label: "Enterprise DNA 詳細說明", href: "https://enterprisedna.co/resources/news/anthropic-claude-june-15-retirements-billing-2026/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "fable-mythos-conflict-2026-06-14",
+    date: "2026-06-14",
+    version: "官方公告",
+    category: "brk",
+    area: "security",
+    product: "claude",
+    title: "Fable 5 與 Mythos 5 存取爭議升溫：美國政府與 Anthropic 公開對峙",
+    summary: "美國政府與 Anthropic 的衝突持續升溫：國防部長 Hegseth 公開表示「永久拒絕 Anthropic 進入國防部」，前 AI 顧問 Sacks 指控 Anthropic 拒絕配合安全調查，商務部長 Lutnick 正居中協商。",
+    body: {
+      kind: "breaking",
+      description: "2026 年 6 月 14 日（週六），美國政府與 Anthropic 之間的 Fable 5 與 Mythos 5 出口管制爭議持續升溫：\n\n**政府立場**\n• 國防部長 Pete Hegseth 在 X 上公開表示：「三個月前，我們將 @AnthropicAI 永久踢出我們的大樓」，並稱此決定每天都在被證明是正確的\n• 前 AI 顧問 David Sacks 指控 Anthropic 在一個「極具公信力的可信夥伴」提出安全疑慮後，拒絕處理相關安全問題\n\n**Anthropic 立場**\n• 知情人士表示，Anthropic 執行長 Dario Amodei 實際上願意與政府溝通，與 Sacks 的指控相矛盾\n• Anthropic 認為此次措施範圍異常廣泛——甚至限制持有綠卡的外籍人士——偏離了 Trump 政府對 AI 產業的一貫不干預立場\n\n**協商進展**\n• 商務部長 Howard Lutnick 正積極介入，與 Anthropic 協商解決方案\n• 所有其他 Anthropic 模型（Claude Opus 4.8 等）持續正常運作不受影響",
+      migration: {
+        title: "現況",
+        text: "Fable 5 與 Mythos 5 仍暫停存取中，請繼續使用 Claude Opus 4.8（claude-opus-4-8）作為替代方案，並關注 Anthropic 官方公告。"
+      },
+      links: [
+        { label: "Philadelphia Inquirer 報導（2026-06-14）", href: "https://www.inquirer.com/news/nation-world/anthropic-trump-administration-pentagon-fable-mythos-deny-foreign-access-amodei-lutnick-20260614.html", kind: "doc" },
+        { label: "Anthropic 官方聲明", href: "https://www.anthropic.com/news/fable-mythos-access", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "fable-mythos-ban-2026-06-13",
     date: "2026-06-13",
     version: "官方公告",
