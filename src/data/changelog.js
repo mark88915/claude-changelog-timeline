@@ -45,6 +45,23 @@ export const CHANGELOG = [
     }
   },
   {
+    id: "2.1.178",
+    date: "2026-06-15",
+    version: "v2.1.178",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.178：Tool 參數匹配語法、巢狀 .claude/ 目錄改善與多項修復",
+    summary: "新增 Tool(param:value) 權限規則語法支援萬用字元參數匹配；巢狀 .claude/ 目錄的技能與工作流程設定改以最近目錄優先；自動模式子代理生成前由分類器審查；修復 OOM 崩潰、子代理 401 錯誤、vim undo 合併、VSCode CJK IME 等多項 Bug。",
+    body: {
+      kind: "feature",
+      description: "v2.1.178（2026-06-15）更新內容：\n\n**新功能**\n• 新增 `Tool(param:value)` 權限規則語法，可匹配工具輸入參數並支援 `*` 萬用字元（例：`Agent(model:opus)` 可封鎖使用 Opus 的子代理）\n• 巢狀 `.claude/skills` 目錄中的技能現於工作目錄下自動載入；名稱衝突時以 `<dir>:<name>` 格式顯示以保留兩者\n• 巢狀 `.claude/` 目錄層級：代理、工作流程、輸出樣式設定改以最近的目錄優先；專案範圍的工作流程儲存目標為最近的 `.claude/workflows/`\n\n**改善**\n• 自動模式改善：子代理生成前由分類器審查，修補先前可繞過封鎖動作的安全漏洞\n• `/doctor` 指令：統一平面樹狀佈局、更清晰的狀態圖示、突出顯示指令名稱\n• 工作流程提示關鍵字：改為紫色閃光高亮，僅在明確短語（如「run a workflow」或「workflow:」）下觸發\n• Remote Control 錯誤：連線失敗顯示持續性紅色 /rc failed 頁尾指示器；「尚未啟用」錯誤現說明 gate、檢查失敗、過期授權或組織政策原因\n• `/bug` 指令：現要求填寫描述後才可提交；不再使用模型拒絕文字作為 GitHub Issue 標題\n\n**Bug 修復**\n• 修復過期 websocket/OAuth 檔案描述符環境變數導致的記憶體不足（OOM）崩潰\n• 修復 Chrome 中 Claude 在 OAuth Token 屬於不同帳號時靜默失敗\n• 修復巢狀技能使用目錄限定名稱時被權限提示封鎖\n• 修復子代理問題：逐字記錄現顯示工具結果與即時進度；子代理回合中發送的訊息不再被丟棄；Ctrl+B 背景化不再重啟\n• 修復 `claude agents` 工作者因自訂 API 閘道產生 401 Invalid bearer token 錯誤\n• 修復壓縮未遵守 `--fallback-model` 設定\n• 修復憑證刷新後過期快取請求設定導致的驗證錯誤\n• 修復背景 Session 在代理列表中永遠顯示「Working」\n• 修復 vim 模式 undo 合併指令而非逐步回退的問題\n• VSCode：修復 Esc 鍵關閉 CJK IME 候選視窗時誤取消 Claude 任務",
+      links: [
+        { label: "github/claude-code/v2.1.178", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.178", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "fable-mythos-conflict-2026-06-14",
     date: "2026-06-14",
     version: "官方公告",
