@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "agentic-coding-expertise-2026-06-16",
+    date: "2026-06-16",
+    version: "研究報告",
+    category: "new",
+    area: "community",
+    product: "claude-code",
+    title: "Anthropic 發布研究：代理式編程與專業知識的持久回報",
+    summary: "Anthropic 分析約 40 萬筆 Claude Code Session，發現使用者領域專業知識越強，Claude 每條指令完成的工作量越多；非軟體工程師的任務成功率與工程師幾乎相同；平均任務價值在 7 個月內提升約 25%。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 16 日，Anthropic 發布研究論文《Agentic coding and persistent returns to expertise》，基於 2025 年 10 月至 2026 年 4 月間約 40 萬筆 Claude Code Session 進行隱私保護分析。\n\n**主要發現**\n• **分工模式**：在典型 Session 中，使用者負責大部分計劃決策（做什麼），Claude 負責大部分執行決策（如何做）\n• **專業知識效益**：使用者帶入 Session 的領域專業知識越強，Claude 每條指令完成的工作量越多——專業知識創造了乘數效應\n• **跨職業成功率**：在編程任務上，幾乎所有主要職業的成功率（有驗證證據如通過測試或提交工作）均與軟體工程師相當\n• **任務複雜度提升**：7 個月內 debug 工作比例顯著下降，更複雜的高價值任務比例上升，平均任務價值提升約 25%\n• **使用成長**：擁有 coding agent 活動的 GitHub 專案比例自 2025 年底起翻倍，Claude Code 使用者平均每週使用工具 20 小時",
+      links: [
+        { label: "Anthropic 研究原文", href: "https://www.anthropic.com/research/claude-code-expertise", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.179",
+    date: "2026-06-16",
+    version: "v2.1.179",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.179：修復連線中斷、WSL2 滾輪、sandbox glob 效能等多項 Bug",
+    summary: "修復中途連線中斷時部分回應遺失問題、WSL2 下 Windows Terminal / VS Code 滑鼠滾輪失效、Linux sandbox glob 導致 Bash 工具描述過長，以及回饋問卷誤讀、歡迎頁 banner 重疊等問題，並改善遠端 Session 插件載入效能。",
+    body: {
+      kind: "bug",
+      description: "v2.1.179（2026-06-16）為 Bug 修復版本：\n\n**連線與串流修復**\n• 修復中途連線中斷：部分回應現在會保留而非顯示原始錯誤，spinner 不再卡在「running tool」狀態\n\n**平台相容性修復**\n• 修復 WSL2 下 Windows Terminal 和 VS Code 中的滑鼠滾輪捲動（v2.1.172 迴歸問題）\n\n**Sandbox 效能修復**\n• 修復 `denyRead`/`allowRead` glob 在大型目錄樹時導致 Bash 工具描述過長，造成 Linux Session 無法使用的問題\n\n**UI 修復**\n• 修復回饋問卷在 turn 完成後立即將單位數字回覆誤識別為 Session 評分的問題\n• 修復歡迎畫面重疊：每個 Session 現在最多只顯示一個促銷 banner\n• 修復鍵盤導航：Ctrl+O 現在可在查看子代理時正確顯示子代理的記錄；點擊提示輸入框可從子代理/頁尾面板正確回到焦點\n\n**遠端 Session 修復**\n• 修復背景任務在 turn 之間顯示為「仍在執行中」的問題\n• 改善遠端 Session 中的插件載入效能",
+      links: [
+        { label: "github/claude-code/v2.1.179", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.179", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "model-deprecation-2026-06-15",
     date: "2026-06-15",
     version: "API 更新",
