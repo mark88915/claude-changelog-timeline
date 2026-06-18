@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-seoul-office-2026-06-17",
+    date: "2026-06-17",
+    version: "官方公告",
+    category: "new",
+    area: "community",
+    product: "claude",
+    title: "Anthropic 首爾辦公室正式開幕，宣布多項韓國企業合作",
+    summary: "Anthropic 於 2026 年 6 月 17 日在首爾開設亞太區第三辦公室，由前 Snowflake Korea 總經理 KiYoung Choi 領導，並宣布與 NAVER、Samsung SDS、LG CNS、Nexon 等韓國科技企業及學術機構建立合作關係。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 17 日，Anthropic 正式在首爾開設辦公室，成為繼東京和班加羅爾之後的亞太區第三個據點。\n\n**領導團隊**\n• 由前 Snowflake Korea 總經理 KiYoung Choi 擔任駐韓代表董事\n\n**企業合作夥伴**\n• **NAVER**：在整個工程組織中全面部署 Claude Code\n• **Samsung SDS**：在三星電子推廣 Claude Cowork 與 Claude Code\n• **LG CNS**：在 LG 集團旗下企業導入 Claude\n• **Nexon**：將 Claude Code 用於線上遊戲開發\n• **Hanwha Solutions**：透過 AWS Bedrock 搭配韓國境內資料管控使用 Claude\n• **Channel Corp**：以 Claude 驅動旗下 Channel Talk 平台，服務 23 萬家以上企業\n\n**研究與非營利合作**\n• 提供 Claude 給 KAIST、高麗大學、延世大學、浦項科技大學等 60 位研究人員使用\n• 與 Good Neighbors Korea 合作，協助社工分析計畫成果、查詢社會福利法規",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem", kind: "doc" },
+        { label: "Korea Times 報導", href: "https://www.koreatimes.co.kr/business/tech-science/20260618/anthropic-opens-seoul-office-to-expand-ties-with-korean-ai-ecosystem", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.181",
+    date: "2026-06-17",
+    version: "v2.1.181",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.181：新增 /config 語法、Apple Events 支援、行動通知抑制及多項修復",
+    summary: "新增 /config key=value 語法可直接從提示設定任意選項；新增 sandbox.allowAppleEvents 與 CLAUDE_CLIENT_PRESENCE_FILE；Bun 升級至 1.4；長段落改為逐行串流；修復網路磁碟檔案截斷、macOS TUI 凍結、子代理深度限制等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.181（2026-06-17）帶來多項新功能與大量錯誤修復：\n\n**新功能**\n• `/config key=value` 語法：可直接從提示設定任意選項（支援互動模式、`-p` 旗標、Remote Control），例如 `/config thinking=false`\n• `sandbox.allowAppleEvents`：新的 opt-in 設定，允許 macOS 上的沙盒指令傳送 Apple Events\n• `CLAUDE_CLIENT_PRESENCE_FILE`：環境變數，在機器前工作時可抑制行動裝置推播通知\n• Bun 執行環境升級至 1.4\n\n**功能改善**\n• 長段落現改為逐行串流顯示，不再等到第一個換行才顯示\n• API 連線在思考中斷時現可自動重試\n• 子代理面板改善：閒置子代理 30 秒後自動隱藏，清單上限 5 列並支援捲動\n• MCP OAuth 瀏覽器頁面改為符合 Claude Code 視覺風格，授權成功後自動關閉\n\n**錯誤修復**\n• 修復自訂 `ANTHROPIC_BASE_URL` 與 Foundry 環境下的提示快取問題\n• 修復在網路磁碟與雲端同步資料夾上 Write/Edit 產生截斷檔案的問題\n• 修復 macOS 啟動迴歸與 Spotlight 重新索引時 TUI 凍結問題\n• 修復長時間閒置 Session 在 30 天清理時遺失歷史記錄\n• 修復子代理巢狀生成問題（現遵守 5 層深度限制）\n• 修復 `/recap` 在切換模型後立即使用舊模型的問題\n• 修復 AWS 憑證匯出刷新問題",
+      links: [
+        { label: "github/claude-code/v2.1.181", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.181", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "agentic-coding-expertise-2026-06-16",
     date: "2026-06-16",
     version: "研究報告",
