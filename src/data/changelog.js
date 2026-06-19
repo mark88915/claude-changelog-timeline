@@ -1,6 +1,57 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "apple-foundation-models-2026-06-18",
+    date: "2026-06-18",
+    version: "平台整合",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude 整合 Apple Foundation Models 框架，登陸 iOS 27 / macOS 27",
+    summary: "Claude 正式透過 Apple Foundation Models 框架在 iOS 27、iPadOS 27、macOS 27、visionOS 27 及 watchOS 27 上提供支援，開發者可於 Apple 生態系統中原生呼叫 Claude 能力。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 18 日，Claude 透過 Apple Foundation Models 框架整合至 Apple 最新作業系統平台。\n\n**支援平台**\n• iOS 27\n• iPadOS 27\n• macOS 27\n• visionOS 27\n• watchOS 27\n\n**功能說明**\n開發者可透過 Apple Foundation Models 框架在 Apple 裝置上直接使用 Claude 的語言與推理能力，無需額外設定即可與 Apple 生態系原生整合。",
+      links: [
+        { label: "科技媒體報導", href: "https://community.designtaxi.com/topic/31243-is-claude-anthropic-ai-down-june-18-2026/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "enterprise-mcp-connector-2026-06-18",
+    date: "2026-06-18",
+    version: "企業功能",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "企業版 MCP 連接器集中授權：Okta 整合、Zero-touch 使用者存取",
+    summary: "推出企業級 MCP 連接器集中授權機制，管理員透過 Okta 等身分提供者一次佈建後，使用者首次登入即可自動取得 MCP 連接器存取權限，目前支援 Asana、Atlassian、Canva、Figma、Granola、Linear、Supabase，Slack 即將推出。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 18 日，Anthropic 推出企業版 MCP 連接器集中授權功能，讓 IT 管理員可統一管理 Claude 的 MCP 整合存取。\n\n**核心特色**\n• **Zero-touch 設定**：管理員透過身分提供者（Identity Provider）佈建連接器後，終端使用者無需任何額外設定，首次登入即自動取得存取權\n• **Okta 優先整合**：首版以 Okta 作為主要支援的身分提供者\n• **統一涵蓋範圍**：集中授權適用於 Claude 聊天介面、Claude Code 及 Cowork，Team 與 Enterprise 方案均可使用\n\n**支援的 MCP 提供者**\n• Asana、Atlassian（Jira/Confluence）、Canva、Figma、Granola、Linear、Supabase\n• Slack（即將推出）",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://releasebot.io/updates/anthropic/claude", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-artifacts-2026-06-18",
+    date: "2026-06-18",
+    version: "Beta 功能",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "Claude Code Artifacts：Session 成果轉化為即時互動網頁",
+    summary: "Claude Code 新增 Artifacts 功能，可將 Session 工作成果（PR 摘要、事件時間軸、儀表板等）轉化為即時更新的可分享互動網頁，預設僅作者可見，可在組織內分享，含版本歷史管理。Beta 版適用於 Team 和 Enterprise 方案。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 18 日，Claude Code 推出 Artifacts Beta 功能，讓 Session 工作成果可以即時視覺化並分享。\n\n**主要功能**\n• **即時互動網頁**：Session 進行中的工作成果自動轉化為可互動的網頁，包含 PR 摘要、事件時間軸、Sprint 回顧、儀表板等形式\n• **即時同步更新**：網頁隨 Claude Code Session 進展即時更新，無需手動刷新\n• **隱私控制**：Artifacts 預設為私人（僅作者可見），可在組織已驗證成員間分享\n• **版本歷史**：提供版本歷史管理與 Artifact Gallery，方便瀏覽過往版本\n\n**適用計畫**\n• Team 和 Enterprise 方案（Beta 階段）",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://releasebot.io/updates/anthropic/claude", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-seoul-office-2026-06-17",
     date: "2026-06-17",
     version: "官方公告",
