@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.183",
+    date: "2026-06-19",
+    version: "v2.1.183",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.183：Auto Mode 安全強化、阻擋破壞性 Git 與基礎設施指令",
+    summary: "Auto mode 安全性提升：阻擋 git reset --hard、git checkout --、git clean -fd 等破壞性 Git 指令及 terraform/pulumi/cdk destroy 等基礎設施刪除指令（未明確要求時）；新增模型廢棄警告；修復子代理 WebSearch 失效、TUI 損毀、turn 只含思考區塊時無聲完成等多項 Bug。",
+    body: {
+      kind: "bug",
+      description: "v2.1.183（2026-06-19）以 Auto Mode 安全加固為核心，並包含多項重要 Bug 修復：\n\n**安全強化（Auto Mode）**\n• 阻擋下列破壞性 Git 指令（未明確要求時）：`git reset --hard`、`git checkout -- .`、`git clean -fd`、`git stash drop`\n• 阻擋 `git commit --amend`（當該 commit 非當前 Session 代理在本 Session 建立時）\n• 阻擋基礎設施刪除指令（未明確指定要刪除的 stack 時）：`terraform destroy`、`pulumi destroy`、`cdk destroy`\n\n**新功能**\n• 新增 `/config --help`：列出 `/config key=value` 語法可用的所有縮寫鍵\n• 新增模型廢棄警告：當請求的模型已廢棄或被自動升級至較新版本時，在 stderr（print mode）或代理 frontmatter 中顯示警告\n\n**UI 改善**\n• 調整 `/config` 切換行為：Enter 和 Space 均可更改設定；Esc 現在可儲存並關閉\n• 移除啟動時 logo 中的「setup issues」行（改用 `/doctor` 指令查看）\n\n**Bug 修復**\n• 修復子代理生成時 `thinking.disabled.display` 400 錯誤\n• 修復子代理中 WebSearch 回傳空結果\n• 修復啟用 native cursor 的 vim mode 下終端游標問題\n• 修復 Windows Terminal 在大量巢狀子代理負載下全螢幕 TUI 損毀\n• 修復 turn 只含 thinking blocks 時無聲完成（無可見輸出）\n• 修復 headless/SDK 模式下 MCP 認證資訊外露",
+      links: [
+        { label: "github/claude-code/v2.1.183", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.183", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "apple-foundation-models-2026-06-18",
     date: "2026-06-18",
     version: "平台整合",
