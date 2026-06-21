@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.185",
+    date: "2026-06-20",
+    version: "v2.1.185",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.185：改善串流延遲提示訊息與觸發時間",
+    summary: "串流停頓提示由「No response from API · Retrying in …」改為「Waiting for API response · will retry in …」，觸發閾值從 10 秒延長至 20 秒，讓使用者在 API 回應較慢時獲得更清楚的狀態說明。",
+    body: {
+      kind: "feature",
+      description: "v2.1.185（2026-06-20）針對 API 串流延遲提示進行 UX 改善：\n\n• **訊息文字更新**：將提示訊息從「No response from API · Retrying in …」改為「Waiting for API response · will retry in …」，措辭更準確反映實際狀態（等待中，而非無回應）\n• **觸發閾值延長**：靜默觸發閾值從 10 秒增加至 20 秒，減少短暫延遲時的誤報提示",
+      links: [
+        { label: "github/claude-code/v2.1.185", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.185", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.183",
     date: "2026-06-19",
     version: "v2.1.183",
