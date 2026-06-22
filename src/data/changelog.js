@@ -1,6 +1,27 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "fable5-plan-change-2026-06-22",
+    date: "2026-06-22",
+    version: "計費方式變更",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Fable 5 自 6/23 起不再納入訂閱方案，需改用 Usage Credits",
+    summary: "Claude Fable 5 在 Pro、Max、Team 及 Enterprise 方案的免費使用期於今日（6/22）截止，自明日（6/23）起需以 Usage Credits 計費（輸入 $10/百萬 token，輸出 $50/百萬 token）；Anthropic 表示容量充足後將重新納入訂閱方案。",
+    body: {
+      kind: "breaking",
+      description: "自 2026 年 6 月 23 日起，Claude Fable 5 不再包含於 Pro、Max、Team 及座席制 Enterprise 訂閱方案，使用者需改以 Usage Credits 支付 API 費率：\n\n• **輸入**：$10/百萬 token\n• **輸出**：$50/百萬 token\n\n此費率約為 Claude Opus 4.8 的兩倍（Opus 4.8 為 $3/$15/百萬 token）。Anthropic 表示待服務容量充足後將重新將 Fable 5 納入訂閱方案，並承諾提前通知異動。不希望使用 Usage Credits 的使用者可切換為 Opus 4.8 或 Sonnet 4.6。",
+      migration: {
+        title: "方案因應建議",
+        text: "評估是否申購 Usage Credits 繼續使用 Fable 5，或切換為 Opus 4.8（$3/$15/百萬 token）或 Sonnet 4.6 等替代模型。"
+      },
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/claude-fable-5-mythos-5", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.185",
     date: "2026-06-20",
     version: "v2.1.185",
