@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.186",
+    date: "2026-06-22",
+    version: "v2.1.186",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.186：MCP CLI 驗證指令、Bash 指令自動回應、/workflows 狀態篩選",
+    summary: "新增 `claude mcp login/logout` 指令可直接從 CLI 驗證 MCP 伺服器；Bash `!` 指令現觸發 Claude 自動回應（可停用）；/workflows 新增狀態篩選（按 f）；修復機器喚醒後串流失敗及背景 Session 記錄問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.186（2026-06-22）新增多項功能改善 MCP 整合與開發者工作流程：\n\n**新功能**\n• **MCP CLI 驗證**：新增 `claude mcp login <name>` 與 `claude mcp logout <name>` 指令，可在終端直接驗證 MCP 伺服器，無需進入互動式選單\n• **Bash 指令自動回應**：使用 `!` 執行 Bash 指令後，Claude 會自動分析輸出並回應；可透過設定 `\"respondToBashCommands\": false` 停用此行為\n• **/workflows 狀態篩選**：在 `/workflows` 代理詳細檢視中新增狀態篩選功能（按 `f` 鍵）\n• **/plugin Skills 分頁**：`/plugin` Installed 分頁新增「Skills」區段\n\n**Bug 修復**\n• 修復機器從休眠喚醒後串流請求失敗問題\n• 修復背景 Session 逾時記錄及多項 UI 顯示問題",
+      links: [
+        { label: "github/claude-code/v2.1.186", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.186", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "fable5-plan-change-2026-06-22",
     date: "2026-06-22",
     version: "計費方式變更",
