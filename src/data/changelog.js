@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-tag-2026-06-23",
+    date: "2026-06-23",
+    version: "Claude Tag",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "推出 Claude Tag：Slack 內建常駐 AI 隊友",
+    summary: "Anthropic 發布 Claude Tag 研究預覽版，讓 Claude 以常駐身份存在於 Slack 頻道中，支援跨對話持久記憶、環境感知主動推送通知，可被所有頻道成員以 @Claude 喚醒，適用於 Claude Enterprise 及 Team 方案。",
+    body: {
+      kind: "feature",
+      description: "Claude Tag（2026-06-23）是 Anthropic 推出的 Slack 整合產品，讓 Claude 以常駐 AI 隊友的形式存在於團隊頻道中：\n\n**核心功能**\n• **共享身份**：整個組織共用同一個 Claude 身份，所有成員輸入 @Claude 即可喚醒，並可接續他人半途而廢的任務\n• **持久記憶**：Claude Tag 保有跨對話的持久上下文，能記住進行中的專案、討論歷史與團隊工作流程，無需每次重新說明\n• **環境感知（Ambient）模式**：可設定為主動監控頻道活動，在相關事件發生時自動發送提醒或評論，也能追蹤被遺忘的待辦事項\n• **任務自動執行**：接到指令後 Claude 會將任務分解為多個步驟並自主完成，最終將結果發布回 Slack\n\n**可用性與安全性**\n• 以研究預覽版提供給 Claude Enterprise 及 Team 用戶（初期在 Slack 上發布）\n• 底層模型為 Claude Opus 4.8\n• 管理員可針對每個頻道精細控制 Claude Tag 可存取的工具與資料",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/", kind: "doc" },
+        { label: "Neowin 報導", href: "https://www.neowin.net/news/anthropic-introduces-claude-tag-a-new-ai-teammate-for-slack/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.187",
+    date: "2026-06-23",
+    version: "v2.1.187",
+    category: "enh",
+    area: "security",
+    product: "claude-code",
+    title: "v2.1.187：憑證安全保護、組織模型限制、多項 Bug 修復",
+    summary: "新增 sandbox.credentials 設定可阻擋沙盒指令讀取憑證檔案及敏感環境變數；新增組織層級模型限制；全螢幕模式支援滑鼠點選；修復 --resume 失敗、MCP 工具掛起、CJK 亂碼、VSCode 擴充無回應等多項 Bug。",
+    body: {
+      kind: "feature",
+      description: "v2.1.187（2026-06-23）著重安全性強化與 Bug 修復：\n\n**安全性**\n• 新增 `sandbox.credentials` 設定，可阻擋沙盒化指令讀取憑證檔案及秘密環境變數\n\n**組織管理**\n• 新增組織層級模型限制，在模型選擇器、`--model`、`/model` 及 `ANTHROPIC_MODEL` 中顯示「restricted by your organization's settings」提示\n\n**UI 改善**\n• 全螢幕模式下選單支援滑鼠點選操作\n• `/login` 新增「Claude Platform on AWS - refresh credentials」選項（需設定 awsAuthRefresh）\n\n**Bug 修復**\n• 修復 `--resume` 失敗並顯示「No conversation found」\n• 修復 `--json-schema` 及 workflow `agent({schema})` 結構化輸出無限循環問題\n• 修復遠端 MCP 工具呼叫掛起超過 5 分鐘（現在改以錯誤中止，可透過 `CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT` 設定逾時）\n• 修復韓文/CJK 文字在終端顯示為亂碼\n• 修復 `/update` 在 Remote Control 上掛起\n• 修復背景工作卡在「working」狀態\n• 修復在代理詳細檢視間切換後頻道連線中斷\n• 修復繼續大型 Session 時 VSCode 擴充套件無回應",
+      links: [
+        { label: "github/claude-code/v2.1.187", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.187", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.186",
     date: "2026-06-22",
     version: "v2.1.186",
