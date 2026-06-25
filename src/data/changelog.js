@@ -1,6 +1,58 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.191",
+    date: "2026-06-24",
+    version: "v2.1.191",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.191：新增 /rewind 指令、串流效能提升 37%、多項 Bug 修復",
+    summary: "新增 /rewind 可從 /clear 前的對話繼續；串流文字合併更新降低 CPU 約 37%；修復背景代理重啟、捲動跳動、MCP OAuth、vim 模式等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.191（2026-06-24）為 Claude Code 帶來效能提升與多項 Bug 修復：\n\n**新功能**\n• **`/rewind` 指令**：可從 `/clear` 前的對話狀態繼續（恢復對話歷史）\n\n**效能改善**\n• 串流回應期間 CPU 使用率降低約 37%（透過文字更新合併，每 100ms 批次處理）\n• 減少長時間 Session 中終端輸出快取造成的記憶體增長\n\n**Bug 修復**\n• 修復串流過程中閱讀早期輸出時捲動位置跳至底部\n• 修復被停止的背景代理重新復活\n• 修復組織政策停用 `/voice` 時的錯誤訊息顯示\n• 修復 Windows Terminal 中 `/login` URL 截斷\n• 修復全螢幕 Ghostty 模式下 Cmd+click 連結\n• 修復 `claude agents` 將斜線指令作為提示詞文字傳送\n• 修復勾點（hooks）逗號分隔的匹配條件未觸發\n• 修復 `/permissions` 對話框批准持久化失敗\n\n**UX 改善**\n• 沙盒網路權限對話框改為記住當前 Session 允許的主機\n• 改善 MCP 伺服器可靠性：增加暫時性錯誤重試邏輯\n• 改善 MCP OAuth：支援瀏覽器彈出視窗備用方案\n• MCP 404 錯誤訊息現顯示 URL",
+      links: [
+        { label: "github/claude-code/v2.1.191", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.191", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.190",
+    date: "2026-06-24",
+    version: "v2.1.190",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.190：Bug 修復與穩定性改善",
+    summary: "Bug 修復與整體穩定性改善。",
+    body: {
+      kind: "bug",
+      description: "v2.1.190（2026-06-24）：Bug 修復與整體穩定性改善。",
+      links: [
+        { label: "github/claude-code/v2.1.190", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.190", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "alibaba-distillation-2026-06-24",
+    date: "2026-06-24",
+    version: "安全事件",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 指控阿里巴巴以 2.5 萬詐欺帳號對 Claude 發起大規模蒸餾攻擊",
+    summary: "Anthropic 指控阿里巴巴旗下 Qwen AI 實驗室，透過約 25,000 個詐欺帳號，於 2026 年 4 月至 6 月對 Claude 發起「對抗性蒸餾」攻擊，共產生逾 2,880 萬次對話，已致函美國參議院銀行委員會並知會白宮。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 24 日，Anthropic 公開指控中國科技公司阿里巴巴旗下 Qwen AI 實驗室，透過大規模詐欺帳號對 Claude 發起「對抗性蒸餾（Adversarial Distillation）」攻擊：\n\n**攻擊規模**\n• 時間範圍：2026 年 4 月 22 日 至 6 月 5 日\n• 詐欺帳號數量：近 25,000 個\n• 對話總數：逾 2,880 萬次\n• 目標能力：Claude 軟體工程與代理推理能力\n\n**攻擊手法**\n對抗性蒸餾是一種以大量提示詞向先進模型「採集」推理模式與資料結構的技術，競爭者可藉此訓練自家 AI 模型，在無需投入鉅額研發成本的情況下獲得相似能力。\n\n**Anthropic 的回應**\n• 致函美國參議院銀行委員會（Tim Scott 及 Elizabeth Warren），定性此事件為「迄今規模最大的中國公司蒸餾攻擊」\n• 已通知白宮\n• 阿里巴巴尚未公開回應",
+      links: [
+        { label: "Bloomberg 報導", href: "https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/06/24/anthropic-alibaba-distillation-campaign.html", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-tag-2026-06-23",
     date: "2026-06-23",
     version: "Claude Tag",
