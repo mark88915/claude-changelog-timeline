@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "trusted-devices-2026-06-25",
+    date: "2026-06-25",
+    version: "受信任裝置",
+    category: "new",
+    area: "security",
+    product: "claude-code",
+    title: "Team/Enterprise 管理員可啟用遠端控制受信任裝置驗證",
+    summary: "Team 和 Enterprise 方案管理員可強制要求成員在遠端存取 Claude Code Session 前完成裝置驗證，提升遠端控制的安全性。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 25 日，Claude Code 新增「受信任裝置（Trusted Devices）」功能：\n\n**功能說明**\n• Team 及 Enterprise 方案管理員可啟用裝置驗證強制要求\n• 成員需先完成裝置驗證，才能遠端存取或控制本地 Claude Code Session\n• 功能文件記載於 Claude Code 說明文件的「Trusted Devices」章節\n\n**適用對象**\n• Claude Team 方案\n• Claude Enterprise 方案",
+      links: [
+        { label: "support.claude.com 發布說明", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.193",
+    date: "2026-06-25",
+    version: "v2.1.193",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.193：Auto Mode 分類強化、OpenTelemetry 回應日誌、Bash 路徑自動補全",
+    summary: "新增 autoMode.classifyAllShell 設定讓所有 Shell 指令通過自動模式分類器；Bash 模式（!）支援即時路徑自動補全；新增 claude_code.assistant_response OpenTelemetry 事件；修復模型切換、背景代理重新提示、MCP headersHelper 驗證多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.193（2026-06-25）為 Claude Code 帶來 Auto Mode 強化、可觀測性提升與多項 Bug 修復：\n\n**Auto Mode 改善**\n• 新增 `autoMode.classifyAllShell` 設定：將所有 Bash/PowerShell 指令通過自動模式分類器，而非僅限任意程式碼執行模式\n• 自動模式拒絕原因現顯示於 transcript、拒絕提示及 `/permissions` 最近拒絕記錄中\n\n**可觀測性**\n• 新增 OpenTelemetry 事件 `claude_code.assistant_response`（包含模型回應文字）\n• 預設已隱藏，可設定 `OTEL_LOG_ASSISTANT_RESPONSES=1` 啟用\n• 可設定 `OTEL_LOG_ASSISTANT_RESPONSES=0` 強制停用\n\n**使用者體驗**\n• Bash 模式（`!`）新增即時檔案路徑自動補全\n• MCP 伺服器需要驗證時，啟動時顯示提示（導向 `/mcp`）\n• 改善 `/add-dir` 訊息，當目錄已為工作目錄時提示更明確\n\n**Bug 修復**\n• 修復 `/model` 及客戶端資料閘控 UI 在登入後出現過時/空白狀態\n• 修復 Session 背景化時出現「N background tasks would be abandoned」誤報提示\n• 修復固定背景代理在自動更新後被不必要地重新提示\n• 修復虛幻的「general-purpose (resumed)」子代理生成\n\n**背景代理改善**\n• 閒置 Shell 指令支援記憶體壓力自動回收（可設定 `CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1` 停用）\n• 代理啟動結果不再指示 Claude「end response」，可繼續執行其他任務\n• 改善 MCP `headersHelper` 驗證：收到 401/403 時自動重新連線\n• Plugin 自動重命名現跟隨 marketplace 重命名對應",
+      links: [
+        { label: "github/claude-code/v2.1.193", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.193", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.191",
     date: "2026-06-24",
     version: "v2.1.191",
