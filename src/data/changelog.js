@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.195",
+    date: "2026-06-26",
+    version: "v2.1.195",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.195：鉤子匹配修正、語音聽寫多項修復、背景代理穩定性改善",
+    summary: "修正含連字號識別碼的鉤子匹配邏輯（改為精確匹配）；修復 macOS 語音聽寫在長時間 Session 捕捉靜音及日文/中文/泰文自動送出問題；新增 CLAUDE_CODE_DISABLE_MOUSE_CLICKS 環境變數；多項背景代理與插件修復。",
+    body: {
+      kind: "bug",
+      description: "v2.1.195（2026-06-26）為 Claude Code 帶來多項重要修復與改善：\n\n**新功能**\n• 新增 `CLAUDE_CODE_DISABLE_MOUSE_CLICKS` 環境變數，可在全螢幕模式下停用滑鼠點擊/拖曳/懸停，但保留滾輪捲動\n\n**鉤子（Hook）修正**\n• 含連字號的識別碼（如 `code-reviewer`、`mcp__brave-search`）現改為精確匹配，不再意外子字串匹配\n• 若要匹配含連字號 MCP 伺服器的所有工具，請改用 `mcp__brave-search__.*`\n\n**語音聽寫修復**\n• 修復 macOS 在長時間 Session 中因預設輸入裝置切換而捕捉靜音的問題\n• 修復無空格語言（日文、中文、泰文）語音聽寫自動送出從未觸發的問題\n\n**插件修復**\n• 修復僅由專案 `.claude/settings.json` 啟用的外部插件在每個載入路徑都需重新明確同意安裝的問題\n• 修復 `/plugin` 啟用/停用在插件 `plugin.json` `name` 與 marketplace 條目名稱不同時無效的問題\n\n**背景代理修復**\n• 修復背景工作在由新版 Claude Code 寫入時從 `claude agents` 消失或資料遺失的問題\n• 修復重新開啟崩潰的背景工作最長顯示空白畫面 5 秒的問題\n• 修復控制 socket 啟動失敗時背景代理 daemon 無法連線的問題\n\n**改善**\n• Linux 語音模式改善：更清楚區分「無麥克風」與「未安裝 SoX」的錯誤訊息\n• `claude agents` 已完成清單現填滿可用垂直空間\n• 遠端 Session 啟動新增佈建檢查清單",
+      links: [
+        { label: "github/claude-code/v2.1.195", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.195", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "api-rate-limits-2026-06-26",
+    date: "2026-06-26",
+    version: "Rate Limits 調整",
+    category: "enh",
+    area: "performance",
+    product: "claude",
+    title: "Claude API 全面提升速率限制，Sonnet/Haiku 限制對齊 Opus，使用等級整併為三級",
+    summary: "Claude API 全面提升速率限制：Sonnet 與 Haiku 的限制提升至與 Opus 相同水準；原有使用等級整併為 Start、Build、Scale 三個等級，大多數組織將晉升至更高等級，無需任何操作。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 26 日，Anthropic 全面提升 Claude API 速率限制：\n\n**速率限制調整**\n• Claude Sonnet 與 Claude Haiku 的速率限制現已提升至與 Claude Opus 相同水準（適用所有使用等級）\n• 所有模型在相同等級下享有一致的速率限制\n\n**使用等級整併**\n• 原有使用等級整併為三個：Start（起步）、Build（建構）、Scale（擴展）\n• 大多數組織將晉升至更高等級\n• 無任何組織的限制低於調整前水準\n• 無需任何操作，可在 Claude Console（設定 → 限制）查看目前等級與限制",
+      links: [
+        { label: "Claude API 速率限制文件", href: "https://platform.claude.com/docs/en/api/rate-limits", kind: "doc" },
+        { label: "platform.claude.com 發布說明", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "trusted-devices-2026-06-25",
     date: "2026-06-25",
     version: "受信任裝置",
