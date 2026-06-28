@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "mythos5-us-redeployment-2026-06-27",
+    date: "2026-06-27",
+    version: "Mythos 5 重新開放",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "美國政府授權 Anthropic 向逾百家機構重新開放 Claude Mythos 5",
+    summary: "美國商務部長 Howard Lutnick 致函授權 Anthropic，允許向逾 100 家美國企業與政府機構重新開放 Claude Mythos 5 存取，解除 6 月 12 日以來的出口管制限制，透過 Project Glasswing 部署。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 26-27 日，美國政府通知 Anthropic，部分解除 Claude Mythos 5 的出口管制限制：\n\n**重新開放授權**\n• 美國商務部長 Howard Lutnick 致函 Anthropic，確認「已有適當防護措施」，允許特定受信任合作夥伴存取 Claude Mythos 5\n• 授權範圍：逾 100 家美國企業及政府機構\n• 部署方式：透過 Project Glasswing 作為 Claude Mythos Preview 的升級版\n\n**背景**\n• 2026 年 6 月 12 日：美國政府以國家安全為由下達出口管制指令，要求 Anthropic 暫停 Fable 5 和 Mythos 5 對外籍人士的存取\n• 2026 年 6 月 26-27 日：美國政府部分解除管制，允許 Mythos 5 重新向受信任的美國機構開放\n• 此前 Amazon CEO Andy Jassy 通報 Treasury Secretary Scott Bessent 一個疑似越獄漏洞，引發政府對中國存取 Claude Mythos 的疑慮\n\n**模型特性**\n• Claude Mythos 5 具備全球最強的網路安全能力\n• Mythos 5 與 Fable 5 底層模型相同，但在特定領域移除了部分防護限制（針對受信任的合作夥伴）",
+      links: [
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/06/26/us-government-anthropic-claude-mythos5-ai.html", kind: "doc" },
+        { label: "9to5Mac 報導", href: "https://9to5mac.com/2026/06/26/anthropic-cleared-to-release-claude-mythos-5-to-over-100-us-institutions/", kind: "doc" },
+        { label: "Semafor 獨家報導", href: "https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.195",
     date: "2026-06-26",
     version: "v2.1.195",
