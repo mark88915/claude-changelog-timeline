@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "microsoft-foundry-ga-2026-06-29",
+    date: "2026-06-29",
+    version: "Microsoft Foundry GA",
+    category: "new",
+    area: "platform",
+    product: "claude",
+    title: "Claude 正式進駐 Microsoft Foundry（Azure）：Opus 4.8 與 Haiku 4.5 企業版開放",
+    summary: "Claude Opus 4.8 與 Claude Haiku 4.5 正式在 Microsoft Foundry（Azure）上線，企業可透過現有 Azure 身份驗證與帳單系統存取 Claude，並可選用美國資料區以符合資料落地規範，運行於 NVIDIA GB300 Blackwell Ultra GPU。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 29 日，Anthropic 宣布 Claude 模型在 Microsoft Foundry（Azure）正式開放：\n\n**可用模型**\n• Claude Opus 4.8（透過 Messages API）\n• Claude Haiku 4.5（透過 Messages API）\n• 支援 Prompt Caching 與 Extended Thinking 功能\n\n**基礎架構**\n• 運行於 NVIDIA GB300 Blackwell Ultra GPU\n• Azure 原生整合：使用現有身份驗證、帳單與治理控制\n• 選用「US Data Zone」可讓推論在美國境內處理，符合資料落地規範\n\n**企業優勢**\n• 符合資格的 Microsoft Enterprise Agreement 客戶可將 Claude 用量計入 Azure 承諾\n• Azure 現成為同時提供 Claude 與 GPT 頂級模型的唯一雲端平台\n• Anthropic 負責推論運算，企業保有治理控制權",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://claude.com/blog/claude-in-microsoft-foundry", kind: "doc" },
+        { label: "Microsoft Azure Blog", href: "https://azure.microsoft.com/en-us/blog/introducing-anthropics-claude-models-in-microsoft-foundry-bringing-frontier-intelligence-to-azure/", kind: "doc" },
+        { label: "Claude in Microsoft Foundry 文件", href: "https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.196",
+    date: "2026-06-29",
+    version: "v2.1.196",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.196：組織預設模型、易讀 Session 名稱、檔案附件點擊、MCP 安全強化、Stream Watchdog 預設啟用",
+    summary: "管理員可在組織控制台設定預設模型；Session 名稱更易識別；檔案附件支援 Cmd/Ctrl-click 開啟；MCP 安全強化（自核准 Repo 不再自動生成 MCP 伺服器）；/code-review Token 用量降低約 25%；Stream Watchdog 預設啟用（5 分鐘無活動自動中止重試）。",
+    body: {
+      kind: "feature",
+      description: "v2.1.196（2026-06-29）為 Claude Code 帶來組織管理強化、安全性改善與多項 Bug 修復：\n\n**新功能**\n• **組織預設模型**：管理員可在組織控制台設定預設模型，`/model` 中顯示為「Org default」或「Role default」\n• **易讀 Session 名稱**：Background Session 改用更易識別的名稱，方便辨識與發送訊息\n• **可點擊檔案附件**：Cmd/Ctrl-click 附件可直接在 Finder/Explorer 中顯示對應檔案\n\n**安全性強化**\n• 自核准（Self-approved）Repo 不再自動生成 MCP 伺服器\n• 未受信任工作區顯示「⏸ Pending approval」提示\n\n**效能改善**\n• `/code-review` 工作流程 Token 用量降低約 25%\n• **Stream Watchdog 預設啟用**：5 分鐘無活動後自動中止並重試請求（可設定 `streamWatchdogTimeout` 調整或 `CLAUDE_CODE_DISABLE_STREAM_WATCHDOG=1` 停用）\n• 改善長時間執行指令的背景 Session 可靠性\n\n**Bug 修復**\n• 修復背景工作對話遭刪除的問題\n• 修復速率限制警告閃爍及過度計數的問題",
+      links: [
+        { label: "github/claude-code/v2.1.196", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.196", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "mythos5-us-redeployment-2026-06-27",
     date: "2026-06-27",
     version: "Mythos 5 重新開放",
