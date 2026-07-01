@@ -1,6 +1,95 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "sonnet-5-github-copilot-2026-06-30",
+    date: "2026-06-30",
+    version: "GitHub Copilot GA",
+    category: "new",
+    area: "platform",
+    product: "claude",
+    title: "Claude Sonnet 5 正式登陸 GitHub Copilot（GA）",
+    summary: "Claude Sonnet 5 於 2026 年 6 月 30 日起正式在 GitHub Copilot 全面開放（GA），開發者可直接透過 Copilot 存取 Sonnet 5 的代理能力。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 30 日，Claude Sonnet 5 在 GitHub Copilot 中正式上線（GA），開發者無需額外設定即可在 Copilot 環境中使用 Sonnet 5 的先進代理能力，包括代碼生成、推理與工具呼叫。",
+      links: [
+        { label: "GitHub Changelog", href: "https://github.blog/changelog/2026-06-30-claude-sonnet-5-is-generally-available-for-github-copilot/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-science-2026-06-30",
+    date: "2026-06-30",
+    version: "Claude Science",
+    category: "new",
+    area: "product",
+    product: "claude",
+    title: "Claude Science 正式開放：科學家專屬 AI 研究工作台",
+    summary: "Anthropic 推出 Claude Science，為科學研究設計的可客製化 AI 應用程式，整合研究人員常用工具與套件，生成可稽核成果，優先聚焦被忽視的疾病（neglected diseases）藥物探索。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 30 日，Anthropic 正式發布 Claude Science，一個針對科學研究場景量身打造的 AI 工作台：\n\n**核心功能**\n• 整合研究人員最常使用的工具與套件\n• 生成可稽核（auditable）的研究成果\n• 彈性存取運算資源\n• 可客製化設定以符合不同研究需求\n\n**研究重心**\n• Anthropic 生命科學負責人 Eric Kauderer-Abrams 表示，將優先聚焦傳統藥廠缺乏商業誘因的「被忽視疾病」\n• 與頂尖研究機構及生命科學高層合作\n\n**活動**\n• 配合「The Briefing: AI for Science」活動（2026/6/30，舊金山）同步發布",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/06/30/anthropic-launches-ai-drug-discovery-program-claude-science.html", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "managed-agents-event-deltas-2026-06-30",
+    date: "2026-06-30",
+    version: "Managed Agents Event Delta",
+    category: "enh",
+    area: "api",
+    product: "claude",
+    title: "Claude Managed Agents 新增 Event Delta 串流支援",
+    summary: "Claude Managed Agents Session 事件流新增 event delta 功能，透過 event_deltas[] 查詢參數啟用，可即時透過 event_start 與 event_delta 事件預覽代理訊息文字，無需等待完整 agent.message 事件。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 30 日，Claude Managed Agents 平台更新：Session 事件流現支援 event delta 功能。\n\n**使用方式**\n• 在 `GET /v1/sessions/{session_id}/events/stream` 加入 `event_deltas[]` 查詢參數啟用\n• 新增 `event_start` 與 `event_delta` 事件，可即時預覽代理訊息文字\n• 完整的 `agent.message` 事件仍照常傳送\n\n**效益**\n• 可更早呈現代理回應內容，改善使用者體驗\n• 適用於需要串流輸出的應用場景",
+      links: [
+        { label: "Claude 平台 Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.197",
+    date: "2026-06-30",
+    version: "v2.1.197",
+    category: "enh",
+    area: "model",
+    product: "claude-code",
+    title: "v2.1.197：Claude Sonnet 5 成為 Claude Code 預設模型",
+    summary: "Claude Code v2.1.197 改用 Claude Sonnet 5 為預設模型，提供原生 1M Token 上下文視窗，限時優惠定價 $2/$10 per MTok（至 8/31/2026）。",
+    body: {
+      kind: "feature",
+      description: "v2.1.197（2026-06-30）將 Claude Sonnet 5 設為 Claude Code 的預設模型：\n\n**重點更新**\n• **新預設模型**：Claude Sonnet 5（`claude-sonnet-5`）取代 Sonnet 4.6\n• **原生 1M Token 上下文視窗**：大幅提升長對話與大型程式碼庫的處理能力\n• **限時優惠定價**：$2/$10 per MTok（至 2026 年 8 月 31 日），之後恢復標準定價 $3/$15\n\n請執行 `npm install -g @anthropic-ai/claude-code` 升級至 v2.1.197。",
+      links: [
+        { label: "github/claude-code/v2.1.197", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.197", kind: "gh" },
+        { label: "Claude Sonnet 5 發布公告", href: "https://www.anthropic.com/news/claude-sonnet-5", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-sonnet-5-2026-06-30",
+    date: "2026-06-30",
+    version: "Claude Sonnet 5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Sonnet 5 正式發布：最強代理能力 Sonnet，接近 Opus 4.8 效能",
+    summary: "Anthropic 正式推出 Claude Sonnet 5，為迄今最強代理能力 Sonnet 模型，接近 Opus 4.8 效能，支援原生 1M Token 上下文視窗，自適應思考預設開啟，入門定價 $2/$10 per MTok（至 8/31），現為 Free 與 Pro 方案預設模型。",
+    body: {
+      kind: "feature",
+      description: "2026 年 6 月 30 日，Anthropic 正式推出 Claude Sonnet 5（`claude-sonnet-5`），本世代最強代理 Sonnet 模型：\n\n**核心能力**\n• 代理能力大幅提升：可制定計劃、使用瀏覽器與終端機等工具，並自主執行任務\n• 效能接近 Opus 4.8，在推理、工具呼叫、程式碼、知識工作均大幅超越 Sonnet 4.6\n• 原生 1M Token 上下文視窗，128k 最大輸出 Token\n\n**重要行為變更（遷移注意事項）**\n• 自適應思考（Adaptive Thinking）預設開啟\n• 手動擴展思考（`thinking: {type: \"enabled\", budget_tokens: N}`）已移除，呼叫回傳 400 錯誤\n• 設定非預設取樣參數（`temperature`、`top_p`、`top_k`）回傳 400 錯誤\n• 新分詞器：相同文字產出約多 30% Token\n• 不支援 Priority Tier\n\n**定價**\n• 入門定價：$2 / $10 per MTok（至 2026 年 8 月 31 日）\n• 標準定價：$3 / $15 per MTok（9 月 1 日起）\n\n**開放範圍**\n• Free 與 Pro 方案預設模型；Max、Team、Enterprise 可用\n• 同步登陸：Claude API、AWS Bedrock、Google Vertex、Microsoft Foundry、GitHub Copilot、VS Code、Cursor、OpenRouter",
+      links: [
+        { label: "Anthropic 官方發布公告", href: "https://www.anthropic.com/news/claude-sonnet-5", kind: "doc" },
+        { label: "Claude 平台 Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "What's new in Claude Sonnet 5", href: "https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "microsoft-foundry-ga-2026-06-29",
     date: "2026-06-29",
     version: "Microsoft Foundry GA",
