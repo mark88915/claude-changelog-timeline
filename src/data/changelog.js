@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.198",
+    date: "2026-07-01",
+    version: "v2.1.198",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.198：Claude in Chrome GA、Background Agent 通知 Hook、/dataviz 技能",
+    summary: "Claude Code v2.1.198 正式推出 Claude in Chrome GA、Background Agent 通知 Hook（agent_needs_input / agent_completed）、新增 /dataviz 技能、Background Agent 自動 commit/push/開 Draft PR，並修復大量 Bug。",
+    body: {
+      kind: "feature",
+      description: "v2.1.198（2026-07-01）帶來多項重要新功能與大量 Bug 修復：\n\n**新功能**\n• **Claude in Chrome 正式 GA**：Chrome 瀏覽器全面支援\n• **Background Agent 通知 Hook**：Agent 需要輸入或完成時觸發 `Notification` Hook（`agent_needs_input` / `agent_completed`）\n• **`/dataviz` 技能新增**：圖表與儀表板設計指引，內含可執行色彩調色盤驗證器\n• **Gateway 改善**：新增 Claude Platform on AWS（anthropicAws）為上游 Provider；model-not-found 回應自動推進 failover chain\n\n**工作流程改善**\n• Background Agent（從 `claude agents` 啟動）完成代碼工作後，自動 commit、push 並開 Draft PR（不再停下詢問）\n• Explore Agent 現繼承主 Session 模型（上限 opus），不再固定使用 haiku\n• Subagent 與上下文壓縮現繼承 Session 的 Extended Thinking 設定\n\n**主要 Bug 修復**\n• 修復短暫網路中斷（ECONNRESET 等）中斷回應的問題，改為退避重試\n• 修復背景 Session 在 Web / Desktop / VS Code 任務面板卡在「Running」的問題\n• 修復 Agent Teams 成員因 API 錯誤死亡未回報「failed」給 Lead 的問題\n• 修復 macOS Background Session 每 52 秒顯示「Reconnecting…」的問題\n• 修復 Markdown 表格在全螢幕模式溢出的問題",
+      links: [
+        { label: "github/claude-code/v2.1.198", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.198", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "fable5-global-redeploy-2026-07-01",
+    date: "2026-07-01",
+    version: "Fable 5 全球復歸",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Fable 5 & Mythos 5 全球恢復存取，出口管制正式解除",
+    summary: "美國商務部於 6/30 解除對 Claude Fable 5 和 Mythos 5 的出口管制，自 7/1 起全球用戶可在 Claude.ai、Claude Code、Claude Cowork 及 Claude Platform 恢復存取，Anthropic 並開發新安全分類器以 99%+ 準確率攔截相關越獄手法。",
+    body: {
+      kind: "feature",
+      description: "2026 年 7 月 1 日，Claude Fable 5 和 Mythos 5 全球恢復存取：\n\n**事件時間線**\n• 2026/6/12：Amazon 研究人員發現越獄手法，美國政府以國家安全為由下達出口管制指令，要求暫停所有外籍人士存取\n• 2026/6/26~27：部分解除管制，逾 100 家美國機構重新獲授權存取 Mythos 5\n• 2026/6/30：美國商務部通知 Anthropic，完全解除出口管制\n• 2026/7/1：Fable 5 全球全面恢復存取\n\n**存取方式**\n• 全平台開放：Claude.ai、Claude Code、Claude Cowork、Claude Platform\n• Pro / Max / Team 及部分 Enterprise 方案：7/7 前享最多 50% 週用量配額（免額外費用）；7/7 後需使用 Usage Credits\n• AWS Bedrock、Google Cloud、Microsoft Foundry：待後續公告\n\n**安全改善**\n• 新建安全分類器，針對觸發出口管制的越獄手法，攔截率超過 99%\n• 聯合 Amazon、Microsoft、Google 建立業界越獄嚴重程度評估框架（jailbreak severity framework）\n• 承諾擴大與美國政府 AI 安全測試與評估合作",
+      links: [
+        { label: "Anthropic 官方聲明", href: "https://www.anthropic.com/news/redeploying-fable-5", kind: "doc" },
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "Forbes 報導", href: "https://www.forbes.com/sites/siladityaray/2026/07/01/trump-administration-lifts-export-controls-on-anthropics-mythos-5-and-fable-5-ai-models/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "sonnet-5-github-copilot-2026-06-30",
     date: "2026-06-30",
     version: "GitHub Copilot GA",
