@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.199",
+    date: "2026-07-02",
+    version: "v2.1.199",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.199：堆疊 Slash Skill、串流保留、Agent 面板 UI 修復",
+    summary: "Claude Code v2.1.199 新增堆疊 Slash Skill 呼叫（最多 5 個）、SSL 憑證錯誤即時回饋、串流中途錯誤保留部分回應，並修復 Linux 背景 Daemon、SSH macOS 冷啟動、Agent 面板 UI 及 Model Picker 等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.199（2026-07-02）帶來新功能與多項 Bug 修復：\n\n**新功能**\n• **堆疊 Slash Skill 呼叫**：`/skill-a /skill-b do XYZ` 現可同時載入最多 5 個技能，而非只執行第一個\n• **SSL 憑證錯誤改善**：TLS 攔截 Proxy 與過期憑證現在立即失敗並提供可行指引，而非耗盡重試次數\n• **串流回應保留**：API 於串流中途回傳 overloaded/server 錯誤時，保留已接收的部分回應\n\n**Subagent 改善**\n• 受速率限制的 Subagent 現回傳部分結果給父 Agent\n• API 錯誤現正確回報，不再靜默失敗\n\n**主要 Bug 修復**\n• 修復 Linux 背景 Agent Daemon 不正常關閉後重啟時自殺問題\n• 修復 SSH macOS 冷啟動「Could not switch to audit session」錯誤\n• 修復 `claude stop` 指令被重啟撤銷的問題\n• 修復 Agent 面板閒置 Subagent 未摺疊成可展開摘要列的問題\n• 修復 Agent 面板其他 Agent 仍在執行時某些 Agent 消失的問題\n• 修復 Model Picker 錯誤影響主 Agent 而非 Subagent 的問題\n• `claude agents` PR 連結改為 `#N` 格式（原為「PR」標籤）\n• 設定檔重置前自動備份",
+      links: [
+        { label: "github/claude-code/v2.1.199", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.199", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "enterprise-model-access-controls-2026-07-01",
+    date: "2026-07-01",
+    version: "Enterprise Model Controls",
+    category: "new",
+    area: "platform",
+    product: "claude",
+    title: "Enterprise 管理員可控制用戶可存取的模型及推理強度設定",
+    summary: "Claude Enterprise 管理員新增模型存取控管功能，可設定旗下用戶能使用的 Claude 模型清單及可調整的推理強度（effort level）範圍，強化組織內 Claude 部署的精細管控。",
+    body: {
+      kind: "feature",
+      description: "2026 年 7 月 1 日，Claude.ai Enterprise 更新管理員控制面板：\n\n**新功能**\n• 管理員可限制用戶可見／可用的 Claude 模型清單\n• 管理員可設定用戶能調整的推理強度（effort level）上下限\n• 提供更精細的組織 AI 治理能力，協助企業符合合規需求",
+      links: [
+        { label: "Claude Help Center Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.198",
     date: "2026-07-01",
     version: "v2.1.198",
