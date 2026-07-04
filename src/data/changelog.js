@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.201",
+    date: "2026-07-03",
+    version: "v2.1.201",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.201：修復 Sonnet 5 工作階段中途插入系統角色提醒問題",
+    summary: "Claude Code v2.1.201 修復 Claude Sonnet 5 工作階段於對話中途透過系統角色插入 harness 提醒的問題。",
+    body: {
+      kind: "bug",
+      problem: "Claude Sonnet 5 工作階段會在對話中途透過系統角色插入 harness 提醒訊息，造成非預期的對話行為",
+      rootCause: "Sonnet 5 的 harness 提醒機制未正確調整，仍沿用舊有的中途插入系統角色方式",
+      fix: "移除 Sonnet 5 工作階段的中途系統角色提醒機制",
+      description: "v2.1.201（2026-07-03）單一 Bug 修復：\n• 修復 Claude Sonnet 5 工作階段於對話中途透過系統角色插入 harness 提醒的問題，確保對話流程不受非預期系統訊息干擾",
+      links: [
+        { label: "github/claude-code/v2.1.201", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.201", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.200",
+    date: "2026-07-03",
+    version: "v2.1.200",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.200：AskUserQuestion 不再自動繼續、權限模式改為 Manual、多項 Bug 修復",
+    summary: "Claude Code v2.1.200 調整 AskUserQuestion 預設不再自動繼續（可透過 /config 啟用閒置逾時）、將「default」權限模式更名為「Manual」，並修復啟動崩潰、背景工作階段休眠停止、Subagent 速率限制等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.200（2026-07-03）重要行為變更與 Bug 修復：\n\n**行為變更**\n• **AskUserQuestion 不再自動繼續**：對話框預設等待使用者回應；可透過 `/config` 啟用閒置逾時自動繼續\n• **權限模式改名**：CLI、`--help`、VS Code、JetBrains 中「default」權限模式統一改為「Manual」\n\n**主要 Bug 修復**\n• 修復 `.claude.json` 中 `disabledMcpServers` 或 `enabledMcpServers` 設為非陣列值時的啟動崩潰\n• 修復背景工作階段在系統休眠/喚醒後或重新開啟停滯工作階段時靜默停止\n• 修復背景工作階段將被 Esc 取消的 turn 在停滯重啟後重新執行的問題\n• 修復背景 Agent Daemon 移交及 Roster 損壞問題\n• 修復受速率限制的 Subagent 回傳空結果而非適當失敗\n• 修復背景 Agent 輸出中的控制字元流入終端機\n• 改善螢幕閱讀器輸出與安裝腳本說明\n• 改善 tmux 3.4+ 的終端機渲染（啟用同步輸出）",
+      links: [
+        { label: "github/claude-code/v2.1.200", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.200", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.199",
     date: "2026-07-02",
     version: "v2.1.199",
