@@ -1,6 +1,45 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "fable5-subscription-removal-2026-07-07",
+    date: "2026-07-07",
+    version: "Fable 5 訂閱異動",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Claude Fable 5 自 7/7 起從訂閱方案移除，改透過用量點數存取",
+    summary: "Anthropic 因容量壓力，自 2026-07-07 起將 Claude Fable 5 從 Pro、Max、Team 及 Enterprise 訂閱方案中移除；用戶仍可透過用量點數（Usage Credits）付費使用，Anthropic 表示待容量充足後將恢復訂閱存取。",
+    body: {
+      kind: "breaking",
+      description: "2026-07-07 起，Claude Fable 5 不再包含於 Pro、Max、Team 及 Enterprise 訂閱方案中，原本訂閱方案每週可使用 Fable 5 至多 50% 用量限制的權益隨之取消。\n\n**影響範圍**\n• Pro、Max、Team、Enterprise 訂閱用戶無法透過訂閱使用 Fable 5\n• 用戶可改透過用量點數（Usage Credits）付費存取 Fable 5\n\n**Anthropic 說明**\n此次調整為臨時性措施，原因為 Fable 5 需求量大造成容量壓力。Claude Code 工程師明確表示，Anthropic 不打算將 Fable 5 永久改為付費加購項目，目標是在容量充足後盡快恢復訂閱存取。",
+      migration: {
+        title: "因應方式",
+        text: "如需繼續使用 Fable 5，可透過用量點數付費存取；或改用 Claude Sonnet 5（目前為 Free／Pro 預設模型，效能接近 Opus 4.8）作為替代方案。"
+      },
+      links: [
+        { label: "BleepingComputer 報導", href: "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/", kind: "doc" },
+        { label: "Anthropic Redeploying Fable 5", href: "https://www.anthropic.com/news/redeploying-fable-5", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.202",
+    date: "2026-07-06",
+    version: "v2.1.202",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.202：動態工作流程大小設定、OpenTelemetry 工作流程屬性、多項 Bug 修復",
+    summary: "Claude Code v2.1.202 新增 /config 中的「動態工作流程大小」設定，可調整工作流程 Agent 數量規模；新增 OpenTelemetry workflow.run_id 與 workflow.name 屬性；並修復 Ctrl+R 搜尋崩潰、/rename 被重啟撤銷、Remote Control 指令失效等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.202（2026-07-06）新功能與 Bug 修復：\n\n**新功能**\n• **動態工作流程大小設定**：在 `/config` 新增「Dynamic workflow size」設定，可控制工作流程 Agent 數量規模（small/medium/large），為建議指引而非強制上限\n• **OpenTelemetry 改善**：工作流程產生的 Agent 所發送的遙測資料新增 `workflow.run_id` 與 `workflow.name` 屬性，方便從 OTel 資料重建工作流程活動\n\n**Bug 修復**\n• 修復 Ctrl+R 行內歷史搜尋在搜尋尚未完成時接受或取消導致的崩潰\n• 修復背景工作階段的 /rename 在重啟後被還原的問題\n• 修復 mTLS 憑證輪換期間的短暫握手失敗\n• 修復 Remote Control 指令失效（Unknown command）\n• 修復 Remote Control 傳送無標題圖片/檔案被靜默捨棄的問題\n• 修復 `claude auth login` 的登入 URL 在 SSH 環境下不易點擊的問題\n• 修復從 `claude agents` 開啟對話時偶發「currently running as a background agent」崩潰\n• 修復工作流程腳本中 Unicode 引號跳脫符號被損毀的問題\n• 修復語音輸入麥克風失敗時無限重試的問題\n• 修復 `/remote-control` 工作階段在行動/網頁應用顯示錯誤權限模式\n• 修復依名稱恢復工作階段在有大量 git worktree 時耗時數分鐘並佔用大量記憶體\n• 修復安裝/更新程式下載在連線中斷時失敗（短暫中斷現在會重試）\n• 修復重複載入已存在技能時附加重複指令的問題\n• 改善 `/workflows` Agent 清單版面（更寬的標題欄、獨立時間欄、較短的模型名稱）\n• 改善 MCP 錯誤訊息（遺失 `type` 欄位時提供更清楚的說明）\n• `/review <pr>` 改回單次快速審查；多 Agent 審查請改用 `/code-review <level> <pr#>`",
+      links: [
+        { label: "code.claude.com changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.201",
     date: "2026-07-03",
     version: "v2.1.201",
