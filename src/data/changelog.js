@@ -1,6 +1,78 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.204",
+    date: "2026-07-08",
+    version: "v2.1.204",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.204：修復 SessionStart Hook 在無頭工作階段中事件無法串流問題",
+    summary: "Claude Code v2.1.204 修復 SessionStart hooks 在無頭（headless）工作階段中 hook 事件無法串流的問題，防止遠端工作階段因被誤判為閒置而遭回收。",
+    body: {
+      kind: "bug",
+      problem: "SessionStart hooks 在無頭工作階段中，hook 事件無法正確串流，可能導致遠端工作階段被閒置回收機制誤判為閒置而回收",
+      rootCause: "無頭工作階段的 hook 事件串流機制未正確處理",
+      fix: "修正無頭工作階段中 hook 事件的串流邏輯",
+      description: "v2.1.204（2026-07-08）單一 Bug 修復：\n• 修復 hook 事件在 SessionStart hooks 的無頭工作階段中無法串流的問題，避免遠端工作階段被閒置回收機制誤判回收",
+      links: [
+        { label: "github/claude-code/v2.1.204", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.204", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "cowork-mobile-web-2026-07-07",
+    date: "2026-07-07",
+    version: "Claude Cowork 行動/網頁版",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Cowork 擴展至網頁與行動裝置",
+    summary: "Claude Cowork 從桌面限定擴展為跨裝置平台，現可於網頁與 iOS 上使用；任務可在筆電開始、背景持續執行，並透過手機查看進度；正逐步向 Max 方案用戶推出。",
+    body: {
+      kind: "feature",
+      description: "2026-07-07 起，Claude Cowork 開始在網頁與行動裝置（iOS）上提供測試存取：\n\n**主要功能**\n• 跨裝置工作流程：在筆電啟動任務，關閉應用程式後仍可在背景持續執行，並透過手機審閱結果\n• 遠端工作階段管理（Beta）\n• 跨裝置同步\n• 統一的專案儲存，整合聊天與任務功能\n\n**推出計畫**\n• 逐步向 Max 方案用戶推出，隨後擴展至更多方案\n\n**使用統計**\nAnthropic 公布 120 萬筆匿名 Cowork 工作階段分析：軟體開發僅佔 8.7%，最大類別為「商業流程操作」（33.4%），顯示 Cowork 已廣泛應用於非工程知識工作者。",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/07/07/the-coding-agent-wars-are-spilling-into-the-rest-of-the-office-claude-cowork/", kind: "doc" },
+        { label: "Claude Help Center Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "microsoft365-write-tools-2026-07-07",
+    date: "2026-07-07",
+    version: "Microsoft 365 寫入工具",
+    category: "enh",
+    area: "mcp",
+    product: "claude",
+    title: "Microsoft 365 Connector 新增寫入功能：可發送郵件、管理行事曆、更新 OneDrive/SharePoint 檔案",
+    summary: "Claude 的 Microsoft 365 connector 新增寫入工具，支援草擬與發送郵件、管理行事曆事件、更新信箱設定，以及在 OneDrive 與 SharePoint 中建立與更新檔案；Teams 存取仍維持唯讀。",
+    body: {
+      kind: "feature",
+      description: "2026-07-07，Claude Microsoft 365 Connector 擴充寫入能力：\n\n**新增寫入工具**\n• 草擬、發送及整理電子郵件\n• 管理行事曆事件\n• 更新信箱設定\n• 在 OneDrive 與 SharePoint 中建立與更新檔案\n\n**保持不變**\n• 讀取與搜尋功能仍可使用\n• Microsoft Teams 存取維持唯讀\n\n**部署注意事項**\n• Microsoft Entra 管理員須在組織範圍啟用前核准權限變更",
+      links: [
+        { label: "Claude Help Center Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.203",
+    date: "2026-07-07",
+    version: "v2.1.203",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.203：登入到期警告、MCP 工作目錄改善、效能大幅提升與多項穩定性修復",
+    summary: "Claude Code v2.1.203 新增登入即將到期警告、手動模式 ⏸ 徽章、MCP roots/list 工作目錄整合；修復背景工作階段永久無回應、Subagent 靜默停止、記憶體/CPU 效能衰退等問題；二進位檔案與啟動記憶體各減少約 7 MB。",
+    body: {
+      kind: "feature",
+      description: "v2.1.203（2026-07-07）新功能與修復：\n\n**新功能**\n• **登入到期警告**：工作階段登入即將到期時主動提示重新驗證\n• **手動模式徽章**：頁尾新增灰色 ⏸ 徽章，清楚標示目前處於手動權限模式\n• **MCP roots/list 改善**：將工作階段的額外工作目錄加入 MCP roots/list 清單\n• **VSCode 設定新選項**：新增「Enable Remote Control for all sessions」切換開關\n\n**效能改善**\n• 減少二進位檔案大小約 7 MB\n• 降低啟動記憶體約 7 MB\n• 改善長回應串流時的回應速度\n• 改善 Subagent 行為（減少不必要的再次委派）\n\n**Bug 修復**\n• 修復背景工作階段永久無回應（現自動啟用復原機制）\n• 修復 `claude agents` 返回時靜默停止執行中 Subagent 的問題\n• 修復互動式工作階段的記憶體/CPU 效能衰退（context-usage 重新分析）\n• 修復多項 PATH、worktree 及 daemon 移交問題",
+      links: [
+        { label: "github/claude-code/v2.1.203", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.203", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "fable5-subscription-removal-2026-07-07",
     date: "2026-07-07",
     version: "Fable 5 訂閱異動",
