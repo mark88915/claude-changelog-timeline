@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-for-government-beta-2026-07-08",
+    date: "2026-07-08",
+    version: "Claude for Government Beta",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude for Government 桌面版公測：Claude Code 與 Cowork 進駐政府雲端",
+    summary: "Anthropic 在 FedRAMP High 授權的 Claude for Government 桌面版中推出 Claude Code 與 Cowork 公測，新增桌面檔案作業、強化管理員控制、防竄改稽核日誌及費用治理功能，供公部門團隊使用。",
+    body: {
+      kind: "feature",
+      description: "2026-07-08 起，Claude for Government 桌面版開放 Claude Code 與 Claude Cowork 公測存取：\n\n**主要功能**\n• FedRAMP High 授權 AI 環境，符合公部門合規要求\n• 桌面檔案型工作整合（Desktop file-based work）\n• 強化管理員控制與用量可視性\n• 防竄改稽核日誌（Tamper-evident audit logs）\n• 費用治理與機構層級費用管控\n\n**適用對象**\n• 美國聯邦、州及地方政府機構\n• 需符合 FedRAMP High 合規要求的公部門團隊",
+      links: [
+        { label: "Anthropic Newsroom", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.205",
+    date: "2026-07-08",
+    version: "v2.1.205",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.205：自動模式防竄改保護、串流更新節省 400MB 記憶體、/doctor 完整診斷工具與多項關鍵修復",
+    summary: "Claude Code v2.1.205 新增自動模式防止竄改工作階段記錄的規則、自動更新改為串流下載減少約 400MB 峰值記憶體、`/doctor` 升級為完整設定診斷工具，並修復 Windows NTFS junction 刪除越界、背景 Agent 狀態錯誤、`--json-schema` 產生非結構化輸出等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.205（2026-07-08）新功能與修復：\n\n**新功能**\n• **自動模式防竄改保護**：新增規則阻止自動模式竄改工作階段記錄檔\n• **自動更新串流下載**：更新下載改為串流寫入磁碟，減少峰值記憶體約 400 MB\n• **`/doctor` 完整診斷**：`/doctor` 升級為完整設定健康檢查；`/checkup` 成為其別名\n• **自動模式 rm -rf 安全改善**：在變數無法解析時，執行 `rm -rf` 前會先詢問確認\n\n**Bug 修復**\n• 修復 `--json-schema` 傳入無效 schema 時靜默產生非結構化輸出\n• 修復在 `--max-turns` 限制時結束回合導致訊息遺失\n• 修復 Windows NTFS junction 模式下移除 worktree 刪除 worktree 外部檔案\n• 修復背景 Agent 以 SendMessage 恢復後仍顯示為「failed」/「completed」\n• 修復背景工作在無可讀文字的回合後由「needs input」翻轉回「working」\n• 修復 `claude attach` 在背景 Agent 升級重啟中途時回報錯誤\n• 修復 Bash 呼叫輸出超過 30K 行內限制時工作階段未連結至 PR\n• 修復 `claude mcp add-from-claude-desktop` 在伺服器名稱含不支援字元時卡住（改為回報無效名稱並繼續匯入其餘伺服器）\n• 修復 Plugin LSP 伺服器失敗導致其他有效伺服器無法啟動\n• 修復 Windows 在啟動目錄被刪除/鎖定/卸載時崩潰\n• 修復目錄掃描期間檔案監看器關閉導致崩潰",
+      links: [
+        { label: "github/claude-code/v2.1.205", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.205", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.204",
     date: "2026-07-08",
     version: "v2.1.204",
