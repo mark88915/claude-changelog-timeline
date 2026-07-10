@@ -1,6 +1,59 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-reflect-monthly-recap-2026-07-09",
+    date: "2026-07-09",
+    version: "Claude Reflect Beta",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "新增 Reflect 月報功能：回顧 Claude 使用習慣，設定專注與靜音時段",
+    summary: "Claude 推出「Reflect」Beta 功能，可於「設定 > Reflect」查看每月使用摘要（常討論主題、最活躍日期、工作習慣分析），並透過「設定 > Time and focus」設定休息提醒與靜音時段，適用 Free、Pro、Max 方案（需開啟記憶功能）。",
+    body: {
+      kind: "feature",
+      description: "2026-07-09，Claude 在網頁版與桌面版推出「Reflect」Beta 功能：\n\n**月報功能（Settings > Reflect）**\n• 查看過去一個月與 Claude 討論的主題分布\n• 顯示最活躍日期與高峰使用時段\n• 提供工作習慣觀察與洞察分析\n\n**專注設定（Settings > Time and focus）**\n• 設定可選的休息提醒\n• 設定靜音時段（Quiet hours）\n\n**適用對象**\n• Free、Pro、Max 方案用戶（Beta）\n• 需在設定中啟用記憶（Memory）功能",
+      links: [
+        { label: "Claude Help Center Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" },
+        { label: "Anthropic Newsroom", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/07/09/anthropics-new-claude-feature-is-quietly-selling-you-on-ai/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-inviting-hard-questions-2026-07-09",
+    date: "2026-07-09",
+    version: "Anthropic 公開徵詢計畫",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 公開徵詢 AI 難題，承諾透明回應",
+    summary: "Anthropic 發起「邀請難題」計畫，向大眾公開徵求對 AI 最具挑戰性問題的意見，並承諾公開回應，展現其對 AI 安全與透明度的承諾。",
+    body: {
+      kind: "feature",
+      description: "2026-07-09，Anthropic 宣布「邀請難題」（Inviting hard questions）計畫：\n\n• 向社會大眾徵求對 AI 發展中最困難、最有爭議問題的意見\n• 承諾公開透明地回應各項提問\n• 展現 Anthropic 對 AI 安全、倫理與負責任發展的持續承諾",
+      links: [
+        { label: "Anthropic Newsroom", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "ben-bernanke-ltbt-2026-07-09",
+    date: "2026-07-09",
+    version: "Anthropic 治理更新",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "前聯準會主席柏南奇加入 Anthropic 長期利益信託",
+    summary: "Anthropic 宣布前美聯準會主席本·柏南奇（Ben Bernanke）加入長期利益信託（Long-Term Benefit Trust），強化公司治理架構。",
+    body: {
+      kind: "feature",
+      description: "2026-07-09，Anthropic 宣布前美國聯準會主席本·柏南奇（Ben Bernanke）正式加入長期利益信託（Long-Term Benefit Trust，LTBT）。\n\nLTBT 是 Anthropic 企業治理結構的核心組成，負責監督公司在實現 AI 安全使命方面的進展，確保長期公共利益優先於短期商業利益。",
+      links: [
+        { label: "Anthropic Newsroom", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-for-government-beta-2026-07-08",
     date: "2026-07-08",
     version: "Claude for Government Beta",
