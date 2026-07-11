@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.206",
+    date: "2026-07-10",
+    version: "v2.1.206",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.206：/cd 路徑補全、/doctor 偵測 CLAUDE.md、背景 Agent 自動升級與多項修復",
+    summary: "Claude Code v2.1.206 新增 /cd 目錄路徑建議、/doctor 偵測已 commit 的 CLAUDE.md、/commit-push-pr 自動允許 git push、EnterWorktree 越界確認、背景 Agent 自動升級；修復登入到期錯誤訊息、--resume/--continue 鍵盤問題、MCP request_timeout_ms 無效及背景 worker EXTRA_BODY 遺失等多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.206（2026-07-10）新功能與修復：\n\n**新功能**\n• **`/cd` 路徑建議**：`/cd` 指令新增目錄路徑補全，行為與 `/add-dir` 一致\n• **`/doctor` CLAUDE.md 檢查**：偵測並建議清除已 commit 至版本控制的 `CLAUDE.md` 檔案\n• **`/commit-push-pr` 自動允許 push**：自動允許 git push 至 repo 設定的推送遠端\n• **Gateway 公共端點登入**：`/login` 新增支援 Anthropic 官方公共 gateway 端點\n• **`EnterWorktree` 越界確認**：進入專案 `.claude/worktrees/` 目錄外部的 git worktree 前，系統會要求確認\n• **背景 Agent 自動升級**：Claude Code 更新後，背景 agent 會自動在背景完成版本升級\n\n**Bug 修復**\n• 修復登入到期時顯示誤導性「There's an issue with the selected model」錯誤訊息\n• 修復 `claude --resume` 與 `--continue` 啟動時鍵盤無回應問題\n• 修復 MCP 伺服器忽略個別伺服器 `request_timeout_ms` 設定\n• 修復 `CLAUDE_CODE_EXTRA_BODY` 在背景 worker 中被靜默忽略\n• 修復 OAuth MCP 伺服器在 token 刷新失敗後要求手動重新驗證\n• 多項 UI 與效能改善，包含 `/model` 選擇器準確性及 agents 檢視響應速度",
+      links: [
+        { label: "github/claude-code/v2.1.206", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.206", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-reflect-monthly-recap-2026-07-09",
     date: "2026-07-09",
     version: "Claude Reflect Beta",
