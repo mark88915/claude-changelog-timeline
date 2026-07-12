@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.207",
+    date: "2026-07-11",
+    version: "v2.1.207",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.207：自動模式正式開放 Bedrock/Vertex/Foundry、預設切換 Opus 4.8、終端凍結修復與 Shell 注入安全加固",
+    summary: "Claude Code v2.1.207 將自動模式（Auto Mode）正式開放至 Bedrock、Vertex AI 及 Foundry 平台（無需 CLAUDE_CODE_ENABLE_AUTO_MODE），預設模型改為 Claude Opus 4.8，修復串流長內容時終端凍結與鍵盤延遲，加固 Plugin Hook 防 Shell 注入，並修復自動更新覆蓋自訂啟動腳本等 30 多項問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.207（2026-07-11）新功能與修復：\n\n**新功能**\n• **自動模式正式開放**：Bedrock、Vertex AI 及 Foundry 平台不再需要 `CLAUDE_CODE_ENABLE_AUTO_MODE` 環境變數；如需停用可在 settings 設定 `disableAutoMode: true`\n• **預設模型切換**：Bedrock、Vertex 及 Claude Platform on AWS 預設模型改為 Claude Opus 4.8\n• **Remote Control 進度顯示**：Remote Control 工作階段現可在行動裝置與網頁正確顯示背景 Agent / Workflow 進度\n\n**安全性修復**\n• **Shell 注入防護**：Plugin hooks、monitors 及 MCP headersHelper 中 shell-form 命令含 `${user_config.*}` 的設定現在直接拒絕執行\n• Plugin option 值不再從專案層級 `.claude/settings.json` 讀取\n• `/usage-credits` 金額輸入現在拒絕格式錯誤值；超過 $1,000 需手動輸入確認\n• **Auto Mode 設定限制**：Auto Mode 不再讀取 `.claude/settings.local.json`（Repo 內）；應改在 `~/.claude/settings.json` 設定\n\n**Bug 修復**\n• 修復串流長清單、表格、段落或程式碼區塊時終端凍結、鍵盤延遲問題\n• 修復非互動執行的遠端受管設定未顯示安全同意對話框即永久記錄的問題\n• 修復系統更新觸發誤報的提示注入警告\n• 修復自動更新器覆蓋 `~/.local/bin/claude` 自訂啟動腳本\n• 修復回應串流完成後 transcript 頁面跳動\n• 修復 Agent Teams 因格式錯誤的 mailbox 訊息引發崩潰循環\n• 修復 Windows 上 AWS 憑證解析無限期卡死（現強制 60 秒超時）\n• 修復多個 git worktree、Deep Research Agent 標籤及 UI 顯示問題",
+      links: [
+        { label: "github/claude-code/v2.1.207", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.207", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.206",
     date: "2026-07-10",
     version: "v2.1.206",
