@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "fable5-cc-limits-extended-july19-2026-07-12",
+    date: "2026-07-12",
+    version: "Fable 5 / Claude Code 促銷延長",
+    category: "enh",
+    area: "model",
+    product: "claude",
+    title: "Fable 5 付費方案包含使用期與 Claude Code 週限額促銷再延長至 7/19",
+    summary: "Anthropic 宣布第二次延長 Claude Fable 5 於付費方案的包含使用期（Pro/Max/Team/Enterprise 每週 50% 額度）及 Claude Code 每週使用量上限 50% 促銷活動，新截止日期為 2026 年 7 月 19 日 11:59:59 PM PT。",
+    body: {
+      kind: "feature",
+      description: "2026-07-12，Anthropic 透過 @claudeai 官方 X 帳號宣布再次延長兩項促銷：\n\n**Fable 5 付費方案包含使用期**\n• 原定截止日：7/7 → 延至 7/12 → 再延至 **7/19 11:59:59 PM PT**\n• 適用方案：Pro、Max、Team 及座位型 Enterprise（需由組織啟用）\n• 每週可使用 Fable 5 至多 50% 的方案額度，超出後需購買 Usage Credits 或切換其他模型\n• 可使用平台：Claude 網頁版、行動版、桌面版、Cowork、Code、Design、Microsoft 365、Teams、Tag\n\n**Claude Code 每週使用量上限促銷**\n• 每週使用量上限維持 50% 加碼，同步延長至 7/19\n• 促銷結束後恢復標準每週限額\n\n**背景**\n由於用戶對 Fable 5 反覆延期感到不滿，且競爭對手（OpenAI、xAI 等）同期擴大容量，Anthropic 持續延長促銷以維持競爭力。官方表示待算力資源充足後，Fable 5 將回歸標準付費方案。",
+      links: [
+        { label: "BleepingComputer 報導", href: "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-stays-free-for-paid-users-until-july-19-as-anthropic-buys-more-time/", kind: "doc" },
+        { label: "Digg 報導", href: "https://digg.com/tech/95ygdcdl", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.207",
     date: "2026-07-11",
     version: "v2.1.207",
