@@ -1,6 +1,94 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.210",
+    date: "2026-07-14",
+    version: "v2.1.210",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.210：即時執行時間計數器、防止 Prompt Injection 強化，以及多項穩定性修復",
+    summary: "Claude Code v2.1.210 新增長時間工具呼叫的即時執行計時顯示，修復 isolation worktree 子代理可對主 repo 執行 git 指令的安全問題、ultracode 誤觸發、claude attach 失敗、BigInt 崩潰、Plugin MCP 被重置等問題，並將 Auto Mode 權限分類器預設切換為 Sonnet 5。",
+    body: {
+      kind: "feature",
+      description: "v2.1.210（2026-07-14）新功能與修復：\n\n**新功能**\n• 長時間工具呼叫的摺疊摘要列現在顯示即時執行計時器\n• 新增 `Write(path)`、`NotebookEdit(path)`、`Glob(path)` 權限規則的啟動警告，建議改用 `Edit(path)` 或 `Read(path)`\n\n**安全性強化**\n• 強化 Agent 工具防護，防止透過子代理讀取內容進行間接 Prompt Injection\n\n**Bug 修復**\n• 修復 `isolation: 'worktree'` 子代理可對主 repo 執行 git 變更命令（安全性修復）\n• 修復 `ultracode` 關鍵字在非人類輸入（webhook payloads、轉送的 PR 留言）觸發的問題\n• 修復貼上標記洩漏至外部編輯器（文字周圍出現 È/É 字元）\n• 修復 `claude attach` 在 session 過渡期間出現「job not found」或「agent is still starting」錯誤\n• 修復工具結果渲染器回傳 BigInt 或純文字時導致 session 崩潰\n• 修復 hook callback 超時被誤報為使用者拒絕\n• 修復 `cd` 移至背景後 Claude 誤以為指令已生效\n• 修復 MCP 伺服器重新同步時 Plugin 提供的 MCP 伺服器被中斷\n• 修復未編輯的計畫審核被標記為「(edited by user)」並覆蓋舊快照\n• 修復 `/doctor` 在 Bedrock/Vertex/Foundry 跳過自動模式預設建議\n\n**效能改善**\n• Auto Mode 權限分類器預設切換為 Sonnet 5（外部 session）\n• 改善 Bash/PowerShell 工具命中超時並自動移至背景的提示訊息\n• 改善 dataviz skill，加入 OKLab 感知色差驗證",
+      links: [
+        { label: "github/claude-code/v2.1.210", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.210", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.209",
+    date: "2026-07-14",
+    version: "v2.1.209",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.209：修復背景 session 中對話框被封鎖的問題",
+    summary: "Claude Code v2.1.209 修復背景 session 中 /model 及其他對話框被過度封鎖的問題（還原前版過於寬泛的防護邏輯）。",
+    body: {
+      kind: "bug",
+      problem: "背景 `claude agents` session 中，/model 及其他對話框無法正常開啟。",
+      rootCause: "前版本引入的防護邏輯過於寬泛，錯誤封鎖了背景 session 的對話框。",
+      fix: "還原過於寬泛的防護邏輯，僅在必要情境下限制對話框。",
+      links: [
+        { label: "github/claude-code/v2.1.209", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.209", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "2.1.208",
+    date: "2026-07-14",
+    version: "v2.1.208",
+    category: "new",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.208：新增螢幕閱讀器模式、Vim 插入模式自訂鍵位與企業程序包裝支援",
+    summary: "Claude Code v2.1.208 新增無障礙螢幕閱讀器模式（--ax-screen-reader）、Vim 插入模式兩鍵序列自訂（vimInsertModeRemaps）、企業環境程序包裝設定（CLAUDE_CODE_PROCESS_WRAPPER），並修復 fast mode、背景 session attach 及多項串流與渲染問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.208（2026-07-14）新功能與修復：\n\n**新功能**\n• **螢幕閱讀器模式**：新增 `--ax-screen-reader` 旗標、`CLAUDE_AX_SCREEN_READER=1` 環境變數或 settings 中 `\"axScreenReader\": true`，啟用純文字輸出以支援視障輔助工具\n• **Vim 插入模式自訂鍵位**：新增 `vimInsertModeRemaps` 設定，可將兩鍵序列（如 `jj`）映射至 Escape 等按鍵\n• **企業程序包裝**：新增 `CLAUDE_CODE_PROCESS_WRAPPER` 環境變數，支援企業環境的自訂啟動器\n\n**Bug 修復**\n• 修復切換模型後 fast mode 維持關閉狀態\n• 修復二進位更新後背景 session attach 失敗\n• 修復 CLI 自動更新後 context window 短暫重置為 200k\n• 修復受管/背景 session 在 HTTP/2 GOAWAY 期間崩潰\n• 修復管道傳輸大型回應時 stream-json 輸出被截斷\n• 修復非常大的 Markdown 表格導致渲染卡頓（現在顯示前 200 列並附加說明）\n• 修復 Remote Control 用戶端直到任務開始/停止後才看到背景 Agent",
+      links: [
+        { label: "github/claude-code/v2.1.208", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.208", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-for-teachers-2026-07-14",
+    date: "2026-07-14",
+    version: "Claude for Teachers",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "推出「Claude for Teachers」：免費提供美國 K-12 教師使用",
+    summary: "Anthropic 正式推出 Claude for Teachers，免費提供美國 K-12 教師使用，包含教學技能庫及對應全美 50 州課程標準的學術內容，幫助教師規劃課程與教學活動。",
+    body: {
+      kind: "feature",
+      description: "2026-07-14，Anthropic 推出 Claude for Teachers 平台：\n\n**主要功能**\n• 免費提供美國 K-12（幼稚園至 12 年級）教師使用\n• 包含教學技能庫（teaching skills library）\n• 內容對應全美 50 州課程標準（academic standards）\n• 可協助課程規劃、教學活動設計等\n\n**適用對象**\n• 美國境內 K-12 公私立學校教師",
+      links: [
+        { label: "Anthropic Newsroom", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "The Hill 報導", href: "https://thehill.com/policy/technology/5968601-claude-for-teachers-launch/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "hipaa-self-serve-2026-07-14",
+    date: "2026-07-14",
+    version: "HIPAA Self-Serve",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Claude Enterprise 與 API 新增 HIPAA 自主設定功能",
+    summary: "Anthropic 推出 Self-Serve HIPAA 設定，符合資格的管理員可直接在 Claude Console 完成 BAA 審閱、實施指南下載及 HIPAA 設定啟用，適用於 Claude Enterprise 與 Claude Platform（API）。",
+    body: {
+      kind: "feature",
+      description: "2026-07-14，Anthropic 在 Claude Enterprise 與 Claude Platform（API）推出 Self-Serve HIPAA 設定：\n\n**功能說明**\n• 符合資格的管理員可在 Claude Console 中自主管理 HIPAA 準備事項\n• 在單一流程內完成：審閱商業夥伴協議（BAA）、下載實施指南、啟用 HIPAA 設定\n• 適用於需遵守醫療資料法規的企業客戶\n\n**適用方案**\n• Claude Enterprise\n• Claude Platform（API）",
+      links: [
+        { label: "Claude Help Center Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "fable5-cc-limits-extended-july19-2026-07-12",
     date: "2026-07-12",
     version: "Fable 5 / Claude Code 促銷延長",
