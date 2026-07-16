@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.211",
+    date: "2026-07-15",
+    version: "v2.1.211",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.211：subagent 串流輸出支援、安全修復與多項穩定性改善",
+    summary: "Claude Code v2.1.211 新增 --forward-subagent-text 旗標可在 stream-json 輸出中包含子代理文字與思考內容，修復雙向覆蓋字元安全漏洞、Auto Mode 忽略 PreToolUse hook ask 決策、平行 session 同時登出、Plugin MCP 伺服器閒置後不重連，並修復 Bedrock/Vertex/Foundry prompt-caching 計費回歸。",
+    body: {
+      kind: "feature",
+      description: "v2.1.211（2026-07-15）新功能與修復：\n\n**新功能**\n• 新增 `--forward-subagent-text` 旗標及 `CLAUDE_CODE_FORWARD_SUBAGENT_TEXT` 環境變數，可在 stream-json 輸出中包含子代理的文字與思考內容\n\n**安全性修復**\n• 修復權限預覽未過濾雙向覆蓋（bidirectional-override）、零寬度字元及外觀相似引號，防止工具輸入操縱\n• 強化 Claude in Chrome 的檔案上傳路徑驗證（拒絕含多個硬連結及 DOS 裝置後綴的檔案）\n\n**行為修復**\n• Auto Mode 現在正確尊重 PreToolUse hook 對無沙箱 Bash 的 `ask` 決策\n• 修復子代理在恢復或收到後續訊息時回退至父代理模型的問題\n• 修復嵌套 `.claude/rules/*.md` 檔案在應被排除時仍被載入的問題\n\n**穩定性修復**\n• 修復平行 Claude Code sessions 在從休眠喚醒後同時登出的問題\n• 修復 Plugin MCP 伺服器在閒置網頁 session 後不重新連線的問題\n• 修復背景 agent 被使用者終止後自動重新啟動的問題\n• 修復 `/loop` 的 sessions 不出現於 `/resume` 列表的問題\n• 修復例行任務回報錯誤的下次執行時間\n• 修復 `/clear` 未重置 session 成本計數器\n\n**計費與設定修復**\n• 修復 Bedrock、Vertex、Mantle 及 Foundry 的 prompt-caching 計費回歸（尾部系統情境被錯誤計費）\n• 修復 Bedrock 和 Vertex 在啟動時嘗試預設 Opus 模型的問題\n• 整數環境變數現支援科學記數法（如 `1e6`、`64_000`）\n\n**UI/UX 改善**\n• 改善終端機排版與渲染效能\n• 修復 async 內容（設定頁籤、統計資訊、diff 視圖）顯示延遲 300ms 的問題\n• 修復螢幕閱讀器在終端機設定後發出聲音警鈴的問題\n• 更新文件連結至最新文件站點",
+      links: [
+        { label: "github/claude-code/v2.1.211", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.211", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.210",
     date: "2026-07-14",
     version: "v2.1.210",
