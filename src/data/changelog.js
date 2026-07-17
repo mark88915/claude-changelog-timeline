@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.212",
+    date: "2026-07-17",
+    version: "v2.1.212",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.212：/fork 指令重設計、Session 限制管控、MCP 自動背景化與多項安全修復",
+    summary: "Claude Code v2.1.212 重新設計 /fork（複製對話至背景 session）與 /subtask 為獨立指令，新增 WebSearch 與子代理次數上限（預設 200），MCP 工具呼叫超過 2 分鐘自動移至背景，/resume 支援已刪除 session 選取，並修復計畫模式未授權 Bash、worktree 符號連結漏洞、Windows PowerShell 群組原則等問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.212（2026-07-17）新功能與修復：\n\n**新功能**\n• `/fork` 重新設計：現在將對話複製到新的背景 session（可在 `claude agents` 中查看），並保持當前 session 繼續工作；原本的子代理行為改由 `/subtask` 指令處理\n• `/resume` 指令：在 agent 視圖輸入 `/resume` 可開啟歷史 session 選擇器（包括已刪除的 session），並以背景 session 形式恢復\n• Auto-mode 重置：`claude auto-mode reset` 可還原預設自動模式設定（加 `--yes` 可略過確認提示）\n\n**Session 管理與限制**\n• Session 級別 WebSearch 呼叫次數限制（預設 200，可透過 `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` 調整）\n• Session 級別子代理生成次數上限（預設 200，可透過 `CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION` 覆蓋）；`/clear` 可重置預算\n• MCP 工具呼叫執行超過 2 分鐘自動移至背景（可透過 `CLAUDE_CODE_MCP_AUTO_BACKGROUND_MS` 設定）\n\n**安全性修復**\n• 修復 worktree 建立時跟隨 `.claude/worktrees` 符號連結的安全問題\n• 企業版 `forceLoginMethod` 現在對 VS Code、SDK 及 GitHub App 登入強制執行\n\n**Bug 修復**\n• 修復計畫模式在未取得授權的情況下自動執行修改檔案的 Bash 指令\n• 修復 Bash 工具中 SIGTERM 在 Windows 上導致程序孤立的問題\n• 修復 Windows 上 Group Policy 限制 PowerShell 5.1 時 `/background` 與 `claude --bg` 失敗（現優先使用 PowerShell 7）\n• 修復 shell 模式（`!`）檔案路徑自動完成阻擋指令執行\n• 修復 `/ultrareview` 拒絕 PR 參照格式（如 `#123`、PR URL）及未拉取遠端分支\n• 修復 `continue:false` hook 中止在工具失敗時被丟棄\n• 修復背景 session 失去即時父連線保護\n• 修復包含大量圖片的對話出現「Request too large」錯誤\n• 修復 OpenTelemetry HTTP 匯出與 Azure Monitor 相容性問題\n\n**效能改善**\n• 增強 web search/fetch 可靠性（對 529/限速請求加入重試邏輯）\n• 改善 LLM gateway 和自訂 base URL 後端的 prompt caching\n• 減少代理間訊息傳遞的 token 用量（不再複製訊息本文）\n• Session 逐字稿現在記錄推理努力等級",
+      links: [
+        { label: "github/claude-code/v2.1.212", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.212", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.211",
     date: "2026-07-15",
     version: "v2.1.211",
