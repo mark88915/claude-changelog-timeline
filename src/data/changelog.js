@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.214",
+    date: "2026-07-18",
+    version: "v2.1.214",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.214：安全性修復、新增 EndConversation 工具與多項穩定性改善",
+    summary: "Claude Code v2.1.214 修復 Windows PowerShell 5.1 權限繞過漏洞、Bash 超長指令與檔案描述符重定向的權限檢查問題，新增 EndConversation 工具處理濫用者與越獄嘗試，以及長時間工具呼叫定期進度心跳，並修復 pkill -f 誤匹配、stream-json 截斷、PowerShell 懸掛及背景 session 無法移除等問題。",
+    body: {
+      kind: "bug",
+      problem: "多項安全性與穩定性問題：Windows PowerShell 5.1 權限繞過、Bash 超長指令的權限檢查缺漏、pkill -f 誤匹配 CLI 自身程序、stream-json 輸出截斷、PowerShell 工具懸掛、背景 session 無法移除。",
+      rootCause: "各問題由不同模組的個別缺陷造成，包括 Windows 平台的 PowerShell 整合、Bash 工具的邊界條件處理、stream-json 緩衝區管理等。",
+      fix: "針對各問題分別修復：強化 PowerShell 5.1 的權限檢查邏輯、修正 Bash 超長指令及 fd 重定向的解析、調整 pkill 模式排除 CLI 自身、修正 stream-json 輸出截斷、修復 PowerShell 工具懸掛與 claude rm 的背景 session 清除流程。另新增 EndConversation 工具與工具呼叫心跳機制。",
+      links: [
+        { label: "github/claude-code/v2.1.214", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.214", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.212",
     date: "2026-07-17",
     version: "v2.1.212",
