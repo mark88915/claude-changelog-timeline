@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.215",
+    date: "2026-07-19",
+    version: "v2.1.215",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.215：/verify 與 /code-review 技能改為手動觸發",
+    summary: "Claude Code v2.1.215 調整 /verify 和 /code-review 技能行為，Claude 不再自動執行這兩個技能，使用者需主動輸入指令才能觸發。",
+    body: {
+      kind: "feature",
+      description: "v2.1.215（2026-07-19）行為變更：\n\n• `/verify` 與 `/code-review` 技能現在改為手動觸發，Claude 不再在工作流程中自動執行這兩項技能\n• 使用者需主動輸入 `/verify` 或 `/code-review` 指令才能啟動對應的驗證或程式碼審查流程",
+      links: [
+        { label: "github/claude-code/v2.1.215", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.215", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.214",
     date: "2026-07-18",
     version: "v2.1.214",
