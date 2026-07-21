@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.216",
+    date: "2026-07-20",
+    version: "v2.1.216",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.216：修復長對話效能回歸、沙箱控制強化與多項穩定性修復",
+    summary: "Claude Code v2.1.216 修復長對話中訊息正規化呈二次方成長導致的多秒停頓問題，新增 sandbox.filesystem.disabled 設定，並修復 OAuth Token 過期後 Auto Mode 被拒絕、AskUserQuestion 措辭、Web Session 閒置後重複提問、背景 Agent 遺失自訂提示等問題，同時改善 RTL 文字渲染與雲端 Session 容器重啟時的訊息保留。",
+    body: {
+      kind: "bug",
+      problem: "長對話中訊息正規化成本呈二次方成長，造成多秒停頓及緩慢的 Session 恢復；OAuth Token 過期或輪換後 Auto Mode 出現 HTTP 401 分類錯誤；AskUserQuestion 自由文字回答措辭不中立；Web Session 閒置後恢復時重複提問並丟棄答案；背景 Agent 恢復後遺失自訂提示與工具限制；Worktree 子代理將 git 指令重定向至共享 Checkout；MCP 重新驗證在新登入成功前撤銷有效憑證等。",
+      rootCause: "多個模組的個別缺陷：Session 恢復時的訊息正規化演算法複雜度過高、OAuth 中間件未處理 Token 輪換場景、AskUserQuestion 文案設計缺漏、Web Session 狀態管理錯誤、背景 Agent 的持久化儲存未包含提示與工具設定、Worktree git 重定向邏輯錯誤、MCP 認證流程未保護現有 Token。",
+      fix: "修復訊息正規化演算法降低複雜度；新增 sandbox.filesystem.disabled 設定可在保留網路出口控制的前提下跳過檔案系統隔離；修正 OAuth Token 過期後 Auto Mode 的權限處理；調整 AskUserQuestion 自由文字回答的措辭；修復 Web Session 閒置後恢復的狀態同步；修復背景 Agent 恢復後持久化自訂提示與工具限制；修正 Worktree 子代理 git 重定向；修復 MCP 重新驗證流程；改善 VS Code 中阿拉伯文、希伯來文、波斯文的 RTL 渲染；修復雲端 Session 在容器重啟時丟失進行中訊息。",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-rare-disease-grants-2026-07-20",
+    date: "2026-07-20",
+    version: "官方公告",
+    category: "new",
+    area: "community",
+    product: "claude",
+    title: "Anthropic 開放 AI for Science 罕見疾病研究補助申請",
+    summary: "Anthropic 開放 AI for Science 罕見疾病研究補助計畫申請，通過審核的研究者可獲得最高 5 萬美元的 Claude API Credits，為期 6 個月，申請截止日為 2026 年 8 月 2 日。",
+    body: {
+      kind: "feature",
+      description: "2026 年 7 月 20 日，Anthropic 公布 AI for Science 計畫針對罕見遺傳疾病研究的專項補助，目標是建立一個探索 AI 如何重塑罕見疾病理解的研究社群。\n\n**補助內容**\n• 通過審核的申請者可獲得最高 **50,000 美元**的 Claude API Credits，有效期 6 個月\n• 現有受助機構包括：Every Cure（藥物再利用機會識別）、Centre for Population Genomics（Claude 驅動的變體分類系統）、Violet Research Institute（FDA 法規指引、生物資訊學流程與法規文件撰寫）\n\n**申請資訊**\n• 申請截止日：2026 年 8 月 2 日 23:59 PST\n• 計畫背景：AI for Science 計畫於去年春季發布，旨在透過 API 存取加速科學研究與發現",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/rare-disease-research-grants", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.215",
     date: "2026-07-19",
     version: "v2.1.215",
