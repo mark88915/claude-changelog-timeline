@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.217",
+    date: "2026-07-21",
+    version: "v2.1.217",
+    category: "enh",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.217：新增 Emoji 快捷碼補全、子代理並發上限控制與多項安全修復",
+    summary: "Claude Code v2.1.217 新增 Emoji 快捷碼自動補全（如 :heart: → ❤️），子代理並發上限預設 20 個可透過環境變數調整，子代理預設不再巢狀生成，並修復 MCP 輸出記憶體洩漏、Windows 自動更新復原、背景 Session 符號連結正規化及 Claude Desktop 企業 mTLS 設定失效等問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.217（2026-07-21）新功能與修復：\n\n**新功能**\n• **Emoji 快捷碼自動補全**：輸入 `:heart:` 自動插入 ❤️，輸入前綴（如 `:hea`）顯示建議清單；可透過 `emojiCompletionEnabled` 設定停用\n• **Transcript 寫入警告**：磁碟已滿或 Session 保存被環境變數停用時即時發出警告，防止 Transcript 靜默遺失\n\n**子代理控制**\n• 新增子代理並發上限，預設最多同時執行 20 個子代理，可透過 `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS` 覆寫\n• 子代理預設不再生成巢狀子代理；需更深層巢狀時設定 `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`\n• 修復 `--max-budget-usd` 無法停止背景子代理的問題\n\n**安全性與隔離修復**\n• 背景 Session 現正規化符號連結工作目錄，防止 Session 逃逸工作區\n• 企業級 mTLS、TLS 驗證、OAuth Scope 及代理設定現在在 Claude Desktop 工作階段中正確生效\n\n**記憶體與效能修復**\n• 修復截斷的 MCP 工具輸出仍在記憶體中保留完整內容的洩漏問題\n• 修復 Windows 自動更新失敗後未還原備份可執行檔的問題\n• 修復 Claude Opus 4.8 on Bedrock 的 Auto-compact 功能",
+      links: [
+        { label: "github/claude-code/v2.1.217", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.217", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "2.1.216",
     date: "2026-07-20",
     version: "v2.1.216",
