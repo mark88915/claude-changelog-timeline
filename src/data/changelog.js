@@ -1,6 +1,75 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.218",
+    date: "2026-07-22",
+    version: "v2.1.218",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.218：/code-review 改為背景子代理執行、螢幕閱讀器強化與大量穩定性修復",
+    summary: "Claude Code v2.1.218 將 /code-review 改為在背景子代理中執行（不再佔用主對話），新增螢幕閱讀器文字刪除通知，修復 Windows 路徑含 \\u 字首被轉成 CJK 字元、左箭頭鍵誤丟棄對話、多行貼上換行被替換、引擎關閉競態條件等共 20+ 個問題。",
+    body: {
+      kind: "bug",
+      description: "v2.1.218（2026-07-22）變更摘要：\n\n**主要功能變更**\n• `/code-review` 現改為在背景子代理中執行，主對話不再被審查內容填滿，且疊加的 slash command 也以審查目標為準\n\n**無障礙改善**\n• 在 `--ax-screen-reader` 模式下，文字刪除動作現在會發出螢幕閱讀器通知\n\n**錯誤修復（共 20+ 項）**\n• 修復 Windows 路徑含 `\\u` 字首的片段被錯誤轉換為 CJK 字元\n• 修復左箭頭鍵在無 undo 紀錄時誤丟棄整個對話\n• 修復 `claude mcp list` 和 `/mcp` 顯示失敗連線的 HTTP 狀態與錯誤文字\n• 修復多行貼上時換行被 `j` 取代（部分終端機）\n• 修復 `/context` 在壓縮後顯示過時 token 用量\n• 修復 `/ultrareview` 對含描述性引數（如「review my auth changes」）失效\n• 修復 `/code-review ultra` 在非互動 session 靜默執行本地審查\n• 修復 Bedrock application-inference-profile ARN 的 gateway 費用計量\n• 修復長 IDE 選取截斷在 emoji 中間時出現的亂碼\n• 修復引擎關閉競態條件造成幽靈輪次\n• 修復中斷工具呼叫後出現誤報的「[Request interrupted by user]」訊息\n• 修復螢幕閱讀器模式下的 VoiceOver 讀取問題\n• 修復外掛與設定面板在螢幕閱讀器中未移動游標\n• 修復深層巢狀監控目錄樹被刪除時導致崩潰\n• 修復 session 結束時遺失 pull request 事件\n• 修復 Bedrock setup wizard 在分區 AWS 區域的 assume-role 設定失敗\n• 修復系統時鐘調整後出現負值的輪次時長測量\n• 修復 MCP 伺服器驗證通知重複計數\n• 修復 prompt 歷史記錄項目遺失或重複\n• 改善 `/ultrareview` 對無效引數的錯誤回饋\n• 改善 auto mode：dangerous-rm、background-& 和可疑 Windows 路徑檢查不再開啟對話框\n• 將 `/deep-research` 改為僅在手動呼叫時啟動\n• 新增 `yes`/`no`/`on`/`off`/`1`/`0` 作為技能與外掛前置資料的有效布林值\n• 修復遠端 session 在 worker 替換後繼續傳送心跳",
+      links: [
+        { label: "github/claude-code/v2.1.218", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.218", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "managed-agents-enh-2026-07-22",
+    date: "2026-07-22",
+    version: "API 更新",
+    category: "enh",
+    area: "model",
+    product: "claude",
+    title: "Claude Managed Agents 新增 Effort 等級、Webhook 擴充、Session 種子事件等五項功能",
+    summary: "Claude Developer Platform 更新 Managed Agents：可設定 effort 等級（模型配置中）、支援 environment.* 和 memory_store.* webhook 事件、建立 session 時可植入最多 50 個初始事件、version 欄位改為選填、執行緒事件串流支援事件 delta 即時預覽子代理文字。",
+    body: {
+      kind: "feature",
+      description: "2026-07-22 Claude Developer Platform 針對 Managed Agents 新增五項功能：\n\n• **Effort 等級設定**：建立或更新 Agent 時，可在 model 物件中傳入 `effort` 欄位，控制模型推理深度\n• **Webhook 擴充**：新增 4 個 `environment.*` 事件類型與 3 個 `memory_store.*` 事件類型，可訂閱環境與記憶體儲存的生命週期事件\n• **Session 種子事件**：建立 session 時可傳入最多 50 個 `user.message` 和 `user.define_outcome` 事件，作為對話的初始種子\n• **version 欄位改為選填**：更新 Agent 時 `version` 不再強制填寫，支援無條件更新或樂觀並發控制兩種模式\n• **執行緒事件 Delta**：Session 執行緒事件串流現在支援 query parameter 指定事件 delta，可即時預覽子代理的文字輸出",
+      links: [
+        { label: "Claude Developer Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-economic-index-connector-2026-07-22",
+    date: "2026-07-22",
+    version: "新連接器",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "新增 Anthropic Economic Index 連接器：直接向 Claude 查詢 AI 經濟使用數據",
+    summary: "Anthropic 推出 Economic Index 連接器，在 claude.ai 連接器目錄中啟用後，可在任何對話中直接向 Claude 提問 AI 跨行業使用狀況，例如哪些職業最常使用 AI、特定地區或職業的常見任務，答案直接來自 Index 資料集。",
+    body: {
+      kind: "feature",
+      description: "2026-07-22，Anthropic 發布 Anthropic Economic Index 連接器，讓 claude.ai 用戶可直接在對話中查詢 AI 經濟使用數據。\n\n**功能說明**\n• 在 claude.ai 的連接器目錄中找到「Anthropic Economic Index」並啟用，無需安裝任何軟體\n• 支援任何 Claude 模型、任何對話，啟用後即時生效\n• 可提問例如：「哪些職業最常使用 AI？」「科羅拉多州的人最常用 Claude 做什麼？」「教師用 Claude 做哪些工作？」\n\n**背景**\nAnthropic Economic Index 是 Anthropic 的公開資料集，衡量 AI 在整體經濟中的實際使用方式，此連接器讓一般用戶無需資料分析技能即可探索這份資料。",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/anthropic-economic-index-connector", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "economic-futures-research-fund-agenda-2026-07-22",
+    date: "2026-07-22",
+    version: "官方公告",
+    category: "new",
+    area: "community",
+    product: "claude",
+    title: "Anthropic 發布經濟未來研究基金（Economic Futures Research Fund）研究議程",
+    summary: "Anthropic 公布經濟未來研究基金的研究議程，聚焦於 AI 對就業、薪資、勞動市場結構及整體經濟的影響，作為 Anthropic Economic Index 計畫的延伸。",
+    body: {
+      kind: "feature",
+      description: "2026-07-22，Anthropic 發布「經濟未來研究基金（Economic Futures Research Fund）」研究議程，作為 Anthropic Economic Index 的延伸計畫。\n\n**研究方向**\n• 研究議程聚焦於 AI 對就業結構、薪資水準、勞動市場變化及整體經濟的影響\n• 以 Anthropic Economic Index 累積的資料為基礎，推動更深入的學術研究\n• 目標是建立跨領域的研究合作，理解 AI 技術的廣泛經濟影響",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.217",
     date: "2026-07-21",
     version: "v2.1.217",
