@@ -1,6 +1,50 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "opus-4-7-fast-mode-removal-2026-07-24",
+    date: "2026-07-24",
+    version: "API 重大變更",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Claude Opus 4.7 Fast Mode 正式移除，請遷移至 Opus 4.8",
+    summary: "即日起，以 speed: 'fast' 呼叫 claude-opus-4-7 將回傳錯誤，且不會回退至標準速度。需遷移至 Claude Opus 4.8 Fast Mode，遷移後費用從每百萬 token $30/$150 降至 $10/$50（輸入/輸出）。",
+    body: {
+      kind: "breaking",
+      description: "2026-07-24，Anthropic 正式移除 Claude Opus 4.7 的 Fast Mode 支援。\n\n**影響範圍**\n• 使用 `speed: \"fast\"` 參數呼叫 `claude-opus-4-7` 的 API 請求即日起回傳錯誤\n• 與 claude-opus-4-6 不同，claude-opus-4-7 不會自動回退至標準速度\n\n**遷移路徑**\n• 將模型替換為 `claude-opus-4-8` 並保留 `speed: \"fast\"` 參數\n• 遷移至 Opus 4.8 Fast Mode 同時帶來費用降幅：每百萬 token 由 $30/$150 降至 $10/$50（輸入/輸出）\n• Fast Mode 輸出速度最高可達標準模式的 2.5 倍，模型智能不變\n\n**背景**\nFast Mode for Opus 4.7 自 2026-06-25 起進入棄用期，今日正式移除。",
+      migration: {
+        title: "替換模型 ID",
+        text: "將 API 呼叫中的 claude-opus-4-7 改為 claude-opus-4-8，speed: \"fast\" 參數保持不變。"
+      },
+      diff: {
+        before: ["model: \"claude-opus-4-7\",", "speed: \"fast\""],
+        after: ["model: \"claude-opus-4-8\",", "speed: \"fast\""]
+      },
+      links: [
+        { label: "Fast Mode 文件", href: "https://platform.claude.com/docs/en/build-with-claude/fast-mode", kind: "doc" },
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-voice-mode-model-selection-2026-07-23",
+    date: "2026-07-23",
+    version: "產品更新",
+    category: "enh",
+    area: "voice",
+    product: "claude",
+    title: "Claude 語音模式升級：新增 Opus 和 Sonnet 模型選項",
+    summary: "Claude 語音模式（Voice Mode）現可選擇 Opus、Sonnet 或 Haiku 模型，預設採用用戶上次文字對話使用的模型最快版本。付費用戶可享更強推理能力的語音對話，免費用戶限用 Haiku 模型。",
+    body: {
+      kind: "feature",
+      description: "2026-07-23，Anthropic 更新 Claude 語音模式，新增 Opus 與 Sonnet 模型支援，原本語音模式僅支援 Haiku 模型。\n\n**主要變更**\n• 語音模式現支援 Opus、Sonnet、Haiku 三種模型，可在對話中切換\n• 預設自動採用用戶上次在文字對話中使用的模型的最快版本\n• 適合需要深度推理的語音場景：溝通風格反饋、客戶簡報演練、產品市場研究腦力激盪\n• 語音模式可串接 Gmail、Google Calendar、Slack、Canva、Notion 等外部應用程式\n\n**使用限制**\n• 免費用戶：僅限使用 Haiku 模型，且只能連接一個外部應用程式\n• 付費用戶：可使用訂閱方案包含的所有模型\n• 功能以 Beta 形式向全平台用戶開放",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/07/23/anthropic-updates-claude-voice-mode-with-more-capable-models/", kind: "doc" },
+        { label: "Claude 語音模式說明", href: "https://support.anthropic.com/en/articles/11101966-using-voice-mode-on-claude-mobile-apps", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.218",
     date: "2026-07-22",
     version: "v2.1.218",
