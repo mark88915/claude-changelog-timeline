@@ -1,6 +1,60 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-opus-5-launch-2026-07-24",
+    date: "2026-07-24",
+    version: "claude-opus-5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Opus 5 正式發布：1M token 上下文、媲美 Fable 5 的智能",
+    summary: "Anthropic 發布 Claude Opus 5（claude-opus-5），擁有 1M token 上下文、128k 最大輸出、預設開啟 Thinking，定價維持 $5/$25 每百萬 token（與 Opus 4.8 相同）。Fast Mode $10/$50，成為 Claude Max 預設模型及 Claude Pro 最強模型，即日起在 API、Bedrock、Google Cloud、Microsoft Foundry、claude.ai、Claude Code 及 Cowork 全平台可用。",
+    body: {
+      kind: "feature",
+      description: "2026-07-24，Anthropic 正式發布 Claude Opus 5（API ID：`claude-opus-5`）。\n\n**主要規格**\n• 上下文視窗：1M token（輸入），最大輸出 128k token\n• 定價：$5/$25 每百萬 token（輸入/輸出），與 Opus 4.8 相同\n• Fast Mode：$10/$50 每百萬 token，最高 2.5 倍速\n• Thinking 預設開啟，支援完整 effort 階梯（low / medium / high / xhigh / max）\n• 知識截止日：2026 年 5 月\n\n**能力亮點**\n• 軟體工程：在 Frontier-Bench v0.1 超越所有競爭對手\n• 知識工作：複雜問題解決能力為競品的三倍\n• 科學研究：化學、蛋白質分析、基因體學均有顯著提升\n• 視覺生成：動畫、遊戲、3D 視覺化表現增強\n• 自我驗證與迭代問題解決能力更強\n\n**重要 API 注意事項**\n• effort 設定為 xhigh 或 max 時，無法停用 Thinking；嘗試停用將回傳 400 錯誤\n• Opus 4.8 保持可用；Opus 4.7 Fast Mode 已同步停用\n\n**平台可用性**\n即日起在 Claude API、Amazon Bedrock、Google Cloud、Microsoft Foundry、claude.ai、Claude Code 及 Cowork 全平台提供。Claude Max 用戶自動獲得 Opus 5 作為預設模型；Claude Pro 用戶可選擇 Opus 5 作為最強模型。",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/claude-opus-5", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/", kind: "doc" },
+        { label: "Claude Developer Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "2.1.219",
+    date: "2026-07-24",
+    version: "v2.1.219",
+    category: "new",
+    area: "model",
+    product: "claude-code",
+    title: "v2.1.219：新增 Claude Opus 5 支援、子代理巢狀深度提升至 3 層、多項穩定性修復",
+    summary: "Claude Code v2.1.219 新增 Opus 5 為預設 Opus 模型（1M context）、sandbox.network.strictAllowlist 封鎖未白名單主機、DirectoryAdded hook、子代理巢狀深度上限提升至 3 層、Dynamic Workflows 預設 medium 規模（< 15 代理），並修復多項 MCP、Vim 模式、遠端控制及終端機相容性問題。",
+    body: {
+      kind: "feature",
+      description: "v2.1.219（2026-07-24）變更摘要：\n\n**模型更新**\n• 新增 `claude-opus-5` 為預設 Opus 模型（1M context 視窗）\n• Fast Mode 移除 Opus 4.7 支援；`/fast` 現在適用 Opus 5 及 Opus 4.8\n\n**新設定與配置**\n• 新增 `sandbox.network.strictAllowlist` 設定：在沙箱指令中拒絕未白名單主機，不再提示確認\n• 新增 `workflowSizeGuideline` 設定鍵：可從任何設定檔配置 Dynamic Workflow 規模準則\n• Dynamic Workflows 預設規模改為 medium（建議 < 15 個代理）\n\n**Hooks 與事件**\n• 新增 `DirectoryAdded` hook：在 `/add-dir` 或 SDK `register_repo_root` 控制請求註冊新工作目錄後觸發\n\n**MCP 與基礎設施**\n• 新增 `mcp_server_errors` 至 headless stream-json 初始化事件，列出設定驗證跳過的項目\n• `claude mcp list` 及 `/mcp` 現在顯示伺服器連線失敗時的 HTTP 狀態與錯誤訊息\n• 新增 MCP 設定值含隱藏前後空白的警告提示\n\n**子代理改善**\n• stream-json 中的巢狀子代理轉發：設定 `--forward-subagent-text` 時，depth-2+ 的子代理輸出現在可見\n• 子代理預設可再生成巢狀子代理至深度 3（原為 1）；可用 `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1` 停用\n\n**錯誤修復**\n• 修復自架 runner 重啟後權限核准遺失問題\n• 修復 `/model` 選擇器顯示「Opus」而非「Opus (1M context)」\n• 修復 GNU screen 內 copy-on-select 輸出 base64 而非複製\n• 修復遠端控制客戶端切換模型後保留過期 fast-mode 狀態\n• 修復 `CLAUDE_CODE_GIT_BASH_PATH` 在路徑非 bash/sh 二進位時退出\n• 修復 Vim 模式：在 NORMAL 模式下，空 prompt 時按 ← 返回代理檢視\n• 修復螢幕閱讀器模式下每次按鍵重寫整行輸入\n• 改善 `claude --teleport` 顯示當前 checkout 指向的 repo 資訊",
+      links: [
+        { label: "github/claude-code/v2.1.219", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.219", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "mid-conversation-tool-changes-beta-2026-07-24",
+    date: "2026-07-24",
+    version: "API Beta",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Mid-conversation 工具變更進入 Beta：可在對話中途更換工具定義",
+    summary: "Claude API 新增 Beta 功能：透過 mid-conversation-tool-changes-2026-07-01 header 可在多輪對話中途新增、移除或修改工具定義，無需重啟 session，適合動態工具場景。",
+    body: {
+      kind: "feature",
+      description: "2026-07-24，Claude Developer Platform 推出 mid-conversation 工具變更 Beta 功能。\n\n**使用方式**\n在 API 請求中加入 `anthropic-beta: mid-conversation-tool-changes-2026-07-01` header，即可在同一對話的不同輪次中傳入不同的工具定義。\n\n**適用場景**\n• 動態載入工具：依對話上下文決定提供哪些工具\n• 長期 Agent 流程：在不同階段切換工具集\n• 資源管理：移除不再需要的工具以節省 token\n\n此為 Beta 功能，API 行為可能隨正式版本調整。",
+      links: [
+        { label: "Claude Developer Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "opus-4-7-fast-mode-removal-2026-07-24",
     date: "2026-07-24",
     version: "API 重大變更",
