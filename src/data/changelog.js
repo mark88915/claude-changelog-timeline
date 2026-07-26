@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "2.1.220",
+    date: "2026-07-25",
+    version: "v2.1.220",
+    category: "bug",
+    area: "cli",
+    product: "claude-code",
+    title: "v2.1.220：錯誤修復與穩定性改善",
+    summary: "Claude Code v2.1.220 帶來一系列錯誤修復與可靠性改善。",
+    body: {
+      kind: "bug",
+      description: "v2.1.220（2026-07-25）：本版本專注於錯誤修復與可靠性改善，為 v2.1.219（新增 Claude Opus 5 支援）的後續穩定版本。",
+      links: [
+        { label: "github/claude-code/v2.1.220", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.220", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-opus-5-launch-2026-07-24",
     date: "2026-07-24",
     version: "claude-opus-5",
