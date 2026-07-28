@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "cognizant-anthropic-partnership-2026-07-27",
+    date: "2026-07-27",
+    version: "合作公告",
+    category: "new",
+    area: "enterprise",
+    product: "claude",
+    title: "Cognizant 升格為 Claude Partner Network 全球首要合作夥伴",
+    summary: "Cognizant 與 Anthropic 擴大合作，將 Claude 嵌入製造、生命科學與保險等工業平台，逾 30,000 名員工完成 Claude 培訓，推動企業 AI 從試點走向規模化落地。",
+    body: {
+      kind: "feature",
+      description: "2026-07-27，Anthropic 與 Cognizant 宣布擴大策略合作，Cognizant 成為 Claude Partner Network 的全球首要合作夥伴（Global Premier Partner）。\n\n**合作重點**\n• Cognizant 將 Claude 嵌入其核心商業與工程平台，橫跨製造、生命科學與保險等產業\n• 推出「Frontier Certified」員工認證體系，已有逾 30,000 名員工完成 Claude 培訓\n• 目標是協助企業客戶縮短 AI 試點與規模化落地之間的差距\n\n**背景**\n此次擴大合作建立於 2025 年底原有合作基礎之上，Cognizant 現為少數 Claude Partner Network 全球首要合作夥伴之一。",
+      links: [
+        { label: "Cognizant 官方新聞稿", href: "https://news.cognizant.com/2026-07-27-Cognizant-and-Anthropic-expand-partnership-to-embed-Claude-in-Cognizants-industry-platforms,-helping-clients-close-the-gap-between-AI-promise-and-business-outcomes", kind: "doc" },
+        { label: "Anthropic 官方消息", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-open-weights-position-2026-07-27",
+    date: "2026-07-27",
+    version: "官方公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 發表開放權重模型立場聲明",
+    summary: "CEO Dario Amodei 澄清 Anthropic 並未支持全面禁止開放權重模型，但對中國取得高性能 AI 晶片及工業規模蒸餾存有顧慮，呼籲差異化管制：管控晶片出口、禁止工業蒸餾、要求所有強大模型接受安全測試。",
+    body: {
+      kind: "feature",
+      description: "2026-07-27，Anthropic CEO Dario Amodei 發表《我們對開放權重模型的立場》（Our position on open-weights models）。\n\n**背景**\n2026-07-24，Meta、Nvidia、OpenAI、Google、Microsoft、SpaceX 等科技巨頭聯署《開放權重與美國 AI 領導力》聲明，惟 Anthropic 為主要 AI 實驗室中唯一未連署者，引發業界批評。\n\n**Anthropic 的立場**\n• Dario Amodei 聲明：「Anthropic 並未、也不正在倡議對開放權重模型類別實施禁令。」\n• 主要顧慮：威權政府取得媲美美國的 AI 能力，用於軍事優勢或鎮壓本國人民\n• 反對聲明中「開放權重模型必然使 AI 更安全」的論點\n\n**Anthropic 的政策主張**\n• 對高性能 AI 晶片的出口管制（防止流入威權國家）\n• 禁止工業規模的模型蒸餾行為\n• 要求所有達到一定能力門檻的模型（不論開放或閉源）接受安全測試",
+      links: [
+        { label: "Anthropic 官方聲明", href: "https://www.anthropic.com/news/position-open-weights-models", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/07/27/anthropics-dario-amodei-responds-doesnt-oppose-open-weight-models-but-fears-chinese-ai/", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/07/27/anthropic-ceo-dario-amodei-isnt-advocating-open-weight-model-ban.html", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "2.1.220",
     date: "2026-07-25",
     version: "v2.1.220",
