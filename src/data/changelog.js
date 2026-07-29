@@ -1,6 +1,44 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-google-indexing-privacy-fix-2026-07-28",
+    date: "2026-07-28",
+    version: "安全公告",
+    category: "bug",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 修復 Claude 共享對話遭 Google 索引的隱私問題",
+    summary: "Claude 公開共享的對話與 Artifacts 遭 Google 索引，揭露用戶履歷、API 金鑰、財務試算表等敏感資料。Anthropic 於 7/27-28 更新 robots.txt 並移除已索引連結，但 Bing 及第三方快取仍存風險。",
+    body: {
+      kind: "bug",
+      description: "2026-07-25，Reddit 用戶發現 Claude 透過共享功能產生的公開 URL 被 Google 大量索引，包含用戶真實姓名、電話號碼、API 金鑰、加密貨幣錢包資訊、財務試算表，乃至疑似社會安全號碼等敏感資料。\n\n**問題根源**\n• Claude 共享功能（Share Chat / Share Artifact）未明確告知用戶共享頁面可能被搜尋引擎索引\n• 公開 URL 缺少 noindex meta tag 及 robots.txt 限制\n\n**Anthropic 的處理**\n• 2026-07-27 至 2026-07-28 完成 robots.txt 更新，Google 已移除搜尋結果中的索引連結\n• 舊有共享 URL 對持有連結者仍可存取\n• Bing 及第三方爬蟲的快取資料尚未完全清除，暴露窗口尚未完全關閉\n\n**用戶建議**\n• 如曾分享包含敏感資訊的對話，應自行撤銷共享連結\n• 未來共享前確認對話內容不含個人識別或機密資訊",
+      links: [
+        { label: "Fortune 報導", href: "https://fortune.com/2026/07/27/a-trove-of-users-seemingly-private-conversations-with-anthropics-claude-ai-chatbot-showed-up-in-google-search-results/", kind: "doc" },
+        { label: "News9Live 報導", href: "https://www.news9live.com/technology/artificial-intelligence/anthropic-fixes-claude-privacy-issue-after-private-ai-chats-appeared-in-google-search-2994021", kind: "doc" },
+        { label: "Eastern Herald 報導", href: "https://easternherald.com/2026/07/28/claude-shared-chats-google-indexed/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "mcp-2026-07-28-spec-claude-support",
+    date: "2026-07-28",
+    version: "MCP 2026-07-28",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "MCP 2026-07-28 規格正式發布：無狀態核心、强化授權，Claude 同步支援",
+    summary: "MCP 發布自推出以來最大幅度更新：協議從雙向有狀態模式轉為無狀態請求/回應模型，帶來強化 OAuth 2.0/OIDC 授權、Multi Round-Trip Requests（MRTR）、Header-Based Routing 及正式擴充框架（Apps、Tasks）；Claude 同日發布支援公告，新增嵌入式 UI、企業身份驗證整合、開發者可觀測性儀表板及 MCP Tunnels。",
+    body: {
+      kind: "feature",
+      description: "2026-07-28，Model Context Protocol 發布 2026-07-28 規格，為 MCP 自推出以來最重大的版本更新，同日 Anthropic 也宣布 Claude 已開始支援新規格。\n\n**核心架構變更：無狀態協議**\n• MCP 從雙向有狀態協議轉為請求/回應無狀態模型\n• 每個請求自描述，可落在負載平衡器後方的任何伺服器實例上，不再需要 session 管理\n• 可在 serverless 及 edge 基礎設施上直接部署\n\n**新增功能**\n• **Multi Round-Trip Requests（MRTR）**：取代需要開啟串流的伺服器啟動請求，工具可在無狀態機制下請求用戶中途確認\n• **Header-Based Routing**：新增必要的 `Mcp-Method` 和 `Mcp-Name` HTTP headers，讓 gateway 與速率限制器無需解析 JSON body 即可路由\n• **可快取列表結果**：tools、prompts、resources 回應中加入 `ttlMs` 和 `cacheScope` 參數\n• **強化授權**：符合 RFC 9207 issuer 驗證，從 Dynamic Client Registration 正式遷移至 Client ID Metadata Documents（CIMD）\n• **正式擴充框架**：Apps（互動式 UI）和 Tasks（長時間執行工作）進入正式版本化擴充框架\n\n**重大變更（破壞性）**\n• 移除 `initialize`/`initialized` 握手流程及 `Mcp-Session-Id` header\n• Roots、Sampling、Logging 進入 12 個月棄用過渡期\n• 舊 HTTP+SSE transport 正式棄用\n• Tasks 從核心移入 `io.modelcontextprotocol/tasks` 擴充\n\n**Claude 新功能**\n• MCP Apps：在對話中直接渲染互動式 UI\n• 企業身份驗證：透過 Entra、Okta 等 identity provider 實現零觸碰設定\n• 開發者可觀測性：已發布 connector 的效能儀表板\n• MCP Tunnels：無需公開暴露的私有網路伺服器安全連線\n\n**背景**\nMCP 月 SDK 下載量已突破 4 億次（年增 4 倍），成為 AI Agent 連接應用程式的業界標準；Claude Connector 目錄中超過 950 個 MCP 伺服器，每日用戶達數百萬。",
+      links: [
+        { label: "Claude 官方部落格：Bringing MCP 2026-07-28 to Claude", href: "https://claude.com/blog/bringing-mcp-2026-07-28-to-claude", kind: "doc" },
+        { label: "MCP 官方規格部落格", href: "https://blog.modelcontextprotocol.io/posts/2026-07-28/", kind: "doc" },
+        { label: "The Register 報導", href: "https://www.theregister.com/devops/2026/07/23/model-context-protocol-prepares-to-break-with-its-stateful-past/5276722", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "cognizant-anthropic-partnership-2026-07-27",
     date: "2026-07-27",
     version: "合作公告",
