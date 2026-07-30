@@ -1,6 +1,61 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-global-outage-2026-07-29",
+    date: "2026-07-29",
+    version: "服務公告",
+    category: "bug",
+    area: "performance",
+    product: "claude",
+    title: "Claude 全球服務中斷：529 Overloaded 錯誤影響 API 與 claude.ai 用戶",
+    summary: "Claude 於 7 月 29 日發生全球性服務中斷，回傳「529 Overloaded」錯誤，影響直接用戶與 API 整合方。Anthropic 於 UTC 19:49 確認問題，UTC 20:33 找到根因並啟動修復，服務已逐步恢復。",
+    body: {
+      kind: "bug",
+      problem: "Claude 全球服務中斷，用戶與 API 呼叫持續收到 529 Overloaded 錯誤",
+      rootCause: "Anthropic 確認找到根因但未公開說明，推測為伺服器請求量異常暴增",
+      fix: "Anthropic 工程團隊介入修復，服務於晚間逐步恢復正常",
+      description: "2026-07-29，Claude 服務出現全球性中斷事件。\n\n**事件時間軸**\n• 約 UTC 19:49：Anthropic 宣布開始調查中斷問題\n• UTC 20:33：Anthropic 確認已找到根本原因並開始修復\n• 晚間：大部分模型服務逐步恢復，仍有少數用戶持續遭遇錯誤\n\n**影響範圍**\n• claude.ai 直接使用者\n• 透過 API 整合 Claude 的開發者與企業用戶\n• 使用 Claude Code 執行任務的用戶\n\n**錯誤訊息**\n用戶反覆收到：「API Error: 529 Overloaded. This is a server-side issue, usually temporary — try again in a moment.」\n\nAnthropic 未公開說明觸發異常請求量的原因，亦未提供明確的恢復時間表。",
+      links: [
+        { label: "BleepingComputer 報導", href: "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-is-down-worldwide/", kind: "doc" },
+        { label: "Glitchwire 報導", href: "https://glitchwire.com/news/anthropics-claude-goes-down-for-thousands-as-529-errors-hit-workers-mid-task/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "ai-pacing-letter-2026-07-29",
+    date: "2026-07-29",
+    version: "政策公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 等 AI 公司逾千名員工連署 AI 放緩請願書",
+    summary: "OpenAI、Anthropic、Google、Meta 等逾 1,100 名 AI 從業人員連署公開信，呼籲美國政府建立國際協調機制，在 AI 進展超越安全監督能力時可協調驗證性放緩。",
+    body: {
+      kind: "feature",
+      description: "2026-07-29，超過 1,100 名來自 OpenAI、Anthropic、Google 及 Meta 的 AI 公司員工連署一封公開信，要求美國政府研建「國際 AI 放緩協調機制」（international pacing mechanism）。\n\n**信件核心訴求**\n• 建立可驗證的 AI 進展放緩協調工具，供各國政府在 AI 能力超越安全監督速度時使用\n• 推動美國政府主導建立多邊國際對話框架\n• 確保 AI 發展速度不超過人類安全監督能力\n\n**背景**\nAnthropic 聯合創辦人 Jack Clark 及 Jared Kaplan 亦為連署人之一。此信件反映出 AI 業界內部對 AI 進展速度的安全顧慮正在升溫，也顯示出業界與政府間尋求監管對話的意願。\n\n**回應與爭議**\n• 矽谷方面對 Anthropic 安全立場存在批評聲音\n• 部分觀察人士認為 Anthropic 的謹慎立場可能兼顧競爭利益",
+      links: [
+        { label: "Washington Post 報導", href: "https://www.washingtonpost.com/technology/2026/07/29/openai-anthropic-endorse-call-government-pace-ai-progress/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-mythos-hawk256-cryptanalysis-2026-07-29",
+    date: "2026-07-29",
+    version: "研究突破",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Mythos Preview 破解 HAWK-256 後量子密碼學方案，迫使 NIST 標準化申請撤回",
+    summary: "Anthropic 宣布 Claude Mythos Preview 發現 HAWK-256 後量子簽名方案的密鑰復原漏洞，可將攻擊時間縮短至約 3.7 小時，並對七輪 AES-128 攻擊達到 200-800 倍加速。HAWK 開發者已撤回 NIST 標準化申請。",
+    body: {
+      kind: "feature",
+      description: "2026-07-28-29，Anthropic 宣布 Claude Mythos Preview 在密碼學研究領域取得重大突破，直接導致一個後量子密碼學方案退出 NIST 標準化進程。\n\n**HAWK-256 攻擊細節**\n• Claude Mythos Preview 發現 HAWK 數學結構中的隱藏對稱性\n• 找到「利用路徑所需的額外自同構」，將金鑰復原從計算不可行縮短至約 3.7 小時（96 核心伺服器）\n• 攻擊目標為 HAWK-256（挑戰參數），HAWK-512 及 HAWK-1024 仍在安全範圍內\n• HAWK 開發者確認攻擊有效後，已撤回其 NIST 附加後量子簽名標準化申請\n\n**七輪 AES-128 加速**\n• Claude Mythos Preview 亦實現對七輪 AES-128 攻擊 200-800 倍的速度提升\n• 此攻擊對實際部署系統仍不構成威脅（七輪 AES 並非正式標準）\n\n**重要說明**\n• 兩項研究成果均不影響生產系統安全（HAWK 尚未標準化，七輪 AES 非正式標準）\n• 此突破展示了 AI 在密碼學分析研究的新興能力\n• Anthropic 表示這是 AI 協助科學研究的重要里程碑",
+      links: [
+        { label: "The Hacker News 報導", href: "https://thehackernews.com/2026/07/claude-ai-just-cracked-post-quantum.html", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-google-indexing-privacy-fix-2026-07-28",
     date: "2026-07-28",
     version: "安全公告",
