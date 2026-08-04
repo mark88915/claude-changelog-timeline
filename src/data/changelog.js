@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-221-2026-08-04",
+    date: "2026-08-04",
+    version: "v2.1.221",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.221：新增 Focus View 模式、沙盒憑證遮罩，修復多項安全與 Bug 問題",
+    summary: "新增 Focus View 可折疊每輪工具活動詳情（Ctrl+Alt+F），新增 Linux/WSL 沙盒憑證 mask 模式，修復 zsh 正則條件式 Bash 工具權限繞過漏洞，並修復 PowerShell 路徑處理與多項 MCP/WebSearch bug。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.221 於 2026-08-04 發布，帶來新功能、安全修復與效能改善。\n\n**新功能**\n• **Focus View**：對話選單新增切換按鈕（或 Ctrl+Alt+F），可隱藏工具活動細節，每輪僅顯示可展開的摘要與即時進度指示，減少視覺雜訊\n• **沙盒憑證 mask 模式**（Linux/WSL）：沙盒命令讀取哨符副本，沙盒代理在出口時替換真實值，提升憑證安全性\n\n**安全修復**\n• 修復 zsh 正則條件式 `[[ ]]` 中 Bash 工具權限檢查被繞過的漏洞\n• 修復 PowerShell 權限檢查在路徑包含引號字元時失效的問題\n\n**Bug 修復**\n• 修復 `--mcp-config` 的 MCP 伺服器在 print mode 第一輪前未連線的問題\n• 修復 @提及檔案在按下 Esc 後被靜默丟棄的問題\n• 修復 WebSearch 在 xhigh/max effort 且 thinking 停用時回傳 400 錯誤的問題\n• 修復 `CLAUDE_CODE_RESUME_INTERRUPTED_TURN=0` 時中斷輪次自動恢復失效的問題\n• 修復 Vim 模式下 yank register 在對話框與歷史搜尋後消失的問題\n\n**效能改善**\n• 自動模式：權限檢查現具更佳 cache 效率，降低 prompt-cache 成本\n• Windows 啟動效能：進程建立時間改為透過 kernel32 原生呼叫讀取，不再依賴 PowerShell",
+      links: [
+        { label: "GitHub Releases v2.1.221", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.221", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-cybersecurity-eval-incidents-2026-07-30",
     date: "2026-07-30",
     version: "安全公告",
