@@ -1,6 +1,44 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-tino-cuellar-cgao-2026-08-04",
+    date: "2026-08-04",
+    version: "人事任命",
+    category: "enh",
+    area: "policy",
+    product: "claude",
+    title: "Anthropic 任命 Tino Cuéllar 為首位全球事務長（Chief Global Affairs Officer）",
+    summary: "前加州最高法院大法官、卡內基國際和平基金會前主席 Mariano-Florentino（Tino）Cuéllar 加入 Anthropic，擔任首位全球事務長，負責全球政策、戰略國際參與與政府關係，向 Anthropic 總裁 Daniela Amodei 匯報。",
+    body: {
+      kind: "feature",
+      description: "2026-08-04，Anthropic 宣布 Mariano-Florentino（Tino）Cuéllar 將加入公司，擔任首位全球事務長（Chief Global Affairs Officer）。\n\n**背景**\n• Cuéllar 曾任加州最高法院大法官，其判決涉及科技與隱私、國際協議及三權分立等議題\n• 此前擔任卡內基國際和平基金會主席，該機構在全球 20 個國家設有學者\n• 自 2026 年 1 月起擔任 Anthropic 長期利益信託（Long-Term Benefit Trust）受託人，卸任後轉任全職\n\n**職責**\n• 主導 Anthropic 在全球各地的政策工作\n• 負責戰略國際參與，包括與美國政府及 Anthropic 業務擴展國家的政府關係\n• 向 Anthropic 總裁 Daniela Amodei 匯報，辦公地點設於舊金山總部\n\n此任命背景為 Anthropic 在 AI 政策與監管方面面臨複雜的國際環境，以及與川普政府關係緊張的局面。",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/tino-cuellar", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/08/04/anthropic-names-global-affairs-chief-as-trump-tensions-persist.html", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-222-2026-08-04",
+    date: "2026-08-04",
+    version: "v2.1.222",
+    category: "bug",
+    area: "security",
+    product: "claude-code",
+    title: "v2.1.222：修復 worktree 隔離安全漏洞、PreToolUse hooks 繞過問題，移除 ultraplan",
+    summary: "修復 worktree 隔離 session 及子代理可執行破壞性 git 指令的安全漏洞，修正 PreToolUse auto-allow hooks 在 background agent 任務中繞過工具限制的問題，改善 Remote Control 安全設定，並移除 ultraplan 功能。",
+    body: {
+      kind: "bug",
+      problem: "worktree 隔離 session 及其子代理可對主 checkout 執行破壞性 git 指令；PreToolUse auto-allow hooks 在 background agent 任務中繞過工具限制",
+      rootCause: "worktree 隔離邏輯未覆蓋所有 session 類型的 Bash 與檔案編輯操作；PreToolUse hooks 未在 background agent 摘要、壓縮與重命名等任務中套用限制",
+      fix: "隔離現適用所有 session 類型的檔案編輯和 Bash 操作；background agent 任務的 SendMessage 訊息現由權限分類器評估後再派發；repo-local 設定不再允許啟用 Remote Control 自動啟動",
+      description: "Claude Code v2.1.222 於 2026-08-04 22:39 UTC 發布，帶來重要安全修復與多項 bug 修正。\n\n**安全與隔離修復**\n• 修復 worktree 隔離 session 及其子代理可對主 checkout 執行破壞性 git 指令的漏洞；隔離現套用至所有 session 類型的檔案編輯與 Bash\n• 修復 PreToolUse auto-allow hooks 在 background agent 任務（摘要、壓縮、重命名）中繞過工具限制的問題\n• 改善自動模式安全性：透過 SendMessage 傳送給其他 agent session 的訊息現先由權限分類器評估\n• 變更 Remote Control 自動啟動設定：repo-local 設定（.claude/settings.json 或 settings.local.json）不再可啟用，僅可關閉\n\n**Bug 修復**\n• 修復 Team 和 Enterprise 上 /usage-credits 對成員顯示不正確狀態訊息的問題\n• 修復啟動連線檢查在 HTTPS proxy 後方卡住的問題；現使用與 API 請求相同的 proxy-aware 傳輸\n• 修復回應完成後出現「Connection closed mid-response」錯誤的問題\n• 修復 /usage 過度將使用量歸因於 MCP 伺服器的問題\n• 修復 session 未連結至分支推送後建立的 PR 的問題\n• 修復 org 限制的模型系列別名降級至父模型而非最新允許模型的問題\n• 修復自訂 ANTHROPIC_BASE_URL 閘道上串流閒置逾時的問題\n• 修復 claude.ai connector 被誤標為需要授權的問題\n• 修復不可用工具的工具錯誤未顯示的問題\n• 修復 SendMessage 拒絕長摘要的問題；現改為截斷\n• 修復旋轉器 effort 標籤顯示 session 層級而非子代理自身設定的問題\n• 修復 --ax-screen-reader 模式下螢幕閱讀器在退格鍵後重複朗讀輸入行的問題\n\n**UI/UX 改善**\n• 改善 /diff 檢視、Remote Control workspace diff 及檔案編輯 diff，使用原始 git blob 內容，忽略 workspace 設定的 diff driver\n\n**移除功能**\n• 移除 ultraplan 功能",
+      links: [
+        { label: "GitHub Releases v2.1.222", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.222", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-221-2026-08-04",
     date: "2026-08-04",
     version: "v2.1.221",
