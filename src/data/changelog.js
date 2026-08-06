@@ -1,6 +1,55 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-opus-4-1-retirement-2026-08-05",
+    date: "2026-08-05",
+    version: "claude-opus-4-1-20250805",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Claude Opus 4.1 正式退役，所有請求將回傳錯誤",
+    summary: "Anthropic 正式退役 Claude Opus 4.1（claude-opus-4-1-20250805），所有對此模型的 API 請求將回傳錯誤，建議用戶升級至 Claude Opus 5；學術研究人員可透過 External Researcher Access Program 申請延長存取。",
+    body: {
+      kind: "breaking",
+      description: "2026-08-05，Anthropic 宣布 Claude Opus 4.1（`claude-opus-4-1-20250805`）正式退役。\n\n**影響範圍**\n• 所有對 `claude-opus-4-1-20250805` 的 API 請求現在將回傳錯誤\n• 需在程式碼中將模型 ID 更新為 `claude-opus-5-20250929`（或更新版本）\n\n**建議遷移路徑**\n• 一般用戶：升級至 Claude Opus 5\n• 學術研究人員：可透過 External Researcher Access Program 申請繼續存取舊版模型",
+      migration: {
+        title: "更新模型 ID",
+        text: "將所有程式碼中的 `claude-opus-4-1-20250805` 替換為 `claude-opus-5-20250929` 或最新版本。"
+      },
+      diff: {
+        before: ["model: \"claude-opus-4-1-20250805\""],
+        after: ["model: \"claude-opus-5-20250929\""]
+      },
+      links: [
+        { label: "Anthropic Release Notes", href: "https://releasebot.io/updates/anthropic", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-enterprise-inference-hooks-beta-2026-08-05",
+    date: "2026-08-05",
+    version: "Enterprise Beta",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Claude Enterprise 新增推論鉤子（Inference Hooks）Beta：即時 DLP 合規稽核",
+    summary: "Claude Enterprise 推出推論鉤子（Inference Hooks）Beta 功能，讓合規團隊可在模型推論前透過 WebSocket 即時審查 Prompt 與工具呼叫，支援整合 Netskope、Palo Alto Networks、Proofpoint、Zscaler 等主流企業安全平台。",
+    body: {
+      kind: "feature",
+      description: "2026-08-05，Anthropic 為 Claude Enterprise 推出推論鉤子（Inference Hooks）Beta 功能，提供即時資料外洩防護（DLP）合規執行能力。\n\n**核心功能**\n• 每個推論請求透過帶簽名的 WebSocket 連線路由至企業安全伺服器\n• 合規團隊可配置允許或拒絕策略，在模型接收 Prompt 前即介入審查\n• 支援 Shadow Mode（僅記錄，不阻擋）用於前期測試\n• 支援角色排除設定，對特定使用者群組不套用鉤子規則\n\n**適用範圍**\n• claude.ai 對話介面\n• Claude Code\n• Claude Cowork\n• 所有 Claude Enterprise 產品介面\n\n**整合支援**\n• Netskope、Palo Alto Networks、Proofpoint、Zscaler 等主流企業安全平台\n• 公開發布 WebSocket Schema，供安全廠商自行建置整合\n\n**配置選項**\n• 可設定超時與失敗策略（請求失敗時允許或拒絕）",
+      steps: [
+        "在 Enterprise 管理後台啟用 Inference Hooks Beta",
+        "設定安全伺服器的 WebSocket 端點",
+        "配置允許／拒絕策略與角色排除規則",
+        "選擇性啟用 Shadow Mode 進行前期測試",
+        "整合現有安全平台（Netskope / Palo Alto / Proofpoint / Zscaler）"
+      ],
+      links: [
+        { label: "Anthropic Release Notes", href: "https://releasebot.io/updates/anthropic", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-tino-cuellar-cgao-2026-08-04",
     date: "2026-08-04",
     version: "人事任命",
