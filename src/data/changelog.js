@@ -1,6 +1,45 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-223-2026-08-06",
+    date: "2026-08-06",
+    version: "v2.1.223",
+    category: "bug",
+    area: "security",
+    product: "claude-code",
+    title: "v2.1.223：修復 Bash 命令隱藏內容繞過權限、工作流程沙盒逃逸，新增 /teleport 及子代理限制警告",
+    summary: "修復 Bash 命令可透過隱藏部分內容繞過權限核准對話框的安全漏洞、修復工作流程腳本 dynamic import() 沙盒逃逸，修復 bypassPermissions 政策繞過問題；新增 /teleport 雲端 Session 切換本機提示、子代理模型受限警告及 marketplace owner 萬用字元設定，/review 指令改為 /code-review 的別名。",
+    body: {
+      kind: "bug",
+      problem: "Bash 命令可透過隱藏部分指令內容繞過權限核准對話框；工作流程腳本可使用 dynamic import() 執行沙盒外的程式碼；agent definition 的 bypassPermissions 可繞過 org 層級的停用政策",
+      rootCause: "Bash 權限檢查未處理使用 Tab 或不可見 Unicode 字元填充命令的邊緣情況；workflow 腳本沙盒未限制 ES module 動態匯入；bypassPermissions 設定未驗證 org 政策是否允許",
+      fix: "修復上述三項權限繞過問題；新增 owner wildcard 設定（owner/*）供 marketplace 篩選；新增 /teleport 提示供雲端 Session 切換本機；新增子代理使用受限模型時的警告訊息",
+      description: "Claude Code v2.1.223 於 2026-08-06 發布，帶來多項安全修復與新功能。\n\n**安全修復**\n• 修復 Bash 權限繞過：精心構造的命令可將部分內容隱藏於權限核准對話框之外\n• 修復命令以 Tab 或不可見 Unicode 字元填充，隱藏部分內容逃避權限提示的問題\n• 修復工作流程腳本使用 dynamic `import()` 在沙盒外執行程式碼的問題\n• 修復 agent definition 的 `bypassPermissions` 可無視 org 層級停用政策的權限缺口\n\n**新功能**\n• 新增 owner wildcard 項目（`\"owner/*\"`）至 `strictKnownMarketplaces` 和 `blockedMarketplaces` 管理設定，允許以 GitHub Org 為單位批次允許或封鎖 marketplace 儲存庫\n• 在雲端 session 中新增 `/teleport` 提示，顯示如何用 `claude --teleport <session id>` 在本機繼續作業\n• 工作流程代理、分叉技能、斜線命令或繼續的背景代理請求受限模型時，新增警告訊息\n\n**Bug 修復**\n• 修復 `/cd` 後繼續 session 回傳空白的問題\n• 修復閘道模型探索在 provider 前綴 ID 下隱藏 Claude 模型的問題（`vertex_ai/claude-*`、`bedrock/anthropic.claude-*`）\n• 修復 Linux 上 `sandbox.filesystem.denyWrite` 覆蓋工作目錄時沙盒命令失敗的問題\n\n**功能變更**\n• `/review` 現為 `/code-review` 的別名，支援 `/code-review ultra` 深度雲端審查\n• 調整 1M context window 模型的自動壓縮行為",
+      links: [
+        { label: "GitHub Releases v2.1.223", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.223", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-custom-chip-team-2026-08-06",
+    date: "2026-08-06",
+    version: "官方公告",
+    category: "new",
+    area: "infrastructure",
+    product: "claude",
+    title: "Anthropic 確認建立內部晶片設計團隊，目標將 Claude 推論成本降低 50%",
+    summary: "Anthropic 確認正在建立自有晶片設計團隊，由前 OpenAI 晶片團隊成員 Clive Chan 領銜，目標透過晶片與模型協同設計將每 token 推論成本降低約 50%，同時持續採用 AWS、Google、Nvidia、AMD 多晶片策略。招募晶片工程師薪資最高達 $485,000。",
+    body: {
+      kind: "feature",
+      description: "2026-08-06，Anthropic 確認正在建立內部晶片設計團隊，以降低 Claude 的推論成本並減少對外部晶片的依賴。\n\n**核心目標**\n• 透過晶片與 Claude 模型協同設計（co-design），目標將每 token 推論成本降低約 50%\n• 使 Claude 能以客戶所需的規模更快、更有效率地運行\n\n**團隊與招募**\n• 技術負責人：Clive Chan，前 OpenAI 晶片團隊第二位硬體工程師，2026 年 6 月加入 Anthropic\n• 招募領域：前端設計、矽前驗證、物理設計、可測試性設計、類比與混合訊號、技術與代工、設計基礎架構及封裝訊號與電源完整性\n• 薪資範圍：$320,000 至 $485,000\n\n**策略定位**\n• Anthropic 採「多晶片策略」，將持續採購 Amazon Web Services、Google、Nvidia 及 AMD 的晶片\n• 自研晶片旨在中長期降低對單一晶片供應商的依賴\n• 此舉效仿 Google（TPU）和 Amazon（Trainium/Inferentia）的自研晶片路線\n\n**產業意義**\n• 反映 AI 晶片供應緊張的現實，主要 AI 公司正逐步減少對 Nvidia 的單一依賴\n• 不對 Nvidia 的短期主導地位構成直接威脅，但代表業界長期趨勢",
+      links: [
+        { label: "Forbes 報導", href: "https://www.forbes.com/sites/jonmarkman/2026/08/06/anthropic-enters-the-ai-chip-race-with-in-house-chip-team/", kind: "doc" },
+        { label: "TechTimes 報導", href: "https://www.techtimes.com/articles/323238/20260805/anthropic-confirms-house-chip-team-co-design-bet-could-cut-claude-inference-costs-half.htm", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-opus-4-1-retirement-2026-08-05",
     date: "2026-08-05",
     version: "claude-opus-4-1-20250805",
