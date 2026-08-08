@@ -1,6 +1,58 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-224-2026-08-07",
+    date: "2026-08-07",
+    version: "v2.1.224",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.224：新增自架環境、Archive 外掛、跨 Session 訊息傳遞，移除子代理數量上限",
+    summary: "Claude Code v2.1.224 帶來 31 項更新：新增自架環境（self-hosted runner）、Archive 外掛來源、跨 Session 訊息傳遞與進階沙盒憑證遮罩；移除每 Session 200 個子代理的數量上限；修復長路徑衝突與沙盒繞過問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.224 於 2026-08-07 發布，共帶來 31 項更新。\n\n**新功能**\n• **自架環境（Self-hosted runner）**：`claude self-hosted-runner` 命令可將自有機器或容器轉為 Claude Code web、mobile 及 desktop session 的執行環境，適用於 Team 和 Enterprise 方案\n• **Archive 外掛來源**：可透過 HTTPS ZIP 安裝外掛，無需 git 或 npm，支援選用 SHA-256 雜湊固定（pinning）以確保完整性\n• **跨 Session 訊息傳遞**：新增 `crossSessionInbound` 和 `dialogExpiry` 設定；在 bypassed 權限模式下的 session 收到跨 session 訊息時將暫停等待核准\n• **新增 `ANTHROPIC_BEDROCK_REGION_PREFIX` 環境變數**：可為 Bedrock 指定偏好的跨區域推論 profile\n• **沙盒憑證遮罩增強**：新增 JWT-aware 遮罩及 AWS SigV4 重新簽名支援\n\n**移除限制**\n• 移除每 Session 200 個子代理的生成上限\n\n**安全修復**\n• 修復長專案路徑可能解析至其他專案 session 目錄的衝突問題\n• 修復 Linux 和 macOS 上沙盒 filesystem deny 設定可被靜默繞過的漏洞\n\n**Bug 修復**\n• 修復 session 從 Claude Code Desktop 或 claude.ai 重新命名後 CLI 名稱未更新的問題\n• 修復 Vim 模式下 yank register 在對話框與歷史搜尋後消失的問題\n• 修復沙盒違規詳細資訊未顯示於 Bash 工具結果中的問題",
+      links: [
+        { label: "GitHub Releases v2.1.224", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.224", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-managed-agents-budget-advisor-2026-08-07",
+    date: "2026-08-07",
+    version: "Platform 更新",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Managed Agents 新增 Session 預算上限、Advisor 功能及推論地理位置控制",
+    summary: "Claude API 平台更新：Managed Agents Session 現可設定硬性費用上限（budget_reached）、透過 Advisor 在任務中諮詢更強大的模型、控制推論執行地理位置，並可從 GitHub repo 的 .claude/skills 目錄自動探索技能。",
+    body: {
+      kind: "feature",
+      description: "2026-08-07，Anthropic 為 Claude Managed Agents 平台帶來多項重要更新。\n\n**Session 預算上限（Session budgets）**\n• 可為 Managed Agents Session 設定硬性費用上限，依公開定價計費\n• 達到預算時，Session 以 `budget_reached` stop reason 暫停，不再開啟新的模型請求\n• 修改或移除預算可恢復 Session；Deployment 可套用相同預算\n\n**Advisor 功能**\n• 可為 Managed Agents Session 指定一個 advisor 模型（能力不低於 agent 自身）\n• Session 主執行緒可在任務中途諮詢 advisor，取得策略性指引\n• 在 agent 的 multiagent roster 中設定 `{\"type\": \"advisor\"}` 並指定 `model`\n\n**推論地理位置控制（Inference Geo）**\n• 可控制模型推論在哪個地理位置執行，滿足資料合規要求\n• 在建立 agent 時於 `model` 物件中設定 `inference_geo`，或對單一 Session 覆蓋\n\n**GitHub 技能探索**\n• Managed Agents Session 掛載 GitHub repo 後，可自動探索根目錄 `.claude/skills` 中的技能\n• Session 啟動時自動載入，無需額外設定",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-fable5-biology-safeguards-2026-08-07",
+    date: "2026-08-07",
+    version: "官方公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Claude Fable 5 生物安全分類器更新：錯誤攔截率降低 85%",
+    summary: "Anthropic 重新訓練 Claude Fable 5 的生物安全分類器，將錯誤攔截（false positives）降低約 85%，大幅改善日常健康諮詢、醫療教育及生物學習的使用體驗，同時維持對雙用途生物研究的防護。",
+    body: {
+      kind: "feature",
+      description: "2026-08-07，Anthropic 發布 Claude Fable 5 生物安全分類器更新，大幅改善誤判（false positive）問題。\n\n**核心變更**\n• 重寫分類器「規則集」（constitution），針對無害使用情境制定詳細例外規則\n• 蒐集多元內外部專家回饋，生成新訓練資料並重新訓練分類器\n• 生物相關 fallback 跨產品平均減少約 85%\n\n**各產品影響**\n• claude.ai：總 fallback 量減少約 67%\n• Cowork：總 fallback 量減少約 55%\n• Claude Code：總 fallback 量減少約 17%\n• Claude Platform：總 fallback 量減少約 7%\n\n**現在可更好回答的問題**\n• 解讀血液或其他實驗室檢查結果\n• 理解症狀與常見疾病\n• 醫療保健人員的臨床任務支援\n• 生物學教育情境\n\n**持續防護的領域**\n• 病毒學、毒理學、分子設計等雙用途生物研究仍會 fallback 至 Claude Opus 5",
+      links: [
+        { label: "Anthropic 官方部落格", href: "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-223-2026-08-06",
     date: "2026-08-06",
     version: "v2.1.223",
