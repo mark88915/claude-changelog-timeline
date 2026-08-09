@@ -1,6 +1,45 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-226-2026-08-08",
+    date: "2026-08-08",
+    version: "v2.1.226",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.226：錯誤修復與可靠性改善",
+    summary: "Claude Code v2.1.226 帶來多項錯誤修復與可靠性改善。",
+    body: {
+      kind: "bug",
+      problem: "多項影響穩定性的錯誤",
+      rootCause: "版本內部回歸",
+      fix: "修復多項錯誤，提升整體可靠性",
+      description: "Claude Code v2.1.226 於 2026-08-08 發布，帶來多項錯誤修復與可靠性改善，持續優化使用體驗。",
+      links: [
+        { label: "GitHub Releases v2.1.226", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.226", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-225-2026-08-08",
+    date: "2026-08-08",
+    version: "v2.1.225",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.225：Gateway 花費上限提示、claude agents 工作區信任、Remote Control 照片直顯與跨機器 SendMessage",
+    summary: "Claude Code v2.1.225 新增 gateway 花費上限支援至使用量警告（顯示上限金額與重置時間）；為 claude agents 加入工作區信任提示；Remote Control 改為直接顯示 App 附加照片；SendMessage 可主動以名稱啟動跨機器 Remote Control 對話；並修復多項 OAuth、MCP、歷史紀錄及 VSCode 顯示問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.225 於 2026-08-08 發布，帶來多項功能增強與重要 Bug 修復。\n\n**新功能與改善**\n• **Gateway 花費上限提示**：`limit-reached` 訊息現在會顯示上限金額、重置時間及操作者訊息（需搭配 gateway v2.1.225）\n• **`claude agents` 工作區信任提示**：在不信任目錄執行 `claude agents` 時會顯示信任提示，行為與 `claude` 一致\n• **Remote Control 照片直顯**：從 Claude App 附加的照片現在直接顯示給 Claude，不再需要額外的磁碟讀取工具呼叫\n• **SendMessage 跨機器啟動對話**：可透過名稱直接向其他機器上的 Remote Control Session 傳送訊息（`ListAgents` 顯示為 `name [ref]`），不再需等待對方先傳訊\n\n**Bug 修復**\n• 修復以長效 `CLAUDE_CODE_OAUTH_TOKEN` 替換短效登入 token 時偶發 401 錯誤，導致無頭 Session 重啟才能恢復的問題\n• 修復 macOS 上 MCP OAuth 伺服器因 keychain 讀取逾時而間歇性出現 401 錯誤的問題\n• 修復 auto 模式將安全過濾器對自身權限檢查的拒絕計入連續封鎖上限的問題\n• 修復跨 Session 訊息在無頭 Session 及啟動期間未顯示通知或設定到期時間，導致訊息懸掛的問題\n• 修復 Remote Control Session 在極大對話被壓縮後恢復時對話歷史中斷的問題\n• 修復將游標懸停在代理清單中其他專案的 Session 上，導致下一個代理啟動目錄改變的問題\n• 修復 `claude self-hosted-runner` 在 `--base-dir` 無法建立或寫入時，每次 Session 先完成註冊後隨即失敗的問題\n• 修復 Claude Code 網頁版 Session 被誤報為卡住，每次重連時重送累積事件的問題\n• 修復 VSCode Focus 檢視將最新待辦清單、待答問題及已解決答案折疊起來的問題\n• 修復 SendMessage 交換 Remote Control 收件人的問題，改善訊息傳遞可靠性",
+      links: [
+        { label: "GitHub Releases v2.1.225", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.225", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-224-2026-08-07",
     date: "2026-08-07",
     version: "v2.1.224",
