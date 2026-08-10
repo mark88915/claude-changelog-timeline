@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-auto-mode-default-2026-08-09",
+    date: "2026-08-09",
+    version: "官方公告",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "Claude Code Auto Mode 將成為 Pro、Max 及 Team 方案的預設模式（2026-08-14 起）",
+    summary: "Anthropic 宣布從 2026-08-14 起，Claude Code 的 Auto Mode 將成為 Pro、Max 及 Team 方案的預設權限模式，採用分類器自動攔截不可逆或破壞性指令，實測攔截率達 89%，遠高於人工審查的 13.6%。",
+    body: {
+      kind: "feature",
+      description: "2026-08-09，Anthropic 官方部落格宣布 Claude Code 的 Auto Mode 將從 2026-08-14 起成為 Pro、Max 及 Team 方案的預設權限模式。\n\n**運作方式**\n• Auto Mode 透過分類器自動路由所有工具呼叫，攔截「不可逆、破壞性或超出執行環境範圍」的操作\n• 分類器判定風險時，Claude Code 通常會自動尋找更安全的替代方案，或請用戶明確確認\n• 連續攔截 3 次或累計攔截 20 次後，自動退回手動模式\n\n**安全測試數據**\n• 受控研究：1,053 名專業測試人員中，人工審查僅攔截 13.6% 的危險指令，Auto Mode 攔截率達 89%\n• 真實場景：啟用 Auto Mode 的 Session 發生意外有害操作的頻率，比人工手動核准的 Session 低逾一半\n• 第三方提示注入測試：Auto Mode 下零成功攻擊，競爭系統成功率為 5.83%\n\n**影響範圍**\n• Pro、Max 及 Team 方案用戶：新 Session 自動啟用 Auto Mode（2026-08-14 起）\n• Enterprise 及 API 用戶：可選擇加入，預設推出時程預計近期跟進\n• 分類器開銷不計入用量限制（Pro、Max、Team）\n• 可透過 Shift+Tab（CLI）或桌面版下拉選單切換模式",
+      links: [
+        { label: "Anthropic 官方部落格", href: "https://claude.com/blog/auto-mode-default-in-claude-code", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-226-2026-08-08",
     date: "2026-08-08",
     version: "v2.1.226",
