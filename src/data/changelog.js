@@ -1,6 +1,27 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-227-2026-08-10",
+    date: "2026-08-10",
+    version: "v2.1.227",
+    category: "bug",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.227：修復訂閱層級 Feature Flag 錯誤、GitHub Actions Bash 失敗，改善 Slash-Command 選單視覺與效能",
+    summary: "Claude Code v2.1.227 修復 expired token 導致 Max 用戶被誤提示啟用 usage credits 的問題、GitHub Actions Bash 指令全數失敗的 bug，同時改善 slash-command 選單視覺（藍色僅標記選中列、匹配字元以粗體顯示）並提升檔案操作效能。",
+    body: {
+      kind: "bug",
+      problem: "多項 Bug 影響訂閱功能、GitHub Actions 整合、TUI 對話管理及 Slash-Command 選單顯示",
+      rootCause: "Login token 過期時 feature flag 評估未帶入訂閱層級；`allowed_non_write_users` 參數在 GitHub-hosted runner 上攔截了所有 Bash 指令；`/tui` 錯誤恢復已 rewind 的對話；slash-command 選單視覺邏輯不一致",
+      fix: "修正 feature flag 評估時的訂閱層級查詢；修復 Bash 指令在 `claude-code-action` 上的執行邏輯；修正 `/tui` 的對話恢復條件；重新設計 slash-command 選單高亮樣式並優化 event-loop 效能",
+      description: "Claude Code v2.1.227 於 2026-08-10 發布，帶來多項錯誤修復與使用體驗改善。\n\n**Bug 修復**\n• 修復 expired login token 導致 feature flags 未帶入用戶訂閱層級，致使 Max 方案用戶被誤提示啟用 usage credits for Fable 的問題\n• 修復在 GitHub-hosted runner 上使用 `claude-code-action` 並設定 `allowed_non_write_users` 時，所有 Bash 指令全數失敗的問題\n• 修復 `/tui` 錯誤恢復已被 rewind 到第一則訊息之前的對話的問題\n\n**UI 改善**\n• Slash-command 選單視覺優化：藍色底色現在只標記「當前選中列」，匹配字元改以**粗體**顯示而非變色，確保 emoji 或含重音字元的指令名稱正確呈現\n\n**效能提升**\n• 減少檔案未找到建議（file-not-found suggestions）及 at-mention 大小檢查時的 event-loop 停滯，提升整體響應速度",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "Releasebot v2.1.227", href: "https://releasebot.io/updates/anthropic/claude-code", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-auto-mode-default-2026-08-09",
     date: "2026-08-09",
     version: "官方公告",
