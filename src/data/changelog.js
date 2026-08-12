@@ -1,6 +1,63 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-228-2026-08-11",
+    date: "2026-08-11",
+    version: "v2.1.228",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.228：修復互動式工作階段重繪、Windows Git 路徑、Write 工具無需先讀取即可覆寫等多項問題",
+    summary: "Claude Code v2.1.228 修復互動式工作階段在版面錯誤後停止重繪、Windows Git Bash 路徑尋找失敗、/tui 切換模型後回退、跨 Session 收件匣初始化及 Remote Control 資料洩漏等問題，並強化 claude.ai 同步技能的安全性，Write 工具現在允許新版模型不先讀取直接覆寫檔案。",
+    body: {
+      kind: "bug",
+      problem: "多項 Bug 影響互動式工作階段、Windows Git 環境、TUI 模型切換、跨 Session 訊息及 Remote Control 安全性",
+      rootCause: "內部版面錯誤導致重繪中斷；Windows 路徑解析邏輯在父資料夾啟動時找不到 Git；/tui 未保留 /model 的選擇；首次安裝後跨 Session 收件匣未正確初始化；/resume 未隔離對話資料",
+      fix: "修復各項問題，強化技能同步安全性，並更新 Write 工具行為以允許新版模型直接覆寫",
+      description: "Claude Code v2.1.228 於 2026-08-11 發布，帶來多項錯誤修復與安全性強化。\n\n**Bug 修復**\n• 修復互動式工作階段在發生罕見內部版面錯誤後停止重繪的問題\n• 修復從父資料夾啟動時，Windows 上的 `git` / Git Bash 無法被找到的問題\n• 修復 `/tui` 在使用 `/model` 變更模型後，重新開啟時回退到舊模型的問題\n• 修復安裝後首個工作階段中跨 Session 訊息在沒有收件匣的情況下啟動的問題\n• 修復 Remote Control `/resume` 將對話資料洩漏到已連接工作階段的問題\n\n**安全性強化**\n• 強化從 claude.ai 同步的技能（skills），防止惡意技能遮蔽本地指令\n• 改善 Vertex AI 憑證處理，加快失敗偵測速度\n\n**功能變更**\n• Write 工具現在允許較新版模型在不先讀取檔案的情況下直接覆寫檔案",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "Releasebot v2.1.228", href: "https://releasebot.io/updates/anthropic/claude-code", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-watermark-c2pa-2026-08-11",
+    date: "2026-08-11",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 宣布 Claude 在所有生成文字中嵌入不可見浮水印並附加 C2PA 簽署後設資料",
+    summary: "Anthropic 宣布自 2026-08-02 後發布的所有 Claude 模型將在生成文字中織入不可見浮水印（可在複製貼上後仍被偵測），並在 .svg、.png、.jpg 等支援格式上附加 C2PA 簽署後設資料，主要因應歐盟法規，全球用戶均受影響。",
+    body: {
+      kind: "feature",
+      description: "2026-08-11，Anthropic 宣布 Claude 在所有生成文字及支援的檔案類型中加入 AI 溯源標記。\n\n**文字浮水印**\n• 2026-08-02 後發布的 Claude 模型在生成的文字中織入隱形浮水印\n• 浮水印設計為在複製貼上後仍可被偵測，讓平台與組織能驗證文字是否由 AI 產生\n• 主要驅動力為歐盟法規，但全球用戶皆受影響\n\n**C2PA 後設資料**\n• 支援的檔案類型（.svg、.png、.jpg）會附加 C2PA 簽署的 AI 溯源後設資料\n• 提供符合業界標準的 AI 內容識別方式",
+      links: [
+        { label: "Northeast Times 報導", href: "https://northeasttimes.com/2026/08/11/anthropic-will-embed-invisible-watermarks-in-all-claude-ai-text/", kind: "doc" },
+        { label: "Anthropic 官方新聞室", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-api-compliance-local-sessions-2026-08-11",
+    date: "2026-08-11",
+    version: "API 更新",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Compliance API 新增本地工作階段支援：企業版可取得 Cowork 及 Claude Code 本機執行記錄",
+    summary: "Claude 企業版 Compliance API 新增本地工作階段存取（beta），可透過三個端點取得在用戶裝置上執行的 Cowork 和 Claude Code 工作階段清單、後設資料及完整對話記錄，使用現有的 Compliance Access Key 與 read:compliance_user_data 授權範圍即可存取。",
+    body: {
+      kind: "feature",
+      description: "2026-08-11，Anthropic 更新 Claude Platform API，擴展 Compliance API 以涵蓋本地執行的工作階段，為 Claude Enterprise 組織提供更完整的合規稽核能力（beta）。\n\n**三個新端點**\n• `GET /v1/compliance/apps/sessions/local`：列出組織內所有本地工作階段\n• `GET /v1/compliance/apps/sessions/local/{session_id}`：取得單一工作階段的後設資料\n• `GET /v1/compliance/apps/sessions/local/{session_id}/messages`：取得工作階段的完整對話記錄\n\n**適用範圍**\n• 涵蓋在用戶裝置上執行的 Cowork 及 Claude Code 工作階段（桌面版、網頁版、行動版及 CLI）\n• 使用現有 Compliance Access Key 及 `read:compliance_user_data` 授權範圍，無需額外設定\n• 目前為 Claude Enterprise 組織的 beta 功能",
+      links: [
+        { label: "Claude Platform 官方文件", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "本地工作階段說明文件", href: "https://platform.claude.com/docs/en/manage-claude/compliance-content-data#retrieve-local-sessions", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-227-2026-08-10",
     date: "2026-08-10",
     version: "v2.1.227",
