@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-for-government-beta-2026-08-13",
+    date: "2026-08-13",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Claude for Government 公開 Beta：Claude Code 與 Cowork 進入 FedRAMP High 授權環境",
+    summary: "Anthropic 宣布 Claude for Government 公開 Beta，Claude Code 和 Claude Cowork 現已在 FedRAMP High 授權環境中提供，聯邦機構可透過 claude.com/solutions/government 申請，限時以每機構 1 美元（無限席位）取得服務，Anthropic 擔任合約與計費方，無需額外雲端供應商關係。",
+    body: {
+      kind: "feature",
+      description: "2026-08-13，Anthropic 正式宣布 Claude for Government 公開 Beta，將 Claude Code 與 Claude Cowork 帶入 FedRAMP High 授權環境，為公部門提供合規的 AI 工具。\n\n**核心功能**\n• Claude Code 讓公部門團隊能構建與現代化軟體系統\n• Claude Cowork 支援文件工作，包含備忘錄撰寫、RFP 審查及一般文件處理，可直接操作桌面檔案\n\n**治理與合規**\n• 設定預設值、跨部門支出控制、防篡改稽核日誌\n• 提供支援機構 ATO（操作授權）流程的完整文件\n\n**取得方式**\n• Anthropic 擔任合約與計費方，機構無需另立雲端供應商合約\n• 限時優惠：2026 年 8 月前申請的聯邦機構以每機構 1 美元取得（無限席位）\n• 申請網址：claude.com/solutions/government",
+      links: [
+        { label: "Anthropic 官方部落格", href: "https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government", kind: "doc" },
+        { label: "Claude for Government 說明文件", href: "https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-cowork-chrome-side-panel-2026-08-12",
+    date: "2026-08-12",
+    version: "產品更新",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Chrome 側邊欄升級為完整 Cowork 工作階段：可跨裝置延續任務",
+    summary: "Claude Chrome 擴充功能側邊欄現已升級為完整的 Cowork 工作階段，對話記錄自動儲存至歷史紀錄，技能與連接器在瀏覽器中正常運作，從瀏覽器分頁開始的任務可無縫延續至 Claude 桌面版、網頁版及行動版，目前適用 Max 和 Team 方案，Pro 方案陸續推出中。",
+    body: {
+      kind: "feature",
+      description: "2026-08-12，Anthropic 將 Claude in Chrome 側邊欄升級為完整的 Cowork 工作階段，讓用戶能在瀏覽器與其他裝置之間無縫銜接工作。\n\n**核心升級**\n• Chrome 側邊欄的對話現已儲存至歷史紀錄，如同在 claude.ai 工作一般\n• 技能（Skills）與連接器（Connectors）在瀏覽器環境中完整運作\n• 從瀏覽器分頁開始的任務可延續至 Claude 桌面版、網頁版及行動版\n\n**Claude in Chrome 的特色**\n• 讓 Claude 能看見目前瀏覽的頁面並在其中操作（點擊連結、輸入文字、頁面導覽、填寫表單），並使用用戶現有的登入憑證\n• 特別適合無法直接整合 Claude 的系統：內部儀表板、舊版系統、供應商入口網站等\n\n**適用方案**\n• Max 和 Team 方案即日起適用\n• Pro 方案正陸續推出中",
+      links: [
+        { label: "Anthropic 官方部落格", href: "https://claude.com/blog/cowork-chrome-side-panel", kind: "doc" },
+        { label: "9to5Mac 報導", href: "https://9to5mac.com/2026/08/12/claude-cowork-chrome/", kind: "doc" },
+        { label: "Engadget 報導", href: "https://www.engadget.com/2235919/claude-cowork-can-now-run-in-a-chrome-sidebar/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-228-2026-08-11",
     date: "2026-08-11",
     version: "v2.1.228",
