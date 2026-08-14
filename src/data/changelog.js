@@ -1,6 +1,62 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-232-2026-08-14",
+    date: "2026-08-14",
+    version: "v2.1.232",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.232：子代理分叉預設啟用、跨 Session @mentions、GitLab 令牌加強遮蔽及 PowerShell 安全修復",
+    summary: "Claude Code v2.1.232 將 subagent_type: 'fork' 的子代理分叉設為預設啟用（繼承完整對話與提示快取），新增跨 Session @mentions 訊息傳遞，加強 GitLab 令牌遮蔽範圍（glrt-/gloas-/glpat-），修復 PowerShell 變數寫入參數可靜默覆寫 $PSDefaultParameterValues 的權限繞過漏洞，Remote Control 工作階段重新連接時可附加至現有 Session。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.232 於 2026-08-14 發布，帶來多項新功能、安全強化與穩定性修復。\n\n**新功能**\n• 子代理分叉（subagent forking）現已預設啟用：`subagent_type: 'fork'` 的子代理繼承完整對話記錄與提示快取，加速 fork 型任務啟動\n• 跨 Session 訊息傳遞支援 @mentions：可直接在提示中使用 @ 指向另一個 Session 傳送訊息或查詢\n• 外掛市集（plugin marketplace）支援強化，網關設定現可針對桌面版 Schema 進行驗證\n\n**安全強化**\n• GitLab 令牌遮蔽範圍擴充，新增 `glrt-`、`gloas-`、`glpat-` 等前綴的令牌家族\n• 修復 PowerShell 權限繞過漏洞：含變數寫入參數的指令原本可靜默覆寫 `$PSDefaultParameterValues`，現已攔截\n\n**工作階段管理**\n• Remote Control 工作階段改善：從桌面版或 IDE 恢復時，現在會重新附加至現有 Session，而非開啟新工作階段",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "Releasebot v2.1.232", href: "https://releasebot.io/updates/anthropic/claude-code", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-tag-proactive-response-2026-08-13",
+    date: "2026-08-13",
+    version: "產品更新",
+    category: "enh",
+    area: "performance",
+    product: "claude",
+    title: "Claude Tag（Slack 整合）升級：使用完整頻道上下文判斷主動回應，準確率提升約 30%",
+    summary: "Claude 的 Slack 整合（Claude Tag）現已使用完整頻道上下文來判斷何時主動回應及何時保持沉默，準確率提升約 30%，且額外上下文不計入使用限額，無需額外費用。",
+    body: {
+      kind: "feature",
+      description: "2026-08-13，Anthropic 升級 Claude Tag（Claude 的 Slack 整合），讓 Claude 在判斷是否主動回應時能參考完整的頻道上下文。\n\n**主要改進**\n• Claude Tag 現可讀取完整頻道對話記錄，根據上下文自主決定「是否」需要主動插話回應\n• 準確率較前版提升約 30%，大幅減少不必要的插嘴或遺漏重要時機的情況\n• 額外引入的上下文不會計入用量限制（usage limits），使用者不需擔心額外費用\n\n**適用範圍**\n• 適用所有已安裝 Claude for Slack（Claude Tag）的工作空間",
+      links: [
+        { label: "Releasebot Claude 更新", href: "https://releasebot.io/updates/anthropic/claude", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-231-2026-08-13",
+    date: "2026-08-13",
+    version: "v2.1.231",
+    category: "bug",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.231：修復 MCP OAuth 登入因預先註冊 OAuth 用戶端（如 Slack）出現重定向 URI 不符問題",
+    summary: "Claude Code v2.1.231 修復 MCP OAuth 登入流程中，使用預先註冊 OAuth 用戶端的伺服器（如 Slack）因重定向 URI 不符而登入失敗的問題。",
+    body: {
+      kind: "bug",
+      problem: "MCP OAuth 登入在使用預先註冊 OAuth 用戶端的伺服器（如 Slack）上失敗，出現重定向 URI 不符錯誤",
+      rootCause: "OAuth 流程在處理已有預先註冊 OAuth 用戶端的 MCP 伺服器時，重定向 URI 未能正確匹配",
+      fix: "修正 OAuth 登入流程對預先註冊 OAuth 用戶端的重定向 URI 處理邏輯",
+      description: "Claude Code v2.1.231 於 2026-08-13 發布，專門修復一個影響 Slack 等使用預先註冊 OAuth 用戶端之 MCP 伺服器的登入問題。\n\n**問題描述**\n• 使用 `/mcp` 指令嘗試對 Slack 等 MCP 伺服器進行 OAuth 驗證時，會出現「redirect URI mismatch」錯誤而無法登入\n• 受影響的伺服器類型：任何使用預先註冊 OAuth 用戶端（而非動態用戶端）的 MCP 伺服器\n\n**修復範圍**\n• 修正後，使用預先註冊 OAuth 用戶端的 MCP 伺服器（包括 Slack）可正常完成 OAuth 登入流程",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "Releasebot v2.1.231", href: "https://releasebot.io/updates/anthropic/claude-code", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-for-government-beta-2026-08-13",
     date: "2026-08-13",
     version: "官方公告",
