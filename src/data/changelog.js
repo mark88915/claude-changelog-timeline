@@ -1,6 +1,60 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-233-2026-08-15",
+    date: "2026-08-15",
+    version: "v2.1.233",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.233：GitLab MR 支援、Linux 記憶體 cgroup、MCP v2 修復、自架執行器加速及螢幕閱讀器改進",
+    summary: "Claude Code v2.1.233 新增 GitLab MR URL 的 --worktree 旗標支援、Linux Bash 指令記憶體 cgroup 管理以防建置失控、修復無伺服器主機 MCP v2 連線問題、提升自架執行器啟動速度、改善 /effort 螢幕閱讀器體驗，並廢棄 Opus 4.8+/Sonnet 5+ 模型的 todo 追蹤工具。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.233 於 2026-08-15 發布，帶來 GitLab 整合強化、Linux 系統穩定性改進及無障礙功能提升。\n\n**新功能與強化**\n• `--worktree` 旗標現支援 GitLab MR URL，可直接從 Merge Request 建立工作樹\n• Linux 上的 Bash 工具指令現可透過記憶體 cgroup 管理，防止建置失控佔用過多資源\n• 廢棄 Opus 4.8+/Sonnet 5+ 模型的 todo/task 追蹤工具，改由這些模型原生任務管理能力處理\n\n**修復**\n• 修復無伺服器主機上的 MCP v2 連線問題\n• 修復 Windows NT `\\\\?\\\\` 裝置前綴路徑繞過 UNC 路徑驗證的安全問題\n• 改善 `claude self-hosted-runner` 工作階段啟動時間，消除不必要的工作樹重寫操作\n\n**無障礙改進**\n• `/effort` 選單改以編號清單渲染，提升螢幕閱讀器（VoiceOver、NVDA）使用體驗",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "Releasebot v2.1.233", href: "https://releasebot.io/updates/anthropic/claude-code", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-auto-mode-default-2026-08-14",
+    date: "2026-08-14",
+    version: "產品更新",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "Auto Mode 正式成為 Pro、Max 和 Team 方案新工作階段的預設模式",
+    summary: "自 2026-08-14 起，Claude Code 在 Pro、Max 和 Team 方案的新工作階段中預設啟用 Auto Mode，由 AI 分類器自動審查每個工具呼叫，取代手動批准流程。分類器危險指令攔截率達 89%，遠高於人工審查的 13.6%。",
+    body: {
+      kind: "feature",
+      description: "自 2026-08-14 起，Anthropic 將 Auto Mode 設為 Claude Code 在 Pro、Max 和 Team 方案新工作階段的預設模式，以 AI 分類器取代逐步手動批准的流程。\n\n**核心變更**\n• 新工作階段預設以 Auto Mode 執行，AI 分類器自動審查每個工具呼叫的安全性\n• 被分類為不可逆、破壞性或目標超出當前環境的操作將被攔截，其餘操作直接執行\n• 內部測試顯示分類器對危險指令攔截率達 89%，遠高於人工審查的 13.6%\n• 使用 Auto Mode 的團隊 PR 合併速度平均提升約 25%\n• 分類器額外消耗的 token 不計入使用費用\n\n**回退方式**\n• 使用 `--permission-mode=manual` 旗標可回退至傳統手動批准模式",
+      links: [
+        { label: "Claude Code What's New", href: "https://code.claude.com/docs/en/whats-new", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/", kind: "doc" },
+        { label: "Hacker News 討論", href: "https://news.ycombinator.com/item?id=49214994", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-text-watermark-technical-2026-08-14",
+    date: "2026-08-14",
+    version: "官方公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 發表技術文章：Claude 文字浮水印的技術原理詳解",
+    summary: "Anthropic 在官方部落格發表「How Claude's text watermark works」，詳細說明 Claude 文字浮水印的技術實作方式，包括浮水印如何以統計方式嵌入文字、複製貼上後如何保留，以及符合 EU AI Act Article 50 的合規說明。",
+    body: {
+      kind: "feature",
+      description: "2026-08-14，Anthropic 在官方部落格發表技術文章「How Claude's text watermark works」，深入說明自 2026-08-02 起實施的 Claude 文字浮水印系統的技術細節。\n\n**技術說明**\n• 解釋浮水印如何以統計方式嵌入生成文字，不影響文字品質與可讀性\n• 說明浮水印在複製貼上後仍能被偵測的機制，以及哪些編輯操作可能使浮水印失效\n• 涵蓋歐盟 AI 法案第 50 條（EU AI Act Article 50）的合規考量——該條款自 2026-08-02 起對新發布 AI 系統強制要求可機讀標記\n\n**適用範圍**\n• 2026-08-02 後發布的 Claude 模型（Claude Sonnet 4.6、Claude Haiku 4.5 等）\n• 涵蓋 API、claude.ai、Claude Code、Claude Cowork、Claude Tag 及 AWS、Google Cloud、Microsoft Foundry 等第三方雲端服務",
+      links: [
+        { label: "Anthropic 官方新聞室", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-232-2026-08-14",
     date: "2026-08-14",
     version: "v2.1.232",
