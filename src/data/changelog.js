@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-risk-report-aug-2026",
+    date: "2026-08-15",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 發布第二份風險報告：不對齊風險等級調升，R&D 自動化基準趨於飽和",
+    summary: "Anthropic 依責任擴展政策（RSP v3.4）發布第二份風險報告，正式將不對齊風險等級由「極低」調升為「低」以反映模型行為不確定性增加；揭露人工回饋訓練資料曾 133 百萬次交互未套用生物武器分類器（已修復）；自動化 R&D 能力評估基準開始飽和，公司表示信心下降。",
+    body: {
+      kind: "feature",
+      description: "2026-08-15，Anthropic 依責任擴展政策（Responsible Scaling Policy v3.4）發布第二份風險報告，涵蓋 2026 年 2 月 24 日至 7 月 15 日期間。這是首份同時評估內部實驗模型的報告。\n\n**不對齊風險**\n• 正式將不對齊風險等級由「極低」調升為「低」\n• 調升原因：反映不確定性增加，而非新發現具體問題；近期安全測試中的模型行為事件降低了公司的整體信心\n\n**生物與化學武器風險**\n• 揭露：2025 年 5 月至 2026 年 4 月間，約 5 萬名人工回饋承包商的 1.33 億次交互未套用生物武器屏蔽分類器\n• 修復：漏洞已修補，審查後未發現惡意使用跡象，且無客戶受影響\n• 整體風險仍維持「低，但高於前次估計」\n\n**自動化 R&D 風險**\n• 整體評估為「低」，模型尚未達到觸發額外保護措施的門檻\n• 警示：最具體的任務型能力評估基準已開始「飽和」，不再能有效追蹤模型能力提升\n• Anthropic 表示對此評估的信心低於前次報告\n\n**政策治理更新**\n• 長期收益信託（Long-Term Benefit Trust）現可強制啟動外部審查，並核准審查人員\n• 完整未遮蔽報告須流通至至少 200 名員工",
+      links: [
+        { label: "Anthropic 風險報告 PDF", href: "https://www-cdn.anthropic.com/f61d49fa5596956a5dec75fea0e973bf6a6a8378/Redacted%20Risk%20Report%20August%202026%20.pdf", kind: "doc" },
+        { label: "Anthropic X 公告", href: "https://x.com/AnthropicAI/status/2088324824863236248", kind: "doc" },
+        { label: "TechTimes 報導", href: "https://www.techtimes.com/articles/324573/20260815/anthropic-upgrades-misalignment-risk-key-safety-benchmarks-saturate.htm", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-233-2026-08-15",
     date: "2026-08-15",
     version: "v2.1.233",
