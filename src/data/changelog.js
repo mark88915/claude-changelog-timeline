@@ -1,6 +1,28 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "legacy-workbench-sunset-2026-08-17",
+    date: "2026-08-17",
+    version: "API 廢棄",
+    category: "brk",
+    area: "performance",
+    product: "claude",
+    title: "舊版 Workbench 正式下線，三支實驗性提示工具 API 同步退役",
+    summary: "Claude Console 舊版 Workbench（platform.claude.com/workbench）於 2026-08-17 終止存取，連帶退役 /v1/experimental/generate_prompt、/v1/experimental/improve_prompt 及 /v1/experimental/templatize_prompt 三支 API，呼叫這些端點現在將回傳錯誤。",
+    body: {
+      kind: "breaking",
+      description: "2026-08-17，Claude Console 的舊版 Workbench 正式結束存取（廢棄計畫於 2026-07-17 宣布），同時退役三支實驗性提示工具 API。\n\n**下線範圍**\n• 舊版 Workbench（platform.claude.com/workbench）：全面終止存取，已儲存的 Prompt、Prompt 版本及 Eval 資料不再可用\n• `/v1/experimental/generate_prompt`：呼叫現回傳錯誤\n• `/v1/experimental/improve_prompt`：呼叫現回傳錯誤\n• `/v1/experimental/templatize_prompt`：呼叫現回傳錯誤\n\n**新版 Workbench**\n• 更新後的 Workbench（platform.claude.com/playground）提供無狀態的模型試用環境，不支援儲存 Prompt、版本管理及 Eval 功能",
+      migration: {
+        title: "遷移說明",
+        text: "請改用 platform.claude.com/playground 的新版 Workbench。若有使用上述三支實驗性 API，需自行實作提示生成、改善及範本化邏輯。"
+      },
+      links: [
+        { label: "Claude Platform 版本說明", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "Workbench 使用說明", href: "https://support.claude.com/en/articles/8606378-how-do-i-use-the-workbench", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-risk-report-aug-2026",
     date: "2026-08-15",
     version: "官方公告",
