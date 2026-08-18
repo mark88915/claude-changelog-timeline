@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-234-2026-08-17",
+    date: "2026-08-17",
+    version: "v2.1.234",
+    category: "enh",
+    area: "security",
+    product: "claude-code",
+    title: "v2.1.234：GitLab MR 狀態徽章、自動繼續工作階段、NTLM 安全修復及多項 UI 改善",
+    summary: "Claude Code v2.1.234 新增 GitLab MR 狀態徽章、CLAUDE_CODE_PROJECT_DIR_NAME 環境變數、selection:clear 按鍵綁定，並在 claude.ai 使用量上限重置後自動繼續工作階段；同時修復 Windows NT 命名空間路徑的 NTLM 憑證洩漏安全漏洞，以及 Auto Mode 長工作階段重複拒絕沙箱指令的問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.234 於 2026-08-17 發布，帶來安全強化、GitLab 整合及使用體驗改善。\n\n**新功能**\n• 新增 `CLAUDE_CODE_PROJECT_DIR_NAME` 環境變數，讓每工作階段有獨立配置目錄的主機可自訂短名稱\n• 新增 `selection:clear` 按鍵綁定動作，可清除應用程式內的文字選取狀態\n• 在 claude.ai 使用量上限重置後，工作階段自動繼續（可在 /config 中停用）\n• 新增 GitLab MR 狀態徽章於頁尾及狀態列，顯示 MR 狀態（草稿／待審／通過）\n\n**安全強化**\n• 拒絕遠端檔案讀取、工作階段還原、CLAUDE.md 引用、工作流程腳本及檔案上傳中的 Windows NT 命名空間路徑（`\\?\\?\\`），防止 NTLM 憑證洩漏攻擊\n\n**修復**\n• 修復 Auto Mode 在超長工作階段對話壓縮後重複拒絕沙箱指令網路存取的問題\n• 修復回答背景子代理工具權限提示時，工作階段範疇的權限答覆（含拒絕）被丟棄的問題\n• 修復含異常 Unicode 字元訊息造成 Markdown 渲染緩慢的問題\n• 修復水平分隔線緊接下一行的顯示問題，改善指令行合併邏輯",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "Releasebot v2.1.234", href: "https://releasebot.io/updates/anthropic/claude-code", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "legacy-workbench-sunset-2026-08-17",
     date: "2026-08-17",
     version: "API 廢棄",
