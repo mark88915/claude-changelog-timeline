@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-235-2026-08-18",
+    date: "2026-08-18",
+    version: "v2.1.235",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.235：可選拼字檢查、語言伺服器快取修復及多項終端機 UI 改善",
+    summary: "Claude Code v2.1.235 新增可選拼字檢查功能（支援 aspell/hunspell/ispell），可即時在輸入框標示拼寫錯誤；同時修復語言伺服器中斷時的提示快取失效問題、嵌套 Markdown 清單縮排錯誤、多行提示高亮顯示偏移，以及 Shift+Tab 在權限提示中誤觸批准的問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.235 於 2026-08-18 發布，帶來拼字檢查新功能及多項終端機 UI 修復。\n\n**新功能**\n• 新增可選拼字檢查設定，可在輸入提示時即時以底線標示拼寫錯誤，支援已安裝的 aspell、hunspell 或 ispell\n\n**修復**\n• 修復語言伺服器中斷或重新連線時，造成整個提示快取（prompt cache）失效的問題\n• 修復嵌套 Markdown 清單項目（深度 3 以上）在終端機 UI 中縮排錯位的問題，並新增換行時的懸掛縮排\n• 修復多行提示中斜線指令、關鍵字及 @ 提及高亮顯示偏移一個或多個字元的問題\n• 修復 Shift+Tab 在權限提示備註欄內，原應關閉欄位卻誤觸批准並授予工作階段編輯權限的問題",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-234-2026-08-17",
     date: "2026-08-17",
     version: "v2.1.234",
