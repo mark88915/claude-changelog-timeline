@@ -1,6 +1,61 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-236-2026-08-19",
+    date: "2026-08-19",
+    version: "v2.1.236",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.236：ANTHROPIC_DEFAULT_MODEL 環境變數、跨工作階段閒置通知及 macOS 沙箱安全強化",
+    summary: "Claude Code v2.1.236 新增 ANTHROPIC_DEFAULT_MODEL 環境變數可設定新工作階段預設模型；新增跨工作階段閒置通知（notify_when_idle）；強化 macOS 沙箱安全（萬用字元讀取拒絕規則優先於允許規則）；修復剪貼板複製失敗、全螢幕渲染崩潰及 /model 選擇器超出終端機範圍等問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.236 於 2026-08-19 發布，帶來環境變數設定、跨工作階段通知及多項安全與錯誤修復。\n\n**新功能**\n• 新增 `ANTHROPIC_DEFAULT_MODEL` 環境變數，設定新工作階段的起始預設模型；仍可透過 `/model` 選擇器覆蓋，且覆蓋設定會跨重新啟動持續保存\n• 新增跨工作階段閒置通知（`notify_when_idle`），允許一個 Claude Code 工作階段在另一個工作階段進入閒置時收到通知，為選擇性、一次觸發、無輪詢（支援 macOS 和 Linux）\n• 強化 macOS 沙箱安全：萬用字元讀取拒絕規則（如 `**/.env`）現在在允許讀取區域內優先生效，防止透過檔案重新命名繞過拒絕規則\n\n**修復**\n• 修復工作階段切換目錄後目錄被刪除時，剪貼板複製及背景工作階段失敗的問題\n• 修復全螢幕渲染器崩潰（現在回退至經典渲染器）\n• 修復 `/model` 選擇器顯示超出終端機視窗大小的問題\n• 修復 `SendMessage` 訊息文字定位問題\n• 修復子程序失敗的未處理 Promise 拒絕",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "files-api-ga-2026-08-19",
+    date: "2026-08-19",
+    version: "Files API GA",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Files API 正式轉為 GA：不再需要 beta header，新增過期設定與分頁查詢",
+    summary: "Files API 正式轉為 GA，/v1/files 端點不再需要 `files-api-2025-04-14` beta header；新增檔案過期設定（expires_in_seconds）、分頁查詢（page/next_page）及 ids[] 篩選功能，每組織儲存上限 1TB，速率限制 500 req/min。",
+    body: {
+      kind: "feature",
+      description: "2026-08-19，Files API 正式轉為正式版（GA）。\n\n**重要變更**\n• `/v1/files` 端點及引用已上傳檔案的 Messages API 請求，不再需要 `files-api-2025-04-14` beta header\n• 未附帶 beta header 的請求將使用 GA 回應格式\n\n**新功能（GA 格式）**\n• 檔案過期設定：上傳時可設定 `expires_in_seconds`，檔案物件將回報 `expires_at`\n• 分頁查詢：列出檔案時支援 `page` 和 `next_page` 分頁參數\n• `ids[]` 篩選：列出特定 ID 的檔案\n• 儲存上限：每組織 1TB\n• 速率限制：每分鐘 500 個請求\n\n**相容性**\n• 仍附帶 beta header 的請求繼續正常運作，但將回傳舊版回應格式",
+      links: [
+        { label: "Files API 文件", href: "https://platform.claude.com/docs/en/build-with-claude/files", kind: "doc" },
+        { label: "Claude Platform 版本說明", href: "https://platform.claude.com/docs/en/release-notes/api", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "admin-api-user-management-ga-2026-08-19",
+    date: "2026-08-19",
+    version: "Admin API GA",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Admin API 用戶管理端點正式 GA：Claude Enterprise 成員、群組與自訂角色管理",
+    summary: "Claude Enterprise 組織的 Admin API 用戶管理端點（成員、邀請、群組、自訂角色）正式轉為 GA，不再需要 `anthropic-beta: ce-user-management-2026-07-13` header，方便安全團隊整合 SSO 與 SCIM 系統。",
+    body: {
+      kind: "feature",
+      description: "2026-08-19，Claude Enterprise 的 Admin API 用戶管理端點正式轉為正式版（GA）。\n\n**端點範圍**\n• 成員管理（Members）\n• 邀請管理（Invites）\n• 群組管理（Groups）\n• 自訂角色管理（Custom Roles）\n\n**重要變更**\n• 群組和自訂角色請求不再需要 `anthropic-beta: ce-user-management-2026-07-13` header\n• 仍附帶舊版 beta header 的請求繼續被接受且行為不變\n\n**適用場景**\n• 企業安全團隊可透過 API 統一管理組織成員與權限\n• 方便整合 SSO（單一登入）與 SCIM 系統進行自動化用戶佈建",
+      links: [
+        { label: "用戶管理文件", href: "https://platform.claude.com/docs/en/manage-claude/user-management", kind: "doc" },
+        { label: "Admin API 文件", href: "https://platform.claude.com/docs/en/api/admin", kind: "doc" },
+        { label: "Claude Platform 版本說明", href: "https://platform.claude.com/docs/en/release-notes/api", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-235-2026-08-18",
     date: "2026-08-18",
     version: "v2.1.235",
