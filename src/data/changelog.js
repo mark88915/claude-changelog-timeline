@@ -1,6 +1,103 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-238-2026-08-21",
+    date: "2026-08-21",
+    version: "v2.1.238",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.238：readline 按鍵風格、插件市集 headersHelper、Self-Hosted Runner 延遲關機及長工作階段記憶體洩漏修復",
+    summary: "Claude Code v2.1.238 新增 keybindingFlavor 設定（支援 readline 風格的 Ctrl+W 刪除行為）、插件市集 headersHelper 可動態產生 HTTP 標頭；修復長工作階段因子代理工具結果未釋放造成的無界記憶體增長；同時修復 Remote Control 工作階段繼承與重連問題，以及 emoji 字元的終端機渲染問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.238 於 2026-08-21 發布，帶來輸入設定、安全強化及多項穩定性修復。\n\n**新功能**\n• 新增 `keybindingFlavor` 設定，支援 readline 風格的 Ctrl+W 刪除行為（僅刪除單詞，不刪除整行）\n• 插件市集新增 `headersHelper` 支援，可動態產生 HTTP 標頭（如短期 token），用於目錄存取驗證\n• 新增 `claude self-hosted-runner --defer-shutdown-max-min` 選項及代理授權指令支援\n\n**修復**\n• 修復長工作階段因子代理工具結果未釋放造成的無界記憶體增長問題\n• 修復自訂、專案及插件輸出風格在工作階段中途漂移（drift）的問題\n• 修復 MCP 互動對話框中 URL 超過 4,096 字元時顯示截斷的問題\n• 修復 Remote Control 工作階段繼承異常及重連失敗問題\n• 修復 SSH 連線速度緩慢時 Bash 指令含退格鍵輸入的終端機處理問題\n• 修復 emoji 字元造成文字換行異常的渲染問題\n• 更新 `claude-api` 技能以反映 Managed Agents 8/19 版本說明",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-237-2026-08-20",
+    date: "2026-08-20",
+    version: "v2.1.237",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.237：修復 LLM Gateway 提示快取失效、新增「Concise」內建輸出風格",
+    summary: "Claude Code v2.1.237 修復使用 LLM Gateway 或自訂 Base URL 時提示快取（prompt cache）無法正常運作的問題；並新增「Concise」內建輸出風格，讓 Claude 以結果優先、跳過前言和旁白，可在 /config 的 Output style 中選用。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.237 於 2026-08-20 發布，包含一項重要 bug 修復及新功能。\n\n**修復**\n• 修復使用 LLM Gateway 或自訂 Base URL 的工作階段中，提示快取（prompt cache）無法正常命中的問題，影響成本節省效果\n\n**新功能**\n• 新增「Concise」內建輸出風格：Claude 以結果優先、跳過前言與旁白，工作仍同樣徹底；可在 `/config` 的 Output style 設定中選用",
+      problem: "使用 LLM Gateway 或自訂 Base URL 的工作階段，提示快取（prompt cache）功能失效，導致重複請求無法命中快取，增加延遲與費用。",
+      rootCause: "Prompt caching 邏輯未正確處理非標準 base URL 路徑的請求",
+      fix: "修正快取鍵生成邏輯，確保 LLM Gateway 及自訂 Base URL 場景下正確建立與命中快取",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-academy-2026-08-20",
+    date: "2026-08-20",
+    version: "Claude Academy",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Academy 正式上線：AI 學習平台，提供課程、徽章與個人化推薦",
+    summary: "Anthropic 推出 Claude Academy（academy.claude.com），提供安全有效使用 AI 的學習課程、互動教學、成就徽章及個人化學習推薦，強調實用 AI 素養與人機協作能力培養。",
+    body: {
+      kind: "feature",
+      description: "2026-08-20，Anthropic 正式推出 Claude Academy，一個專注於安全且有效使用 AI 的學習平台。\n\n**主要功能**\n• 結構化課程與互動教學模組\n• 成就徽章系統，記錄學習歷程\n• 個人化學習推薦，根據用戶需求調整內容\n• 強調實用 AI 素養、廣泛學習思維與人機協作\n\n**存取方式**\n• 平台網址：academy.claude.com\n• 已整合至 Claude 個人資料選單，方便直接進入",
+      steps: [
+        { title: "前往 Claude Academy", text: "在瀏覽器開啟 academy.claude.com 或透過 Claude 個人資料選單存取。" },
+        { title: "選擇學習路徑", text: "根據個人化推薦選擇適合的課程與教學模組。" },
+        { title: "完成課程獲取徽章", text: "完成各階段學習後，可獲得成就徽章記錄進度。" }
+      ],
+      links: [
+        { label: "Claude Academy", href: "https://academy.claude.com", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "computer-use-browser-use-ga-2026-08-20",
+    date: "2026-08-20",
+    version: "computer_toolset_20260801",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Computer Use 及 Browser Use 工具正式 GA：批次動作、視埠控制驅動託管瀏覽器",
+    summary: "Computer Use 工具（computer_toolset_20260801）正式 GA，批次動作與縮放預設啟用；Browser Use 工具（browser_toolset_20260801）正式上線，以視埠控制驅動託管瀏覽器，新增頁面結構讀取功能，提升網頁元素定位可靠性。",
+    body: {
+      kind: "feature",
+      description: "2026-08-20，Anthropic 宣布 Computer Use 及 Browser Use 工具正式轉為正式版（GA）。\n\n**Computer Use GA（computer_toolset_20260801）**\n• 每次操作可執行多個批次動作，減少任務完成所需的往返次數\n• 縮放功能預設啟用\n• 不再需要 beta header\n\n**Browser Use GA（browser_toolset_20260801）**\n• 新工具類型，以視埠控制驅動 Anthropic 託管的瀏覽器\n• 新增頁面結構讀取，提升網頁元素定位可靠性\n• 支援更複雜的多步驟網頁自動化任務\n\n**實際成效**\n• 用戶回報：最長的理賠工作流程從 32 分鐘縮短至 13 分鐘，每項任務成本降低約 30%",
+      links: [
+        { label: "Computer Use 文件", href: "https://platform.claude.com/docs/en/build-with-claude/computer-use", kind: "doc" },
+        { label: "Claude Platform 版本說明", href: "https://platform.claude.com/docs/en/release-notes/api", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "skills-api-ga-2026-08-20",
+    date: "2026-08-20",
+    version: "Skills API GA",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Agent Skills 及 Skills API 正式 GA：/v1/skills 端點支援自訂技能上傳與版本控制",
+    summary: "Agent Skills 及 Skills API（/v1/skills 端點）正式轉為 GA，不再需要 beta header；支援自訂技能的上傳、版本管理，並可附加至 Managed Agents 工作階段，強化企業代理工作流程自動化。",
+    body: {
+      kind: "feature",
+      description: "2026-08-20，Agent Skills 及 Skills API 正式轉為正式版（GA）。\n\n**重要變更**\n• `/v1/skills` 端點不再需要 beta header\n• 支援自訂技能上傳、版本控制與管理\n• 技能可附加至 Managed Agents 工作階段使用\n\n**適用場景**\n• 企業可將內部工具、資料存取邏輯封裝為可重用技能\n• 透過版本控制確保技能更新的可追蹤性\n• 簡化複雜代理工作流程的技能管理流程",
+      links: [
+        { label: "Skills API 文件", href: "https://platform.claude.com/docs/en/build-with-claude/agent-skills", kind: "doc" },
+        { label: "Claude Platform 版本說明", href: "https://platform.claude.com/docs/en/release-notes/api", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-236-2026-08-19",
     date: "2026-08-19",
     version: "v2.1.236",
