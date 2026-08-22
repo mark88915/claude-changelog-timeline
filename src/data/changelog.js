@@ -1,6 +1,77 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-239-2026-08-22",
+    date: "2026-08-22",
+    version: "v2.1.239",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.239：成本估算納入資料住留溢價、Bedrock 全螢幕渲染、Python SDK 遷移工具及 Alpine/musl 原生媒體支援",
+    summary: "Claude Code v2.1.239 新增資料住留工作區的 1.1× 美國推論溢價成本估算、Bedrock 全螢幕渲染擴展、/claude-api upgrade Python SDK 0.x→1.x 遷移工具、雲端工作階段 claude.ai 插件同步（@synced 標籤），以及 Alpine/musl 建置原生圖片貼上與剪貼板支援；修復代理串流、憑證處理、工作階段恢復及 JetBrains IDE 終端機問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.239 於 2026-08-22 發布，帶來成本透明度改善、平台支援擴展及多項穩定性修復。\n\n**新功能**\n• 成本估算新增資料住留工作區的 1.1× 美國專屬推論溢價顯示\n• Bedrock 使用者可使用先前受限的全螢幕渲染模式\n• 新增 `/claude-api upgrade` 指令，提供 Python SDK 0.x → 1.x 遷移工具\n• 雲端工作階段自動同步 claude.ai 插件，以 `@synced` 標籤標示\n• Alpine/musl 建置（含 Linux musl 環境）新增原生圖片貼上、剪貼板及音訊擷取功能\n\n**修復**\n• 修復透過代理使用時的串流不穩定問題\n• 修復憑證處理邊界情境導致的工作階段中斷\n• 修復工作階段恢復過程中的邊界案例錯誤\n• 修復 JetBrains IDE 中終端機渲染閃爍與版面問題",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "python-sdk-v1-0-2026-08-22",
+    date: "2026-08-22",
+    version: "Python SDK v1.0",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Anthropic Python SDK v1.0 正式發布：遷移至 httpx2、要求 Python 3.10+、移除舊版 API",
+    summary: "Anthropic Python SDK v1.0 正式發布，HTTP 層從 httpx 遷移至 httpx2，最低要求 Python 3.10+，移除舊版 Text Completions API；並棄用 Messages 方法上的 temperature、top_p、top_k 參數，async .with_raw_response 現需 await response.parse()。",
+    body: {
+      kind: "breaking",
+      description: "Anthropic Python SDK v1.0 於 2026-08-22 正式發布，帶來多項重大（破壞性）變更。\n\n**重大變更**\n• HTTP 層從 `httpx` 遷移至 `httpx2`\n• 最低 Python 版本要求升至 3.10+\n• 移除舊版 Text Completions API 等長期棄用的介面\n• 棄用 Messages 方法上的 `temperature`、`top_p`、`top_k` 參數\n• Async 客戶端的 `.with_raw_response` 結果現需 `await response.parse()`\n• `AnthropicBedrock` 未設定 AWS 區域時改為拋出錯誤（不再預設為 us-east-1）\n\n**遷移提示**\n• 使用 Claude Code 的 `/claude-api upgrade` 指令可取得半自動遷移工具\n• 詳細遷移指南請參閱官方文件",
+      migration: {
+        title: "從 0.x 升級至 1.0",
+        text: "升級前請確認 Python >= 3.10、移除 Text Completions API 用法、更新 async `.with_raw_response` 呼叫，並為 AnthropicBedrock 明確設定 AWS 區域。"
+      },
+      diff: {
+        before: [
+          "from anthropic import Anthropic",
+          "client = AnthropicBedrock()  # 預設 us-east-1",
+          "result = client.beta.with_raw_response.messages.create(...)",
+          "data = result.parse()"
+        ],
+        after: [
+          "from anthropic import Anthropic",
+          "client = AnthropicBedrock(aws_region='us-east-1')  # 需明確設定",
+          "result = await client.beta.with_raw_response.messages.create(...)",
+          "data = await result.parse()"
+        ]
+      },
+      links: [
+        { label: "Python SDK v1.0 Release", href: "https://github.com/anthropics/anthropic-sdk-python/releases", kind: "gh" },
+        { label: "Claude Developer Platform 版本說明", href: "https://platform.claude.com/docs/en/release-notes/api", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-mythos-5-security-2026-08-21",
+    date: "2026-08-21",
+    version: "Claude Mythos 5 Security",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Mythos 5 整合至 Claude Security：企業漏洞掃描、3,500 萬美元 Defender Fund",
+    summary: "Anthropic 宣布 Claude Mythos 5 整合至 Claude Security，企業客戶可對程式碼庫執行 AI 驅動漏洞掃描並獲修補建議；同時設立 3,500 萬美元 Defender Advantage Fund 信用計畫，支援開源組織強化安全能力。",
+    body: {
+      kind: "feature",
+      description: "2026-08-21，Anthropic 宣布將 Claude Mythos 5 整合至 Claude Security 平台，並推出一系列網路安全防禦強化措施。\n\n**主要功能**\n• 企業客戶可使用 Claude Mythos 5 對程式碼庫執行漏洞掃描，並獲得人工審查的修補建議\n• 網路安全驗證計畫（Cyber Verification Program）擴展，開放漏洞分類與驗證的降低防護存取\n• Claude Mythos 5 整合至第三方網路安全產品，防禦者可透過特定介面取得前沿能力\n• 採用受限輸出模型：使用者獲得特定成品（修補程式、安全警報），而非直接存取模型\n\n**Defender Advantage Fund**\n• 3,500 萬美元信用計畫，支援開源組織\n• 資助對象：修補漏洞、自動化掃描/修補流程、開發新安全方法的組織",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-238-2026-08-21",
     date: "2026-08-21",
     version: "v2.1.238",
