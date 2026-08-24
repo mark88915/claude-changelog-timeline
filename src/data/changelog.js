@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-241-2026-08-23",
+    date: "2026-08-23",
+    version: "v2.1.241",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.241：錯誤修正與可靠性改善",
+    summary: "Claude Code v2.1.241 發布，包含多項錯誤修正與穩定性提升。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.241 於 2026-08-23 發布，為小版本維護更新，包含多項錯誤修正與可靠性改善。本次版本無新功能，專注於提升整體穩定性與執行品質。",
+      links: [
+        { label: "GitHub Release v2.1.241", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.241", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-240-2026-08-22",
     date: "2026-08-22",
     version: "v2.1.240",
