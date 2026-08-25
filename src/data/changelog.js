@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-243-2026-08-24",
+    date: "2026-08-24",
+    version: "v2.1.243",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.243：Loops 用量統計、模型選擇器設定、快取 TTL 設定、無密鑰登入及效能大幅提升",
+    summary: "Claude Code v2.1.243 新增 /usage Loops 細項統計、modelPicker 自訂選單、promptCacheTtl 快取設定、Anthropic Console 無密鑰登入，並將啟動二進位檔從 340 MB 大幅壓縮至 75 MB。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.243 於 2026-08-24 發布，帶來多項重大新功能與效能提升。\n\n**新功能**\n• `/usage` 新增 Loops 細項統計，顯示每次迴圈的執行次數、總 token 用量、每次平均 token 及最後執行時間\n• 新增 `modelPicker` 設定，可自訂 `/model` 選單中顯示的模型列表與標籤順序\n• 新增 `promptCacheTtl` 與 `subagentPromptCacheTtl` 設定，控制提示詞快取的存活時間\n• 新增 `modelPricing` 管理設定，讓組織可設定自訂合約費率\n• 新增透過 Anthropic Console 的 `/login` 無密鑰登入功能\n\n**修復**\n• 修復非互動式及 SDK 工作階段中遠端 MCP 伺服器的重新連線問題\n• 修復使用快取伺服器端停用時，啟動時 auto 模式無法使用的問題\n• 修復使用者命名空間及無根容器中的跨工作階段訊息傳遞問題\n\n**效能改善**\n• 大幅提升啟動速度並減少二進位檔大小（採用 zstd 壓縮：Linux x64 從 340 MB 降至 ~75 MB）\n• 採用按需載入程式碼，每個工作階段約節省 40–70 MB 記憶體用量",
+      links: [
+        { label: "GitHub Release v2.1.243", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.243", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-241-2026-08-23",
     date: "2026-08-23",
     version: "v2.1.241",
