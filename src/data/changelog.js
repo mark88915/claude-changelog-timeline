@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-wellbeing-research-grants-2026-08-25",
+    date: "2026-08-25",
+    version: "公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 資助 AI 對人類福祉影響的評估研究",
+    summary: "Anthropic 宣布提供研究補助，支持探討 AI 如何影響人類福祉的相關研究。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-08-25 宣布提供研究補助，支持研究人員評估 AI 對人類福祉的影響。此舉旨在深入了解 AI 技術對社會的長期影響，並確保 AI 的發展符合人類利益。",
+      links: [
+        { label: "Anthropic 新聞", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-245-2026-08-25",
+    date: "2026-08-25",
+    version: "v2.1.245",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.245：修復 Linux glibc 2.44 啟動崩潰問題",
+    summary: "Claude Code v2.1.245 修復在最新 glibc 版本（Arch Linux、CachyOS 和 Fedora Rawhide）上的啟動崩潰問題，確保工具在現代 Linux 發行版上可正常運行。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.245 於 2026-08-25 發布，修復了影響使用最新 glibc 版本（glibc 2.44）Linux 發行版（包括 Arch Linux、CachyOS 和 Fedora Rawhide）的啟動崩潰問題。此修復確保工具在現代 Linux 發行版上可穩定運行。",
+      problem: "在使用最新 glibc 2.44 的 Linux 發行版（如 Arch Linux、CachyOS、Fedora Rawhide）上，Claude Code 無法正常啟動並發生崩潰。",
+      fix: "更新二進位檔以相容最新 glibc 版本，解決啟動崩潰問題。",
+      links: [
+        { label: "GitHub Release v2.1.245", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.245", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-243-2026-08-24",
     date: "2026-08-24",
     version: "v2.1.243",
