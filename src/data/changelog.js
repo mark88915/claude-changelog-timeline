@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-memory-unified-2026-08-25",
+    date: "2026-08-25",
+    version: "功能更新",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Claude 記憶功能統一：跨聊天與 Cowork 全面運作",
+    summary: "Claude 記憶功能現在跨聊天和 Cowork 工作，用戶可逐主題查看、編輯、刪除記憶，敏感主題預設不儲存。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-08-25 宣布 Claude 記憶功能重大更新。記憶系統現已統一跨聊天和 Cowork 工作，不論在哪個介面學到的內容都會被記住。\n\n**主要功能**\n• 記憶在 Settings > Memory 以主題分類列出，用戶可逐一查看、編輯或刪除\n• 健康、種族、性別認同、宗教、政治等敏感主題預設不儲存，需手動開啟「Include sensitive topics in memory」\n• 記憶功能預設在 Free、Pro、Max 方案的網頁、桌面和行動版上啟用",
+      links: [
+        { label: "Anthropic Blog", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "SiliconANGLE 報導", href: "https://siliconangle.com/2026/08/25/anthropic-updates-claudes-memory-to-enhance-customization-and-protect-sensitive-topics/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-246-2026-08-25",
+    date: "2026-08-25",
+    version: "v2.1.246",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.246：Bash allow rules 萬用字元警告與 /permissions Auto 模式分頁",
+    summary: "Claude Code v2.1.246 新增 Bash allow rules 萬用字元啟動警告，並在 /permissions 加入 Auto 模式分頁，提升安全性與可用性。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.246 於 2026-08-25 發布，帶來多項安全性與可用性改善。\n\n**新功能**\n• 新增 Bash allow rules 萬用字元啟動警告：當規則在子命令前包含萬用字元（如 `Bash(git * main)`）時，啟動時會顯示警告提示\n• /permissions 新增 Auto 模式分頁，可查看和編輯 auto 模式分類規則\n• 完成時間新增至回合結束的持續時間列\n\n**修復**\n• 修復 Notebook 單元格刪除/替換確認對話框無法讀取時顯示現有內容的問題\n• 修復 slash commands 顯示 HTML 實體而非實際字元的問題",
+      links: [
+        { label: "GitHub Release v2.1.246", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.246", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-wellbeing-research-grants-2026-08-25",
     date: "2026-08-25",
     version: "公告",
