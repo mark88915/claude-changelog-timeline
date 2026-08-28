@@ -1,6 +1,61 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-model-hardware-standard-2026-08-27",
+    date: "2026-08-27",
+    version: "公告",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 發布 Model Hardware Standard（MHS）研究預覽版",
+    summary: "Anthropic 開放 MHS 研究預覽，讓 AI 代理可安全操控顯微鏡、機械臂等實體設備，初期面向科學研究室與先進製造業，未來將開源。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-08-27 宣布發布 Model Hardware Standard（MHS）研究預覽版。MHS 是一套讓 AI 代理安全操控實體設備的統一規範，涵蓋顯微鏡、液體處理器、機械臂等實驗室與製造設備。\n\n**主要特點**\n• 企業可在「數小時或數分鐘」內完成 AI 與設備整合，而非傳統需要數週並依賴專業工程師的客製化建置\n• 模型無關（model agnostic），不強制使用 Claude 系列模型\n• 初期開放給科學研究室和先進製造業者，Anthropic 計畫未來將其開源\n• 可並行操控多台儀器，執行從例行藥物探索實驗到量子電腦雷射校準等複雜任務\n\n**策略意義**\n此舉標誌 Anthropic 正式進入實體 AI 領域，與已投資數十億打造 AI 原生硬體的 OpenAI 和 Amazon 展開競爭。",
+      links: [
+        { label: "Anthropic 官方部落格", href: "https://www.anthropic.com/news/model-hardware-standard-research-preview", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/08/27/anthropic-pushes-into-physical-world-with-new-standard-to-help-ai-agents-operate-machines.html", kind: "doc" },
+        { label: "Fortune 報導", href: "https://fortune.com/2026/08/27/anthropic-makes-first-move-into-physical-ai-with-universal-standard-for-scientists-manufacturing/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-248-2026-08-27",
+    date: "2026-08-27",
+    version: "v2.1.248",
+    category: "new",
+    area: "security",
+    product: "claude-code",
+    title: "v2.1.248：--restricted 安全模式、per-agent 快取 TTL、跨工作階段訊息傳遞",
+    summary: "Claude Code v2.1.248 新增 --restricted 安全沙盒模式、per-agent prompt cache TTL 設定、Bedrock/Vertex/Foundry 跨工作階段訊息傳遞，並修復多項 OAuth 快取與 Desktop 工作階段問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.248 於 2026-08-27 發布，帶來重要安全性增強與跨平台功能改善。\n\n**新功能**\n• `--restricted` 模式：移除可執行命令/程式碼的內建工具及 WebFetch，限制檔案工具在工作目錄範圍內，拒絕 `bypassPermissions`，並忽略使用者/專案/本地設定檔\n• `experimental.cacheTtl`：可在 agent frontmatter 中設定自訂 prompt cache 存活時間（`\"5m\"` 或 `\"1h\"`）\n• 伺服器管理設定診斷：啟動時警告與 `/doctor`/`status` 面板說明設定載入失敗原因\n• 跨工作階段訊息傳遞：`SendMessage`/`ListAgents` 現在可在 Bedrock、Vertex 和 Foundry 的不同工作階段間運作\n• `/usage-credits` 指令：Enterprise 組織可請求更高用量限制\n\n**修復**\n• 修復長工作階段中因 OAuth token 刷新導致的 prompt cache 遺漏問題\n• 修復 Claude Desktop 工作階段 30 天後消失的問題\n• 修復 Remote Control 工作階段偶爾遺失權限提示的問題\n• 修復 worktree 工作階段清理時遺失 checkout 的問題\n• 大幅縮減 Workflow 工具 prompt 佔用（從 5.7k 降至約 1k tokens）",
+      links: [
+        { label: "GitHub Release v2.1.248", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.248", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-247-2026-08-26",
+    date: "2026-08-26",
+    version: "v2.1.247",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.247：SendFeedback 工具與 /claude-api cost-optimize 指令",
+    summary: "Claude Code v2.1.247 新增讓 Claude 起草問題回報的 SendFeedback 工具，以及分析 Claude API 費用並提供優化建議的 /claude-api cost-optimize 指令。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.247 於 2026-08-26 發布，新增兩項實用功能。\n\n**新功能**\n• `SendFeedback` 工具：當工作階段發生問題時，Claude 可起草問題回報供使用者審查後透過 `/feedback` 提交\n• `/claude-api cost-optimize`：分析現有專案的 Claude API 費用分佈，並引導使用者逐步優化成本\n• 更新 Admin API 覆蓋範圍，擴展組織管理功能至 `/claude-api` 技能\n\n**修復**\n• 修復 subagent 在模型 404 錯誤時崩潰的問題（現在會使用備用模型鏈）\n• 修復 kitty-protocol 終端機中非拉丁語系鍵盤快捷鍵問題\n• 修復 Bash sandbox 符號連結刪除問題\n• 多項 plugin marketplace 和 MCP 伺服器處理改善",
+      links: [
+        { label: "GitHub Release v2.1.247", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.247", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-memory-unified-2026-08-25",
     date: "2026-08-25",
     version: "功能更新",
