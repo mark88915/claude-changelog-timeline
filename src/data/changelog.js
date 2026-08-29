@@ -1,6 +1,61 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-pentagon-ruling-2026-08-28",
+    date: "2026-08-28",
+    version: "公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "美國聯邦法院裁定：五角大廈將 Anthropic 列為供應鏈風險違法",
+    summary: "加州聯邦法官 Rita Lin 裁定川普政府將 Anthropic 列為「供應鏈風險」一事違反第一修正案，構成不當報復，下令相關聯邦機構停止執行禁令。",
+    body: {
+      kind: "feature",
+      description: "2026-08-28，美國加州聯邦地方法院法官 Rita Lin 裁定，川普政府將 Anthropic 列為供應鏈風險的決定違法，構成對 Anthropic 言論自由的「不當報復」，且「任意且反覆無常」，同時剝奪了公司的正當程序權利。\n\n**事件背景**\n此爭議始於 Anthropic 拒絕接受一份開放式的五角大廈合約，該合約將允許覆蓋公司對 Claude 使用設置的安全限制。Anthropic CEO Dario Amodei 堅守兩條紅線：不協助建立致命自主武器，不協助大規模監控美國公民。\n\n**法院裁定**\n• 法官指出政府立場前後矛盾：一方面稱 Anthropic 是威脅，另一方面又提議適用《國防生產法》（將其列為國家安全要件）並持續尋求合約\n• 裁定：「空洞援引國家安全不是懲罰和報復政府批評者的空白支票」\n• 下令相關聯邦機構停止執行禁令\n\n**後續發展**\nAnthropicAI 在加州的第一場官司取得首勝；另一場在華盛頓特區的訴訟仍在進行中。",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/", kind: "doc" },
+        { label: "Fortune 報導", href: "https://fortune.com/2026/08/28/anthropic-pentagon-ruling-rita-lin-arrogance/", kind: "doc" },
+        { label: "Forbes 報導", href: "https://www.forbes.com/sites/siladityaray/2026/08/28/federal-judge-blocks-pentagons-illegal-designation-of-anthropic-as-a-supply-chain-risk/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-for-teachers-enterprise-2026-08-28",
+    date: "2026-08-28",
+    version: "Claude for Teachers",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Claude for Teachers 面向學校與學區開放免費 Enterprise 方案",
+    summary: "Anthropic 將 Claude for Teachers 擴展為 K-12 學校與學區的免費 Enterprise 方案，含 SSO、角色存取控制、對應全美 50 州課程標準，符合資格機構可獲一年免費使用。",
+    body: {
+      kind: "feature",
+      description: "2026-08-28，Anthropic 宣布將 Claude for Teachers 升級為面向 K-12 學校與學區的免費 Enterprise 方案（原本僅面向個別教師）。\n\n**主要功能**\n• 集中管理存取：支援單一登入（SSO）及角色型存取控制\n• Premium Claude 功能，以學習科學為基礎\n• 連結全美 50 州學術課程標準\n• 新增開學資源：課程備課技能及「理解檢測」技能（初期聚焦數學）\n\n**優惠條件**\n• 符合資格的學校或學區，於 2027 年 6 月 30 日前申請，可獲得一年免費使用\n• 資料不用於模型訓練，並受 K-12 資料處理協議（FERPA 合規）保護\n\n**備注**\n此公告為組織層級方案，與 2026-07-14 推出的個別教師免費版為不同層次的服務。",
+      links: [
+        { label: "Anthropic 新聞", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "Releasebot 更新", href: "https://releasebot.io/updates/anthropic/claude", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-251-2026-08-28",
+    date: "2026-08-28",
+    version: "v2.1.251",
+    category: "new",
+    area: "security",
+    product: "claude-code",
+    title: "v2.1.251：模型切換 Hook、Remote Control 直播、多項安全修補",
+    summary: "Claude Code v2.1.251 新增 PreModelSwitch/PostModelSwitch hook 事件、Remote Control 直播子代理工具呼叫、/cost prompt cache 統計，並修補 symlink 路徑穿越等多項安全漏洞，效能改善二進位檔縮小 ~5MB。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.251 於 2026-08-28 發布，帶來多項新功能、安全修補與效能改善。\n\n**新功能**\n• `PreModelSwitch` / `PostModelSwitch` hook 事件：可攔截、確認或標註模型切換操作；`SessionStart` resume hook 現會收到工作階段過期時間與重新快取預估成本\n• Remote Control 直播：前景子代理的工具呼叫與結果即時串流至 Remote Control 客戶端\n• `/usage` 新增支出限額條及 `rate_limits.spend_limit` 狀態列欄位（適用 Claude apps gateway 使用者）\n• `/cost` 新增每工作階段 prompt cache 統計行，顯示命中率、遺漏次數、重新快取 tokens 及暖/冷狀態\n• `claude --help` 新增 `attach`、`logs`、`stop`、`respawn`、`rm` 指令說明\n\n**安全修補**\n• 修正 Read/Write/Edit 工具跟隨工作目錄內 symlink 可讀寫核准位置外部檔案的漏洞\n• 修正插件指令可能指向插件目錄外部的路徑穿越問題\n• 修正 Workflow 工具在權限檢查前讀取 `scriptPath` 的問題\n• 修正 Grep/Glob 透過 symlink 路徑未套用 Read 拒絕規則的問題\n• 伺服器管理設定影響沙盒隔離時，現在需要使用者核准\n\n**錯誤修正**\n• 修正工作階段在「text content blocks must be non-empty」錯誤後卡住的問題\n• 修正 Opus 5 以 xhigh/max effort 且停用 thinking 時的請求失敗問題\n• 修正 TUI 多個並行子代理時的畫面延遲\n• 修正背景工作階段無法回覆未命名同層/父層工作階段的問題\n\n**效能改善**\n• 二進位安裝檔縮小約 5MB（移除 6 種罕用語言的語法高亮）\n• 減少冗餘 UI 重繪，降低 CPU 使用率\n\n**其他變更**\n• `/radio` 現在支援 Bedrock、Vertex、Foundry 及停用遙測時使用\n• `CLAUDE_CODE_SUBAGENT_MODEL` 現在設定預設值而非強制覆蓋\n• 企業版座位制訂閱的預設模型改為 Opus 5\n• `/effort` 現在儲存每個模型的偏好設定",
+      links: [
+        { label: "GitHub Release v2.1.251", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.251", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-model-hardware-standard-2026-08-27",
     date: "2026-08-27",
     version: "公告",
