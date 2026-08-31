@@ -1,6 +1,29 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-sony-warner-lawsuit-2026-08-30",
+    date: "2026-08-30",
+    version: "公告",
+    category: "brk",
+    area: "security",
+    product: "claude",
+    title: "Sony Music 及 Warner Chappell 就版權侵害對 Anthropic 提起訴訟",
+    summary: "Sony Music Publishing 及 Warner Chappell Music 在加州聯邦法院對 Anthropic 提起版權訴訟，指控其非法爬取版權音樂用於訓練 Claude，索賠金額可達每首作品 15 萬美元。",
+    body: {
+      kind: "breaking",
+      description: "2026-08-29，Sony Music Publishing 及 Warner Chappell Music 在美國加州北區聯邦地方法院對 Anthropic 提起版權訴訟，同時列名共同被告的還有聯合創辦人 Dario Amodei 及 Benjamin Mann。\n\n**訴訟指控**\n原告指控 Anthropic 透過「非法種子下載、網路爬取及下載」方式，取得數千首版權音樂作品（包括〈Ain't No Mountain High Enough〉、〈All I Want for Christmas is You〉、〈Eye of the Tiger〉等知名歌曲）用於訓練 Claude。\n\n**索賠金額**\n原告要求陪審團審判，並尋求每首受侵害作品最高 15 萬美元的法定損害賠償，總計可達數十億美元。\n\n**背景脈絡**\n這並非 Anthropic 首次面臨音樂版權訴訟。2023 年 10 月，環球音樂、Concord 及 ABKCO 曾對其提告（約 500 首歌曲）；2026 年 1 月，同一批原告再提第二件訴訟，涉及逾 20,000 首作品並索賠逾 30 億美元。Anthropic 否認相關指控並表示將積極應對。",
+      migration: {
+        title: "法律風險提示",
+        text: "此訴訟結果可能影響 Anthropic 的商業運營及 Claude 模型的訓練資料使用政策，建議密切關注後續進展。"
+      },
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/", kind: "doc" },
+        { label: "Music Business Worldwide", href: "https://www.musicbusinessworldwide.com/now-sony-music-publishing-and-warner-chappell-sue-anthropic-in-multi-billion-dollar-lawsuit-one-of-the-largest-and-most-blatant-ongoing-thefts-of-intellectual-property-in-history/", kind: "doc" },
+        { label: "Engadget 報導", href: "https://www.engadget.com/2246997/sony-warner-sue-anthropic-for-blatant-violation-of-copyright-law/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-pentagon-ruling-2026-08-28",
     date: "2026-08-28",
     version: "公告",
