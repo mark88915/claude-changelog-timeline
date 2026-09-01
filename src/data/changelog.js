@@ -1,6 +1,45 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-252-2026-08-31",
+    date: "2026-08-31",
+    version: "v2.1.252",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.252：修復 Mac Bash 失敗、Remote Control 卡頓及通知過大問題",
+    summary: "Claude Code v2.1.252 修復 Mac 上 Bash 指令失敗、always allow 設定無法儲存、Remote Control 工作階段卡頓及背景通知因輸出過大超出 API 限制等四項錯誤。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.252 於 2026-08-31 發布，包含四項錯誤修正：\n\n**1. Mac Bash 指令失敗**\n修復部分 Mac 上 Bash 指令因「task output swap refused (tasks dir moved or linked)」錯誤而失敗的問題。\n\n**2. always allow 設定無法儲存**\n修復在尚未建立 `.claude/settings.local.json` 的專案中，「always allow」權限設定無法正確儲存的問題。\n\n**3. Remote Control 工作階段卡頓**\n修復由 Claude Desktop 或 VS Code 主持的 Remote Control 工作階段，在 claude.ai 連線降級後工具執行完畢仍卡頓數分鐘的問題。\n\n**4. 背景任務通知超出 API 限制**\n修復背景任務失敗輸出過大（例如磁碟滿時的 git 錯誤）導致對話超出 API 請求大小限制的問題。",
+      links: [
+        { label: "GitHub Release v2.1.252", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.252", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-infostealer-warning-2026-08-31",
+    date: "2026-08-31",
+    version: "安全公告",
+    category: "brk",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 警告：Infostealer 惡意軟體竊取 Claude 瀏覽器工作階段",
+    summary: "Anthropic 警告多款 Infostealer 惡意軟體（含 Vidar、LummaC2、StealC、RedLine、Acreed 及 macOS AMOS）正竊取使用者瀏覽器工作階段，導致帳戶被盜用並消耗用量配額，已強制登出受影響帳戶並退款。",
+    body: {
+      kind: "breaking",
+      description: "2026-08-30 至 31 日，Anthropic 發出安全警告，多款 Infostealer 惡意軟體正透過竊取使用者本機瀏覽器儲存的工作階段 Cookie，繞過密碼與雙重驗證，直接盜用 Claude 帳戶。\n\n**已識別惡意軟體**\n• Windows：Vidar、LummaC2、StealC、RedLine、Acreed\n• macOS：Atomic Stealer（AMOS）\n\n**攻擊手法**\n惡意軟體在受害者電腦本機執行後，靜默複製瀏覽器儲存的 Cookie 與工作階段 ID。攻擊者取得這些已驗證的工作階段後，無需密碼即可存取帳戶並消耗用量配額。感染途徑通常為非官方下載或惡意應用程式，與 Claude 平台本身無關。\n\n**Anthropic 已採取的行動**\n• 強制登出受影響帳戶（已中止竊取的工作階段）\n• 移除受影響帳戶的儲存付款方式\n• 退還確認為未授權的消費款項\n\n**使用者建議**\n• 更換帳戶密碼並撤銷其他作用中工作階段\n• 從電腦中徹底移除惡意軟體（僅登出無法根除感染）\n• 避免安裝非官方來源的軟體",
+      migration: {
+        title: "安全建議",
+        text: "若收到 Anthropic 安全通知，請立即更換密碼、撤銷所有工作階段，並使用防毒軟體掃描並移除本機惡意軟體。"
+      },
+      links: [
+        { label: "BleepingComputer 報導", href: "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/", kind: "doc" },
+        { label: "Help Net Security 報導", href: "https://www.helpnetsecurity.com/2026/08/31/claude-accounts-compromised-through-infostealer/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-sony-warner-lawsuit-2026-08-30",
     date: "2026-08-30",
     version: "公告",
