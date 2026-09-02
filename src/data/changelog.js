@@ -1,6 +1,77 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-258-2026-09-01",
+    date: "2026-09-01",
+    version: "v2.1.258",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.258：修復 macOS 12 Monterey 無法啟動及遠端工作階段失敗問題",
+    summary: "Claude Code v2.1.258 修復 macOS 12 Monterey 上因 v2.1.255 回歸導致的啟動失敗，以及遠端與排程工作階段因「user messages must have non-empty content」錯誤而失敗的問題。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.258 於 2026-09-01 發布，包含兩項錯誤修正：\n\n**1. macOS 12 Monterey 無法啟動**\n修復 v2.1.255 引入的回歸錯誤，導致 Claude Code 在 macOS 12 (Monterey) 上完全無法啟動。\n\n**2. 遠端與排程工作階段失敗**\n修復遠端及排程工作階段在重新傳送的權限核准無法套用後，因「user messages must have non-empty content」錯誤而失敗的問題。",
+      links: [
+        { label: "GitHub Release v2.1.258", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.258", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-257-2026-09-01",
+    date: "2026-09-01",
+    version: "v2.1.257",
+    category: "new",
+    area: "model",
+    product: "claude-code",
+    title: "v2.1.257：預設切換至 Fable 5.1、時間格式自訂、auto 模式安全強化",
+    summary: "Claude Code v2.1.257 將 Claude Fable 5.1 設為預設 Fable 模型，新增時間格式與時區自訂、auto 模式 Containment Escape 規則、CLAUDE_CODE_SUBAGENT_MODEL_FORCE 環境變數，並修復多項工作階段、權限與渲染錯誤。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.257 於 2026-09-01 發布，帶來重大新功能與多項修正。\n\n**新功能**\n• **Claude Fable 5.1 成為預設 Fable 模型**：`claude-fable-5-1`，具備 1M token 上下文及 $0.25/MTok 快取讀取定價\n• **時間格式與時區自訂**：支援 12 小時制、24 小時制、24 小時制 UTC 或自訂 strftime 格式\n• **Containment Escape 規則**（auto 模式）：雲端中繼資料憑證請求、出口規避及跨租戶存取不再自動核准，需明確標記為預期行為\n• **`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`** 環境變數：強制所有子代理使用指定模型，覆蓋個別派生設定\n• **`/effort s`** 指令：僅變更當前工作階段的效力設定（對應 `/model` 行為）\n• **`/doctor` 警告**：偵測並警告被強制終止工作階段留下的過期沙盒遮罩檔案\n• **工作目錄外部首次讀取提示**：auto 模式下，首次讀取工作目錄外部檔案前顯示一次性提示\n• **Gateway 模型探索**：支援帶有 description 欄位的 Gateway 模型探索\n\n**主要錯誤修正**\n• 修復啟動後才建立的 `.claude/` 資料夾設定未被載入的問題\n• 修復從代理視圖派生的工作階段使用原始工作階段權限模式的問題\n• 修復 Remote Control 中途重新傳送導致提示快取遺漏的問題\n• 修復子代理在串流中斷時停止運作（現在自動繼續）\n• 修復外掛透過符號連結讀取外部目錄的問題\n• 修復 `/add-dir` 拒絕當前工作目錄內部目錄的問題\n\n**效能與 UX 改善**\n• 改善長對話的渲染效能\n• 改善提示輸入的回應速度\n• 改善 `/code-review --comment` 對 GitLab merge request 的支援",
+      links: [
+        { label: "GitHub Release v2.1.257", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.257", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-fable-5-1-release-2026-09-01",
+    date: "2026-09-01",
+    version: "Fable 5.1",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Fable 5.1 與 Mythos 5.1 正式發布：快取讀取降價 75%、編碼基準大幅提升",
+    summary: "Anthropic 發布 Claude Fable 5.1 與 Mythos 5.1，具備 1M token 上下文與 128k 輸出，提示快取讀取降至 $0.25/MTok（降幅 75%），Terminal-Bench 編碼測試提升 13%，典型工作負載成本效率提升 25%，AI 代理應用最多節省 45%。",
+    body: {
+      kind: "feature",
+      description: "2026-09-01，Anthropic 正式發布 Claude Fable 5.1（`claude-fable-5-1`）與 Claude Mythos 5.1（`claude-mythos-5-1`），為目前最先進的編碼與知識工作模型。\n\n**規格**\n• **上下文視窗**：1M tokens（預設），最大輸出 128k tokens\n• **思考模式**：始終開啟的自適應思考（always-on adaptive thinking）\n• **定價**：$10/$50 USD per MTok（與 Fable 5 相同）\n• **提示快取讀取**：$0.25/MTok（降至基礎輸入價格的 0.025x，比其他模型低 75%）\n\n**效能提升**\n• Terminal-Bench-Science 0.1：52.6%（較 Fable 5 提升超過 100%）\n• Terminal-Bench 4.0 編碼測試：提升 13%\n• 典型工作負載成本效率：提升 25%\n• AI 代理應用：最多節省 45% 成本\n\n**API 重大變更**\n• `tool_choice` 的 `any` 與 `tool` 類型**不再支援**，呼叫將返回 400 錯誤；改用 strict tool use 或 structured outputs\n• Thinking blocks 僅可由產生它的模型或更新版本讀取\n• 新帳戶（2026-08-31 後建立）修改對話後重播 thinking block 將返回 400 錯誤\n• **資料保留要求**：需 30 天資料保留，不適用零資料保留政策（除非 Anthropic 明確授權）\n\n**Fable 5.1 vs Mythos 5.1**\n兩者為相同底層模型，Fable 5.1 對敏感網路安全與生物應用設有限制；Mythos 5.1 僅開放給 Project Glasswing 參與者，限制較少。",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/claude/fable", kind: "doc" },
+        { label: "API 發布說明", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "SiliconAngle 報導", href: "https://siliconangle.com/2026/09/01/anthropic-launches-claude-fable-5-1-inking-35b-cloud-deal-with-lambda/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-lambda-35b-deal-2026-09-01",
+    date: "2026-09-01",
+    version: "公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Anthropic 與 Lambda 簽署 $350 億美元 GPU 基礎設施合約",
+    summary: "Anthropic 與 Lambda Inc. 簽署總額 $350 億美元的基礎設施合約，等同 350-437 MW GPU 容量，設施位於德州 Nueces 縣，由 Hut 8 營運，預計 2027 年 Q1 接入電網。",
+    body: {
+      kind: "feature",
+      description: "2026-09-01，Anthropic 宣布與 Lambda Inc. 簽署價值 $350 億美元的 GPU 基礎設施合約，以支撐 Fable 5.1 及後續模型的訓練與推論需求。\n\n**合約細節**\n• 合約金額：$350 億美元（約等同 350-437 MW GPU 容量）\n• 資料中心位置：美國德州 Nueces 縣（由 Hut 8 興建營運）\n• 預計電網接入時間：2027 年 Q1\n\n**背景**\n此合約是 Anthropic 持續擴張計算基礎設施的一部分，以應對旗艦模型（如 Fable 5.1）訓練與推論的巨大算力需求，同時反映 AI 產業對大規模 GPU 資源的強烈競爭態勢。",
+      links: [
+        { label: "SiliconAngle 報導", href: "https://siliconangle.com/2026/09/01/anthropic-launches-claude-fable-5-1-inking-35b-cloud-deal-with-lambda/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-252-2026-08-31",
     date: "2026-08-31",
     version: "v2.1.252",
