@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-259-2026-09-02",
+    date: "2026-09-02",
+    version: "v2.1.259",
+    category: "new",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.259：Managed MCP 伺服器、無人值守 Headless 模式、GitLab MR 識別與 29 項錯誤修正",
+    summary: "Claude Code v2.1.259 新增組織級 Managed MCP 伺服器設定、--permission-prompts none 無人值守模式、GitLab MR 識別、VSCode 工作階段側邊欄篩選，以及 29 項錯誤修正，並有一項 allowedMcpServers 行為的重大變更。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.259 於 2026-09-02 發布，帶來多項新功能、大量錯誤修正與一項重大行為變更。\n\n**新功能**\n• **`managedMcpServers` 受管設定**：組織可透過此設定，將 HTTP/SSE MCP 伺服器推送給所有使用者（格式與 `.mcp.json` 相同）；包含執行指令的條目將被略過\n• **`--permission-prompts none`**：適用於無人值守的 Headless 主機，任何需要提示的操作將自動拒絕，而不會中斷工作階段\n• **GitLab MR 識別**：`glab mr create/merge/close/reopen/note/update` 指令現在可識別為 GitLab MR，在工具摘要中顯示為 `MR !N` 並更新頁尾 MR 徽章\n• **`claude plugin validate --json`**：新增 `--json` 旗標，輸出機器可讀的驗證報告\n• **[VSCode] 工作階段清單篩選**：新增「Active」快速篩選及狀態篩選選單（Needs input、Working、Completed）\n\n**主要錯誤修正（共 29 項）**\n• 修復多個並行工作階段靜默覆蓋彼此 `~/.claude.json` 變更的問題（工作區信任不再重置，MCP / 專案狀態不再遺失）\n• 修復 Bash `Read()` 拒絕規則未覆蓋選項值中的檔案路徑（如 `--ignore-revs-file=.env`、`-f.env`、`@file`）的問題\n• 修復 OAuth token 刷新時導致提示快取失效的問題（在停用遙測的工作階段中）\n• 修復全螢幕模式在長時間對話中顯示空白對話的問題\n• 修復 auto 模式在不支援的模型上執行指令的問題\n• 修復受管設定無法解析時 Claude Code 靜默忽略（現在會拒絕啟動並指出來源）\n• 修復 Stop 在遠端控制工作階段中無法實際停止背景 agent 與工作流程的問題\n• 修復遠端（claude.ai）工作階段在瀏覽器主機 MCP 伺服器頁面關閉後需等待 60 秒才能開始新回合的問題\n• 修復遠端及排程工作階段在 Connector 工具權限提示核准後仍不執行的問題\n• 其他 20 餘項修正（渲染、Worktree 隔離、Repository 偵測等）\n\n**效能與 UX 改善**\n• 改善長回應的終端機調整大小與首次渲染效能\n• 改善 `/workflows` Agent 詳細頁：JSON 輸出現在支援語法顏色與折疊\n• 改善 Headless/SDK 工作階段啟動：首次回合最多提早 50ms 開始\n• 改善 `/install-github-app` 在 GitLab 儲存庫中的引導提示\n\n**重大變更**\n• `allowedMcpServers` 現在僅管理使用者自行新增的伺服器；原本透過 allowlist 篩除的 `managed-mcp.json` 伺服器在升級後將自動載入。如需停用，請改用 `deniedMcpServers`。",
+      links: [
+        { label: "GitHub Release v2.1.259", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.259", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-258-2026-09-01",
     date: "2026-09-01",
     version: "v2.1.258",
