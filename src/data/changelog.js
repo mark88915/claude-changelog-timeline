@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-260-2026-09-03",
+    date: "2026-09-03",
+    version: "v2.1.260",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.260：全螢幕 Diff Panel、提示快取遺漏診斷、Advisor 文字模式與 25 項錯誤修正",
+    summary: "Claude Code v2.1.260 新增全螢幕 Diff Panel（/diff）、/cost 提示快取遺漏原因診斷、Headless 工作階段 /reload-plugins 指令、/advisor 文字模式，並修復 Bash 沙盒路徑規則、Fable 5.1 提示快取後段覆蓋等 25 項錯誤。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.260 於 2026-09-03 發布，帶來多項新功能與大量錯誤修正。\n\n**新功能**\n• **全螢幕 Diff Panel**：於全螢幕模式中在對話旁開啟 diff 面板，顯示 Claude 編輯時的未提交變更，使用 `/diff` 切換\n• **提示快取遺漏診斷**：`/cost` 指令及狀態欄的 `prompt_cache` 欄位現在顯示快取遺漏的可能原因（如工具定義或系統提示變更、閒置超過 TTL）\n• **`/reload-plugins`**：新增至 Headless 工作階段的 Claude Code Desktop 與 SDK 指令清單\n• **`/advisor` 文字模式**：桌面應用程式、Remote Control 及 Headless 工作階段支援 `/advisor`、`/advisor <model>`、`/advisor off` 文字指令\n• **OIDC 範圍支援**：新增 `oidc.scope_on_refresh`，支援僅在請求時才回傳 id_token 的 IdP\n\n**主要錯誤修正（共 25 項）**\n• 修復 Bash 沙盒中含括號路徑的權限規則被視為無效並丟棄的問題\n• 修復單一無效檔案權限模式導致所有檔案編輯失敗並產生 regex 錯誤的問題\n• 修復 Claude Fable 5.1 提示快取未覆蓋工具結果後段的問題\n• 修復插件 hook 失敗後模型切換持續被封鎖的問題\n• 修復 SDK 提供的 MCP 伺服器在首次回合中遺失的問題\n• 修復 `/rewind` 在備份檔案遺失時還原失敗及過期檔案讀取追蹤的問題\n• 修復子代理恢復後未喚醒父代理的問題\n• 修復工作流程工具子代理在上下文壓縮時被誤判為停滯並重啟的問題\n• 修復 GitLab 巢狀子群組存放庫偵測問題\n• **VSCode**：新增頁尾模型膠囊顯示已選效力等級、修復切換模型後效力等級過期等問題\n\n**效能與 UX 改善**\n• 改善非互動式工作階段的閒置 CPU 使用率\n• 改善 1M 上下文模型的自動壓縮時機\n• 延長 `/ultrareview` 逾時至 45 分鐘（原為 30 分鐘）\n• `ctrl+l` / `cmd+k` 在全螢幕模式現在改為清除記錄視圖",
+      links: [
+        { label: "GitHub Release v2.1.260", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.260", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-259-2026-09-02",
     date: "2026-09-02",
     version: "v2.1.259",
