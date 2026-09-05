@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-261-2026-09-04",
+    date: "2026-09-04",
+    version: "v2.1.261",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.261：/skill-doctor 技能診斷、輸出字元上限設定、組織政策診斷與多項錯誤修正",
+    summary: "Claude Code v2.1.261 新增 /skill-doctor 顯示未使用技能及上下文成本、bashOutputMaxChars/taskOutputMaxChars 最高 128K 字元設定、--append-subagent-system-prompt-file 旗標、/status 組織政策說明列，修復輸入字元順序錯位、工作階段恢復遺失 hook 輸出、Remote Control 卡住、背景 Agent CPU 過高等問題，並改善 VSCode 整合體驗。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.261 於 2026-09-04 發布，帶來多項新功能、大量錯誤修正與 VSCode 擴充功能改善。\n\n**新功能**\n• **`/skill-doctor`**：顯示已載入但未使用的技能及其上下文成本，方便修剪以節省 token\n• **`bashOutputMaxChars` 與 `taskOutputMaxChars`**：新增設定，可將行內指令與背景工作輸出上限提升至最高 128K 字元（超出才儲存至檔案）\n• **`--append-subagent-system-prompt-file`**：從檔案讀取子代理系統提示，適用於超過命令列長度限制的大型提示\n• **組織政策診斷**：`/status` 與 `claude doctor` 新增「Organization policy」列，說明政策載入失敗的原因\n• 改善 Bedrock 設定精靈逾時及 Proxy 問題的錯誤訊息\n\n**主要錯誤修正**\n• 修復快速輸入或按鍵重複時，字元偶爾以錯誤順序輸入或貼上的問題\n• 修復在行內圖片晶片前立即刪除字元的問題\n• 修復 `/add-dir <subdirectory>` 在 `/net` 自動掛載路徑上誤報「無法解析」的問題\n• 修復恢復工作階段時遺失 hook 輸出及並行工具呼叫前後上下文的問題\n• 修復 `claude -p --resume <file>` 採用格式錯誤的工作階段 ID 的問題\n• 修復 Remote Control 工作階段在停止回合後顯示為卡住的問題\n• 修復背景代理在緊密迴圈中重試導致持續高 CPU 使用率的問題\n• 修復 cloud 工作階段在受管設定強制啟用時丟棄已同步外掛的問題\n• 修復 `gcpAuthRefresh` 在慢速憑證檢查時不必要地開啟瀏覽器的問題\n• 修復 `forceLoginMethod: \"gateway\"` 機器忽略殘留 API 金鑰的問題\n• 改善串流效能（防止重複檢查已渲染的區塊）\n\n**VSCode 擴充功能更新**\n• 新增「Build a custom style」自訂輸出風格引導說明\n• MCP 伺服器對話框新增新增/移除操作\n• 工作階段清單新增中空圓環指示器（表示工作階段在其他地方開啟）\n• 權限/問題提示新增摺疊按鈕\n• 修復多項工作階段索引標籤及清單同步問題\n• 修復模型選擇器顯示問題，改為平面清單並將舊名稱排至最後\n\n**效能與 UX 改善**\n• 改善文字編輯按鍵以符合 Bash 習慣（Ctrl+W、Alt+F、Alt+D）\n• `/context` token 計數在 API 無法使用時改用本地估算\n• 強化 `rm -rf` 危險指令安全偵測\n• auto 模式現在將公開圖表渲染器中的連結視為上傳處理",
+      links: [
+        { label: "GitHub Release v2.1.261", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.261", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-260-2026-09-03",
     date: "2026-09-03",
     version: "v2.1.260",
