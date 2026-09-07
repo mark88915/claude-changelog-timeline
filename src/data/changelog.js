@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-263-2026-09-06",
+    date: "2026-09-06",
+    version: "v2.1.263",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.263：CLI 錯誤修正與穩定性改善",
+    summary: "Claude Code v2.1.263 修復多項 CLI 崩潰問題並提升指令穩定性，減少非預期中斷情形。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.263 於 2026-09-06 發布，專注於 CLI 穩定性改善：\n\n• 修復導致 CLI 崩潰的多項問題\n• 提升指令執行穩定性，減少非預期中斷情形\n• 一般可靠性改善",
+      links: [
+        { label: "GitHub Release v2.1.263", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.263", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-261-2026-09-04",
     date: "2026-09-04",
     version: "v2.1.261",
