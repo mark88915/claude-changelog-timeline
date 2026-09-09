@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-266-2026-09-08",
+    date: "2026-09-08",
+    version: "v2.1.266",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.266：修復 CLAUDE_CODE_USE_GATEWAY 回歸導致 API 金鑰設定無法登入的問題",
+    summary: "Claude Code v2.1.266 修復 v2.1.265 引入的回歸，CLAUDE_CODE_USE_GATEWAY 環境變數在未同時設定 ANTHROPIC_BASE_URL 和 ANTHROPIC_AUTH_TOKEN 時，不再強制使用 Cloud gateway 登入。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.266 於 2026-09-08 發布，修復 v2.1.265 引入的回歸問題：\n\n• 修復 CLAUDE_CODE_USE_GATEWAY 環境變數在未同時設定 ANTHROPIC_BASE_URL 和 ANTHROPIC_AUTH_TOKEN 時，錯誤地強制使用 Cloud gateway 登入的問題\n• 受影響的設定：同時設定 CLAUDE_CODE_USE_GATEWAY 與 API 金鑰、apiKeyHelper 或自訂授權標頭的使用者會收到「Not signed in to the Cloud gateway」錯誤\n• 修復後，CLAUDE_CODE_USE_GATEWAY 在未同時設定其他 gateway 相關環境變數時將被忽略，無需修改設定",
+      links: [
+        { label: "GitHub Release v2.1.266", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.266", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-265-2026-09-08",
+    date: "2026-09-08",
+    version: "v2.1.265",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.265：--plugin-dir 資料夾插件載入、工具結果容量上限與 60+ 項問題修正",
+    summary: "Claude Code v2.1.265 新增 --plugin-dir 支援資料夾批次載入插件、1GB 工具結果磁碟上限，修復子代理恢復、Remote Control、MCP、Windows 沙盒等 60 餘項問題，並改善 VSCode 工作階段管理。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.265 於 2026-09-08 發布，帶來新功能、大量錯誤修正與效能改善。\n\n**新功能**\n• **`--plugin-dir` 資料夾載入**：可指向一個資料夾，其中每個包含 manifest 的子資料夾會自動載入為插件，且支援執行中動態偵測變更\n• **工具結果 1GB 磁碟上限**：新增對儲存至磁碟的工具結果容量上限（1GB），超出時對話預覽中會顯示截斷提示\n• **遙測強化**：透過 Claude apps gateway 傳送的遙測現在包含 user.email 和 user.groups 欄位\n\n**主要錯誤修正（共 60+ 項）**\n• 修復恢復前景生成的子代理時破壞提示快取重用的問題\n• 修復代理隊友在後續回合中將上下文移出提示前置的問題\n• 修復 /model opus[1m] 以「Model not found」被拒絕的問題\n• 修復 Remote Control 工作階段提前發送回合結束訊號的問題\n• 修復背景工作階段在回合中途被退出的問題\n• 修復使用舊版 HTTP+SSE 傳輸的 MCP 伺服器無法連線的問題\n• 修復 Windows AppContainer/受限 token 沙盒中的檔案權限問題\n\n**效能改善**\n• 改善大型儲存庫的 --worktree 啟動速度（透過 git 2.32+ 的平行 checkout）\n• 改善含大量檔案讀取的長工作階段恢復時間\n• 改用 runtime 內建支援進行圖片處理\n\n**VSCode 改善**\n• 新增閒置工作階段自動封存功能（預設 14 天）\n• 修復重載/重啟後側邊欄聊天呈現空白的問題\n• 修復 Remote Control 訊息的時間軸定位問題",
+      links: [
+        { label: "GitHub Release v2.1.265", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.265", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-263-2026-09-06",
     date: "2026-09-06",
     version: "v2.1.263",
