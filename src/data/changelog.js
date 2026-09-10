@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-267-2026-09-09",
+    date: "2026-09-09",
+    version: "v2.1.267",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.267：maxEffortLevel 設定、--system-prompt-snapshot off 旗標與多項錯誤修正",
+    summary: "Claude Code v2.1.267 新增 maxEffortLevel 跨提供商努力程度上限設定、--system-prompt-snapshot off 旗標讓系統提示每次重新渲染，修復 Cowork 排程任務、行動客戶端顯示、VSCode CPU 卡死、SSH/tmux 快捷鍵等多項問題，並強化安全性與 Remote Control 憑證管理。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.267 於 2026-09-09 發布，帶來新設定、旗標與大量修正。\n\n**新功能**\n• **`maxEffortLevel` 設定**：可跨所有提供商（Bedrock、Vertex、Foundry）設定努力程度上限；使用者仍可選擇更低等級。可設為頂層設定或於 `modelSettings` 下個別指定\n• **`--system-prompt-snapshot off` 旗標**：讓系統提示在每次請求時重新渲染，而非重複使用對話中記錄的提示（適用於迭代調整提示文字）\n• **Claude Tag「Use a custom connector」連結**：在管理員設定的預設連線表單中新增，方便切換連線\n\n**主要錯誤修正**\n• 修復 Cowork 排程任務在要求沙盒的組織中啟動失敗的問題\n• 修復恢復大型工作階段（>5 MB 逐字稿）時遺失並行工具呼叫與 hook 輸出的問題\n• 修復 `/context` 及本地指令輸出在行動客戶端顯示空白的問題\n• 修復 SSH/tmux 重連後 shift+enter 及 option+backspace 失效的問題\n• 修復 `claude remote-control` 在伺服器憑證到期後（約 30 天）退出的問題\n• 修復 Workflow `agent()` 呼叫在自動模式中因輸出 schema 過大而被拒的問題\n• 修復 `effort:` frontmatter 在已固定預設值的模型（Opus 4.7、4.8、Fable 5）上被忽略的問題\n• 修復 mid-session MCP/plugin 工具異動破壞提示快取重用的問題\n\n**安全性修正**\n• 修復 marketplace 條目路徑含反斜線可能繞過容器限制的問題（macOS/Linux）\n• 修復受管設定（allowedHttpHookUrls、httpHookAllowedEnvVars、allowedChannelPlugins）在無法讀取時錯誤允許所有內容的問題（現在改為拒絕所有）\n\n**VSCode / 平台修正**\n• 修復 VSCode 擴充功能主機在 100% CPU 卡住的問題\n• 修復截圖貼上、混合文字方向、CRLF 換行失敗、帶空格 @-mentions 等問題\n• 修復 Claude Code on web 的 GitHub Enterprise Server token 到期問題\n• 改善 `/diff` 面板，不再閃爍「0 files changed」載入指示器",
+      links: [
+        { label: "GitHub Release v2.1.267", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.267", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-266-2026-09-08",
     date: "2026-09-08",
     version: "v2.1.266",
