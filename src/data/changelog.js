@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-threat-report-2026-09",
+    date: "2026-09-10",
+    version: "安全報告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 發布 2026 年 9 月 AI 濫用威脅情報報告",
+    summary: "Anthropic 威脅情報團隊發布報告，記錄 2025 年 12 月至 2026 年 8 月間針對 Claude 的惡意使用，涵蓋交友詐騙 AI 角色、大規模模型蒸餾（Alibaba/Qwen）、生物武器研究嘗試等七大威脅領域。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-10 發布「Detecting and countering misuse of AI: September 2026」威脅情報報告，記錄 2025 年 12 月至 2026 年 8 月間惡意使用者濫用 Claude 的案例，涵蓋七大威脅領域：\n\n**主要案例**\n• **交友詐騙網絡**：中國某 App 工作室用 Claude 經營 20+ 個交友 App，旗下 4,700+ AI 人格在兩週內與至少 25,000 名用戶互動\n• **大規模模型蒸餾**：歸因於 Alibaba 的最大規模蒸餾活動，對 Opus 4.6/4.7 進行思維鏈蒸餾，單日峰值近 300 萬次請求，2025 年 5 月至 2026 年 7 月共記錄超過 1.51 億次交流，蒸餾資料用於訓練 Qwen 3.5、3.6、3.7\n• **生物武器研究**：有不具名行為者嘗試使用 Claude 進行可能導致生物武器的研究，已被封鎖\n• **無人機武器化**：有行為者嘗試使用 Claude 協助開發攻擊性無人機\n\n**其他說明**\n• 濫用案例使用的是 Haiku、Sonnet、Opus 系列模型，未見 Fable 或 Mythos 等新型模型（僅一起蒸餾案例涉及 Fable）\n• 報告顯示 Anthropic 的網路安全假陽性率已減少 60%，Fable 5.1 現可用於發現軟體漏洞（但不可開發攻擊性漏洞利用程式）",
+      links: [
+        { label: "Anthropic 威脅情報報告", href: "https://www.anthropic.com/threat-intelligence-report-september-2026", kind: "doc" },
+        { label: "報告 PDF", href: "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-268-2026-09-10",
+    date: "2026-09-10",
+    version: "v2.1.268",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.268：Gateway 定價支援、WebFetch 逾時修復、閒置 CPU 修復與 100+ 項改善",
+    summary: "Claude Code v2.1.268 新增 Claude 應用程式 Gateway 定價支援與 gatewayInternalNetworks 受管設定，修復第三方端點 HTTP 400 錯誤、WebFetch 無限期卡住（改為 300 秒逾時）、閒置工作階段高 CPU，並大幅改善 VSCode、Claude in Slack（頻道記憶獨立管理）、程式碼審查等功能，共計 100+ 項修正。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.268 於 2026-09-10 發布，帶來 Gateway 新功能、大量修正與平台改善，共 100+ 項變更。\n\n**Gateway 與驗證**\n• 新增 Claude 應用程式 Gateway 定價支援（含受管設定）\n• 新增 `gatewayInternalNetworks` 受管設定，可設定組織公開 IPv4 區段的 `/login` 存取\n• 新增 `access_control.allow_cidrs` 空白時的啟動警告\n\n**重大修復**\n• 修復第三方 Anthropic 相容端點的 HTTP 400 錯誤（v2.1.265 引入的回歸）\n• 修復 WebFetch 無限期卡住的問題（現改為 300 秒逾時，可透過 `CLAUDE_CODE_WEBFETCH_DEADLINE_MS` 調整）\n• 修復長時間閒置工作階段的高 CPU 使用問題\n• 修復符號連結目錄的權限規則未正確套用的問題\n• 修復含 `env -C`、`eval` 指令的權限檢查問題\n\n**工作階段管理**\n• 新增 `claude self-hosted-runner --remove-session-state` 清理每工作階段目錄\n• 修復使用 `excludeDynamicSections` 的 SDK 工作階段中提示快取與擴展思考中斷的問題\n• 改善 `--continue`/`--resume`：對話現在立即顯示\n\n**插件與工具**\n• 新增 `--json` 旗標支援插件指令\n• 強化錯誤回報（`errorDetails`/`noteDetails`）\n• 工作追蹤工具（TaskCreate/Get/Update/List、TodoWrite）限制為 Claude 3.x 及 Opus/Sonnet 4.x\n\n**VSCode 改善**\n• 修復設定 `CLAUDE_CONFIG_DIR` 時工作階段列表和設定顯示問題\n• 修復登出後模型選擇器變空白的問題\n• 新增權限規則設定的左/右方向鍵支援（無障礙功能）\n• 新增「聚焦最後訊息」指令供螢幕閱讀器使用\n\n**Claude in Slack 改善**\n• 記憶管理：各頻道現在保持獨立筆記，公開頻道記憶不再跨頻道共享\n• 改善封鎖動作的說明訊息\n• 修復 Markdown 連結被角括號包覆的問題\n\n**程式碼審查修復**\n• 改善後續審查中的代理驗證處理\n• 修復驗證代理失敗時的不完整審查問題",
+      links: [
+        { label: "GitHub Release v2.1.268", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.268", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-267-2026-09-09",
     date: "2026-09-09",
     version: "v2.1.267",
