@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-269-2026-09-11",
+    date: "2026-09-11",
+    version: "v2.1.269",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.269：claude plugin eval、/output-style 指令、Bash 差異顯示與 100+ 項修正",
+    summary: "Claude Code v2.1.269 新增 claude plugin eval 插件評估套件、/output-style 輸出樣式切換、Bash 命令檔案差異顯示、OTEL 儲存庫標記、VSCode 代理地圖，並修復提示快取失效、Slack 排程任務執行緒等 100+ 項問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.269 於 2026-09-11 發布，帶來插件評估、輸出樣式控制、Bash 差異顯示等新功能。\n\n**新功能**\n• `claude plugin eval`：可對 Claude Code 執行插件評估套件，取得評分、可重現的結果（JSON + HTML 報告）\n• `/output-style [name]`：可在 Remote Control 與 headless 工作階段中列出並切換輸出樣式\n• `bashEditDiffEnabled`：Bash 工具結果中顯示命令修改的檔案差異\n• `OTEL_METRICS_INCLUDE_REPOSITORY`：以儲存庫屬性標記 OpenTelemetry 指標\n• `CLAUDE_CODE_GATEWAY_MODEL_DISCOVERY_TIMEOUT_MS`：延長 LLM gateway 模型探索逾時\n• `CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS`（1–256）：設定並發代理上限\n• VSCode 代理地圖：含「N agents」頁尾標籤、各代理卡片與唯讀逐字稿\n• VSCode 指令選單新增 Hooks 與 Permission 規則對話框\n\n**主要修復**\n• 修復回應在 token 上限截斷後提示快取被部分失效的問題\n• 修復背景任務的終端逸出碼出現在任務通知中的問題\n• 修復 CMYK JPEG 圖片附加失敗（現改為轉換後再處理）\n• 修復以 `!` 開頭的權限規則超出其設定來源範圍套用的問題\n• 修復 Slack 中 `@Claude !restart` 啟動無關對話的問題\n• 修復 `/ultrareview --post` 未在發現結果時直接發佈 PR 留言的問題\n• 修復 Slack 排程任務一律在新執行緒中回覆的問題（現改為在現有執行緒中回覆）",
+      links: [
+        { label: "GitHub Release v2.1.269", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.269", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-threat-report-2026-09",
     date: "2026-09-10",
     version: "安全報告",
