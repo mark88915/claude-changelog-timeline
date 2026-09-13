@@ -1,6 +1,26 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-270-2026-09-12",
+    date: "2026-09-12",
+    version: "v2.1.270",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.270：修復長時間工作階段中唯讀 git 命令意外請求權限的問題",
+    summary: "Claude Code v2.1.270 修復 v2.1.269 引入的回歸，長時間執行的工作階段中 Bash 唯讀 git 命令（如 git status、git log）不再意外要求使用者授權。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.270 於 2026-09-12 發布，針對 v2.1.269 引入的回歸進行修復。\n\n**問題描述**\n工作階段執行一段時間後，Bash 中的唯讀 git 命令（如 `git status`、`git log`、`git diff` 等）會意外地向使用者請求執行權限，干擾正常工作流程。\n\n**根本原因**\n此問題為 v2.1.269 引入的回歸，影響長時間執行的工作階段中的權限檢查邏輯。\n\n**修復內容**\n恢復唯讀 git 命令的正確授權行為，不再於工作階段執行過程中重複請求權限。",
+      problem: "長時間工作階段中，Bash 唯讀 git 命令意外觸發權限請求（v2.1.269 引入的回歸）",
+      rootCause: "v2.1.269 的權限檢查邏輯變更導致長時間工作階段中唯讀命令被錯誤標記",
+      fix: "修復權限檢查邏輯，使唯讀 git 命令不再需要重複授權",
+      links: [
+        { label: "GitHub Release v2.1.270", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.270", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-269-2026-09-11",
     date: "2026-09-11",
     version: "v2.1.269",
