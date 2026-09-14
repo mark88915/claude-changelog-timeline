@@ -1,6 +1,27 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "cc-weekly-limit-permanent-2026-09-14",
+    date: "2026-09-14",
+    version: "每週限額永久調整",
+    category: "brk",
+    area: "performance",
+    product: "claude-code",
+    title: "Claude Code 每週使用量上限永久調整（2026-09-14 起）",
+    summary: "臨時 +50% 促銷（自 2026-05-13 起延至 9/13）今日正式到期，新永久標準為促銷前基準的 +25%（較目前水準下降約 17%）。Pro、Max、Team 及座位型 Enterprise 方案均受影響，每五小時滾動速率限制不變。",
+    body: {
+      kind: "breaking",
+      description: "2026-09-14 起，Claude Code 每週使用量上限永久調整生效。\n\n**背景**\n• 2026-05-13：Anthropic 推出臨時 +50% 每週限額促銷\n• 2026-08-29：Anthropic 宣布自 9/14 起設立新永久標準\n• 2026-09-13：臨時促銷截止（11:59 PM PT）\n• 2026-09-14：新永久限額生效\n\n**數字說明**\n設促銷前基準為 100：\n- 促銷期間（5/13–9/13）：150（+50%）\n- 新永久標準：125（較基準 +25%，較促銷期間 -17%）\n\n**適用範圍**\n• 受影響：Pro、Max、Team、座位型 Enterprise 方案\n• 不受影響：每五小時滾動速率限制、其他 Claude 產品（網頁版、行動版、桌面版）、消費型計費 Enterprise",
+      migration: {
+        title: "如何因應每週限額下降",
+        text: "已習慣促銷期間較高額度的團隊，可評估升級至更高方案或購買 Usage Credits 以維持工作流程。低於新標準的使用者不受影響，實際使用量比促銷前基準增加 25%。"
+      },
+      links: [
+        { label: "Claude Code 週限額調整說明", href: "https://www.digitalapplied.com/blog/claude-code-weekly-limit-reduction-september-14", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-270-2026-09-12",
     date: "2026-09-12",
     version: "v2.1.270",
