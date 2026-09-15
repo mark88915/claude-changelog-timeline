@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-271-2026-09-14",
+    date: "2026-09-14",
+    version: "v2.1.271",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.271：Remote 工作階段快速模式、/config 面板滑鼠支援、每指令網域許可清單等重大更新",
+    summary: "Claude Code v2.1.271 新增 Remote 工作階段快速模式（雲端與自架 Runner）、/config 面板全螢幕滑鼠支援、每指令網域許可清單、omitClaudeMd 代理選項、改善 Markdown Artifact、Artifact 監看上限提升至 10 個，並修復多項組織政策、MCP OAuth、Bash 權限問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.271 於 2026-09-14 發布，帶來多項新功能與修復。\n\n**主要新功能**\n• **Remote 工作階段快速模式**：雲端與自架 Runner 支援快速模式，可透過主機設定或 /fast 指令控制\n• **/config 面板滑鼠支援**：全螢幕模式下支援滾輪捲動、點擊變更設定及行反白顯示\n• **每指令網域許可清單**：Bash、PowerShell 及沙盒自動模式中的 Monitor 現可針對每個指令僅開放必要的網域\n• **omitClaudeMd 代理選項**：自訂及插件子代理可不載入使用者、專案及本機 CLAUDE.md 檔案（管理政策仍載入）\n• **改善 Markdown Artifact**：發布的 Markdown 檔案現在以附有精美排版與語法高亮的文件頁面呈現\n• **Artifact 監看上限提升**：工作階段最多可監看 10 個已發布的 Artifact（原上限為 5 個）\n• **改善 /mobile**：現在顯示單一 QR Code 導向 claude.ai/mobile，並自動開啟正確的應用程式商店\n\n**主要修復**\n• 修復切換帳號／組織後組織政策快取問題\n• 修復組織政策載入完成前工具列表未更新的問題\n• 修復企業版 managed-mcp.json 解析失敗的問題\n• 修復雲端工作階段在 Workflow／代理審批下拒絕子代理工具呼叫的問題\n• 修復 /fast off 在組織禁用快速模式時的行為\n• 修復 Bash 萬用字元及複雜模式的權限檢查\n• 修復 .git/config.lock 殘留檔案造成 git 操作中斷的問題\n• 修復 MCP OAuth 處理及用戶端註冊問題\n• 修復跨工作階段訊息傳遞追蹤問題",
+      links: [
+        { label: "GitHub Release v2.1.271", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.271", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "cc-weekly-limit-permanent-2026-09-14",
     date: "2026-09-14",
     version: "每週限額永久調整",
