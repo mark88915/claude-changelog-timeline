@@ -1,6 +1,74 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-salesforce-integration-2026-09-15",
+    date: "2026-09-15",
+    version: "Salesforce 整合 Beta",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude 新增 Salesforce 整合（Beta）：37 項預建銷售技能直接連結 CRM 資料",
+    summary: "Salesforce 整合 Beta 正式推出，內含 37 項預建銷售技能，可在 Claude 中直接存取帳戶、商機與管道資料，協助準備通話、評估交易、建立管道儀表板及提交預測，適用所有付費方案（須通過 Salesforce beta 審核）。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-15 在 Claude 推出 Salesforce 整合（Beta），讓銷售專業人員可直接在 Claude 工作流程中存取 Salesforce CRM 資料。\n\n**主要功能**\n• 37 項預建銷售技能，涵蓋帳戶、商機、管道等核心 Salesforce 物件\n• 準備客戶通話、評估交易健康度\n• 建立管道儀表板並提交銷售預測\n\n**適用範圍**\n• 所有付費訂閱方案（Pro、Max、Team、Enterprise）\n• 須通過 Salesforce beta 計劃審核方可使用",
+      links: [
+        { label: "Claude Help Center - Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-financial-advisors-2026-09-15",
+    date: "2026-09-15",
+    version: "Claude for Financial Advisors",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Anthropic 發表 Claude for Financial Advisors：整合 BlackRock、Schwab、Vanguard 等金融平台",
+    summary: "Anthropic 於 Future Proof Festival 發表 Claude for Financial Advisors，整合 BlackRock、Schwab、Vanguard 等主要金融平台，連接保管機構、投資組合平台、CRM 及財務規劃工具，旨在提供財務顧問完整工作流程。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-15 舉行的 Future Proof Festival 上正式發表 Claude for Financial Advisors 套件。\n\n**整合平台**\n• BlackRock、Charles Schwab、Vanguard 等主要金融機構\n• 保管機構（Custodians）\n• 投資組合管理平台\n• 客戶關係管理（CRM）系統\n• 財務規劃工具\n\n**目標**\n提供財務顧問從客戶資料取用到建議生成的完整工作流程，降低行政負擔並提升服務品質。",
+      links: [
+        { label: "ThinkAdvisor 報導", href: "https://www.thinkadvisor.com/2026/09/15/anthropic-releases-claude-for-financial-advisors/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-273-2026-09-15",
+    date: "2026-09-15",
+    version: "v2.1.273",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.273：Gateway 優化標頭、MCP 斷線通知、Remote Control 背景分叉與多項修復",
+    summary: "Claude Code v2.1.273 新增 LLM Gateway 提示標頭（opt-in）、MCP 伺服器斷線自動通知與重連失敗提示、Remote Control 背景工作階段分叉，並修復 Bash 權限略過、VSCode 回報表單、上下文計量誤計、Artifact 自動模式等多項問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.273 於 2026-09-15 20:23 UTC 發布，帶來 Gateway 優化、MCP 改善及多項穩定性修復。\n\n**新功能**\n• **Gateway 優化標頭**：新增 `x-claude-code-request-class`、`x-claude-code-agent-type`、`x-claude-code-prev-tool-durations`、`x-claude-code-compaction`、`x-claude-code-context-compacted` 請求標頭（啟用方式：`CLAUDE_CODE_GATEWAY_HINT_HEADERS=1`）\n• **MCP 斷線通知**：MCP 伺服器在工作階段中途斷線時，自動顯示通知並在重連失敗時告知使用者\n• **Remote Control 背景分叉**：透過 `claude --remote-control` 或 `/remote-control` 啟動的工作階段可從 Claude App 分叉為背景工作階段\n\n**主要修復**\n• 修復 `permissions.blockReadsOutsideWorkingDirectories` 設定下，Bash 無法完整分析的命令意外略過權限提示的問題\n• 改善 Bedrock、Vertex、Foundry 及 Claude App Gateway 401/403 錯誤的提示訊息\n• 修復 `/login`、`/upgrade`、`/extra-usage` 指令丟棄工作階段前段對話思考內容的問題\n• 修復 Artifact 工具在雲端/Remote Control 工作階段上傳檔案時，Auto 模式意外停下等待核准的問題\n• 修復使用 `permissions.blockReadsOutsideWorkingDirectories` 時記憶體目錄未載入提示的問題\n• 修復 VSCode 擴充中回報表單顯示與 Windows 程序結束橫幅問題\n• 修復壓縮狀態列顯示雙省略號（「……」）的問題",
+      links: [
+        { label: "GitHub Release v2.1.273", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.273", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-272-2026-09-15",
+    date: "2026-09-15",
+    version: "v2.1.272",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.272：錯誤修復與穩定性改善",
+    summary: "Claude Code v2.1.272 包含一項錯誤修復與穩定性改善。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.272 於 2026-09-15 00:42 UTC 發布，包含一項錯誤修復，提升整體穩定性。",
+      links: [
+        { label: "GitHub Release v2.1.272", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.272", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-271-2026-09-14",
     date: "2026-09-14",
     version: "v2.1.271",
