@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-274-2026-09-17",
+    date: "2026-09-17",
+    version: "v2.1.274",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.274：大量錯誤修復與改善 - MCP 穩定性、記憶體警告、Sessions 自修復、VSCode 多項修正",
+    summary: "Claude Code v2.1.274 修復 sessions 卡在 400 錯誤（自動修復損壞 transcript）、MCP HTTP+SSE 失敗、Streamable HTTP 5 分鐘超時、/goal 壓縮後遺失、語言伺服器每回合效能瓶頸等問題；新增記憶體用量警告、MCP 啟動超時設定（CLAUDE_CODE_MCP_STARTUP_WAIT_MS）與 OTel 追蹤改善。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.274 於 2026-09-17 發布，帶來大量錯誤修復與功能改善。\n\n**新增功能**\n• 新增記憶體用量嚴重警告訊息，附帶釋放記憶體或安全重啟的步驟指引\n• 新增 `CLAUDE_CODE_MCP_STARTUP_WAIT_MS` 環境變數，可設定非互動回合等待 MCP 伺服器連線的時間上限（設為 `0` 表示不等待）\n• 新增 `effort` 屬性至 `claude_code.llm_request` OpenTelemetry 追蹤 span\n• 新增 `claude_code.managed_settings_resolved` OTel 事件，記錄受管設定來源與政策助理狀態\n• 在全螢幕模式下新增點擊展開已折疊的隊友與代理訊息\n\n**主要修復**\n• 修復 sessions 因 \"unexpected tool_use_id\" 400 錯誤而無限重試的問題；損壞的 transcript 現可自動修復\n• 修復以 `http` 設定但僅支援傳統 HTTP+SSE 的 MCP 伺服器發生 422 或 4xx 錯誤的問題\n• 修復 Streamable HTTP MCP 工具呼叫約 5 分鐘後超時的問題\n• 修復 MCP prompts/resources 在伺服器發送 list-changed 通知時未重新整理的問題\n• 修復 hook 驅動的 sessions 以 \"Prompt is too long\" 結束而非壓縮的問題\n• 修復恢復已壓縮 session 時遺失活躍 `/goal` 的問題\n• 修復 `claude agents` 在自動更新重啟後遺失 `--model`、`--effort`、`--permission-mode` 等旗標的問題\n• 修復語言伺服器發布大量檔案的專案範圍診斷時造成每回合效能下降的問題\n• 修復 Bedrock/Vertex/Foundry 上使用 `model: \"opus\"` 的子代理遺失 session 模型的問題\n• 修復自架 Runner sessions 在 token 刷新失敗後每回合出現 401 錯誤的問題\n• 修復 VS Code 中可點擊的本機檔案路徑連結無法動作的問題\n• 多項 VSCode 擴充、Claude Code on the web、Claude Tag（Slack）與 Code Review 修復",
+      links: [
+        { label: "GitHub Release v2.1.274", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.274", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-cowork-chat-merge-2026-09-16",
+    date: "2026-09-16",
+    version: "Claude 統一介面",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Anthropic 合併 Claude 聊天與 Cowork 為統一介面，新增 Claude Docs 與 Claude Slides Beta",
+    summary: "Anthropic 將 Claude 聊天介面與 Cowork 合併為單一統一體驗，使用者只需描述需求，Claude 自動選擇工具；同步推出 Claude Docs（可匯出 Google Docs/Word）與 Claude Slides（可下載 PPT/PDF）Beta 版，先對 Pro/Max 方案開放。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-16 宣布將 Claude 聊天介面與 Cowork 合併為單一統一介面，並推出 Claude Docs 與 Claude Slides 兩項新 Beta 工具。\n\n**核心改變**\n• Claude 聊天介面與 Cowork 合併為一個視窗，使用者不再需要在不同分頁間切換\n• 使用者只需描述需求，Claude 自動判斷並選擇最適合的工具（聊天、Cowork、Artifacts、Claude Design）\n• Claude Design（4 月推出，用於網站與原型設計）現可在 Claude 任何位置使用\n\n**新 Beta 工具**\n• **Claude Docs**：可在對話中起草文件，對完成段落留下評論，並匯出至 Google Docs 或 Microsoft Word\n• **Claude Slides**：可在同一視窗中建立與編輯簡報，支援下載為 PowerPoint 或 PDF\n\n**推出時程**\n• Pro 與 Max 方案：優先在網頁版、桌面版及行動版推出（分階段開放，未來數週內完成）\n• Free 與 Team 方案：稍後跟進",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/09/16/anthropic-merges-claude-chat-and-cowork-in-one-interface/", kind: "doc" },
+        { label: "Fortune 報導", href: "https://fortune.com/2026/09/16/anthropic-merges-its-claude-chat-and-agentic-cowork-products-into-a-single-ai-assistant-as-part-of-a-push-to-build-an-ai-superapp/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-salesforce-integration-2026-09-15",
     date: "2026-09-15",
     version: "Salesforce 整合 Beta",
