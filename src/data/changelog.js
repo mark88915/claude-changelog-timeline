@@ -1,6 +1,75 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-enterprise-smart-reports-2026-09-18",
+    date: "2026-09-18",
+    version: "Enterprise Smart Reports",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Claude Enterprise Smart Reports Beta：自動分析團隊使用情況、成本與共享技能",
+    summary: "Claude Enterprise 推出 Smart Reports Beta，自動分析團隊 AI 使用數據、費用花費、使用摩擦點與可重複使用的共享技能，協助企業管理者深入了解組織 AI 使用模式。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-18 推出 Claude Enterprise Smart Reports Beta 功能，提供企業管理者自動化的 AI 使用情況分析報告。\n\n**主要功能**\n• 分析團隊整體 AI 使用模式與頻率\n• 追蹤 AI 使用成本與費用分配\n• 識別使用摩擦點與改善機會\n• 發現可重複使用的共享技能與最佳實踐\n\n**推出方式**\n• 以 Beta 版形式推出，適用於 Claude Enterprise 方案\n• 2026-09-18 舉辦線上研討會（11AM ET）介紹功能使用方式",
+      links: [
+        { label: "Releasebot - Claude Updates", href: "https://releasebot.io/updates/anthropic/claude", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-compliance-api-chrome-sessions-2026-09-18",
+    date: "2026-09-18",
+    version: "Compliance API",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Compliance API 擴充支援 Claude in Chrome Sessions 記錄（Beta）",
+    summary: "Claude Compliance API 本地 sessions 端點現可傳回 Claude in Chrome 擴充功能的對話記錄（product surface: claude_in_chrome），適用於 Enterprise 方案，擴充企業合規稽核範圍。",
+    body: {
+      kind: "feature",
+      description: "Claude 平台於 2026-09-18 更新 Compliance API，本地 sessions 端點（GET /v1/compliance/apps/sessions/local）現可傳回 Claude in Chrome 擴充功能的 session 記錄。\n\n**主要細節**\n• **Product Surface**：`claude_in_chrome`\n• **狀態**：Beta，適用於 Claude Enterprise 組織\n• **驗證**：使用現有 Compliance Access Key（須有 `read:compliance_user_data` 權限範圍）\n• **端點**：`GET /v1/compliance/apps/sessions/local`\n\n**意義**\n此更新將 Compliance API 的稽核能力從 Cowork 和 Claude Code 擴展至 Chrome 擴充功能 sessions，協助企業客戶滿足更完整的合規需求。",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-projects-parallel-threads-2026-09-17",
+    date: "2026-09-17",
+    version: "Claude Projects Beta",
+    category: "new",
+    area: "desktop",
+    product: "claude-code",
+    title: "Claude Code Projects 重新設計：支援平行執行緒、共享記憶體與專案資料庫（Beta）",
+    summary: "Claude Code Projects Beta 重新設計，從資料夾概念升級為多執行緒協調平台，支援平行執行緒、共享記憶體與專案資料庫，Claude 可自動拆解請求、委派工作並整合結果，初期開放 Pro 和 Max 方案部分用戶體驗。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-17 推出全新 Claude Code Projects Beta 體驗，將 Projects 從單純的資料夾概念升級為真正的多執行緒工作協調平台。\n\n**核心新功能**\n• **平行執行緒協調**：Projects 現可協調多個同時進行的執行緒，分擔複雜任務\n• **共享專案記憶**：各執行緒貢獻至集體記憶，減少複雜提示工程的需求\n• **專案資料庫**：收集使用者新增的檔案與 Claude 生成的成果，方便發現與重複使用\n• **自主工作管理**：Claude 自動拆解請求、委派工作給平行執行緒、檢查輸出並整合最終結果，無需使用者持續介入\n\n**推出範圍**\n初期以 Beta 形式開放給使用 Claude Code 雲端 sessions 的部分 Claude Pro 和 Max 訂閱用戶。",
+      links: [
+        { label: "Releasebot - Claude Updates", href: "https://releasebot.io/updates/anthropic/claude", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-275-2026-09-17",
+    date: "2026-09-17",
+    version: "v2.1.275",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.275：驗證流程強化與快速傳送快捷鍵",
+    summary: "Claude Code v2.1.275 改善憑證儲存前的帳戶確認流程以提升安全性，並新增快速傳送快捷鍵，可中斷一般處理流程並立即派送訊息。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.275 於 2026-09-17 發布，帶來驗證體驗改善與新的鍵盤操作功能。\n\n**主要更新**\n• 改善驗證流程：儲存憑證前先進行帳戶確認，提升安全性\n• 新增「快速傳送」快捷鍵：可中斷一般處理流程並立即派送訊息",
+      links: [
+        { label: "GitHub Release v2.1.275", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.275", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-274-2026-09-17",
     date: "2026-09-17",
     version: "v2.1.274",
