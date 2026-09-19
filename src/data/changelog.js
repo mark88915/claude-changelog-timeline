@@ -1,6 +1,80 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-277-2026-09-18",
+    date: "2026-09-18",
+    version: "v2.1.277",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.277：新增 AGENTS.md 支援、Gateway Proxy 設定、快速傳送快捷鍵與技能同步",
+    summary: "Claude Code v2.1.277 新增 AGENTS.md 支援（無 CLAUDE.md 時自動讀取）、gateway egress proxy 設定、ctrl+enter 快速傳送快捷鍵、從 claude.ai 帳戶同步已啟用的 skills/plugins，並修復多項 sessions 卡住、登出異常、MCP、Edit 工具與 VSCode 問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.277 於 2026-09-18 發布，帶來多項新功能與廣泛錯誤修復。\n\n**新增功能**\n• **AGENTS.md 支援**：在找不到 CLAUDE.md 時，Claude Code 現會自動讀取 AGENTS.md\n• **Gateway proxy 設定**：新增 `CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1` 環境變數，適用於 egress-only 代理場景\n• **Gateway upstream 標頭**：支援在 Claude apps gateway upstream 上設定靜態 headers 對應\n• **快速傳送快捷鍵**：新增 ctrl+enter 快捷鍵，可中斷目前回合並立即派送已排隊的訊息\n• **技能/插件同步**：從 claude.ai 帳戶同步已啟用的 skills 與 plugins 至終端機 sessions\n\n**主要修復**\n• 修復 sessions 卡住並回報「text content blocks must be non-empty」錯誤\n• 修復較舊版 Claude Code 在同機器執行時造成的意外登出\n• 修復互動啟動因格式錯誤的 `customApiKeyResponses` 值而掛起\n• 修復背景 sessions（`claude --bg`）在插件 LSP 伺服器關閉時退出\n• 修復因格式錯誤的設定值（`theme`、`claudeAiMcpEverConnected`）導致的崩潰\n• 修復 SessionStart hook 輸出後 prompt cache 未命中問題\n• 修復 Edit 工具的跳脫序列與大型檔案問題\n• 修復 WebFetch 與 WebSearch 在 Cowork sessions 中未回報拒絕原因",
+      links: [
+        { label: "GitHub Release v2.1.277", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.277", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-276-2026-09-18",
+    date: "2026-09-18",
+    version: "v2.1.276",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.276：修復 proxy/gateway base URL 造成所有請求 400 錯誤（v2.1.275 regression）",
+    summary: "Claude Code v2.1.276 緊急修復 v2.1.275 引入的 regression：當 ANTHROPIC_BASE_URL 指向 proxy 或 gateway 時，所有請求均以「400 Input tag 'advisor_20260301'」失敗。",
+    body: {
+      kind: "bug",
+      problem: "當 `ANTHROPIC_BASE_URL` 設定為 proxy 或 gateway 的 base URL 時，所有 API 請求均失敗並回傳「400 Input tag 'advisor_20260301'」錯誤。",
+      rootCause: "v2.1.275 引入的 regression 導致 proxy/gateway 設定異常",
+      fix: "修復請求標頭處理邏輯，確保 proxy 與 gateway 設定可正常運作",
+      description: "Claude Code v2.1.276 於 2026-09-18 發布，針對 v2.1.275 引入的重大 regression 進行緊急修復。\n\n**問題**\n使用 `ANTHROPIC_BASE_URL` 指向 proxy 或 gateway 的使用者，在升級至 v2.1.275 後所有請求均失敗。\n\n**修復**\n修正請求處理邏輯，恢復 proxy/gateway 設定的正常運作。",
+      links: [
+        { label: "GitHub Release v2.1.276", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.276", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-rd-automation-index-2026-09-18",
+    date: "2026-09-18",
+    version: "R&D 自動化指標",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 公布 R&D 自動化指標：Claude 主導 26% 模型研究開發，同時運行 3 萬個代理",
+    summary: "Anthropic 發布首份 R&D 自動化指標，顯示截至 2026 年 8 月，Claude 主導 26% 的模型研究與開發工作，90% 的研發以 Claude 為協作夥伴；全公司同時運行超過 3 萬個 Claude 代理，監控系統每 47,000 個動作攔截約 1 個異常行為。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-18 公布首份 R&D 自動化指標原型，揭示 Claude 在公司內部研究與開發中扮演的重要角色。\n\n**核心數據（截至 2026 年 8 月）**\n• Claude 主導 26% 的模型研究與開發工作，能從高層級提示端對端完成大部分任務（仍在人類監督下）\n• 超過 90% 的研發工作以 Claude 為協作夥伴完成\n• 全公司同時運行超過 30,000 個 Claude 代理\n• 監控系統每 47,000 個動作攔截約 1 個異常行為\n\n**背景**\n此數據反映 AI 自主性的快速進展，同時 Anthropic CEO Dario Amodei 等業界領袖呼籲在安全層面謹慎對待 AI 發展。",
+      links: [
+        { label: "TechXplore 報導", href: "https://techxplore.com/news/2026-09-anthropic-ai.html", kind: "doc" },
+        { label: "US News 報導", href: "https://www.usnews.com/news/business/articles/2026-09-17/anthropic-says-its-model-claude-is-helping-to-build-the-next-version-of-itself", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-accenture-embedded-eval-2026-09-18",
+    date: "2026-09-18",
+    version: "Accenture 合作",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 宣布與 Accenture 合作推行嵌入式評估",
+    summary: "Anthropic 宣布與 Accenture 建立合作夥伴關係，共同推進嵌入式評估（embedded evaluation）計劃，協助企業客戶評估與整合 Claude AI 能力。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-18 宣布與 Accenture 建立合作夥伴關係，聚焦於嵌入式評估（embedded evaluation）。\n\n**合作重點**\n• 與 Accenture 共同推進企業級 AI 嵌入式評估框架\n• 協助企業客戶在組織流程中評估與整合 Claude AI 能力\n\n此合作是 Anthropic 擴大企業市場佈局的重要步驟。",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/accenture-embedded-evaluation", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-enterprise-smart-reports-2026-09-18",
     date: "2026-09-18",
     version: "Enterprise Smart Reports",
