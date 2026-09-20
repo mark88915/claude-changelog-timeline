@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-278-2026-09-19",
+    date: "2026-09-19",
+    version: "v2.1.278",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.278：自動模式預設改為伺服器端分類器，不收取分類器費用",
+    summary: "Claude Code v2.1.278 將 Auto Mode 預設切換至伺服器端分類器，對 Claude API 與 Enterprise 用戶不再收取分類器額外費用；並在 /status 新增「Auto mode server」列，顯示目前 session 的分類器是否在伺服器端執行。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.278 於 2026-09-19 發布，主要調整 Auto Mode 計費方式並新增狀態顯示。\n\n**主要變更**\n• **伺服器端分類器預設啟用**：針對 Claude API 與 Enterprise 用戶，以及 Bedrock、Vertex、Foundry 和 gateway 上的部署，Auto Mode 現預設使用伺服器端分類器，不收取分類器計費額外費用\n• **退出選項**：可透過環境變數 `CLAUDE_CODE_AUTO_MODE_SERVER=0` 在 Bedrock、Vertex、Foundry 和 gateway 上退出伺服器端分類器\n• **付費備援警告**：切換至付費備援方案時，系統會主動顯示警告\n• **新增 /status 顯示列**：`/status` 頁面新增「Auto mode server」列，可確認目前 session 的 Auto Mode 分類器是否在伺服器端執行",
+      links: [
+        { label: "GitHub Release v2.1.278", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.278", kind: "gh" },
+        { label: "Auto Mode Classifier Billing 文件", href: "https://code.claude.com/docs/en/auto-mode-classifier-billing", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-277-2026-09-18",
     date: "2026-09-18",
     version: "v2.1.277",
