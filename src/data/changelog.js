@@ -1,6 +1,59 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-280-2026-09-22",
+    date: "2026-09-22",
+    version: "v2.1.280",
+    category: "enh",
+    area: "model",
+    product: "claude-code",
+    title: "v2.1.280：將 claude-opus-5-5 設為預設 Opus 模型",
+    summary: "Claude Code v2.1.280 將 claude-opus-5-5 設為預設 Opus 模型，使用者即可直接享有 Opus 5.5 的 1M token 上下文視窗與更快輸出速度；並同步改善滑鼠控制功能。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.280 於 2026-09-22 發布，配合 Claude Opus 5.5 同步釋出。\n\n**主要變更**\n• **預設模型更新**：將 `claude-opus-5-5` 設為 Claude Code 的預設 Opus 模型\n• **1M token 上下文**：用戶可直接享有 Opus 5.5 的 100 萬 token 上下文視窗\n• **輸出速度提升 30%**：Opus 5.5 比前代快 30%，讓 Claude Code 工作流程更流暢\n• **改善滑鼠控制**：改善互動介面的滑鼠控制功能",
+      links: [
+        { label: "GitHub Release v2.1.280", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.280", kind: "gh" },
+        { label: "Claude Opus 5.5 公告", href: "https://www.anthropic.com/news/claude-opus-5-5", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-opus-5-5-2026-09-22",
+    date: "2026-09-22",
+    version: "Claude Opus 5.5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Opus 5.5 正式發布：Fable 5.1 等級效能，成本比 Opus 5 低 40%",
+    summary: "Anthropic 發布 Claude Opus 5.5，在大多數工作上達到 Fable 5.1 水準，運行成本比 Opus 5 低 40%（$4/$20 per MTok），輸出速度快 30%，具備 1M token 上下文視窗，即日起於 Claude API、AWS、GCP、Azure 全面上線。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-22 正式發布 Claude Opus 5.5，是 Opus 系列的重大里程碑。\n\n**效能亮點**\n• **代理程式碼**：Terminal-Bench 4.0 得分 66.4%，業界領先\n• **知識工作**：GDPval-AA v2.1 達到 1846 Elo，超越 Fable 5.1\n• **電腦使用**：OSWorld 2.0 達到 81.8%\n• **輸出速度**：比 Opus 5 快 30%\n\n**定價（比 Opus 5 低 40%）**\n• 輸入：$4 / 百萬 token\n• 輸出：$20 / 百萬 token\n• 快取讀取：$0.20 / 百萬 token\n• 5 分鐘快取寫入：$5 / 百萬 token\n• 1 小時快取寫入：$8 / 百萬 token\n\n**規格**\n• 1M token 上下文視窗\n• 128K 最大輸出 token\n\n**安全性改善**\n• 比 Opus 5 低 85% 的邊界規避嘗試機率\n• 增強對提示注入攻擊的抵抗力\n• 具備與 Fable 5.1 同等的網路安全與生物學防護措施\n\n**支援平台**\n• Claude.ai 應用程式、Claude Code\n• Claude API（直接）\n• Amazon Web Services（Bedrock）\n• Google Cloud（Vertex AI）\n• Microsoft Azure（Foundry）\n\nAnthropic 表示 Sonnet 5.5 與 Haiku 5.5 將在「數週內」陸續跟進。",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/claude-opus-5-5", kind: "doc" },
+        { label: "MarkTechPost 報導", href: "https://www.marktechpost.com/2026/09/22/anthropic-claude-opus-5-5-release/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-biomolecular-research-2026-09-22",
+    date: "2026-09-22",
+    version: "生物分子研究",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 開源生物分子研究：Claude 自主優化 30+ 模型速度提升 4 倍，聯辦蛋白質設計競賽",
+    summary: "Anthropic 發布研究成果，顯示 Claude 能自主優化 30 多個開源生物分子預測與設計模型，平均速度提升 4 倍，並支援在單一 NVIDIA GPU 節點上運行超過 1 萬 token 的系統；同時開源所有最佳化程式碼，並與 Adaptyv Bio 聯辦蛋白質設計競賽，提供最高 100 萬美元 Claude 積分。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-22 公布生物分子模型最佳化研究成果。\n\n**研究成果**\n• Claude 自主優化超過 30 個開源生物分子預測與設計模型\n• 優化後平均速度提升 4 倍\n• 新增低記憶體模式，支援在單一 NVIDIA GPU 節點上處理 10,000+ token 生物分子系統\n\n**開源計劃**\n• 開源所有最佳化後的模型程式碼\n\n**蛋白質設計競賽**\n• 與 Adaptyv Bio 聯合主辦競賽\n• 提供最高 100 萬美元的 Claude 積分獎勵",
+      links: [
+        { label: "Anthropic 研究公告", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-278-2026-09-19",
     date: "2026-09-19",
     version: "v2.1.278",
