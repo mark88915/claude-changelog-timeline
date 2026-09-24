@@ -1,6 +1,57 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-claude-crispr-enzyme-2026-09-24",
+    date: "2026-09-24",
+    version: "生物科學研究",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude AI 協助發現類 CRISPR 酵素系統：21 小時內識別新型 DNA 編輯工具",
+    summary: "Anthropic 宣布 Claude AI 協助識別出一種類 CRISPR 的新酵素系統，約 950 個軟體代理在 21 小時內處理約 2.1 億 token，發現具備 DNA 切割、複製與插入功能的新酵素，仍需獨立測試驗證。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-24 宣布，其研究人員在 Claude AI 協助下識別出一種新型酵素系統，具有與 CRISPR 類似的特性。\n\n**研究亮點**\n• **AI 驅動分析**：約 950 個軟體代理在 21 小時內處理約 2.1 億 token\n• **發現能力**：新酵素系統可能具備 DNA 切割、複製與插入功能\n• **研究方法**：AI 執行資料分析，人類科學家進行實體實驗\n• **研究地點**：Anthropic 位於舊金山灣區的生物學實驗室（BSL-1/BSL-2 等級）\n• **CEO 說明**：Dario Amodei 承認此研究建立在前人研究基礎上，包括史丹佛大學研究人員的類似工作\n\n**重要聲明**\n• 此發現仍需科學界獨立測試與驗證\n• 並非完全自主研究，人類科學家持續參與\n• 若驗證成功，可能對基因編輯領域帶來重大影響",
+      links: [
+        { label: "Mezha.net 報導", href: "https://mezha.net/eng/news/2b4c0010_anthropic_says_claude/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-marketplace-launch-2026-09-23",
+    date: "2026-09-23",
+    version: "Claude Marketplace",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Claude Marketplace 正式上線：2,000+ 連接器，承諾消費可用於夥伴產品",
+    summary: "Anthropic 於 2026-09-23 推出 Claude Marketplace，整合 2,000+ 連接器與插件，支援 CrowdStrike、Cursor、Harvey、Legora、Lovable、Snowflake 等合作夥伴，用戶可將承諾消費用於購買夥伴產品。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-23 正式推出 Claude Marketplace，提供一個整合式平台，結合連接器、夥伴軟體與部署服務。\n\n**三大類別**\n• **連接器與插件**：上線即提供 2,000+ 個，連接 Atlassian、Google、Microsoft、Salesforce 等工具\n• **夥伴產品**：可直接購買的 Claude 驅動軟體\n• **服務夥伴**：Accenture、Boston Consulting Group、Deloitte 等提供部署協助\n\n**主要夥伴**\nCrowdStrike、Cursor、Harvey、Legora、Lovable、Snowflake、Vercel 等\n\n**核心功能**\n• 符合資格的客戶可將承諾消費的一部分用於購買夥伴產品\n• 既是目錄也是購買渠道\n\n**實際案例**\n• CodeRabbit 將承諾消費用於 Vercel\n• Power Digital 與 ThoughtSpot 將消費導向 Snowflake",
+      links: [
+        { label: "Superpower Daily 報導", href: "https://superpowerdaily.com/posts/anthropic-opens-claude-marketplace-for-partner-software-and-services", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-281-2026-09-23",
+    date: "2026-09-23",
+    version: "v2.1.281",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.281：200+ 項修復與改進，Claude Apps Gateway 增強、MCP elicitation、效能大幅提升",
+    summary: "Claude Code v2.1.281 於 2026-09-23 發布，包含 200+ 項修復與改進，新增 Claude Apps Gateway 跨帳號 IAM、Bedrock guardrails、MCP URL 模式 elicitation 支援，修復 ~80ms 啟動延遲及 PDF 讀取 2 分鐘延遲等效能問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.281 於 2026-09-23 19:19 UTC 發布，是一個大型綜合版本，涵蓋 200+ 項修復與改進。\n\n**Claude Apps Gateway 增強**\n• 支援含 `blockReadsOutsideWorkingDirectories` 和 `disableBypassPermissionsMode` 政策的新 Claude Desktop 金鑰\n• 新增 `assume_role` 支援 Bedrock 上游的 STS 跨帳號 IAM 角色假設\n• 新增 `guardrail: {id, version}` 設定，套用 Amazon Bedrock guardrails\n• 新增 `telemetry.resource_attributes` 固定遙測標籤\n\n**MCP 改進**\n• 新增 MCP URL 模式 elicitation（2026-07-28 以上協議連接）\n• 強化 `claude plugin validate`：伺服器檢查、未宣告參照偵測、不安全 URL 警告\n• 修復 URL 僅格式不同時產生重複伺服器連線\n\n**效能修復**\n• 移除管理設定網路請求的互動式啟動延遲（~80ms，無法連線時最高 17+ 秒）\n• 修復讀取 3MB+ PDF 時長達 2 分鐘的延遲\n• 修復大型首次提示的「Prompt is too long」恢復\n• 壓縮長 session 的恢復速度更快\n\n**重要 bug 修復**\n• 修復被代理截斷的回應顯示為完整\n• 修復 oversized 圖片導致兄弟工具呼叫無回應\n• 修復包含命令替換的危險 `rm` 在未提示下執行\n• 修復 macOS `/.vol`、`/.nofollow`、`/.resolve` 路徑在未核准前被讀取\n• 修復 NUL 字元在權限規則中產生萬用字元\n\n**VS Code 延伸模組修復**\n• 修復 Web session 儲存空的本地副本無法恢復\n• 修復 extension host 重啟後分頁靜默掛起\n\n**Claude Code on the Web 修復**\n• 修復 GitHub routines 對草稿 PR 從不觸發\n• 修復非 GitHub 儲存庫顯示誤導性「Create PR」按鈕\n• 新增 Fast mode 切換到 composer 模型選單\n\n**Claude Tag (Slack) 修復**\n• 修復頻道中 Claude 永久停止回應執行緒\n• 修復大型工作區「Couldn't check this channel」失敗\n• 修復 DynamoDB/Kinesis 透過 AWS 連線的身分驗證\n\n**設定變更**\n• 新增 `settings.json` 中 `\"attribution\": false` 隱藏所有 commit/PR 署名\n• 危險 `rm` 提示逾時改為 2 分鐘（可透過 `CLAUDE_CODE_DISABLE_DANGEROUS_RM_TIMEOUT` 設定）",
+      links: [
+        { label: "GitHub Release v2.1.281", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.281", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-280-2026-09-22",
     date: "2026-09-22",
     version: "v2.1.280",
