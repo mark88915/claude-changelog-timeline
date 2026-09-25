@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-282-2026-09-24",
+    date: "2026-09-24",
+    version: "v2.1.282",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.282：新增 maxProseWidth 設定、遙測透明度通知、Vim 模式修復",
+    summary: "Claude Code v2.1.282 新增 maxProseWidth 設定以控制寬終端機中的文字換行、啟動遙測提示及 /status 資訊，修復 Vim 模式顯示問題與多項 Bug，並強化 /artifacts 的欄位對齊與分頁支援。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.282 於 2026-09-24 發布，包含新設定項目、遙測透明度改善以及多項使用者介面修復。\n\n**新功能**\n• 新增 `maxProseWidth` 設定，可在寬終端機中限制文字寬度，同時保持表格與程式碼區塊全寬顯示\n• 新增啟動提示訊息及 `/status`、`claude doctor` 中的遙測環境變數資訊\n• 新增 `allowClaudeInChromeWithManagedMcp` 管理設定，允許在使用專屬 `managed-mcp.json` 時執行 `claude --chrome`\n\n**Bug 修復**\n• 修復含無法解密 Web 搜尋結果的對話出現 400 錯誤\n• 修復繼續/恢復 session 重複發送先前訊息的問題\n• 修復 Slash command 使用時 extended thinking 被丟棄\n• 修復「Invalid `data` in `redacted_thinking` block」錯誤導致 session 失敗\n• 修復摘要被拒絕時的壓縮失敗問題\n• 修復 `/model` 使用 Fable 完整模型 ID 時遇 API 錯誤停止的問題\n• 修復登入重新整理錯誤阻擋其他 session 取得組織政策\n\n**介面改善**\n• 改善 Vim 模式行為，修復多項 UI 顯示問題\n• 強化 `/artifacts`：更佳的欄位對齊與分頁支援\n• `/skills`、`/mcp`、`/plugin` 已安裝清單在全螢幕模式下新增捲軸",
+      links: [
+        { label: "GitHub Release v2.1.282", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.282", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-claude-crispr-enzyme-2026-09-24",
     date: "2026-09-24",
     version: "生物科學研究",
