@@ -1,6 +1,23 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-283-2026-09-25",
+    date: "2026-09-25",
+    version: "v2.1.283",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.283：閘道模型管控、/doctor prompt-audit、MCP 改進與多項修復",
+    summary: "Claude Code v2.1.283 新增閘道提示 ID 標頭、availableModelsMatch/deniedModels 管理設定、/doctor prompt-audit 指令審查 CLAUDE.md，並改善 MCP 工具輸出、/tasks UI 及修復 SDK session、插件管理、Vim 模式等多項問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.283 於 2026-09-25 發布，涵蓋閘道整合、模型管控、診斷工具、MCP 改進及多平台修復。\n\n**閘道與模型管控**\n• 新增 `x-claude-code-prompt-id` 到閘道提示標頭，用於群組相關請求（需設定 `CLAUDE_CODE_GATEWAY_HINT_HEADERS=1`）\n• 新增 `availableModelsMatch` 管理設定，支援 `\"exact\"` 模式以鎖定特定模型版本\n• 新增 `deniedModels` 管理設定，可封鎖特定模型\n• 新增 `mantle` 上游供應商，支援 Amazon Bedrock 的 Mantle 端點\n• 新增 `load_test_mode` 閘道設定，可進行不送出上游請求的負載測試\n\n**診斷與稽核工具**\n• 新增 `/doctor prompt-audit` 指令，審查 CLAUDE.md、skills、agents 及 commands 中過時的提示模式\n• 改善 prompt-audit 報告，優先顯示過時路徑與相互矛盾的檔案\n\n**MCP 改進**\n• 新增 MCP 工具、WebFetch、WebSearch 輸出到 OpenTelemetry span 事件（需設定 `OTEL_LOG_TOOL_CONTENT=1`）\n• MCP 工具結果現可將圖片儲存為檔案，供 Bash、Read 等工具存取\n• 改善 `/mcp` 工具清單：更佳的捲動與組織封鎖指示器\n• 修復長時間運行工具呼叫期間 MCP 進度通知被丟棄的問題\n\n**Bug 修復**\n• 修復 SDK session 在提前結束時遺失延遲工具呼叫或已完成工具結果\n• 修復 stdio MCP 伺服器在 session 結束後仍繼續運行\n• 修復無狀態遠端 MCP 伺服器的 HTTP 404 破壞後續請求\n• 修復插件驗證接受 Claude Code 無法安裝的名稱\n• 修復插件在目錄移動後遺失 `installed_plugins.json` 記錄\n• 修復兩個僅 ID 大小寫不同的插件在解除安裝時衝突\n• 修復 Vim 模式的 `.` 重複、游標定位與行合併問題\n\n**UI/UX 改善**\n• 新增全螢幕模式下點擊展開截斷訊息的功能\n• 改善 `/tasks`：新增狀態圖示、分頁按鍵與滑鼠滾輪支援\n• 改善 `/help`、`/skills`、`/artifacts` 清單導覽\n\n**Windows 修復**\n• 修復 PowerShell 工具阻止刪除磁碟根目錄和家目錄等受保護資料夾\n\n**VSCode 整合修復**\n• 修復權限模式指示器未反映實際 session 模式\n• 修復從 Web 傳輸的 session 遺失中途訊息\n• 修復重新載入 session 顯示錯誤回合數\n\n**雲端 Session 改善**\n• 改善私有儲存庫附件的讀取\n• 修復伺服器重啟後偶發的重複動作\n• 定期排程預設改為整點後幾分鐘\n\n**Claude Tag（Slack）更新**\n• 新增「Channels Claude can search」管理員設定\n• 新增帳號連接後的「Back to Slack」按鈕\n• 修復已更名頻道中的重複回覆與定期排程\n\n**Code Review 修復**\n• 修復「review」請求在 GitHub 失敗時靜默停止（現改為重試）\n• 修復未完成的 review 被計費",
+      links: [
+        { label: "GitHub Release v2.1.283", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.283", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-282-2026-09-24",
     date: "2026-09-24",
     version: "v2.1.282",
