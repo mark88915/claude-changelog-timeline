@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-sonnet-5-5-launch-2026-09-28",
+    date: "2026-09-28",
+    version: "claude-sonnet-5-5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Sonnet 5.5 正式發布：比 Sonnet 5 快 30%、成本降低最多 30%",
+    summary: "Anthropic 於 2026-09-28 發布 Claude Sonnet 5.5，速度提升 30% 以上、每項工作成本最多降 30%，維持 Sonnet 5 定價（$2/$10 per MTok），支援 1M context window，並在 AWS、Google Cloud、Azure 及 GitHub Copilot 上線。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-28 正式推出 Claude Sonnet 5.5（`claude-sonnet-5-5`），是 Claude 5.5 系列的第二款模型，定位為高效日常工作的最佳選擇。\n\n**主要特色**\n• **速度**：比 Claude Sonnet 5 快 30% 以上\n• **成本**：每項工作成本最多降低 30%\n• **定價**：維持 Sonnet 5 定價不變 — $2 / $1M 輸入，$10 / $1M 輸出，$0.20 / $1M 快取讀取\n• **Context Window**：1M tokens，最大輸出 128k tokens\n• **零資料保留**：提供 zero data retention 選項\n\n**平台支援**\n• Claude API\n• Amazon Bedrock\n• Google Cloud\n• Microsoft Azure（Foundry）\n• GitHub Copilot（同日上線）\n\n**重大變更（Breaking Changes）**\n1. **Thinking 模式調整**：高努力度（high effort）以下若需停用先期思考，改用 `thinking: {\"type\": \"between_tools\"}` 而非 `\"disabled\"`\n2. **強制工具呼叫移除**：`tool_choice` 的 `any` 和 `tool` 類型現回傳 400 錯誤\n3. **帳號綁定 Thinking Blocks**：Sonnet 5.5 產出的 thinking blocks 僅可在產生帳號或連結帳號使用\n4. **Computer Use 工具更新**：`computer_20251124` 工具不再被 Claude API 和 Google Cloud 接受\n5. **Advisor 工具限制**：拒絕以 Claude Opus 4.8、4.7 及 Sonnet 5 作為 advisor\n\n**主要優勢**\n• 與 Sonnet 5 在程式碼任務上表現相當，但使用更少的步驟、token 和工具呼叫\n• 擅長日常工作、修 bug、製作文件、簡報和試算表\n• 具備出色的設計美感",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/claude-sonnet-5-5", kind: "doc" },
+        { label: "Claude Platform Docs - Sonnet 5.5", href: "https://platform.claude.com/docs/en/models/sonnet-5-5/overview", kind: "doc" },
+        { label: "GitHub Copilot 整合", href: "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot/", kind: "doc" },
+        { label: "SiliconANGLE 報導", href: "https://siliconangle.com/2026/09/28/anthropic-debuts-claude-sonnet-5-5-running-30-faster-than-the-previous-generation-ai-model/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-284-2026-09-28",
+    date: "2026-09-28",
+    version: "v2.1.284",
+    category: "enh",
+    area: "model",
+    product: "claude-code",
+    title: "v2.1.284：Sonnet 5.5 成為預設模型、/usage 顯示金額、新快捷鍵與 MCP 改進",
+    summary: "Claude Code v2.1.284 新增 Claude Sonnet 5.5 為預設 Sonnet 模型、/usage 顯示消費金額、effortSlider/toggleUltracode 快捷鍵、/mcp reconnect all 指令及 Google Cloud OTLP 遙測，並修復串流損壞、thinking block 錯誤等多項問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.284 於 2026-09-28 發布，主要更新包含模型預設切換、使用量顯示改善、快捷鍵擴充與多項穩定性修復。\n\n**模型更新**\n• Claude Sonnet 5.5（`claude-sonnet-5-5`）成為預設 Sonnet 模型，$2/$10 per MTok，支援 1M context window\n\n**新功能**\n• Auto Mode 新增「下次再問我（Yes, but ask again next time）」選項，適用於工作目錄外的讀取請求\n• `/usage` 指令現顯示消費金額（如：$271.40 / $500.00 spent this month）\n• 新增快捷鍵動作：`effortSlider:decreaseEffort`、`increaseEffort`、`toggleUltracode`\n• 新增 `/mcp reconnect all` 指令，可重試所有失敗的 MCP 伺服器\n\n**Gateway 功能**\n• 支援 Google Cloud OTLP 端點用於遙測匯出\n• 新增憑證用戶端驗證（`private_key_jwt`）\n• `availableModels` 空白時新增啟動警告\n\n**Bug 修復**\n• 修復損壞的回應串流顯示原始錯誤或「undefined」值\n• 修復 thinking blocks 結束回合後伺服器錯誤未重試的問題\n• 修復壓縮後「Prompt is too long」錯誤持續存在\n• 修復 Agent SDK session 在格式錯誤的圖片來源時崩潰\n• 修復繼續 session 後 MCP 工具呼叫出現「No such tool available」\n• 修復重複呼叫 plan-usage 端點的速率限制問題（現改為退避）",
+      links: [
+        { label: "GitHub Release v2.1.284", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.284", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-283-2026-09-25",
     date: "2026-09-25",
     version: "v2.1.283",
