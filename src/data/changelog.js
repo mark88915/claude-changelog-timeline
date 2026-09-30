@@ -1,6 +1,63 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ipo-prospectus-2026-09-29",
+    date: "2026-09-29",
+    version: "IPO 招股書",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic IPO 招股書洩露：目標估值逾 $2 兆美元，警告 AI 可能帶來「人類存亡風險」",
+    summary: "Anthropic 於 2026-09-28 提交 IPO 招股書，目標估值超過 $2 兆美元，2025 年營收年增 12 倍達 $46 億，同時淨虧損高達 $420 億，並在 80 頁風險揭示中警告 AI 技術可能帶來「災難性或人類存亡風險」。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-09-28 提交機密 IPO 招股書，並於 9 月 29 日被多家媒體披露。這份 261 頁的文件揭示了公司的財務狀況與未來規劃。\n\n**財務數據**\n• **營收**：2025 年約 $46 億美元，年增 12 倍\n• **淨虧損**：$420 億美元（含約 $340 億美元融資工具轉股會計費用）\n• **算力支出**：2025 年 $73.3 億美元，為 2024 年的 3 倍\n• **基礎設施承諾**：未來一年達 $5,180 億美元\n\n**估值與 IPO 計畫**\n• 目標估值逾 $2 兆美元，為 5 月估值 $9,650 億的 2 倍以上\n• IPO 可能於 11 月美國期中選舉後進行\n\n**風險揭示**\n• 261 頁招股書中使用 80 頁說明風險因素\n• 明確警告公司正在研發的技術可能帶來「災難性或人類存亡風險」\n\n**基礎設施合作**\n• 與 Google、Amazon、Microsoft、Broadcom 等六大夥伴達成未來十年 $5,180 億美元的基礎設施採購協議",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/09/28/anthropics-prospectus-details-losses-growth-and-yes-a-warning-that-its-ai-could-end-humanity/", kind: "doc" },
+        { label: "Fortune 報導", href: "https://fortune.com/2026/09/29/anthropic-leaked-ipo-prospectus-losses-growth-ai-end-humanity/", kind: "doc" },
+        { label: "Forbes 報導", href: "https://www.forbes.com/sites/siladityaray/2026/09/28/anthropic-ipo-prospectus-warns-its-ai-could-pose-existential-risks-to-humanity/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-service-outage-2026-09-29",
+    date: "2026-09-29",
+    version: "服務事故",
+    category: "bug",
+    area: "performance",
+    product: "claude",
+    title: "Claude 服務中斷：claude.ai、API、Code、Cowork 全面受影響，14:36 UTC 恢復",
+    summary: "2026-09-29 約 14:00 UTC，Claude 全系列服務（claude.ai、API、Claude Code、Cowork）出現大規模中斷，逾 12,000 名用戶回報問題，登入、新對話、語音、購買與檔案上傳均受影響，14:36 UTC 緩解，14:59 UTC 完全恢復。",
+    body: {
+      kind: "bug",
+      problem: "2026-09-29 約 14:00 UTC 起，Claude 全系列服務出現大規模錯誤率上升，包括 claude.ai、Claude API、Claude Console、Claude Code 及 Claude Cowork。",
+      rootCause: "Anthropic 未公開具體根本原因，但服務中斷影響登入（SSO 及 Sign in with Apple 不可用）、新對話建立、語音對話、購買功能及檔案上傳。",
+      fix: "Anthropic 於 14:30 UTC 部署部分修復，14:36 UTC 緩解主要問題，14:59 UTC 完全恢復。部分在中斷期間發送的訊息未被儲存。",
+      links: [
+        { label: "TechRadar 即時報導", href: "https://www.techradar.com/news/live/claude-down-september-29-2026", kind: "doc" },
+        { label: "9to5Google 報導", href: "https://9to5google.com/2026/09/29/claude-confirmed-outage-sept-29/", kind: "doc" },
+        { label: "Anthropic 狀態頁面", href: "https://status.anthropic.com/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-285-2026-09-29",
+    date: "2026-09-29",
+    version: "v2.1.285",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.285：claude --desktop 指令、plugin configure、allowedProviders 管理設定及 80+ 項修復",
+    summary: "Claude Code v2.1.285 新增 claude --desktop 桌面整合指令、claude plugin configure 插件設定、allowedProviders 管理設定、CLAUDE_CODE_DISABLE_WEB_FETCH 環境變數，並修復雲端 session、Artifact 發布、MCP 管理及遠端控制等逾 80 個問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.285 於 2026-09-29 發布，包含多項新功能、使用者體驗改善及大量穩定性修復。\n\n**新功能**\n• **`claude --desktop`** 指令：可在當前目錄開啟 Claude 桌面應用程式，支援 `--continue` 和 `--resume` 選項\n• **`claude plugin configure <plugin>`** 指令：用於查看與設定插件選項\n• **`allowedProviders`** 管理設定：可限制允許使用的 API 供應商\n• **`CLAUDE_CODE_DISABLE_WEB_FETCH`** 環境變數：可停用 WebFetch 工具\n• **安裝時插件設定**：使用 `<server>.<key>=<value>` 語法為 `.mcpb` MCP 伺服器設定\n\n**使用者體驗改善**\n• VSCode 外掛選項表單加入「管理插件」對話框\n• 新增按需診斷工具，可讀取 Problems 面板錯誤\n• 改善 Artifact 發布流程（現可在同一步驟內寫入並發布）\n• 改善 `/resume` 在背景 session 中的行為\n\n**模型與供應商改善**\n• 使用自訂 `ANTHROPIC_BASE_URL` 的 session 現可使用 1M context window（Opus 4.7+、Sonnet 5+）\n• Bedrock/Vertex 在管理員移除存取權限時自動回退至較舊可用模型\n\n**主要修復**（共 80+ 項）\n• 修復雲端 session Artifact 在臨時伺服器錯誤後出現衝突\n• 修復 PowerShell 工具的權限快取問題\n• 修復同步 hooks 導致 Claude Code 掛起\n• 修復瀏覽器登入永久等待\n• 修復被輸出內容過濾器阻擋的回應被過度重試\n• 修復 MCP 伺服器設定與插件安裝問題\n• 修復遠端控制 session 的檔案附件下載不完整",
+      links: [
+        { label: "GitHub Release v2.1.285", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.285", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-sonnet-5-5-launch-2026-09-28",
     date: "2026-09-28",
     version: "claude-sonnet-5-5",
