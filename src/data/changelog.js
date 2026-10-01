@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-safety-deadline-2026-09-30",
+    date: "2026-09-30",
+    version: "安全里程碑",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 可證明推理 Phase 1 截止日已過，至今無公告",
+    summary: "2026-09-30 是 Anthropic 自訂的「可證明推理（Provable-Inference）原型 Phase 1」截止日，該計畫旨在為 AI 模型輸出提供可歸因簽章，但截止日已過，Anthropic 未發布任何部落格文章、新聞稿或社群媒體公告確認完成情況。",
+    body: {
+      kind: "feature",
+      description: "2026-09-30 是 Anthropic 根據其 Frontier Safety Roadmap 設下的「可證明推理（Provable-Inference）原型 Phase 1」截止日。\n\n**背景**\n• 可證明推理（Provable-Inference）是一種能可靠且可證明地為 AI 模型輸出簽章的技術，使輸出能被歸因至特定模型權重集合\n• Phase 1 代表規劃與盤點里程碑（涵蓋組件、成本與時間表），而非實際交付可用產品\n• 原定截止日為 2026-05-15，後因 Anthropic 決定將資源集中於提升整體安全性而延後至 2026-09-30\n\n**現況**\n• 截止日當天收盤後，Anthropic 未發布任何部落格文章、新聞稿或社群媒體更新確認此里程碑\n• 科技媒體 Forkast News 報導指出此沉默現象值得關注\n\n**意義**\n此截止日是 Anthropic Responsible Scaling Policy（RSP）具體承諾的一部分，其履行情況受到 AI 安全研究社群密切關注。",
+      links: [
+        { label: "Forkast News 報導", href: "https://forkast.news/anthropics-provable-inference-deadline-arrived-today-the-company-has-not-said-a-word/", kind: "doc" },
+        { label: "Anthropic Frontier Safety Roadmap", href: "https://www.anthropic.com/responsible-scaling-policy/roadmap", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-286-2026-09-30",
+    date: "2026-09-30",
+    version: "v2.1.286",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.286：權限堆疊計數顯示、--resume 修復、模型自動重試及機密遮罩強化",
+    summary: "Claude Code v2.1.286 新增權限提示「N / M」計數、修復 --resume/--continue 在平行工具呼叫後遺失對話的問題、背景工作狀態顯示修正、API 拒絕模型時自動重試上一個模型，並修復含不可見字元的金鑰名稱造成機密洩漏的問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.286 於 2026-09-30 發布，包含多項使用者體驗改善及穩定性修復。\n\n**新功能與改善**\n• **權限提示計數**：當多個權限請求堆疊時，顯示「2 of 5」等計數，方便使用者掌握進度\n• **背景工作狀態修正**：修復背景工作在等待使用者核准時，卻顯示為已完成的問題\n\n**重要修復**\n• **`--resume` / `--continue` 對話遺失**：修復在發生平行工具呼叫的批次後，若舊 session 崩潰或被終止，重新連線時遺失所有後續對話的問題\n• **模型自動重試**：Anthropic API 拒絕特定模型時，session 現在會自動重試上一個可用模型一次，防止每輪都失敗\n• **機密遮罩強化**：修復日誌遮罩，使其在金鑰名稱含不可見字元時也能正確遮蔽機密，防止機密洩漏\n\n**其他修復**\n• 修復 VSCode 整合、雲端 session、Claude Tag 功能等多項問題",
+      links: [
+        { label: "GitHub Release v2.1.286", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.286", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ipo-prospectus-2026-09-29",
     date: "2026-09-29",
     version: "IPO 招股書",
