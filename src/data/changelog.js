@@ -1,6 +1,60 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ipo-november-target-2026-10-01",
+    date: "2026-10-01",
+    version: "IPO 動態",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Bloomberg：Anthropic 鎖定 11 月 IPO，最快 11/9 啟動路演，估值逾 $2 兆美元",
+    summary: "Bloomberg 報導 Anthropic 計畫於 11 月感恩節前完成 IPO，可能最快從 11 月 9 日那週開始正式行銷，目標估值逾 $2 兆美元，籌資規模或達 $1,000 億。",
+    body: {
+      kind: "feature",
+      description: "Bloomberg 於 2026-10-01 報導，Anthropic 計畫在美國感恩節（11 月 27 日）前完成上市，成為史上規模最大的 IPO 之一。\n\n**關鍵時間軸**\n• 最快於 11 月 9 日那週啟動正式投資人行銷（roadshow）\n• 目標在感恩節前開始交易\n\n**財務規模**\n• 目標估值逾 $2 兆美元（為 5 月估值 $9,650 億的 2 倍以上）\n• 籌資規模預計達 $1,000 億美元（若達成，將超越 Saudi Aramco 創下的 IPO 紀錄）\n\n**背景**\n• Anthropic 已於 2026-09-28 提交機密 IPO 招股書\n• IPO 時間延至 11 月，以便分享第三季財報（預計表現強勁）\n• 尚未有官方確認，時間表仍可能調整",
+      links: [
+        { label: "Bloomberg 報導", href: "https://www.bloomberg.com/news/articles/2026-10-01/anthropic-said-to-target-mega-ipo-before-thanksgiving-holiday", kind: "doc" },
+        { label: "Forbes IPO 追蹤", href: "https://ipos.fyi/tracker/anthropic-ipo", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "barclays-claude-expansion-2026-10-01",
+    date: "2026-10-01",
+    version: "企業合作",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Barclays 擴大 Claude 整合：目標年底 50% 開發者採用，每日處理 12 萬封郵件",
+    summary: "Anthropic 宣布 Barclays 擴大 Claude 整合規模，目標 2026 年底前讓 50% 開發者採用 Claude Code，並已透過 Claude 每日處理約 12 萬封客戶郵件。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 與 Barclays 於 2026-10-01 聯合宣布擴大 Claude 整合範圍，全面加速軟體開發並改善客戶體驗。\n\n**主要擴展方向**\n• **開發者採用**：目標 2026 年底前讓 50% 開發者採用 Claude Code，2027 年進一步擴大至多數工程師\n• **電子郵件處理**：市場業務已透過 Claude 協助管理客戶詢問，每日處理約 12 萬封郵件\n• **遺留系統現代化**：利用 Claude 加速老舊系統升級\n\n**合作重點**\n• 雙方強調負責任 AI 部署原則\n• Barclays 視此為整體效率提升策略的核心\n• 彭博報導此次擴展是「效率攻勢」的一部分",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/barclays-scales-claude", kind: "doc" },
+        { label: "Bloomberg 報導", href: "https://www.bloomberg.com/news/articles/2026-10-01/barclays-expands-use-of-anthropic-s-claude-in-efficiency-push", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-287-2026-10-01",
+    date: "2026-10-01",
+    version: "v2.1.287",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.287：Claude Mods 外掛深度行為控制、「You should know」智能伴侶、安全修復",
+    summary: "Claude Code v2.1.287 推出 Claude Mods（讓外掛能改變更深層的模型行為）、可選的「You should know」智能伴侶、Windows Bash 拒絕警告，並修復 shell 移除指令安全漏洞及 __proto__ MCP 工具權限問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.287 於 2026-10-01 18:00 UTC 發布，包含重要新功能與安全修復。\n\n**新功能**\n• **Claude Mods**：外掛系統新能力，允許插件改變更深層的模型行為（deeper behavior），開啟更強大的自訂可能\n• **「You should know」伴侶**：可選的智能伴侶功能，能主動標記使用者或主代理可能錯過的資訊；僅限啟用遙測的第一方 session 使用\n• **Windows 啟動警告**：拒絕 Bash 工具時顯示警告，說明此操作會關閉 PowerShell\n• **內建 gh api**：macOS 和 Linux 的自託管 runner 加入內建 gh api 功能\n• **改善 /memory**：新增左右方向鍵控制開關設定\n• **修復 remote session 快速模式**：修復 Fast Mode 在遠端 session 中失效的問題\n\n**重要安全修復**\n• 修復危險的 shell 移除指令（`rm -rf /`）在與特定輸出重導向組合時失去「永遠詢問」防護的問題\n• 修復組織層級的 per-tool 權限上限在 MCP 工具名稱為 `__proto__` 時被意外移除的問題",
+      links: [
+        { label: "GitHub Release v2.1.287", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.287", kind: "gh" },
+        { label: "Kingy AI 報導", href: "https://kingy.ai/news/claude-code-2-1-287-mods-permissions-rollout/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-safety-deadline-2026-09-30",
     date: "2026-09-30",
     version: "安全里程碑",
