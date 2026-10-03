@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-frontier-academy-2026-10-02",
+    date: "2026-10-02",
+    version: "官方公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Anthropic 投資 1 億美元成立 Claude Frontier Academy，培訓 10,000 名企業 AI 工程師",
+    summary: "Anthropic 宣布投入 1 億美元建立 Claude Frontier Academy，目標於 2027 年底前培訓 10,000 名「前線部署工程師」（Frontier Deployed Engineers），解決企業 AI 人才短缺問題。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-02 宣布成立 Claude Frontier Academy，透過 1 億美元投資培育企業 AI 部署人才。\n\n**計畫架構**\n• 採用類醫學訓練模式：學員先接受多日線上課程，再進行模擬企業部署演練，最後完成 12 週帶薪駐場計畫\n• 兩級認證：Claude Resident Engineer 徽章與 Claude Frontier Deployed Engineer 徽章\n• 目標對象：具備 LLM 實務經驗、曾主導業務關鍵 AI 專案的資深軟體工程師\n\n**首批合作機構**\n• Accenture、Bain、Capgemini、澳洲聯邦銀行（Commonwealth Bank）、Deloitte、McKinsey、Morgan Stanley、Novo Nordisk 等\n\n**時間與地點**\n• 現行梯次在舊金山、紐約、倫敦同步進行\n• 首批結業學員預計於 2027 年初誕生\n• 目標：2027 年底前共培訓 10,000 名工程師",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/claude-frontier-academy", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/10/02/anthropic-to-invest-100-million-to-train-ai-engineer-talent.html", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-288-2026-10-02",
+    date: "2026-10-02",
+    version: "v2.1.288",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.288：Mod 選取 API、/code-review 精確控制、Ctrl+C 草稿復原、自動壓縮",
+    summary: "Claude Code v2.1.288 新增 Mod 的 $.ui.selection() 選取 API、/code-review --max-findings 旗標、Ctrl+C 草稿復原、自動壓縮對話，並修復多項 API 逾時、--resume 遺失檔案、rm 高危路徑繞過等問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.288 於 2026-10-02 20:19 UTC 發布，帶來多項新功能與重要修復。\n\n**新功能**\n• **$.ui.selection()**：Mod 可在全螢幕模式中取得使用者選取的文字及對應的對話列\n• **--max-findings 旗標**：`/code-review` 新增 `--max-findings <n>|all` 選項，可自訂回報的最大發現數（設定會持續至重設為 default）\n• **Ctrl+C 草稿復原**：以 Up 鍵可復原被 Ctrl+C 清除的輸入草稿（含已貼上的內容）\n• **MCP 重新驗證提示**：MCP 伺服器於工具呼叫中請求額外 OAuth scope 時，會自動彈出重新驗證提示\n• **導航增強**：Ctrl+F 搜尋 session 名稱；Alt+↑/↓ 在 agents 視圖中跳躍群組\n• **自動壓縮（Auto Compaction）**：對話超過分類器容量時，自動壓縮而非詢問使用者\n• **雲端 gh api**：無 GitHub CLI 的雲端 session 現在也有內建 gh api（僅 REST）\n• **claude purge 指令**：`claude project purge` 重新命名為 `claude purge`（舊名稱仍可使用）\n• **CLAUDE_CODE_DISABLE_STRUCTURED_OUTPUTS**：新增環境變數以停用結構化輸出\n• **/autocompact 每模型設定**：/autocompact 現在可依模型分別儲存設定\n\n**重要修復**\n• 修復非互動 session 中途遇到 API 逾時時，會從部分回應斷點繼續而非中斷\n• 修復長對話出現「Prompt is too long」錯誤\n• 修復 --resume 遺失檔案與上下文的問題\n• 修復 rm 高危路徑（系統關鍵路徑）指令繞過權限提示的問題\n• 修復 VSCode connector 驗證狀態、Ctrl+N 快捷鍵誤開所有 Claude 視圖等問題\n• 修復 Claude Tag（Slack）跨頻道追蹤討論串問題",
+      links: [
+        { label: "GitHub Release v2.1.288", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.288", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ipo-november-target-2026-10-01",
     date: "2026-10-01",
     version: "IPO 動態",
