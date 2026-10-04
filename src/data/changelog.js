@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "amd-anthropic-partnership-2026-10-03",
+    date: "2026-10-03",
+    version: "官方公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "AMD 與 Anthropic 擴大戰略合作：部署 2GW AMD Instinct MI450 GPU，AMD 投資最高 50 億美元",
+    summary: "AMD 與 Anthropic 宣布擴大戰略合作，Anthropic 將部署高達 2 GW 的 AMD Instinct MI450 系列 GPU，AMD 計劃投資最高 50 億美元，雙方同時展開多年 ROCm 軟體工程協作，首批 GW 級部署預計 2027 年上半年啟動。",
+    body: {
+      kind: "feature",
+      description: "AMD 與 Anthropic 於 2026-10-03 在 AMD AdvancingAI 主題演講上宣布擴大戰略合作，規模遠超過此前合作關係。\n\n**部署規模**\n• Anthropic 計劃部署高達 2 GW 的 AMD Helios 機架級解決方案\n• 核心硬體：AMD Instinct MI455X GPU（MI450 系列）、AMD EPYC「Venice」CPU、Pensando 網路技術\n• 第一批 1 GW 部署預計於 2027 年上半年啟動\n• 此合作建立在 Anthropic 現有 AMD Instinct MI355X GPU 使用基礎上，大幅擴展運算容量\n\n**財務投資**\n• AMD 承諾未來對 Anthropic 進行最高 50 億美元的戰略股權投資\n• 雙方未披露投資時程、結構、估值或相關條件\n\n**工程協作**\n• 多年工程協作，聚焦軟體開發\n• Anthropic 的 Claude 將協助優化 AMD Instinct GPU 工作負載\n• 加速 AMD ROCm 軟體平台的開發\n\n**背景意義**\n此合作代表 AI 產業中 GPU 供應商與 AI 模型公司的深度整合，有助 Anthropic 降低對單一硬體廠商的依賴，並支撐其持續增長的運算需求。",
+      links: [
+        { label: "AMD 官方新聞稿", href: "https://ir.amd.com/news-events/press-releases/detail/1292/amd-and-anthropic-announce-strategic-partnership-to-deploy-up-to-2-gigawatts-of-amd-instinct-mi450-series-gpus", kind: "doc" },
+        { label: "Pulse2 報導", href: "https://pulse2.com/amd-and-anthropic-partner-on-2-gigawatt-ai-infrastructure-deployment-and-up-to-5-billion-investment/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-289-2026-10-03",
+    date: "2026-10-03",
+    version: "v2.1.289",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.289：Teammate 代理生成 agent.spawn、統一代理 ID、idle/waiting 狀態、讀取限制強化",
+    summary: "Claude Code v2.1.289 新增 agent.spawn 讓 teammate 可生成共享代理、統一外掛鉤子事件的代理 ID、$.agent.list() 加入 idle/waiting 狀態，並修復組織 MCP 伺服器簽入說明被覆寫及 @-提及檔案繞過讀取限制的問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.289 於 2026-10-03 19:38 UTC 發布，主要強化多代理協作能力並修復安全問題。\n\n**新功能**\n• **agent.spawn for teammates**：Teammate 現在可透過 `agent.spawn` 生成共享代理，強化多代理協作工作流\n• **統一代理 ID**：外掛鉤子事件中的代理 ID 現已統一，確保跨事件一致性\n• **idle/waiting 狀態**：`$.agent.list()` 新增 idle 和 waiting 狀態，讓外掛能更精確追蹤代理生命週期\n\n**重要修復**\n• 修復使用者外掛覆寫組織管理的 MCP 伺服器簽入說明問題，現已保留組織層級的簽入描述\n• 修復讀取拒絕規則未套用於 @-提及檔案的問題，防止透過 @-引用繞過檔案讀取限制",
+      links: [
+        { label: "GitHub Release v2.1.289", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.289", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-frontier-academy-2026-10-02",
     date: "2026-10-02",
     version: "官方公告",
