@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-290-2026-10-05",
+    date: "2026-10-05",
+    version: "v2.1.290",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.290：serverToolUses 工具追蹤、Managed Agents 整合、agentId 子代理識別、WebFetch offset 修復",
+    summary: "Claude Code v2.1.290 新增 mod turn.step 的 serverToolUses 追蹤 API 工具呼叫詳情、agentId 識別子代理權限檢查、/claude-api managed-agents-onboard 指令，並修復長對話圖片卡頓、恢復子代理快取遺失、WebFetch 靜默截斷文字、/rewind 遺漏提示等問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.290 於 2026-10-05 發布，帶來 Mod 可觀測性提升、Managed Agents 整合支援，以及多項重要修復。\n\n**新功能**\n• **serverToolUses**：Mod 的 `turn.step` 鉤子結果新增 `serverToolUses`，包含 API 工具呼叫的 id、name、input 及起訖時間\n• **agentId in tool.check**：`tool.check` 事件新增 `agentId`，可區分子代理與主 session 的權限檢查\n• **ceiling 參數**：approval 問題與結論新增 `ceiling` 參數，用於組織必要工具核准\n• **ThemeKey & Color 型別**：外掛鉤子型別定義新增 `ThemeKey` 和 `Color`，支援主題色彩\n• **claude attach / claude logs**：`claude attach <name>` 和 `claude logs <name>` 支援部分 session 名稱\n• **/claude-api managed-agents-onboard**：新增 Managed Agents 模式設定指令\n• **/status 與 doctor 警告**：新增管理設定問題的 /status 診斷與 doctor 警告\n\n**重要修復**\n• 修復長對話包含大量圖片時卡在「unprocessable」錯誤的問題\n• 修復恢復的子代理在執行中途遺失 thinking 與 prompt cache 的問題\n• 修復 WebFetch 靜默截斷超過 100,000 字元的文字（現在會回報並提供 offset 選項）\n• 修復 /rewind 未列出 Claude 思考中所送出提示的問題\n• 修復排程任務（/loop、提醒）在對話壓縮後未能恢復的問題\n• 修復計畫模式自動核准非唯讀 connector 工具的問題\n• 改善 proxy 後方的 MCP 啟動（減少被封鎖伺服器的重試次數）",
+      links: [
+        { label: "GitHub Release v2.1.290", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.290", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "amd-anthropic-partnership-2026-10-03",
     date: "2026-10-03",
     version: "官方公告",
