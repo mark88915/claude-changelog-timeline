@@ -1,6 +1,44 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-startups-program-expansion-2026-10-06",
+    date: "2026-10-06",
+    version: "官方公告",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Anthropic 擴大 Claude Startups 計畫：新創公司可獲 $1,000 API 額度、免費 Claude Team 及 $45K 合作夥伴優惠",
+    summary: "Anthropic 擴大 Claude Startups 計畫，符合資格的新創公司可獲得 $1,000 API 額度、免費一年 Claude Team（5 個席位）及最高 $45,000 的第三方合作夥伴堆疊優惠，同步於 SF Tech Week 期間舉辦 Claude Founder House。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-06 宣布擴大 Claude Startups 計畫，加強對新創公司生態系的支持。\n\n**主要福利**\n• $1,000 API 額度，可立即使用\n• 免費一年 Claude Team 訂閱（最多 5 個席位）\n• Claude Startup Stack：最高 $45,000 的第三方合作夥伴折扣與額度\n• 每兩週一次的 45 分鐘虛擬辦公室會談（與 Anthropic applied AI 團隊）\n• 駭客松、社群聚會等活動邀請\n\n**申請資格**\n• 成立未超過 5 年，或在過去 2 年內獲得融資的公司\n• 開放自籌資金、種子前輪及風投支持的公司\n\n**實體活動**\n• 2026-10-06 至 10-08，舊金山舉辦 Claude Founder House（SF Tech Week 同期）\n\n**背景**\nClaude Startups 計畫原於 2026 年 5 月推出，此次擴大規模是 Anthropic 在與 OpenAI 和 Google 的開發者生態競爭中的重要舉措。",
+      links: [
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/10/06/anthropic-claude-startups-program.html", kind: "doc" },
+        { label: "Inc 報導", href: "https://www.inc.com/aaron-mok/anthropic-is-offering-more-than-50000-in-claude-perks-for-entrepreneurs-heres-how-to-get-them/91415278", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-291-2026-10-06",
+    date: "2026-10-06",
+    version: "v2.1.291",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.291：修復 permission prompt 回答遺失、退出時最後訊息丟失及 content filter 中斷問題",
+    summary: "Claude Code v2.1.291 修復三項重要回歸：cloud session 可能丟失 permission prompt 回答、v2.1.288 起退出時可能丟失最後訊息、output content filter 觸發時 turn 立即中止（現改為重試一次）。",
+    body: {
+      kind: "bug",
+      problem: "三項重要回歸影響使用穩定性：(1) cloud session 可能悄悄丟棄對 permission prompt 的回答；(2) 自 v2.1.288 起，退出時可能丟失 session 最後的訊息；(3) API output content filter 在 Claude 仍在思考時觸發，會立即終止整個回合",
+      rootCause: "v2.1.290 引入的 cloud session 權限處理回歸；v2.1.288 中的 session 持久化回歸；output content filter 錯誤處理邏輯未做重試",
+      fix: "修復 cloud session 不再丟失 permission prompt 回答；修復退出時不再丟失最後訊息；content filter 觸發後現在會重試一次，再回報錯誤；新增 /status 與 doctor 警告提示 managed settings 忽略 sandbox allowRead 路徑；修復代理伺服器拒絕特定 beta header 時請求失敗的問題；修復長 session 卡在「Request rejected as unprocessable」的問題",
+      links: [
+        { label: "GitHub Release v2.1.291", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.291", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-290-2026-10-05",
     date: "2026-10-05",
     version: "v2.1.290",
