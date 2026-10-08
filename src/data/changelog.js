@@ -1,6 +1,81 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-haiku-5-5-2026-10-07",
+    date: "2026-10-07",
+    version: "Haiku 5.5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Haiku 5.5 發布：最具成本效益小型模型，較前代降價約 75%",
+    summary: "Anthropic 於 2026-10-07 發布 Claude Haiku 5.5，平均成本較 Haiku 4.5 降低約 75%，採分層定價，首款支援 effort 設定的 Haiku 系列模型，知識截止日 2026 年 6 月，可用於 Claude Platform、AWS、Google Cloud、Azure。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-07 正式發布 Claude Haiku 5.5，定位為高量、低延遲、低成本場景的最佳選擇。\n\n**定價（分層制）**\n• 短提示（≤100,000 tokens）：$0.10/M 輸入、$0.50/M 輸出\n• 長提示（>100,000 tokens）：$0.50/M 輸入、$2.50/M 輸出\n• 平均成本較 Haiku 4.5 降低約 75%\n\n**主要特點**\n• 首款支援可調 effort 設定的 Haiku 系列模型\n• 1M token 上下文視窗\n• 知識截止日：2026 年 6 月\n• 僅支援文字輸出\n\n**可用平台**\n• Claude Platform（API 模型字串：claude-haiku-5-5）\n• Amazon Web Services / Amazon Bedrock\n• Google Cloud\n• Microsoft Azure\n\n**設計用途**\n摘要生成、資料壓縮、資料庫查詢、分類任務，以及作為 Opus 5.5 / Sonnet 5.5 的子代理執行編碼工作。",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/claude-haiku-5-5", kind: "doc" },
+        { label: "VentureBeat 報導", href: "https://venturebeat.com/technology/anthropic-launches-claude-haiku-5-5-with-90-api-price-reduction-matching-gpt-6-luna", kind: "doc" },
+        { label: "SiliconANGLE 報導", href: "https://siliconangle.com/2026/10/07/anthropic-releases-claude-haiku-5-5-small-model-and-halves-sonnet-5-5-cache-read-prices/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "sonnet-5-5-cache-price-cut-2026-10-07",
+    date: "2026-10-07",
+    version: "價格調整",
+    category: "enh",
+    area: "model",
+    product: "claude",
+    title: "Claude Sonnet 5.5 快取讀取費用減半：$0.20 → $0.10/M tokens",
+    summary: "Anthropic 同步宣布 Claude Sonnet 5.5 的 prompt cache 讀取費用從 $0.20 降至 $0.10/M tokens，降幅 50%，快取寫入及其他費用維持不變。",
+    body: {
+      kind: "perf",
+      description: "隨 Claude Haiku 5.5 發布，Anthropic 同步調降 Claude Sonnet 5.5 的快取讀取費用。\n\n**費用變更**\n• Prompt cache 讀取：$0.20 → $0.10 / 每百萬 tokens（降低 50%）\n• Prompt cache 寫入：維持不變\n• 輸入 / 輸出 token 費用：維持不變\n\n此調整對大量使用 prompt caching 的高量應用特別有利，可大幅降低重複相同上下文的推論成本。",
+      metrics: [
+        { label: "Cache read 費用", before: "$0.20/M tokens", after: "$0.10/M tokens" }
+      ],
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "SiliconANGLE 報導", href: "https://siliconangle.com/2026/10/07/anthropic-releases-claude-haiku-5-5-small-model-and-halves-sonnet-5-5-cache-read-prices/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-max-team-api-credits-2026-10-07",
+    date: "2026-10-07",
+    version: "產品更新",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Claude Max 與 Team 方案新增每月 API 額度，涵蓋 Agent SDK 及 Managed Agents",
+    summary: "Claude Max 與 Team 訂閱方案新增每月 API 額度，可用於 Agent SDK、Claude API 及 Claude Managed Agents，訂閱使用量限制仍適用於 Agent SDK、claude -p 及第三方應用程式。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-07 更新支援文件，說明 Claude Max 與 Team 方案現已包含每月 API 額度。\n\n**額度適用範圍**\n• Claude Agent SDK\n• Claude API\n• Claude Managed Agents\n\n**注意事項**\n• 訂閱使用量限制仍適用於：\n  - Claude Agent SDK\n  - claude -p 指令列工具\n  - 第三方應用程式\n\n此更新讓訂閱用戶在訂閱費用內獲得更多 API 使用彈性，無需額外付費即可探索代理功能。",
+      links: [
+        { label: "Claude Support 文件", href: "https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-292-2026-10-07",
+    date: "2026-10-07",
+    version: "v2.1.292",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.292：Agent tool effort 設定、529 重試延遲環境變數、Plugin Marketplace 直接安裝",
+    summary: "Claude Code v2.1.292 新增 Agent tool 的 effort 參數供子代理指定智能強度、529 過載回應的重試延遲環境變數，以及從 marketplace 直接安裝外掛的功能；同期桌面版 bundled v2.1.293 新增 SSO 閘道設定取消截止日期限制。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.292 帶來子代理控制強化及外掛市場整合。\n\n**新功能**\n• **Agent tool effort 設定**：使用 Agent tool 時可指定 effort 參數，讓子代理以選定的智能強度層級執行\n• **529 重試延遲環境變數**：新增環境變數可自訂 API 過載（529）回應的重試等待時間\n• **Plugin Marketplace 直接安裝**：用戶可直接從 marketplace 安裝外掛，無需手動設定\n\n**同期桌面版更新（v2.1.293 bundled）**\n• inferenceGatewayAuthScheme 的 SSO 閘道設定在此版本後取消截止日期限制",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "Claude Code Docs", href: "https://code.claude.com/docs/en/whats-new", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-startups-program-expansion-2026-10-06",
     date: "2026-10-06",
     version: "官方公告",
