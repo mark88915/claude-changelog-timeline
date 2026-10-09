@@ -1,6 +1,134 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-295-2026-10-08",
+    date: "2026-10-08",
+    version: "v2.1.295",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.295：Hook 失敗自動攔截、OSC 7501 終端機狀態、Gateway 逾時設定",
+    summary: "Claude Code v2.1.295 帶來 143 項 CLI 變更，包含 Hook 失敗時自動攔截行動、OSC 7501 終端機狀態協定支援、Gateway upstream 模型清單與逾時設定、無人值守重試等待上限環境變數。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.295 是一個包含 143 項變更的大型版本，帶來多項重要改進。\n\n**主要新功能**\n• **Hook 失敗攔截**：指令或 HTTP Hook 若失敗、逾時或異常退出，現在會自動攔截對應行動，可透過 `onFailure: \"block\"` 設定驅動此行為\n• **OSC 7501 終端機狀態**：支援 Program Status Protocol（OSC 7501），相容終端機可顯示 Claude Code 目前狀態（運行中、等待輸入、已完成）\n• **Gateway 控制增強**：Gateway upstream 新增可選模型清單，以及 `timeouts.upstream_ttfb_ms` 設定，限制串流啟動等待時間\n• **無人值守重試上限**：新增 `CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS` 環境變數，限制無人值守模式下對 429/529 錯誤的最長等待時間\n• **Plugin 安裝警告**：`claude plugin install/enable/disable` 及 `marketplace add` 命令在設定檔未載入時發出警告\n\n**修正項目**\n• `[1m]` 模型請求在 Gateway、Bedrock、Vertex 或 Foundry 拒絕 context-1m beta 時不再失敗\n• 修正 `-p` 模式在背景工作啟動新輪次時丟棄先前回應的問題\n• 遠端 MCP 伺服器在重複斷線時改採退避重連策略",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "marckrenn/claude-code-changelog v2.1.295", href: "https://github.com/marckrenn/claude-code-changelog/releases/tag/v2.1.295", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-294-2026-10-08",
+    date: "2026-10-08",
+    version: "v2.1.294",
+    category: "bug",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.294：修正 Prompt Hook 指令型規則誤放行問題",
+    summary: "Claude Code v2.1.294 修正以指令形式撰寫的 Prompt/Agent Hook（如「封鎖包含…的指令」）未能正確攔截行動的問題，並改善 Stop/SubagentStop Hook 的判斷，避免 Claude 過早停止。",
+    body: {
+      kind: "bug",
+      description: "此版本針對 Hook 系統進行兩項修正。\n\n**修正項目**\n• 以指令形式撰寫的 Prompt Hook 與 Agent Hook（例如「封鎖包含 X 的指令」）原先允許了應被攔截的行動，現已修正\n• 改善 Stop 與 SubagentStop 事件中，指令型 Prompt Hook 的評估方式，減少 Claude 因誤判而提前結束的情況",
+      problem: "Hook 以指令形式撰寫時，無法正確攔截本應被攔截的行動",
+      fix: "修正指令型 Hook 的評估邏輯，確保攔截條件正確套用",
+      links: [
+        { label: "anthropics/claude-code v2.1.294", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.294", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-2026-usage-policy-update-2026-10-08",
+    date: "2026-10-08",
+    version: "政策更新",
+    category: "brk",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 更新 2026 年使用政策：禁止對 Claude 持續施以虐待行為",
+    summary: "Anthropic 於 2026-10-08 發布更新使用政策，新增禁止對 Claude 模型進行持續且無目的之虐待或殘忍行為，同時強化武器禁令、釐清欺騙活動規範，並要求高風險實體部署需額外資訊揭露。",
+    body: {
+      kind: "breaking",
+      description: "Anthropic 更新 2026 年使用政策，主要新增及修訂內容如下。\n\n**主要變更**\n• **新增**：禁止對 Claude 模型進行持續且無目的的虐待或殘忍行為（針對極端案例，用戶在毫無明顯原因的情況下反覆對模型施以虐待）\n• **強化**：武器開發相關禁令更加明確\n• **釐清**：欺騙活動的相關規範新增獨立章節\n• **新增**：高風險實體世界部署需額外資訊揭露\n• **調整**：移除針對個人化投票及競選定向的全面性禁令\n• **保留**：部分規則可依特定政府合約進行調整",
+      migration: {
+        title: "政策適用對象",
+        text: "此政策適用於所有透過 Claude API 及 claude.ai 使用 Claude 的用戶與開發者。虐待行為禁令目前針對極端且重複的案例，不適用於一般互動情境。"
+      },
+      links: [
+        { label: "Anthropic 2026 使用政策", href: "https://www.anthropic.com/news/2026-usage-policy-update", kind: "doc" },
+        { label: "QZ 報導", href: "https://qz.com/anthropic-usage-policy-update-claude-abuse-election-weapons-100826", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-cyber-mission-2026-10-08",
+    date: "2026-10-08",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 宣布網路安全使命：Critical Infrastructure Defense Program",
+    summary: "Anthropic 於 2026-10-08 發布 Anthropic Cyber Mission，旗下首個計畫「Critical Infrastructure Defense Program」將為受信任的關鍵基礎設施業者提供前沿 Claude 模型、駐點工程師及威脅研究支援。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 正式宣布 Anthropic Cyber Mission，致力於運用 AI 強化網路安全防禦。\n\n**Critical Infrastructure Defense Program**\n• 為受信任的關鍵基礎設施業者提供最強 Claude 模型存取權\n• 提供 Anthropic 駐點工程師支援\n• 分享 Anthropic 的威脅研究成果\n\n此計畫是 Anthropic 將 AI 能力應用於防禦性網路安全的重要戰略布局。",
+      links: [
+        { label: "Anthropic Cyber Mission 公告", href: "https://www.anthropic.com/news/anthropic-cyber-mission", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-oss-scanner-2026-10-08",
+    date: "2026-10-08",
+    version: "官方公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 推出 OSS Scanner：免費提供開源專案資安掃描服務",
+    summary: "Anthropic 於 2026-10-08 宣布 OSS Scanner（opt-in 開源漏洞掃描服務），加入的開源專案可免費獲得 Anthropic 最強模型定期進行深度資安掃描，截至 2026-10-02 已揭露 6,157 個漏洞，其中 516 個已被修補。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 推出 OSS Scanner，讓開源專案可選擇加入免費的 AI 資安掃描服務。\n\n**服務內容**\n• 加入的開源專案可獲得定期、深度的資安掃描\n• 使用 Anthropic 最強的 Claude 模型進行分析\n• 服務完全免費\n\n**現況統計（截至 2026-10-02）**\n• 已掃描 591 個開源專案\n• 已揭露 6,157 個漏洞\n• 已有 516 個漏洞被修補",
+      links: [
+        { label: "Anthropic OSS Scanner 公告", href: "https://anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source", kind: "doc" },
+        { label: "CVD Dashboard", href: "https://red.anthropic.com/2026/cvd/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-dashboards-motion-beta-2026-10-08",
+    date: "2026-10-08",
+    version: "產品更新",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Dashboards 與 Claude Motion 進入 Beta：自然語言建立動態儀表板與動畫影片",
+    summary: "Anthropic 於 2026-10-08 將 Claude Dashboards 與 Claude Motion 推入 Beta；前者可從公司資料以自然語言問題建立即時儀表板（所有付費方案），後者可將文字與圖表轉為可匯出 MP4 的動畫影片（Team 和 Enterprise 限定）。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 同時發布兩項新 Beta 功能。\n\n**Claude Dashboards**\n• 以自然語言問題從公司資料建立即時儀表板\n• 適用所有付費方案（Pro、Max、Team、Enterprise）\n\n**Claude Motion**\n• 將文字描述與圖表轉換為動畫影片\n• 支援匯出為 MP4 格式\n• 僅限 Team 和 Enterprise 方案使用",
+      links: [
+        { label: "報導來源", href: "https://pasqualepillitteri.it/en/news/21703/anthropic-launches-claude-dashboards-motion-beta", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-compliance-api-unified-2026-10-08",
+    date: "2026-10-08",
+    version: "平台更新",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Compliance API 新增支援 Unified Claude Experience 對話紀錄（Enterprise Beta）",
+    summary: "Claude Platform 更新：Compliance API 聊天端點現在也會回傳來自統一 Claude 體驗（Unified Claude Experience）的對話，目前為 Claude Enterprise 組織的 Beta 功能。",
+    body: {
+      kind: "feature",
+      description: "Claude Platform 發布 Compliance API 更新，擴大對話資料涵蓋範圍。\n\n**變更內容**\n• Compliance API 的聊天端點現在回傳來自統一 Claude 體驗的對話紀錄\n• 目前為 Claude Enterprise 組織的 Beta 功能\n\n此更新有助於 Enterprise 組織進行完整的合規性稽核，涵蓋透過不同介面進行的所有對話。",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-haiku-5-5-2026-10-07",
     date: "2026-10-07",
     version: "Haiku 5.5",
