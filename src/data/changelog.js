@@ -1,6 +1,78 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-296-2026-10-09",
+    date: "2026-10-09",
+    version: "v2.1.296",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "v2.1.296：子代理自動壓縮視窗、工作流程模型環境變數、MCP 描述上限擴大至 4096 字元",
+    summary: "Claude Code v2.1.296 新增子代理獨立自動壓縮時機設定、工作流程統一模型環境變數、過載重試最大等待設定，並將 MCP 工具描述及伺服器指令上限從 2,048 調整為 4,096 字元；同步修正 Sonnet 5.5 快取讀取費用顯示及 VSCode Chrome 行動確認邏輯。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.296 帶來多項子代理與 MCP 改進。\n\n**主要新功能**\n• **子代理自動壓縮視窗**：新增 `autoCompactWindow` 設定，讓子代理可比主對話更早觸發自動壓縮，避免子代理耗盡上下文\n• **工作流程模型環境變數**：新增 `CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL`，可讓所有工作流程子代理統一使用同一個模型\n• **過載重試上限**：新增 `CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS`，設定對 529（過載）錯誤的最長重試等待時間\n• **MCP 工具描述上限擴大**：MCP 工具說明文字與伺服器指令的字元上限從 2,048 調整為 4,096\n\n**費用修正**\n• `/cost`、狀態列及 `--max-budget-usd` 現在正確以 $0.10/M tokens 計算 Sonnet 5.5 快取讀取費用（先前誤以 $0.20 計算）\n\n**VSCode 修正**\n• VSCode 擴充套件在每個工作階段使用 Claude in Chrome 時，執行瀏覽器行動前均會詢問確認",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "managed-agents-dynamic-workflows-beta-2026-10-09",
+    date: "2026-10-09",
+    version: "平台 Beta",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Managed Agents Dynamic Workflows 進入 Beta：AI 代理可自行撰寫並執行多代理工作流程",
+    summary: "Claude Platform 於 2026-10-09 在 managed-agents-2026-04-01 標頭下開放 Dynamic Workflows Beta；AI 代理可撰寫程式，讓伺服器分階段執行多個子代理，並透過 workflow_run.* 事件串流追蹤進度。",
+    body: {
+      kind: "feature",
+      description: "Claude Platform Managed Agents 新增 Dynamic Workflows（動態工作流程）Beta 功能。\n\n**功能說明**\n• AI 代理可自行撰寫一支程式，由伺服器分階段執行多個子代理（類似 Claude Code 的 Workflow 工具）\n• 工作流程執行狀態可透過工作階段事件串流上的 `workflow_run.*` 事件即時追蹤\n\n**啟用方式**\n在建立代理時設定以下欄位：\n```json\n\"multiagent\": {\"type\": \"multiagent_20261001\", \"workflows\": {\"type\": \"enabled\"}}\n```\n\n**使用條件**\n需加入 `managed-agents-2026-04-01` Beta 標頭。",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-sonnet-4-5-deprecation-2026-10-09",
+    date: "2026-10-09",
+    version: "模型棄用",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Claude Sonnet 4.5 宣告棄用：2026 年 11 月 30 日退場，建議遷移至 Sonnet 5.5",
+    summary: "Anthropic 宣布 Claude Sonnet 4.5 將於 2026 年 11 月 30 日從 Claude API 退場，官方建議用戶盡早遷移至 Claude Sonnet 5.5。",
+    body: {
+      kind: "breaking",
+      description: "Anthropic 宣布 Claude Sonnet 4.5 的棄用時程。\n\n**退場時程**\n• 宣告日期：2026-10-09\n• API 退場日期：2026-11-30\n\n**遷移建議**\n官方建議遷移至 Claude Sonnet 5.5（`claude-sonnet-5-5`），其效能更強，快取讀取費用已於 2026-10-07 降至 $0.10/M tokens。",
+      migration: {
+        title: "遷移至 Claude Sonnet 5.5",
+        text: "將 API 呼叫中的模型字串從 `claude-sonnet-4-5` 改為 `claude-sonnet-5-5`。Sonnet 5.5 的功能是 Sonnet 4.5 的超集，遷移通常不需要其他程式碼變更。"
+      },
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-agent-evals-no-internet-2026-10-09",
+    date: "2026-10-09",
+    version: "官方公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 關閉內部 AI 代理評測的即時網路存取：代理可靠性管控仍是挑戰",
+    summary: "TechCrunch 報導：Anthropic 表示無法可靠管控其 AI 代理，已關閉所有內部評測的即時網路存取，直到能夠有效監控和控制代理行為為止，此舉凸顯業界在代理安全領域面臨的根本挑戰。",
+    body: {
+      kind: "feature",
+      description: "TechCrunch 於 2026-10-09 報導，Anthropic 已採取措施限制內部 AI 代理評測環境。\n\n**主要內容**\n• Anthropic 表示目前無法可靠地管控其 AI 代理的行為\n• 已關閉「所有內部評測」的即時網路存取\n• 此限制將持續至 Anthropic 能夠有效監控並控制代理行為為止\n\n**影響評估**\n此舉顯示即使是 AI 前沿公司，在代理安全與可控性方面仍面臨重大技術挑戰，對業界具有重要的警示意義。",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-295-2026-10-08",
     date: "2026-10-08",
     version: "v2.1.295",
