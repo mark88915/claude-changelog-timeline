@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-distillation-defenses-2026-10-12",
+    date: "2026-10-12",
+    version: "研究發布",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 發布蒸餾攻擊防禦研究：新方法削減 90-99% 竊取數據量，指名 Zhipu 為攻擊者",
+    summary: "Anthropic 於 2026-10-12 發布「Strengthening our defenses against distillation attacks」研究報告，透過行為分類器、帳號偵測與產品層調整，已將蒸餾者竊取 Claude 數據量降低 90-99%；首次指名中國 AI 廠商 Zhipu（智譜）為攻擊者，並表示已拒絕蒸餾者兆級 tokens 的付費流量。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-12 發布研究報告，說明其對抗模型蒸餾攻擊的最新防禦成果。\n\n**防禦成效**\n• 早期證據顯示，新方法已將蒸餾者竊取的數據量降低 **90-99%**\n• 已拒絕蒸餾者**兆級 tokens** 的付費流量及可觀的付費業績\n\n**防禦方法（多層架構）**\n• **帳號偵測與封鎖**：組織層級封鎖、行為指紋識別與分類器即時偵測蒸餾模式\n• **行為分類器**：偵測系統性蒐集模式的使用行為\n• **產品層調整**：Fable 5 新增強化提取分類器（extraction classifiers）；摘要功能使竊取的輸出對訓練用途降低價值\n• **組織歸因**：將攻擊活動追溯至幕後組織\n\n**新增攻擊者**\n除先前指名的 DeepSeek、Moonshot AI、MiniMax、Alibaba Qwen 外，此次新增指名 **Zhipu（智譜）**，稱其在開發 GLM-5.3 期間蒸餾了美國頂尖模型的網路安全能力，且 GLM-5.3 的防護措施可輕易被繞過。\n\n**背景**\n此前 Anthropic 已披露近 2 億次與蒸餾攻擊相關的對話，涵蓋五個獨立攻擊行動。",
+      links: [
+        { label: "Anthropic 研究報告", href: "https://www.anthropic.com/research/distillation-defenses", kind: "doc" },
+        { label: "Crypto Briefing 報導", href: "https://cryptobriefing.com/anthropic-claude-distillation-attack-defenses/", kind: "doc" },
+        { label: "Runtime Wire 報導", href: "https://runtimewire.com/article/anthropic-distillation-defenses-claude", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-unintended-ai-actions-disclosure-2026-10-10",
     date: "2026-10-10",
     version: "安全事件揭露",
