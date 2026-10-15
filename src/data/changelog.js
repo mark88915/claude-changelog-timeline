@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "opentelemetry-export-beta-2026-10-14",
+    date: "2026-10-14",
+    version: "平台 Beta",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "OpenTelemetry Export 進入 Beta：可追蹤 Messages API 與 Managed Agents 請求",
+    summary: "Claude Platform 於 2026-10-14 開放 OpenTelemetry Export Beta，可在 Claude Console 設定 OTLP 觀測後端，透過 Python、TypeScript、C#、Go、Java、PHP 及 Ruby SDK 接收 Messages API 與 Managed Agents 的分散式追蹤 Spans，支援零資料保留環境。",
+    body: {
+      kind: "feature",
+      description: "Claude Platform 於 2026-10-14 在 Release Notes 宣布 OpenTelemetry Export 進入 Beta。\n\n**功能說明**\n• 可在 Claude Console 新增 OTLP Destination，指定觀測平台端點及驗證方式\n• Claude SDK 支援語言：Python、TypeScript、C#、Go、Java、PHP、Ruby\n• 支援追蹤範圍：Messages API 請求與 Claude Managed Agents 工作階段\n\n**重要限制**\n• Spans 傳送為「盡力而為」，可能發生丟失；建議仍以 Usage API 追蹤精確請求數\n• 可透過 traceparent 標頭的 sampled flag 停用特定請求的 Spans\n• Managed Agents 不支援零資料保留（Zero Data Retention）；Messages API 的零資料保留模式可正常使用完整內容模式\n\n**適用條件**\n本功能目前為 Beta，適用 Anthropic Beta Services 條款，功能可能隨時調整。",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "OpenTelemetry 使用說明文件", href: "https://platform.claude.com/docs/en/manage-claude/opentelemetry", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-singapore-office-2026-10-14",
+    date: "2026-10-14",
+    version: "官方公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 新加坡辦公室正式開幕，與新加坡政府簽署 MOU",
+    summary: "Anthropic 於 2026-10-14 在新加坡正式開設辦公室，並與新加坡政府簽署備忘錄（MOU），成為 Anthropic 在亞太地區繼東京、班加羅爾、首爾、雪梨後的第五個據點，ASEAN 總經理 Dale Finlay 將常駐於此。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-14 在新加坡正式開幕辦公室，並與新加坡政府簽署合作備忘錄（MOU）。\n\n**背景**\n• Anthropic 在 2026 年 9 月宣布將於 10 月進駐新加坡，理由是新加坡在 Claude.ai 使用率（相對人口）的「Anthropic 經濟指數」全球排名第二\n• 這是 Anthropic 在亞太地區的第五個辦公室（東京、班加羅爾、首爾、雪梨之後）\n\n**人員**\n• ASEAN 區總經理：Dale Finlay（常駐新加坡）\n• 新加坡招募職缺涵蓋 Applied AI、財務與行銷等多個團隊\n\n**地點**\n• 辦公室位於新加坡金融核心區域（Raffles Place 或 Ocean Financial Centre，各方報導略有出入）",
+      links: [
+        { label: "Anthropic Newsroom", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "DealStreetAsia 報導", href: "https://www.dealstreetasia.com/stories/anthropic-to-open-singapore-office-as-demand-for-claude-grows-495410/", kind: "doc" },
+        { label: "CRN Asia 報導", href: "https://www.crnasia.com/news/2026/artificial-intelligence/anthropic-confirms-new-office-in-singapore", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-distillation-defenses-2026-10-12",
     date: "2026-10-12",
     version: "研究發布",
