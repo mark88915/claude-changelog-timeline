@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-election-safeguards-2026-10-15",
+    date: "2026-10-15",
+    version: "官方公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 推出選舉安全防護措施，封禁涉及選舉濫用帳號",
+    summary: "因應 2026 年 11 月 3 日美國中期選舉，Anthropic 宣布封禁多個涉及選舉相關濫用的帳號，並與非黨派組織 Democracy Works 合作，在 Claude 中加入 TurboVote 選民登記與投票資訊連結，同時強化選舉濫用偵測能力。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-15 發布選舉安全防護更新，針對 11 月 3 日美國中期選舉做出多項調整。\n\n**主要措施**\n• **封禁濫用帳號**：已偵測並封禁多個用於選舉相關惡意操作的帳號，包含涉嫌虛假宣傳的案例\n• **使用者選舉資訊**：與非黨派組織 Democracy Works 合作，Claude 將顯示選舉橫幅，引導使用者前往 TurboVote 查詢選民登記、投票地點及選舉結果\n• **偵測能力提升**：Anthropic 表示已改善系統對此類濫用行為的偵測能力\n\n**使用政策**\n• Claude 禁止被用於執行欺騙性政治宣傳、製作旨在影響選民的假數位內容、從事選舉詐欺、干擾投票基礎設施或散播關於投票流程的誤導資訊\n\n**模型表現**\n• Opus 4.7 與 Sonnet 4.6 在 600 項測試提示中，正確應對選舉敏感問題的比率分別為 100% 及 99.8%",
+      links: [
+        { label: "Anthropic 選舉安全防護更新", href: "https://anthropic.com/news/election-safeguards-update", kind: "doc" },
+        { label: "Decrypt 報導", href: "https://decrypt.co/365486/anthropic-election-safeguards-claude-ai-us-midterms", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-301-2026-10-15",
+    date: "2026-10-15",
+    version: "v2.1.301",
+    category: "bug",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.301：修正技能與指令超長參數卡住、登入 Token 重新整理逾時問題",
+    summary: "Claude Code v2.1.301 修正技能（skills）與指令在傳入超長參數列表時卡住的問題，以及執行短指令（如 claude auth status）後登入 Token 重新整理逾時的問題。",
+    body: {
+      kind: "bug",
+      problem: "兩項已知問題：(1) 技能（skills）與斜線指令在傳入超長參數列表時會卡住無回應；(2) 執行 `claude auth status` 等短暫指令後，登入 Token 重新整理出現逾時錯誤。",
+      rootCause: "參數處理與 Token 重新整理流程的邊界條件（edge cases）。",
+      fix: "修正超長參數列表的處理邏輯；修正短指令執行後 Token 重新整理的逾時問題。",
+      links: [
+        { label: "Claude Code Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "opentelemetry-export-beta-2026-10-14",
     date: "2026-10-14",
     version: "平台 Beta",
