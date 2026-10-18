@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-302-2026-10-17",
+    date: "2026-10-17",
+    version: "v2.1.302",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.302：新增 Auto Mode 模型選擇、閒置壓縮設定，Claude Design 獨立版宣布下線",
+    summary: "Claude Code v2.1.302 新增 CLAUDE_CODE_AUTO_MODE_MODEL 環境變數可指定 client-side auto mode 分類器模型、/config 新增 idle compaction 切換，並宣布 Claude Design 獨立版將於 2026-12-14 關閉。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.302 更新內容（2026-10-17 發布）：\n\n**新功能**\n• **CLAUDE_CODE_AUTO_MODE_MODEL**：新增環境變數，可選擇 client-side auto mode 分類器使用的模型（不影響 server-side auto mode）\n• **Idle Compaction 設定**：在 `/config` 新增 Idle Compaction 開關列，可關閉閒置時自動壓縮\n• **Claude Design 棄用通知**：`/design-sync` 與 `/design-login` 加入棄用警告，Claude Design 獨立版將於 2026-12-14 正式關閉\n\n**行為變更**\n• Prompt 與 agent hooks 每個事件的並發執行上限調整為 12 個\n\n**效能提升**\n• 啟用大量 plugins 時的啟動速度提升\n\n**修正**\n• 修正 VS Code、MCP 登入與雲端 session 相關問題",
+      links: [
+        { label: "Release v2.1.302 · anthropics/claude-code", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.302", kind: "gh" },
+        { label: "Claude Code Changelog Log (X)", href: "https://x.com/ClaudeCodeLog/status/2111203644271890517", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-election-safeguards-2026-10-15",
     date: "2026-10-15",
     version: "官方公告",
