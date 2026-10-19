@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-public-benefit-fund-2026-10-18",
+    date: "2026-10-18",
+    version: "官方公告",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 宣布設立公益基金，捐出 5% 股份（市值約 480 億美元）",
+    summary: "Anthropic 於 2026-10-18 宣布設立「Anthropic Public Benefit Fund」，承諾捐出公司 5% 股份（按最新估值約 480 億美元），以 LLC 形式設立，用於非營利捐款、直接分配及 AI 就業衝擊輔助；合計 Anthropic 約 20% 股份將用於公益。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-18 宣布設立「Anthropic Public Benefit Fund」（公益基金）。\n\n**主要內容**\n• **股份承諾**：捐出公司 5% 股份，按最新估值約 480 億美元；需股東批准後生效\n• **增量機制**：每當公司估值超過基準線成長 50%，董事會可酌情再追加 2% 股份\n• **結構**：以 LLC（有限責任公司）形式設立，非 501(c)(3)，保有更彈性的捐款形式\n• **用途**：非營利捐款、直接分配給特定群體，及協助因 AI 而受就業衝擊的工作者\n• **限制**：基金持有的 Anthropic 股份不得用於美國境內外的遊說或政治獻金\n• **累計比例**：加計本次及先前承諾，Anthropic 約 20% 股份將用於公益目的\n\n**背景**\n• Anthropic 同期據報已向國會悄悄遊說推動自家起草的 AI 前沿安全法案（Politico 報導）\n• IPO 時程仍在推進中，最新報導指出將於 11 月中旬開始路演，最快 11 月底前掛牌",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/public-benefit-fund", kind: "doc" },
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/10/18/anthropic-ai-public-benefit-fund.html", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-302-2026-10-17",
     date: "2026-10-17",
     version: "v2.1.302",
