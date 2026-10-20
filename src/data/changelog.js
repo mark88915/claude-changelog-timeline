@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ai-first-workplace-2026-10-19",
+    date: "2026-10-19",
+    version: "官方報告",
+    category: "enh",
+    area: "performance",
+    product: "claude",
+    title: "Anthropic 發布 AI 優先職場報告：AI agent 工時超越人類 6:1，工程師程式提交量增 5 倍",
+    summary: "Anthropic 於 2026-10-19 透過 Fortune 披露內部研究：AI agent 工時自今年 3 月起首次超越人類，8 月已達 6:1；工程師程式提交量較半年前成長 5 倍；人類成為 AI 運作的限制瓶頸，80% 工時用於等待人類決策。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-19 透過 Fortune 披露其內部 AI 優先職場研究。\n\n**主要數據**\n• **AI 工時占比**：AI agent 工時自 2026 年 3 月起首次超過人類工時，8 月已達 6:1\n• **程式提交量**：軟體工程師程式提交量半年內成長約 5 倍\n• **人類為瓶頸**：約 80% 的 Claude session 耗時來自 AI 等待人類回應，人類注意力已成最大限制\n• **員工規模**：Anthropic 現有逾 3,500 名員工，非技術職位比例提升\n• **會議增加**：中位員工會議時間較去年增加 20%，部分反映非技術人員管理多個 AI agents 的需求\n\n**員工描述**\n• 有員工形容：「就像指揮一支克勞德大軍，每一個都在等我的注意力」\n• 非技術員工也開始運行個人 AI agents 監控電子郵件與行事曆",
+      links: [
+        { label: "Fortune 報導", href: "https://fortune.com/2026/10/19/work-botsitting-meetings-army-of-claudes-anthropic/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-303-2026-10-18",
+    date: "2026-10-18",
+    version: "v2.1.303",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.303：Bug fixes 與穩定性改善",
+    summary: "Claude Code v2.1.303 為 v2.1.302 後的小版本修正，包含 bug fixes 與 reliability improvements，官方未另列詳細變更說明。",
+    body: {
+      kind: "bug",
+      problem: "v2.1.302 後發現的若干問題。",
+      rootCause: "官方未公開說明。",
+      fix: "Bug fixes 與 reliability improvements。",
+      links: [
+        { label: "Claude Code Releases · GitHub", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-public-benefit-fund-2026-10-18",
     date: "2026-10-18",
     version: "官方公告",
