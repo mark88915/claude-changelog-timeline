@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-304-2026-10-19",
+    date: "2026-10-19",
+    version: "v2.1.304",
+    category: "new",
+    area: "slash-command",
+    product: "claude-code",
+    title: "v2.1.304：新增 /auto-mode-setup 指令、Code Review 深度層級，修正 worktree 誤刪分支",
+    summary: "Claude Code v2.1.304 帶來 76 項變更，重點包含 /auto-mode-setup 引導式設定、Code Review 層級（Quick/Standard/Deep）、tool.check decider:\"person\" 要求人工核准，並修正 --worktree 在 HEAD detached 時可能無確認即刪除分支的嚴重問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.304 於 2026-10-19 發布，共包含 76 項變更。\n\n**主要新功能**\n• **/auto-mode-setup**：新增引導式設定指令，自動掃描專案與歷史 session，讓 Auto Mode 學習你的開發環境，草稿結果可在確認後寫入 `~/.claude/settings.json`；現支援 Bedrock、Vertex、Foundry、Claude apps gateway 及關閉遙測的 session\n• **tool.check decider:\"person\"**：Mod 的 tool.check 可設 decider:\"person\"，強制要求透過權限對話框由人工核准；未獲核准的請求將以 mod 原因拒絕\n• **Plugin 跳過 hook 的提示**：當有 plugin 優先執行並跳過某個 mod 的 hook 時，逐字稿（transcript）會顯示事件名稱與 plugin 名稱\n\n**Code Review 功能增強**\n• **Review 深度層級**：組織擁有者可設定 Quick、Standard（預設）或 Deep 三種 Code Review 深度，亦可針對個別 repo 設定不同層級\n• **全組織 repo 覆蓋**：管理員可在 Code Review 設定中開啟「自動對 GitHub 組織所有 repo 啟用 Review，包含日後新增的 repo」選項\n\n**修正**\n• 修正 `claude --worktree` 在 HEAD detached 或位於其他分支時，可能無確認即刪除 worktree 及分支的問題（可能導致 commit 遺失）\n• Pro / Max 用戶在恢復閒置 session 時，若會耗用 5 小時使用額度的顯著比例，現在會收到警告提示",
+      links: [
+        { label: "Claude Code 2.1.304 Release (GitHub)", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.304", kind: "gh" },
+        { label: "classmethod 詳細分析", href: "https://dev.classmethod.jp/en/articles/20261020-cc-updates-v2-1-304/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ai-first-workplace-2026-10-19",
     date: "2026-10-19",
     version: "官方報告",
