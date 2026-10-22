@@ -1,6 +1,98 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-duet-launch-2026-10-21",
+    date: "2026-10-21",
+    version: "研究預覽",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Duet 研究預覽：主動式 AI agent，可自動處理任務並發送晨間簡報",
+    summary: "Anthropic 於 2026-10-21 推出 Claude Duet 研究預覽，這是一款主動式 AI agent，可連結應用程式、自動發送晨間工作簡報，並在用戶授權下代為完成任務。目前僅限美國 Pro/Max 用戶透過候補名單申請，搭載 Claude Opus 5.5。",
+    body: {
+      kind: "feature",
+      description: "Claude Duet 是 Anthropic 推出的主動式 AI agent，於 2026-10-21 進入研究預覽階段。\n\n**主要功能**\n• **主動式代理**：無需用戶提示，Duet 會主動掃描已連結的應用程式（電子郵件、行事曆等），偵測需要處理的事項\n• **晨間簡報**：每日自動發送工作簡報，摘要重要訊息與待辦事項\n• **任務代理**：可在用戶授權後代為執行任務，執行重要任務前會先請求批准\n• **搭載 Opus 5.5**：底層使用 Claude Opus 5.5 模型\n\n**存取方式**\n• 目前以研究預覽形式推出，需透過候補名單申請\n• 僅限美國地區的 Pro 或 Max 訂閱用戶\n• Team / Enterprise 客戶尚未納入\n• 費用包含於現有訂閱方案，但會計入使用額度\n\n**支援平台**：iOS、Android 獨立 App，及瀏覽器版 claude.ai",
+      links: [
+        { label: "Anthropic Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" },
+        { label: "報導：Claude Duet", href: "https://en.wowtale.net/2026/10/22/235671/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-api-version-2026-10-21",
+    date: "2026-10-21",
+    version: "2026-10-21",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "Claude API 版本 2026-10-21：temperature / top_p / top_k 傳入即回傳 400 錯誤",
+    summary: "Anthropic 於 2026-10-21 發布新 API 版本，請求中傳入 temperature、top_p 或 top_k 參數（含預設值）將回傳 400 錯誤；新 SDK 主版本預設使用此版本，升級前須評估影響。",
+    body: {
+      kind: "breaking",
+      description: "Claude API 版本 2026-10-21 為重大變更版本，發布於 2026-10-21。\n\n**重大變更**\n• 在此版本下，請求中傳入 `temperature`、`top_p` 或 `top_k` 參數（即使是預設值）將回傳 **HTTP 400 錯誤**\n• 新版 SDK 主要版本預設會使用此 API 版本，升級 SDK 前需先評估程式碼是否有傳入這些參數\n\n**建議行動**\n• 審查現有程式碼，移除明確傳入 temperature / top_p / top_k 的地方\n• 若需繼續使用舊行為，可在請求標頭中指定舊版 API 版本\n• 參閱官方 migration guide 確認完整變更列表",
+      migration: {
+        title: "移除 temperature / top_p / top_k 參數",
+        text: "檢查所有 API 呼叫，移除明確傳入這些參數的程式碼，或在升級 SDK 時固定使用舊版 API 版本字串。"
+      },
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "第三方分析：Breaking Changes", href: "https://cellcog.ai/blog/anthropic-api-2026-10-21/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-305-2026-10-20",
+    date: "2026-10-20",
+    version: "v2.1.305",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.305：新增 Linux 沙箱 nested user namespaces、無人值守重試變數",
+    summary: "Claude Code v2.1.305 於 2026-10-20 發布，新增 Linux 沙箱下建立 nested user namespaces 的設定、無人值守重試模式的使用額度重置變數，並修正 Windows exFAT/FAT32 檔案寫入問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.305 於 2026-10-20 發布。\n\n**新功能**\n• **Linux 沙箱 nested user namespaces**：新增沙箱設定，允許被沙箱的指令建立 user namespaces，適用於需要在沙箱內執行容器相關工作的場景\n• **無人值守重試模式變數**：新增環境變數，可在無人值守（unattended）模式下偵測使用額度上限解除，自動恢復重試\n\n**修正**\n• 修正 Windows 上 exFAT 及 FAT32 磁碟機的檔案寫入問題\n• 加快啟用多個 plugin 時的啟動速度（此項來自 v2.1.302）",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "inference-hooks-ga-2026-10-20",
+    date: "2026-10-20",
+    version: "GA",
+    category: "enh",
+    area: "model",
+    product: "claude",
+    title: "Inference Hooks 正式 GA，Enterprise 組織無需 beta 存取即可使用",
+    summary: "Claude 平台的 Inference Hooks 功能於 2026-10-20 正式 GA，Claude Enterprise 組織不再需要 beta 存取資格，可直接在 API 請求中使用 inference hooks 攔截與修改模型行為。",
+    body: {
+      kind: "feature",
+      description: "Inference Hooks 功能於 2026-10-20 從 beta 轉為正式可用（GA）。\n\n**適用範圍**：Claude Enterprise 組織（其他方案可能另有時程）\n\n**功能說明**\n• Inference hooks 允許在模型推理過程中攔截並自訂請求行為\n• 可用於安全過濾、日誌記錄、請求轉換等企業場景\n• 不再需要申請 beta 存取",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "user-profiles-api-2026-10-20",
+    date: "2026-10-20",
+    version: "新 API",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "User Profiles API 上線：/v1/user_profiles 端點供企業標記最終用戶",
+    summary: "Claude 平台於 2026-10-20 新增 User Profiles 功能，提供 /v1/user_profiles 端點，讓 API 客戶可在請求中標記最終用戶（end customer），便於使用量分析與個人化設定。",
+    body: {
+      kind: "feature",
+      description: "User Profiles 功能於 2026-10-20 正式上線。\n\n**功能說明**\n• 新增 `/v1/user_profiles` REST 端點\n• API 客戶可在請求中帶入最終用戶識別資訊（end customer tagging）\n• 便於企業追蹤各用戶的 API 使用量、實現個人化偏好設定\n\n**適用場景**：B2B SaaS 產品、多租戶應用程式、需要用戶級別使用量分析的企業",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-304-2026-10-19",
     date: "2026-10-19",
     version: "v2.1.304",
