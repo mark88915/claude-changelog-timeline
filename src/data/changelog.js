@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-308-2026-10-22",
+    date: "2026-10-22",
+    version: "v2.1.308",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.308：CLI bug 修正與穩定性改善",
+    summary: "Claude Code v2.1.308 於 2026-10-22 發布，聚焦於 CLI bug 修正與可靠性提升，減少失敗率並帶來更順暢穩定的執行體驗。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.308 於 2026-10-22 發布（npm 顯示約 17 小時前）。\n\n**修正內容**\n• CLI bug 修正與可靠性改善，減少執行失敗率\n• 提供更順暢、更穩定的整體使用體驗\n\n本版本屬維護性發布，不包含新功能。",
+      links: [
+        { label: "GitHub Releases", href: "https://github.com/anthropics/claude-code/releases", kind: "gh" },
+        { label: "npm @anthropic-ai/claude-code", href: "https://www.npmjs.com/package/@anthropic-ai/claude-code", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "agentic-ai-foundation-skills-2026-10-22",
+    date: "2026-10-22",
+    version: "公告",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 將 Agent Skills 捐贈給 Linux Foundation 旗下的 Agentic AI Foundation",
+    summary: "Anthropic 於 2026-10-22 宣布將 Agent Skills 捐贈給 Linux Foundation 旗下新成立的 Agentic AI Foundation，推動 AI agent 技術的開放標準。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-22 宣布將旗下 Agent Skills 技術捐贈給 Linux Foundation 旗下新成立的 Agentic AI Foundation。\n\n**重點**\n• Agent Skills 是 Anthropic 開發的 AI agent 技術框架\n• 此次捐贈旨在推動 AI agent 相關技術的開放標準與生態系建立\n• Agentic AI Foundation 隸屬 Linux Foundation，採開放治理模式\n\n**意義**：此舉顯示 Anthropic 積極推動 AI agent 技術標準化，有助於業界建立互通的 agent 生態系。",
+      links: [
+        { label: "Anthropic News", href: "https://anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-duet-launch-2026-10-21",
     date: "2026-10-21",
     version: "研究預覽",
