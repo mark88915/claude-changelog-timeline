@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "enterprise-unified-experience-2026-10-23",
+    date: "2026-10-23",
+    version: "公告",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Enterprise 統一聊天與 Cowork 介面正式推出",
+    summary: "Anthropic 於 2026-10-23 宣布 Claude Enterprise 方案正式合併聊天與 Cowork 為統一介面，適用於網頁、桌面和行動版，為 9 月 Pro/Max 先行推出後的 Enterprise 方案正式跟進。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-23 宣布 Claude Enterprise 方案正式推出統一 Claude 體驗，將聊天與 Cowork 合併為單一介面。\n\n**主要內容**\n• Claude 聊天與 Cowork 合併為統一介面，企業用戶無需在分頁間切換\n• Claude 自動判斷任務類型（問答或複雜任務），選擇適合工具\n• 適用於網頁版、桌面版及行動版\n• 此為 2026-09-16 對 Pro/Max 方案先行推出後，Enterprise 方案的正式跟進\n\n**企業管理功能**\n• 組織管理員可透過管理主控台設定統一體驗的推出時程\n• 現有 Cowork 專案、Skills 與 Connectors 設定均完整保留",
+      links: [
+        { label: "Seeking Alpha 報導", href: "https://seekingalpha.com/news/4656723-anthropic-unifies-claude-chat-and-cowork-for-enterprise-plans", kind: "doc" },
+        { label: "Support 說明文章", href: "https://support.claude.com/en/articles/17444462", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-309-2026-10-23",
+    date: "2026-10-23",
+    version: "v2.1.309",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.309：ultrareview 強制要求工作區信任、sed -i 行為變更、沙箱與 worktree 安全修正",
+    summary: "Claude Code v2.1.309 於 2026-10-22~23 發布，重點為 claude ultrareview 強制要求工作區信任、sed -i 改為標準 Bash 指令（不再被 /rewind 還原）、修正多項沙箱安全漏洞與 worktree 隔離問題，並改善 Windows git 效能與巢狀 CLAUDE.md 壓縮問題。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.309 於 2026-10-22~23 發布。\n\n**行為變更（注意）**\n• **`sed -i` 行為調整**：`sed -i` 現在以標準 Bash 指令提示執行，不再模擬檔案編輯預覽，執行結果**不再被 `/rewind` 還原**\n• **`claude ultrareview` 需要工作區信任**：從終端機執行時會要求用戶確認；非終端機環境（如腳本、SDK）直接拒絕執行\n\n**安全修正**\n• 修正 macOS 與 Linux 沙箱 Bash 啟動檔（startup files）問題\n• 修正 macOS 沙箱中 denyWrite 模式的 symlink 漏洞\n• 修正沙箱指令及自動接受的編輯可修改 `--mcp-config` 傳入的 MCP 設定檔的問題\n• 修正多個 worktree 隔離守衛漏洞（含 locale 前綴指令、zsh 算術指令等）\n• 修正 print/SDK sessions 中已停用的 MCP server 可被後續權限提示重新連接的問題\n\n**其他修正與改善**\n• 修正大型巢狀 CLAUDE.md 讀取後導致反覆壓縮的問題（現只讀取開頭部分）\n• 磁碟空間不足時錯誤訊息更清晰\n• Windows 上 git 指令執行速度加快",
+      links: [
+        { label: "GitHub Release v2.1.309", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.309", kind: "gh" },
+        { label: "classmethod 詳細分析", href: "https://dev.classmethod.jp/en/articles/20261023-cc-updates-v2-1-309/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-308-2026-10-22",
     date: "2026-10-22",
     version: "v2.1.308",
