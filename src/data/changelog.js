@@ -1,6 +1,59 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ipo-s1-2026-10-26",
+    date: "2026-10-26",
+    version: "公告",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 正式向 SEC 提交 S-1 上市申請",
+    summary: "Anthropic 於 2026-10-26 正式向美國證管會（SEC）提交 S-1 表格，申請首次公開募股（IPO），估值目標約 $2 兆美元，為 AI 產業最大規模 IPO 之一。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-26 正式向美國 SEC 提交 S-1 上市申請書，宣告 IPO 正式啟動。\n\n**主要內容**\n• 正式提交 S-1 表格（非機密版），進入 IPO 程序\n• 市場估值目標約 $2 兆美元，為 AI 公司最高估值之一\n• 2026 年上半年收入約 163 億美元，淨虧損逾 800 億美元\n• 計畫在 Nasdaq 掛牌上市\n\n**背景**\n• 2026 年 6 月 Anthropic 首次以機密方式提交草稿，此次為正式公開申請\n• 上輪融資（Series H）估值 9650 億美元，由 Altimeter Capital、Sequoia 等領投",
+      links: [
+        { label: "Anthropic 官方新聞", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "Yahoo Finance 報導", href: "https://finance.yahoo.com/markets/stocks/articles/anthropic-files-confidential-1-1-181246257.html", kind: "doc" },
+        { label: "Shacknews 報導", href: "https://www.shacknews.com/article/149384/anthropic-ipo-filing-official", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-for-nonprofits-plugin-2026-10-26",
+    date: "2026-10-26",
+    version: "公告",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude for Nonprofits 插件正式推出",
+    summary: "Anthropic 於 2026-10-26 推出 Claude for Nonprofits 插件，由 30+ 非營利組織共同開發，提供籌款研究、提案撰寫、行政管理等工作流程工具，Team 和 Enterprise 非營利用戶免費安裝使用。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-26 宣布推出 Claude for Nonprofits 插件，為非營利組織提供專屬工作流程支援，為首批非營利專用功能之一。\n\n**主要功能**\n• **籌款支援**：研究捐款方與資助來源（附引用）、審查 RFP 資格、起草提案與助款報告、準備捐款人更新與管理計畫\n• **行政管理**：協助小型團隊處理日常行政工作\n• **負責任設置**：Claude 可繪製組織內捐款資料、助款檔案、財務及政策的存放位置；員工可確認使用是否符合組織 AI 政策\n\n**安全與隱私**\n• 管理員控制存取權限和連接器設定\n• 預設情況下，非營利組織資料不用於模型訓練\n\n**適用範圍**\n• 自動安裝於 Team 和 Enterprise 方案的非營利用戶，無額外費用",
+      links: [
+        { label: "Blockchain.News 報導", href: "https://blockchain.news/news/anthropic-expands-claude-for-nonprofits-with-new-plugin", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-311-2026-10-26",
+    date: "2026-10-26",
+    version: "v2.1.311",
+    category: "bug",
+    area: "performance",
+    product: "claude-code",
+    title: "v2.1.311：self-hosted-runner 新旗標、上下文自動壓縮、啟動效能修正、ultrathink 行為調整",
+    summary: "Claude Code v2.1.311 於 2026-10-26 發布，新增 self-hosted-runner 旗標、修正超過 200K tokens 改為自動壓縮、修正啟動凍結問題、`ultrathink` 改為 xhigh 努力，以及多項穩定性修正。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.311 於 2026-10-26 發布（標記為最新版）。\n\n**新功能**\n• **self-hosted-runner 新旗標**：新增 `--hold-idle-file` 和 `--max-hold-min`，讓閒置 session 在 host 回報仍有程序執行時保持開啟\n\n**行為變更（注意）**\n• **`ultrathink` 調整**：在 Anthropic API 上對多款 Opus/Sonnet/Haiku 5.x 模型改為 xhigh 努力（原為 thinking 模式）\n• **Ctrl+D 退出改為兩次按鍵**：在 agent view 空白輸入時，需按兩次 Ctrl+D 才退出\n\n**上下文處理改善**\n• 標準上下文 session 超過 200K tokens 時，不再報「Usage credits required for 1M context」錯誤，改為自動壓縮對話並繼續執行\n\n**效能修正**\n• 修正 CLAUDE.md 含超長清單項目時導致啟動和檔案讀寫長時間凍結的問題\n• 修正大型編輯時 Write/Edit 最高 5 秒延遲問題\n\n**Subagent 與 Hooks 修正**\n• Subagent 現可使用在其啟動後才完成連線的 MCP server\n• 修正 `SubagentStop` hook 每分鐘觸發約兩次（應為一次）的問題\n\n**其他修正**\n• 修正 `claude -p` 和 SDK sessions 儲存 transcript 訊息順序錯誤的問題\n• 修正自動壓縮後 Claude 可能看到過時 MEMORY.md/CLAUDE.md 內容的問題\n• 修正 API 標記為不可重試的請求仍被重試（可能導致卡頓數分鐘）的問題\n• 修正 Remote Control session 在攔截 proxy 後卡在「Connecting」約兩分鐘的問題\n• Cowork 雲端 session 中 WebFetch/WebSearch 在回應停頓後 300 秒強制失敗",
+      links: [
+        { label: "GitHub Release v2.1.311", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.311", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "enterprise-unified-experience-2026-10-23",
     date: "2026-10-23",
     version: "公告",
