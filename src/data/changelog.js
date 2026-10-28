@@ -1,6 +1,58 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-gsa-government-expansion-2026-10-27",
+    date: "2026-10-27",
+    version: "公告",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 擴大 GSA 合作，Claude 進入各層級政府並提供 40% 折扣",
+    summary: "Anthropic 於 2026-10-27 宣布擴大與 GSA 合作，向聯邦、州、地方、部落及領地政府提供 Claude Enterprise、Claude for Government 與 Claude API 共 40% 折扣，預估為政府節省約 10 億美元。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-27 發布官方公告，擴大與美國總務署（GSA）的合作夥伴關係，將 Claude 帶入各層級政府。\n\n**主要內容**\n• Claude Enterprise、Claude for Government 及 Claude API 均享有 40% 折扣\n• 折扣適用範圍擴大至州、地方、部落及領地（SLTT）政府\n• 透過雲端服務商購買的方案未來幾個月內也將納入\n• 無最低消費承諾，按實際用量計費\n• 預估為政府節省約 10 億美元\n\n**安全認證**\n• Claude for Government 已獲 FedRAMP High 授權\n• Claude Enterprise 正在進行 FedRAMP 20x 流程（Moderate 授權中）\n• 部分模型在 Amazon Bedrock 上已獲 DoD IL4/IL5 授權\n\n**背景**\n• 目前已有約 500 個美國聯邦、州及地方組織使用 Claude\n• 聯邦民用機構使用量在一年內成長約 20 倍\n• 可透過 GSA 多元獎勵採購計畫（MAS）以 OneGov 折扣購買",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/expanding-partnership-gsa", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-drug-development-progress-2026-10-27",
+    date: "2026-10-27",
+    version: "研究",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 發布 Claude 加速藥物開發初期進展報告",
+    summary: "Anthropic 於 2026-10-27 發布研究報告，揭示 Claude 在加速藥物開發方面的初期成果，已與 Novo Nordisk、Allen Institute、UCSF 等 6 個合作夥伴展開研究，部分工作流程縮短至原本十分之一的時間。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-27 發布研究報告，說明透過 Claude Science 平台協助藥物開發的初期進展。\n\n**主要合作夥伴**\n• Novo Nordisk：測試 Claude Science 於 R&D 特定工作流程\n• Allen Institute：研究人員回報分析工作流程縮短至原來十分之一時間\n• UCSF Brain Tumor Center：腦瘤研究\n• Manifold Bio、Eli Lilly、AbbVie 等\n\n**研究成果**\n• 自動識別罕見疾病（苯酮尿症）新藥候選物質\n• 分析工作流程時間大幅縮短\n• 聚焦於被忽視及罕見疾病的藥物研發\n\n**背景**\n• Claude Science 於 2026 年 6 月 30 日推出，整合超過 60 個精選資料庫與專業工具套件\n• Anthropic 也正在進行內部臨床前藥物研發計畫，專注於被忽視及罕見疾病",
+      links: [
+        { label: "Anthropic 研究報告", href: "https://anthropic.com/research/early-progress-drug-development", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-stanford-copyright-ruling-2026-10-27",
+    date: "2026-10-27",
+    version: "法律",
+    category: "brk",
+    area: "model",
+    product: "claude",
+    title: "聯邦法官裁定 Anthropic 非法使用史丹佛教授著作訓練 Claude",
+    summary: "聯邦法官於 2026-10-27 裁定 Anthropic 在未取得授權的情況下，使用超過 10 位史丹佛大學教授的著作訓練 Claude，訴訟案進一步對 AI 公司的訓練資料合法性構成挑戰。",
+    body: {
+      kind: "breaking",
+      description: "根據史丹佛日報（Stanford Daily）於 2026-10-27 的報導，聯邦法官裁定 Anthropic 非法使用超過 10 位史丹佛教授的著作訓練 Claude 語言模型。\n\n**裁定內容**\n• 裁定 Anthropic 在未取得授權下使用教授著作\n• 超過 10 位史丹佛大學教授的研究著作受影響\n\n**背景**\n• 此案是 2026 年多起針對 AI 公司訓練資料版權訴訟之一\n• 同期，Elvis Presley 版權持有人也對 Anthropic 提起訴訟，指控其使用 274 首歌詞訓練模型\n• 訓練資料合法性問題成為 AI 產業面臨的重大法律挑戰",
+      migration: { title: "待觀察", text: "法律裁定可能影響 Anthropic 未來訓練資料政策，持續關注後續進展。" },
+      links: [
+        { label: "Stanford Daily 報導", href: "https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ipo-s1-2026-10-26",
     date: "2026-10-26",
     version: "公告",
