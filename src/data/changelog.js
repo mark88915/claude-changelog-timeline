@@ -1,6 +1,57 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ai-for-science-expansion-2026-10-28",
+    date: "2026-10-28",
+    version: "公告",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 擴大 AI for Science 計畫至 20 個基金會與研究機構",
+    summary: "Anthropic 於 2026-10-28 宣布將 AI for Science 計畫擴大，新增 20 個基金會、機構及研究團體，以 Claude 協助加速科學研究，並同步揭露已生成逾 3.5 萬個抗體設計用於食物過敏治療研究。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-28 正式宣布擴大 AI for Science 計畫，將科學 AI 支援的範圍延伸至更多研究機構。\n\n**主要內容**\n• AI for Science 計畫新增 20 個基金會、機構與研究團體\n• 支援涵蓋醫學、生物學、物理學等多個科學領域\n• 最新進展：Claude 在約一個月內生成逾 35,000 個抗體設計，用於潛在食物過敏治療靶點\n• 加速藥物開發流程，縮短從設計到測試的時間\n\n**背景**\n• AI for Science 計畫於 2026 年初啟動，旨在將 Claude 應用於科學研究加速\n• 與 Novo Nordisk、Allen Institute、UCSF Brain Tumor Center 等機構持續合作",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://anthropic.com/news/ai-for-science-expands-foundations-research-institutions", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-for-legal-expansion-2026-10-28",
+    date: "2026-10-28",
+    version: "公告",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Claude for Legal 推出新工具庫，擴充合約審查與法規追蹤功能",
+    summary: "Anthropic 於 2026-10-28 宣布 Claude for Legal 推出全新現成工具庫，內含合約審查、法規追蹤等多項即用型 AI 工具，進一步強化法律從業人員的工作流程支援。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-28 宣布擴充 Claude for Legal，推出全新現成工具庫（gallery of ready-made tools）。\n\n**主要新功能**\n• 合約審查工具：自動分析合約條款，識別關鍵風險點\n• 法規追蹤工具：持續監控法規變動並提供摘要\n• 即用型（ready-made）工具設計，快速部署至現有工作流程\n\n**背景**\n• Claude for Legal 於 2026 年 5 月首次發布\n• 本次擴充新增現成工具庫，降低部署門檻\n• 專業判斷與最終決策仍由法律人員負責，Claude 擔任輔助角色",
+      links: [
+        { label: "Anthropic 官方新聞", href: "https://www.anthropic.com/news/announcements", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-312-2026-10-27",
+    date: "2026-10-27",
+    version: "v2.1.312",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "Claude Code v2.1.312：新增 OIDC 識別設定、修正大型檔案覆寫問題",
+    summary: "Claude Code v2.1.312 於 2026-10-27 發布，新增 OIDC user ID claim 設定、修正大型 CLAUDE.md 被截斷覆寫的 bug，並新增每 session 最多 24 個 Hook 的限制。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.312 於 2026-10-27 正式發布，包含以下更新：\n\n**新功能**\n• 新增 `oidc.user_id_claim` 設定，可自訂 Claude apps gateway 識別使用者的 ID token claim（例如 Microsoft Entra ID 的 `oid`）\n• 自動模型切換（model fallback）現在也支援自訂部署名稱，可透過 `CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK=1` 關閉\n\n**Bug 修正**\n• 修正 Claude 在讀取非常大的 CLAUDE.md、rules 檔案或 @-included 檔案時，只讀取開頭就直接覆寫的問題\n• Code Review 修正：修正在 GitHub push event 延遲送達時，審查舊版 commit 或沒有審查的問題\n\n**限制調整**\n• Prompt 與 agent hook 每 session（含子 agent）最多同時執行 24 個\n• 使用量提示文字從「session limit」改為「5-hour limit」，更明確說明限制範圍",
+      links: [
+        { label: "GitHub Release", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.312", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "anthropic-gsa-government-expansion-2026-10-27",
     date: "2026-10-27",
     version: "公告",
