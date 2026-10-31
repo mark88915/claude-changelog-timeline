@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-314-2026-10-30",
+    date: "2026-10-30",
+    version: "v2.1.314",
+    category: "enh",
+    area: "security",
+    product: "claude-code",
+    title: "Claude Code v2.1.314：新增工作目錄外寫入封鎖、閒置壓縮及 81 項 Bug 修正",
+    summary: "Claude Code v2.1.314 於 2026-10-30 發布，新增 permissions.blockWritesOutsideWorkingDirectories 安全設定、VS Code/Desktop 閒置壓縮功能，並修正 81 個 bug。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.314 於 2026-10-30 正式發布，為近期最大規模的單版本更新，包含 6 項新功能、16+ 項變更、16 項改善及 81 個 bug 修正。\n\n**主要新功能**\n• `permissions.blockWritesOutsideWorkingDirectories`：Write、Edit、NotebookEdit 拒絕所有工作目錄外的路徑存取（適用所有權限模式）\n• VS Code / Claude Desktop 新增閒置壓縮：200K+ token 的對話在閒置後自動摘要，快取過期時使用摘要接續對話\n• Claude apps gateway 上游新增 `groups` 清單，僅允許指定 IdP 群組的開發者使用該上游（含 failover）\n• Bedrock 上游新增 `guardrail_trace`，記錄觸發的 Amazon Bedrock guardrail 篩選器但不記錄比對內容\n\n**主要變更**\n• Bash 工具 shell 修正 `which` 命令行為，清除繼承的 alias 或函式\n• `/ultrareview` 執行前現會檢查工作區信任設定\n• 閒置壓縮現支援關閉遙測的使用者，以及 Bedrock/Vertex/Foundry/LLM gateway（需啟用一小時快取）\n• 修正 `FORCE_HYPERLINK=false`（也支援 `no` 和 `off`）改為正確關閉超連結\n\n**Bug 修正（81 個）**\n• 修正無效 effort 等級導致每回合失敗的問題，現在會自動降低 effort 並重試\n• 修正 `claude -p` 在啟動失敗時回傳退出碼 0 且無輸出的問題\n• 修正 Bedrock session 含大量圖片時失敗的問題\n• 修正 MCP server 停用登入後顯示「需要驗證」的問題\n• 修正 TLS 連線因系統憑證更新導致驗證失敗的問題\n• 修正多個 Cloud sessions、VSCode、Claude Tag 相關問題",
+      links: [
+        { label: "官方 Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Release", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.314", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-no-game-recreation-policy-2026-10-30",
+    date: "2026-10-30",
+    version: "政策",
+    category: "brk",
+    area: "model",
+    product: "claude-code",
+    title: "Claude Code 悄悄禁止重製現有遊戲（無官方公告）",
+    summary: "Claude Code v2.1.314 加入禁止重製現有電玩遊戲的規則，即使改名也不允許，Anthropic 並未正式公告此政策變更。",
+    body: {
+      kind: "breaking",
+      description: "Claude Code v2.1.314 悄悄加入了一條規則：禁止重製現有電玩遊戲，即使將遊戲改名也不允許。此政策更改未經任何官方公告，最早由使用者在 X 上發現，並由科技部落客報導。\n\n**影響範圍**\n• Claude Code 拒絕重製現有電玩遊戲的請求\n• 改名仿製也在禁止範圍內\n• 從頭創作原創遊戲不受影響\n\n**背景**\n• Anthropic 未發布任何官方公告或說明理由\n• 可能與著作權保護或版權訴訟壓力有關",
+      migration: { title: "開發者注意", text: "使用 Claude Code 開發遊戲時，需確保為原創作品，不可複製現有遊戲的名稱或玩法。" },
+      links: [
+        { label: "madrobot.blog 報導", href: "https://madrobot.blog/2026/10/30/claude-code-rule-no-existing-game-recreations/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ai-for-science-expansion-2026-10-28",
     date: "2026-10-28",
     version: "公告",
