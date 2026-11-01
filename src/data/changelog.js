@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-subscription-plan-rename-2026-10-31",
+    date: "2026-10-31",
+    version: "訂閱方案",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Claude 訂閱方案重命名：Max 5x 改為 Max，Max 20x 改為 Ultra",
+    summary: "Anthropic 於 2026-10-31 宣布訂閱方案重命名：Max 5x 更名為 Max，Max 20x 更名為 Ultra，Ultra 方案取消五小時使用上限，定價不變。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-10-31 宣布 Claude 訂閱方案名稱調整，以更清楚呈現各方案定位。\n\n**方案重命名**\n• Max 5x → Max\n• Max 20x → Ultra\n\n**主要變動**\n• Ultra 方案取消每五小時使用上限\n• 定價維持不變\n• 每週使用額度維持不變\n\n此次重命名讓方案名稱更直觀，使用者能更清楚識別各等級差異。",
+      links: [
+        { label: "Anthropic X 公告", href: "https://x.com/i/trending/2116228585229042106", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-316-2026-10-31",
+    date: "2026-10-31",
+    version: "v2.1.316",
+    category: "enh",
+    area: "model",
+    product: "claude-code",
+    title: "Claude Code v2.1.316：新增子代理 Effort 控制、Ultrathink 停用選項",
+    summary: "Claude Code v2.1.316 新增 CLAUDE_CODE_SUBAGENT_EFFORT 與 CLAUDE_CODE_DISABLE_ULTRATHINK 環境變數，Claude apps gateway 支援群組預算池及 layered 政策模式。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.316 於 2026-10-31 釋出，主要新增以下功能：\n\n**新環境變數**\n• `CLAUDE_CODE_SUBAGENT_EFFORT`：讓子代理以自訂 effort 等級運行，不受主代理設定影響\n• `CLAUDE_CODE_DISABLE_ULTRATHINK`：停用 ultrathink 關鍵字功能\n\n**Claude apps gateway 更新**\n• 支援群組預算池（pooled group budgets）\n• 新增 `managed.policy_mode: layered` 選項，允許更細緻的政策分層管理\n\n**Opus 4.8 Fast Mode 棄用通知**\n• Fast mode 將於 2026-11-30 從 Opus 4.8 中移除\n• 移除後 fast mode 請求將回傳錯誤，不再降回標準 Opus 4.8\n• 建議遷移至 Claude Opus 5.5 以繼續使用 fast mode",
+      links: [
+        { label: "GitHub Release v2.1.316", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.316", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-314-2026-10-30",
     date: "2026-10-30",
     version: "v2.1.314",
