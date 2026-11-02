@@ -1,6 +1,28 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-usage-policy-anti-cruelty-2026-11-01",
+    date: "2026-11-01",
+    version: "政策",
+    category: "brk",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 修訂使用政策：禁止對 Claude 施以持續惡意行為，違規者面臨帳號限制",
+    summary: "Anthropic 修訂使用政策，明確禁止對 Claude 施以「無意義的持續惡意或殘忍行為」，違規者將面臨帳號限制。新規定於 2026-11-12 生效。",
+    body: {
+      kind: "breaking",
+      description: "Anthropic 於 2026-10-08 更新使用政策，並於 2026-11-12 正式生效。本次修訂重點如下：\n\n**新增禁止行為**\n• 禁止對 Claude 持續施以「無意義的惡意或殘忍行為（sustained and needless abusive or cruel behavior）」\n• 違規者將面臨帳號警告、限速、暫停或終止等處置\n\n**豁免範圍**\n• 一般使用者挫折感或情緒宣洩\n• 創意寫作中的黑暗主題\n• 模型測試與研究用途\n\n**主要執法機制**\n• Claude 結束對話仍為主要執法手段（claude.ai 及 Claude Code 均已有此能力）\n\n**其他變動**\n• 取消對選舉活動個人化選民外展的全面禁令\n• 收緊選舉干預、武器開發、監控及自主 AI 硬體相關限制\n• 新增 11 項高風險決策領域需人工審核的規定",
+      migration: {
+        title: "建議確認現有使用情境符合新政策",
+        text: "如使用 Claude 進行模型測試、研究或創意寫作，建議確認互動方式符合新政策規定，避免因誤判而被限制帳號。"
+      },
+      links: [
+        { label: "PCWorld 報導", href: "https://www.pcworld.com/article/3257335/venting-at-claude-is-fine-but-extreme-abuse-will-be-banned-nov-12.html", kind: "doc" },
+        { label: "Notebookcheck 報導", href: "https://www.notebookcheck.net/Anthropic-bans-abusive-behavior-toward-Claude-starting-November-12.1420910.0.html", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-subscription-plan-rename-2026-10-31",
     date: "2026-10-31",
     version: "訂閱方案",
