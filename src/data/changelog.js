@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ipo-s1-amendment-2026-11-02",
+    date: "2026-11-02",
+    version: "公告",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 提交 S-1 修正文件，IPO 路演最快 11/9 展開",
+    summary: "Anthropic 於 2026-11-02 向美國 SEC 提交 S-1 修正文件，更新前九個月財務數據，IPO 路演最快於 11/9 當週開始，Nasdaq 掛牌代碼為「ANT」。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-02 提交 S-1 修正申報文件，更新至 2026 年前三季度的收入與支出數據。\n\n**主要資訊**\n• Nasdaq 掛牌代碼：ANT\n• 主承銷商：高盛（Goldman Sachs）、摩根士丹利（Morgan Stanley）\n• IPO 路演預計於 11/9 當週展開\n• 估值約 1.5 兆美元（路透社估算）\n• 2026 年 5 月 Series H 融資時估值為 9650 億美元\n\n**財務摘要**（截至 2026 年 6 月 30 日前 12 個月）\n• 營收：197 億美元\n• 淨虧損：1097.4 億美元",
+      links: [
+        { label: "IPO Scoop 報導", href: "https://www.iposcoop.com/the-ipo-buzz-anthropic-ant-proposed-files-its-s-1/", kind: "doc" },
+        { label: "The Motley Fool 報導", href: "https://www.fool.com/investing/2026/10/29/anthropic-could-begin-marketing-its-ipo-the-week-o/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-mythos-5-5-tease-2026-11-01",
+    date: "2026-11-01",
+    version: "Mythos 5.5",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Claude Mythos 5.5 即將推出：Anthropic 頁面出現新版本資訊",
+    summary: "TestingCatalog 在 Anthropic 的 Mythos 頁面發現 Claude Mythos 5.5 的相關資訊，預計本週可能正式推出，Anthropic 尚未官方確認。",
+    body: {
+      kind: "feature",
+      description: "科技媒體 TestingCatalog 於 2026-11-01 報導，在 Anthropic 的 Claude Mythos 產品頁面上發現了 Mythos 5.5 的相關資訊，預計最快本週（11/3-11/10）可能正式對外推出。\n\n**已知資訊**\n• 在 Anthropic 官方 Mythos 頁面出現 5.5 版本資訊\n• 推出時程：預計 2026 年 11 月初\n• 目前 Anthropic 尚未發布任何官方確認公告\n\n**注意**\n此為預告性資訊，實際推出時程可能有所調整，建議持續關注 Anthropic 官方公告。",
+      links: [
+        { label: "TestingCatalog 報導", href: "https://testingcatalog.com/anthropic-prepares-to-release-claude-mythos-5-5-model", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-usage-policy-anti-cruelty-2026-11-01",
     date: "2026-11-01",
     version: "政策",
