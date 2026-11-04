@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-317-2026-11-02",
+    date: "2026-11-02",
+    version: "v2.1.317",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "Claude Code v2.1.317：/schedule 警告、exit code 修正、/resume 標題修正",
+    summary: "Claude Code v2.1.317 新增 /schedule 意外 Connector 偵測警告、修正磁碟滿時 exit code 誤回傳 0 問題、修正 /resume 顯示 CLAUDE.md 內容的問題。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.317 於 2026-11-02 發布，主要包含：\n\n**新功能**\n• `/schedule`：新增警告，當雲端排程任務意外附加 Connector 時顯示提示並提供移除說明\n• 新增 `CLAUDE_CODE_DISABLE_NESTED_SESSION_ID` 環境變數，供自架 Runner 使用\n\n**Bug 修正**\n• 修正 `claude -p` 在磁碟滿或配額耗盡導致 transcript/設定檔寫入失敗時誤回傳 exit code 0 的問題（現在正確回傳 exit code 1）\n• 修正已刪除的代理團隊收件匣被隊友的延遲訊息重新建立的問題\n• 修正 `/resume` 選擇器錯誤顯示 CLAUDE.md 內容作為工作階段標題的問題\n• 修正 `/feedback` 傳送中顯示「Enter to confirm」提示的問題",
+      links: [
+        { label: "GitHub Release v2.1.317", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.317", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "claude-api-message-threads-beta-2026-11-02",
+    date: "2026-11-02",
+    version: "Beta",
+    category: "new",
+    area: "performance",
+    product: "claude",
+    title: "Claude Messages API 新增 Message Threads 公開測試版，首 Token 延遲降低 35%",
+    summary: "Anthropic 推出 Messages API Message Threads 公開測試版，代理程式每輪只需傳送新訊息，首個 Token 延遲在長對話中降低約 35%。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-02 在 Messages API 推出 Message Threads 公開測試版。開發者在請求中加入 `message-threads-2026-08-12` Beta 標頭，伺服器端會儲存先前的對話，代理程式每輪只需傳送新訊息。\n\n**主要特色**\n• 首個 Token 延遲在 500K–1M Token 長對話中降低約 35%\n• 執行緒在記憶體中加密保存，最後一次請求後 5 分鐘到期，1 小時內刪除\n• 適用於所有 Claude 模型及 Claude API、AWS Bedrock、Google Cloud、Microsoft Foundry\n• SDK 提供 `client.beta.messages.thread(...)` 輔助函式自動管理執行緒\n\n**注意事項**\n• 不符合零資料保留或 HIPAA 設定\n• 費用與速率限制維持不變\n• 建議開發者自行保留完整對話紀錄作為備份",
+      links: [
+        { label: "The Next Web 報導", href: "https://thenextweb.com/news/anthropic-message-threads-beta-claude-api-agents", kind: "doc" },
+        { label: "platform.claude.com 文件", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ipo-s1-amendment-2026-11-02",
     date: "2026-11-02",
     version: "公告",
