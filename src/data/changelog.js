@@ -1,6 +1,63 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-318-2026-11-04",
+    date: "2026-11-04",
+    version: "v2.1.318",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "Claude Code v2.1.318：Mod 授權記錄、AWS 跨帳戶角色假設、macOS 記憶體修正",
+    summary: "Claude Code v2.1.318 新增 Mod 啟用授權記錄、AWS 跨帳戶角色假設，並修正 macOS 記憶體當機與遠端 Session 啟動錯誤等多項問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.318 於 2026-11-04 發布，主要包含：\n\n**新功能**\n• 當 Claude Code 在會話中詢問是否啟用 Mod 時，現在會記錄使用者的回答\n• Gateway 新增 AWS 跨帳戶角色假設（cross-account role assumption）支援\n• Mod 的模型分支（model fork）可指定推論努力等級（effort level）\n• 雲端 Session 可在無儲存庫的情況下啟動\n\n**Bug 修正**\n• 修正 macOS 在大量 Bash 指令執行時的記憶體當機問題\n• 修正遠端 Session 啟動錯誤\n• 修正 `~/.claude.json` 在無效 JSON 時被預設值覆蓋的問題（非互動式啟動現在會直接停止）\n• 修正跨共用家目錄的登入狀態問題\n• 背景子代理的 Shell 指令在 3 分鐘後移至背景執行\n• IDE 擴充功能不再於 IDE 終端機內啟動 Claude Code 時自動安裝或更新",
+      links: [
+        { label: "GitHub Release v2.1.318", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.318", kind: "gh" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-watermark-older-models-2026-11-03",
+    date: "2026-11-03",
+    version: "浮水印",
+    category: "enh",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 將文字浮水印擴展至四款舊版模型：Mythos 5、Opus 4.7、Opus 4.6、Sonnet 4.6",
+    summary: "Anthropic 於 2026-11-03 起在 Claude Platform API 對 Mythos 5、Opus 4.7、Opus 4.6、Sonnet 4.6 套用隱形文字浮水印，Amazon Bedrock 預計 11-10 完成部署。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-03 開始將隱形文字浮水印（text watermarking）功能擴展至四款較早發布的 Claude 模型。\n\n**適用模型**\n• Claude Mythos 5\n• Claude Opus 4.7\n• Claude Opus 4.6\n• Claude Sonnet 4.6\n\n**部署時程**\n• Claude Platform API：2026-11-03 起生效\n• Amazon Bedrock：預計 2026-11-10 完成部署\n\n**注意事項**\n• Sonnet 4.6 在設定非預設的 temperature、top_p 或 top_k 時，浮水印可能不生效\n• 無法依地區限制範圍，全球用戶均適用\n• 修改取樣參數可能使部分舊版模型的浮水印消失\n• 此功能不符合零資料保留（ZDR）資格\n• 2026-08-02 之後發布的新模型從發布起即包含浮水印",
+      links: [
+        { label: "tutkit.com 報導", href: "https://www.tutkit.com/en/blog/842-anthropic-expands-text-watermarking-to-additional-claude-models", kind: "doc" },
+        { label: "support.claude.com 說明", href: "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-game-restriction-2026-11-03",
+    date: "2026-11-03",
+    version: "政策",
+    category: "brk",
+    area: "security",
+    product: "claude-code",
+    title: "Claude Code 新增限制：拒絕重建他人影片遊戲的請求",
+    summary: "Anthropic 更新 Claude Code 政策，拒絕協助重建（reverse-engineer）他人的影片遊戲，以降低法律風險；建立全新遊戲不受影響。",
+    body: {
+      kind: "breaking",
+      description: "Anthropic 工程師 Addy Osmani 於 2026-11-03 確認，Claude Code 現在會拒絕重建（recreate）他人的影片遊戲。\n\n**變更內容**\n• Claude Code 拒絕協助「重建現有影片遊戲」的請求\n• 目的是降低反向工程（reverse engineering）相關的法律責任風險\n\n**不受影響的情境**\n• 使用 Claude 創作全新的原創遊戲\n• 遊戲開發相關的程式設計輔助（非複製現有遊戲）\n\n**社群反應**\n• 部分使用者指出該限制位於客戶端系統提示修改中，可透過代理或本地修改繞過\n• 社群對此限制褒貶不一，有人認為合理、有人表示不便\n\n**注意**：此為客戶端行為政策變更，非 API 層級的強制限制。",
+      migration: {
+        title: "如需類似遊戲功能，請改為描述全新原創概念",
+        text: "若您的工作流程需要重建遊戲機制，建議改以「設計一款具有類似機制的全新遊戲」的方式描述需求。"
+      },
+      links: [
+        { label: "TechSpot 報導", href: "https://www.techspot.com/news/114423-anthropic-tells-claude-code-stop-recreating-existing-video.html", kind: "doc" },
+        { label: "Hacker News 討論", href: "https://news.ycombinator.com/item?id=50320255", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-317-2026-11-02",
     date: "2026-11-02",
     version: "v2.1.317",
