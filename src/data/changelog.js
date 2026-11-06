@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-personal-finance-2026-11-05",
+    date: "2026-11-05",
+    version: "Personal Finance",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude 推出個人財務功能（Beta）：連結銀行帳戶，讀取消費紀錄",
+    summary: "Anthropic 於 2026-11-05 推出 Claude Personal Finance Beta，美國 Pro/Max/Ultra 訂閱者可透過 Plaid 連結銀行帳戶，以唯讀方式取得餘額、交易紀錄，並獲得 AI 財務分析建議。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-05 為美國付費用戶推出 Claude Personal Finance 測試版功能。\n\n**主要功能**\n• 透過 Plaid 連結銀行及信用卡帳戶（唯讀存取，不需要提供銀行密碼）\n• Claude 可查看帳戶餘額、信用額度及最多兩年的交易紀錄\n• 分析消費模式、追蹤即將到期帳單、標記異常消費\n\n**適用對象**\n• 美國地區 Pro、Max、Ultra 訂閱方案用戶\n• 目前為 Beta 階段，逐步開放中\n\n**隱私保護**\n• Personal Finance 聊天室的內容不會用於模型訓練\n• 財務對話不會加入 Claude 的共享記憶\n• 使用者可隨時中斷帳戶連結\n\n**限制說明**\n• 僅支援唯讀，無法執行轉帳、投資等操作\n• 不提供投資建議，無廣告或贊助商品\n• Claude 可能發生錯誤，建議向銀行核實重要數據\n\n**背景**\n此功能的工作代號為「Claude Money」，早先洩露的測試截圖已在社群中流傳，ChatGPT 也於 2026 年 5 月推出類似的 Plaid 整合功能。",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/", kind: "doc" },
+        { label: "MacRumors 報導", href: "https://www.macrumors.com/2026/11/05/claude-personal-finance/", kind: "doc" },
+        { label: "Anthropic 官方介紹", href: "https://claude.com/resources/articles/introducing-personal-finance-in-claude", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-318-2026-11-04",
     date: "2026-11-04",
     version: "v2.1.318",
