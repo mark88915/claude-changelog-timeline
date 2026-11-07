@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-enterprise-billing-tags-2026-11-06",
+    date: "2026-11-06",
+    version: "計費標籤",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Enterprise 新增計費標籤功能（Beta）：專案可標記自訂計費代碼",
+    summary: "符合資格的 Enterprise 組織現在可為專案加上自訂計費代碼，並依標籤查看費用分佈，目前為 Beta 功能。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-06 在 Claude Enterprise 推出計費標籤（Billing Tags）Beta 功能。\n\n**主要功能**\n• 組織管理員可為個別專案標記自訂計費代碼\n• 可依標籤彙整並查看各標籤的費用支出\n• 便於企業進行部門或專案層級的成本分攤與追蹤\n\n**適用對象**\n• Claude Enterprise 方案中的合格組織\n• 目前為 Beta 階段，逐步開放中",
+      links: [
+        { label: "Anthropic Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-319-2026-11-06",
+    date: "2026-11-06",
+    version: "v2.1.319",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "Claude Code v2.1.319：MCP 任務背景執行、新增 latency-optimize 指令、Gateway 登入通知",
+    summary: "Claude Code v2.1.319 讓 MCP 工具呼叫立即移至背景執行、新增 /claude-api latency-optimize 指令，並修正網路檔案系統清單緩慢等多項問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.319 於 2026-11-06 發布，包含以下變更：\n\n**新功能**\n• MCP 工具呼叫的任務現在立即移至背景執行，完成後通知 Claude；可透過環境變數 `CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND` 恢復舊行為\n• 新增 `/claude-api latency-optimize` 指令，自動偵測 Claude API 程式碼中的等待點並嘗試更快的設定\n• Claude apps gateway 新增 `login_notice` 設定\n• 啟動時顯示使用 `ant auth login` 登入時的 Console 帳單組織名稱\n\n**Bug 修正**\n• 修正網路檔案系統（NFS）上檔案清單速度緩慢的問題\n• 修正寫入後短時間內設定變更被忽略的問題\n• 修正執行 `/clear` 後背景任務從任務清單消失的問題\n\n**移除**\n• 從內建 Claude in Chrome 工具中移除 `shortcuts_list` 和 `shortcuts_execute` 工具",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "DEV Community 分析", href: "https://dev.to/delimitter/claude-code-v21319-unblocks-unattended-agent-runs-476e", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-personal-finance-2026-11-05",
     date: "2026-11-05",
     version: "Personal Finance",
