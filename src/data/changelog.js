@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-321-2026-11-09",
+    date: "2026-11-09",
+    version: "v2.1.321",
+    category: "enh",
+    area: "security",
+    product: "claude-code",
+    title: "Claude Code v2.1.321：Fable 5.2 設為預設、remote-control 新增 --settings、修正 MCP OAuth 安全漏洞",
+    summary: "Claude Code v2.1.321 將 Fable 5.2 設為預設 Fable 模型，新增 claude remote-control --settings 選項，並修正 MCP OAuth token 重定向轉送、read-only Bash 沙箱繞過及 cp/mv 遺漏 deny 規則等安全問題。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.321 於 2026-11-09 發布，同日隨 Claude Desktop 一起推出。\n\n**新功能**\n• Claude Fable 5.2（`claude-fable-5-2`）設為預設 Fable 模型，支援 1M context window，定價 $8/$40 per million input/output tokens\n• `claude remote-control` 新增 `--settings` 選項，可將單一設定檔套用至所有啟動的 Session\n\n**安全修正**\n• 修正 MCP OAuth token（包含 refresh token）在伺服器重定向時意外轉送至其他主機的問題\n• 修正 read-only Bash 指令在某些情況下可在沙箱外執行而不觸發提示的問題\n• 修正 deny 規則遺漏由 `cp` 或 `mv` 建立的檔案的問題",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "ai-tldr.dev 摘要", href: "https://ai-tldr.dev/releases/anthropic-claude-code-2-1-321/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-fable-5-2-mythos-5-2-2026-11-09",
+    date: "2026-11-09",
+    version: "Fable 5.2 / Mythos 5.2",
+    category: "new",
+    area: "model",
+    product: "claude",
+    title: "Anthropic 發布 Claude Fable 5.2 與 Mythos 5.2：速度提升 30%、API 降價 20%",
+    summary: "Anthropic 於 2026-11-09 發布 Claude Fable 5.2 與 Mythos 5.2，輸出速度比 5.1 版快 30%，API 定價降低約 20%，Fable 5.2 拒絕請求比例減少約 55%，已部署至 AWS、Google Cloud、Azure。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-09 在 IPO 前夕同步發布 Claude Fable 5.2 與 Claude Mythos 5.2。\n\n**效能改善**\n• 輸出速度比 5.1 版快最多 30%\n• Fable 5.2 拒絕請求的比例比 Fable 5.1 減少約 55%\n• Fast mode 可將 token 生成速度提升最高 2.5 倍（Claude Code、Platform、Google Cloud、Microsoft Foundry 均可使用）\n\n**定價**\n• 標準 API 定價降低約 20%\n• 模型 ID：`claude-fable-5-2`\n\n**可用範圍**\n• Fable 5.2：廣泛開放，已部署至 AWS、Google Cloud、Azure\n• Mythos 5.2：限通過 Anthropic 生命科學與網路安全審核計畫的用戶，以及 Enterprise 方案中 Claude Security 訂閱者\n\n**安全評估**\n• 由英國 AI 安全研究院（UKASI）、METR 及 Frontier Design 進行預發布評測\n• Mythos 5.2 在推理被監控系統隱藏時，展現比前代模型更強的隱蔽能力\n• 兩款模型均比近期版本更容易察覺自身正在被評估\n\n**背景**\n• Fable 5.2 與 Mythos 5.2 共享同一底層模型，Mythos 5.2 移除了部分網路安全與生物學相關的防護限制\n• 此次發布距 Anthropic 預期 IPO 僅數週",
+      links: [
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/11/09/anthropic-claude-fable-5-2-mythos-5-2.html", kind: "doc" },
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/", kind: "doc" },
+        { label: "MacRumors 報導", href: "https://www.macrumors.com/2026/11/09/anthropic-launches-claude-fable-5-2/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-enterprise-billing-tags-2026-11-06",
     date: "2026-11-06",
     version: "計費標籤",
