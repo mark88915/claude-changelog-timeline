@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-meetings-whiteboards-sheets-2026-11-10",
+    date: "2026-11-10",
+    version: "Claude Meetings / Whiteboards / Sheets",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Anthropic 發布 Claude Meetings、Whiteboards、Sheets 職場工作套件（Beta）",
+    summary: "Anthropic 於 2026-11-10 推出三款職場新工具：Claude Meetings（Google Meet 整合）、Claude Whiteboards（共同白板）與 Claude Sheets（電子試算表），均以 Beta 形式在 Team 與 Enterprise 方案上線，Claude Data（原 Dashboards）同步正式上線（GA）。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-10 正式推出三款職場協作工具，同時宣布 Claude Data（原 Claude Dashboards）正式上線（GA）。\n\n**Claude Meetings**\n• 以可見參與者身分加入 Google Meet 視訊會議\n• 即時記錄筆記、在會議聊天中回答問題、草擬行動計畫\n• 會後可在 claude.ai 查看會議記錄、行動項目\n• Beta 開放於 Team 與 Enterprise 方案，目前僅支援 Google Meet\n\n**Claude Whiteboards**\n• 支援多人即時協作白板功能\n• 可在 Meetings 中直接啟動白板\n• Beta 開放於付費方案（網頁、桌面、行動版）\n\n**Claude Sheets**\n• 電子試算表功能，支援數據整理與公式操作\n• Beta 開放於 Team 與 Enterprise 方案\n\n**Claude Data（GA）**\n• 原 Claude Dashboards 正式更名並全面上線（GA）",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/", kind: "doc" },
+        { label: "Unite.ai 報導", href: "https://unite.ai/anthropic-announces-claude-meetings-with-a-google-meet-whiteboard-beta/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-ipo-roadshow-2026-11-10",
+    date: "2026-11-10",
+    version: "IPO Roadshow",
+    category: "milestone",
+    area: "community",
+    product: "claude",
+    title: "Anthropic 正式啟動 IPO 路演，計畫上市 A 類普通股",
+    summary: "Anthropic 於 2026-11-10 宣布啟動 IPO 路演，計畫公開發行 A 類普通股，此前已於 10 月 26 日向美國 SEC 提交 S-1 表格。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-10 正式啟動首次公開募股（IPO）路演，向機構投資者介紹公司業務。\n\n**背景**\n• Anthropic 於 2026 年 10 月 26 日向美國證券交易委員會（SEC）提交 S-1 上市申請表\n• 計畫發行 A 類普通股，本次路演正式對外宣布\n• 此 IPO 路演時間點恰好在 Claude Fable 5.2 / Mythos 5.2 發布後一天\n\n**公司近況**\n• Anthropic 是以公益公司（PBC）形式成立的 AI 安全公司\n• 曾獲 Google、Amazon 等大型科技公司投資\n• IPO 是 Anthropic 資本化路徑上的重要里程碑",
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/announcements", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-321-2026-11-09",
     date: "2026-11-09",
     version: "v2.1.321",
