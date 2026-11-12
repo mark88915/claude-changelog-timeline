@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-322-2026-11-11",
+    date: "2026-11-11",
+    version: "v2.1.322",
+    category: "enh",
+    area: "performance",
+    product: "claude-code",
+    title: "Claude Code v2.1.322：新增 Google Vertex AI Fast Mode 支援，移除 safety_event OTel 指標",
+    summary: "Claude Code v2.1.322 新增 Vertex AI 全球、美國及歐盟區域的 Fast Mode 支援（若 Vertex 拒絕自動降回標準速度）；正式移除 claude_code.safety_event OTel 指標；Trusted/Custom 網路存取層級合併為 Limited。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.322 於 2026-11-10 建置（2026-11-11 首見），包含以下變更：\n\n**新功能**\n• 新增 Google Vertex AI Fast Mode 支援，適用全球（global）、美國（us）及歐盟（eu）區域\n• Fast Mode 若遭 Vertex 拒絕（403/404），將自動降回標準速度並暫停 30 分鐘後重試\n• 適用對象：Fable 5.2（`claude-fable-5-2`）需 v2.1.322 或更新版本\n\n**移除**\n• `claude_code.safety_event` OpenTelemetry 指標已從 v2.1.312 起停止發送，本版正式從追蹤清單中移除\n\n**行為變更**\n• 網路存取層級 Trusted 與 Custom 合併為 Limited（Compliance API 安全態勢更新）",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "ai-tldr.dev 摘要", href: "https://ai-tldr.dev/releases/anthropic-claude-code-2-1-322/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-meetings-whiteboards-sheets-2026-11-10",
     date: "2026-11-10",
     version: "Claude Meetings / Whiteboards / Sheets",
