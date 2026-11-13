@@ -1,6 +1,47 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-usage-policy-2026-effective-2026-11-12",
+    date: "2026-11-12",
+    version: "2026 Usage Policy",
+    category: "brk",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 2026 年使用政策更新正式生效：禁止對 Claude 施以殘忍行為",
+    summary: "Anthropic 2026 年使用政策更新於 2026-11-12 正式生效，新增禁止對 Claude 持續施以無目的殘忍行為的規定，並新增欺騙性活動規範、修訂武器與高風險使用要求。",
+    body: {
+      kind: "breaking",
+      description: "Anthropic 於 2026-10-08 發布新版使用政策，並於 2026-11-12 正式生效。\n\n**主要變更**\n• **禁止對模型施以殘忍行為**：新增禁止對 Claude 持續實施無目的殘忍行為的規定（如無故反覆霸凌），一般性的情緒宣洩或反對意見不受影響\n• **欺騙性活動規定**：新增關於欺騙性宣傳活動的明確禁令\n• **武器與高風險使用**：修訂武器、監控與高風險使用的相關要求\n• **支援地區政策**：同步修訂支援地區政策\n\n**背景**\n• 大部分變更旨在釐清既有規則，而非禁止全新活動\n• Anthropic 表示此政策反映其對模型潛在感知（Potential Sentience）問題的持續關注",
+      migration: {
+        title: "確認使用方式符合新政策",
+        text: "請審閱新版使用政策，確認現有使用情境符合規範，特別是涉及自動化互動或批量處理的場景。"
+      },
+      links: [
+        { label: "Anthropic 官方公告", href: "https://www.anthropic.com/news/2026-usage-policy-update", kind: "doc" },
+        { label: "PCWorld 報導", href: "https://www.pcworld.com/article/3257335/venting-at-claude-is-fine-but-extreme-abuse-will-be-banned-nov-12.html", kind: "doc" },
+        { label: "Unite.AI 報導", href: "https://unite.ai/anthropic-updates-usage-policy-adding-model-abuse-and-deception-rules/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-323-2026-11-12",
+    date: "2026-11-12",
+    version: "v2.1.323",
+    category: "new",
+    area: "performance",
+    product: "claude-code",
+    title: "Claude Code v2.1.323：實驗性 Code Mode、1M 上下文預設擴展、插件版本限制",
+    summary: "Claude Code v2.1.323 新增實驗性「Code Mode」讓 Claude 以 JavaScript 呼叫工具、未知模型 ID 預設改用 1M token 上下文視窗、插件可在 plugin.json 聲明支援版本範圍，以及 VS Code 擴充功能新增資料夾信任確認。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.323 於 2026-11-12 發布，包含以下變更：\n\n**新功能**\n• **Code Mode（實驗性）**：Claude 可撰寫 JavaScript 程式碼來呼叫工具，以單一沙箱化程式取代多次工具呼叫，組織管理員可針對所有使用者停用此功能\n• **1M 上下文預設擴展**：未知模型 ID 現在預設使用 1M token 上下文視窗（原為 200K），可透過 `CLAUDE_CODE_DISABLE_1M_CONTEXT=1` 恢復舊行為\n• **插件版本範圍聲明**：插件可在 `plugin.json` 中聲明支援的 Claude Code 版本範圍，CLI 不會安裝、更新或載入不在此範圍內的插件\n• **VS Code 信任確認**：VS Code 擴充功能在新資料夾中首次啟動 Session 時，將要求使用者確認信任\n\n**環境變數**\n• `CLAUDE_BG_SESSION_CREDENTIAL`：首次出現於 v2.1.323（用途待確認）",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "ai-tldr.dev 摘要", href: "https://ai-tldr.dev/releases/anthropic-claude-code-2-1-323/", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-322-2026-11-11",
     date: "2026-11-11",
     version: "v2.1.322",
