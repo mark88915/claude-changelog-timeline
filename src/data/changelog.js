@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-325-2026-11-13",
+    date: "2026-11-13",
+    version: "v2.1.325",
+    category: "bug",
+    area: "security",
+    product: "claude-code",
+    title: "Claude Code v2.1.325：修正 zstd 解碼安全問題、子代理模型切換、Gateway 上下文壓縮與 git worktree 錯誤",
+    summary: "Claude Code v2.1.325 於 2026-11-13 發布，修正 zstd 壓縮回應解碼安全漏洞、子代理模型誤切換至 plan-mode 模型、Foundry/第三方 Gateway 上下文長度錯誤，以及特殊 git worktree 設定下 /security-review 技能失敗的問題。",
+    body: {
+      kind: "bug",
+      description: "Claude Code v2.1.325 於 2026-11-13 發布，包含以下修正：\n\n**安全修正**\n• 修正 zstd 壓縮回應解碼流程中的安全問題\n\n**子代理修正**\n• 修正子代理在 opusplan 或 haiku 設定下被錯誤切換至 plan-mode 模型的問題\n• 子代理現在會依其自身模型正確調整檔案讀取和 MCP 結果大小\n\n**Gateway 修正**\n• 修正 Microsoft Foundry 及許多第三方 Gateway Session 在每輪對話時觸發上下文長度錯誤（應壓縮但未壓縮）\n\n**Git 修正**\n• 修正在裸倉庫（bare repository）及 `--separate-git-dir` 分離 git 目錄設定下，/security-review 與技能內嵌 git 指令失敗的問題\n\n**Session 修正**\n• 修正非正常結束後恢復 Session 時，最近幾輪對話消失的問題\n\n**Code Mode 相容性**\n• 在 `claude -p` 管道模式下執行 Code Mode 時，現在會印出警告說明功能不可用，並自動降回普通工具模式，確保腳本和 CI 環境可繼續運作",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "claudeupdates.dev 摘要", href: "https://www.claudeupdates.dev/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "managed-agents-self-hosted-beta-2026-11-13",
+    date: "2026-11-13",
+    version: "Self-hosted Managed Agents",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Claude Managed Agents 自托管私人測試版開放：可在企業自有基礎設施部署完整服務",
+    summary: "Anthropic 於 2026-11-13 宣布 Managed Agents 自托管（Self-hosted）私人測試版，允許企業團隊在自有 Kubernetes 基礎設施上部署完整的代理服務和 Session 資料，需透過 Anthropic 客戶團隊申請存取。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 宣布 Claude Managed Agents 自托管（Self-hosted）私人測試版，讓有資料主權需求的企業可將 Managed Agents 完整服務部署至自有基礎設施。\n\n**主要特性**\n• 在企業自有基礎設施上運行完整 Managed Agents 服務（非僅沙箱）\n• 代理定義、Session、Session 歷史記錄均儲存於企業自有環境\n• 模型呼叫仍預設路由至 Anthropic，或可設定 Amazon Bedrock、Google Cloud、Microsoft Foundry 或企業自有 Gateway\n\n**部署方式**\n• 生產環境建議使用兩個 Helm Chart：`cma-server` 和 `cma-sandboxes`，需 Kubernetes 1.30 或更新版本\n\n**目前限制**\n• 私人測試版：需透過 Anthropic 客戶團隊申請存取，無公開定價\n• 目前不支援 Webhook 和排程執行（Scheduled Runs）\n• 無法從托管服務遷移現有資料\n• 僅支援自托管環境（無混合模式）\n\n**背景**\n• Anthropic 於 2026-11-12 在官方 Release Notes 中列出此功能，@ClaudeDevs X 帳號於 2026-11-13 公開宣傳，貼文達 71.7 萬次瀏覽",
+      links: [
+        { label: "Claude Platform Release Notes", href: "https://platform.claude.com/docs/en/release-notes/overview", kind: "doc" },
+        { label: "tbreak.com 報導", href: "https://tbreak.com/claude-managed-agents-self-hosted/", kind: "doc" },
+        { label: "自托管文件", href: "https://claude.com/resources/articles/self-hosted-claude-managed-agents", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-usage-policy-2026-effective-2026-11-12",
     date: "2026-11-12",
     version: "2026 Usage Policy",
