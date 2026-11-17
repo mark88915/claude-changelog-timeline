@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "anthropic-ipo-nasdaq-ant-2026-11-17",
+    date: "2026-11-17",
+    version: "ANT IPO",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 宣布 IPO：預計 11/18 定價，11/19 在 Nasdaq 以代號「ANT」掛牌交易",
+    summary: "Anthropic 於 2026-11-17 進入 IPO 定價最終階段，預計每股 $70-$78，公司估值最高達 1.4 兆美元，計劃於 11/19 在 Nasdaq 以代號「ANT」開始交易。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-10 啟動 IPO 路演，2026-11-17 進入定價前最後階段。\n\n**主要資訊**\n• **定價日期**：預計 2026-11-18（美東時間）\n• **交易代號**：Nasdaq: ANT\n• **預計股價範圍**：每股 $70-$78\n• **公司估值**：最高可達 1.4 兆美元\n• **IPO 規模**：825 百萬股 Class A 普通股\n\n**重要細節**\n• IPO 認購需求超過供應量約 7 倍\n• Nvidia、Google、Microsoft 等 7 家科技公司已私人認購 260 億美元股份\n• 美國及其他地區零售投資者可獲最多 20% 分配額\n\n**背景**\n• Anthropic 於 2026-06 保密提交 S-1，2026-11 公開申報\n• 此 IPO 預計成為有史以來最大規模的科技公司上市案之一",
+      links: [
+        { label: "CNBC 報導", href: "https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html", kind: "doc" },
+        { label: "Yahoo Finance", href: "https://finance.yahoo.com/markets/stocks/articles/anthropic-prices-ipo-wednesday-investors-185110963.html", kind: "doc" },
+        { label: "Anthropic 官方新聞", href: "https://www.anthropic.com/news", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-325-2026-11-13",
     date: "2026-11-13",
     version: "v2.1.325",
