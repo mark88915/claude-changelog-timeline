@@ -1,6 +1,40 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-327-2026-11-17",
+    date: "2026-11-17",
+    version: "v2.1.327",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "Claude Code v2.1.327：新增 /status 診斷列、MCP stdin 安全輸入、VS Code 右鍵加入對話功能",
+    summary: "Claude Code v2.1.327 於 2026-11-17 發布，新增 /status 診斷行顯示損壞的技能與 Hook、MCP 伺服器可從 stdin 讀取 JSON token、VS Code 檔案總管右鍵新增「加入對話」功能，以及 100 項修正。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.327 於 2026-11-17 發布，包含以下新功能與改進：\n\n**新增功能**\n• `/status` 新增診斷列，列出損壞的代理、技能、指令、輸出樣式檔案、按鍵綁定錯誤及永不匹配的 Hook 比對器\n• `claude mcp add-json <name> -` 支援從 stdin 讀取伺服器 JSON，讓 token 不出現在命令列\n• 新增 `attributionProject` 設定，用於指定 Session 計費群組名稱\n• `/tui classic` 作為非全螢幕渲染器的別名\n• VS Code：在檔案總管右鍵選單中加入「Claude Code: 加入對話」選項\n• `/install-github-app` 在更改倉庫前會先詢問確認\n\n**行為調整**\n• `ExitWorktree` 在移除可能含有未儲存工作的 worktree 前會先詢問\n• 大多數權限提示的方向鍵在「否」時停止，不再循環\n• Auto 模式忽略更多可執行任意套件的允許規則（如 `Bash(pnpm dlx *)`）\n• PowerShell 工具在命名規則下也會對更多指令先詢問再執行\n\n**主要修正（共 100 項）**\n• `/export` 在覆蓋現有檔案前會先詢問\n• `claude mcp add` 和 `remove` 以 project 範圍執行時不再刪除 `.mcp.json` 中的其他頂層鍵\n• 在 worktree 模式中停止 Remote Control 伺服器不再刪除 `.env` 等 git-ignored 檔案\n• 另有 26 項改進，包含更快的首次 Bash 指令與 Windows PowerShell 加速",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-326-2026-11-16",
+    date: "2026-11-16",
+    version: "v2.1.326",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "Claude Code v2.1.326：Code Mode 支援代理團隊、HIPAA 組織預設 Auto 模式、沙箱寫入限制強化",
+    summary: "Claude Code v2.1.326 於 2026-11-16 發布，Code Mode 現可在代理團隊模式下啟用，HIPAA 配置組織預設 Auto 模式，沙箱指令強化敏感目錄寫入保護，並包含 233 項修正（含壓縮、崩潰恢復等重要修正）。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.326 於 2026-11-16 發布，包含以下新功能與改進：\n\n**新增功能**\n• Code Mode 現可與代理團隊（agent teams）同時啟用\n• `OTEL_RESOURCE_INCLUDE_HOST` 環境變數：將 `host.name` 和 `host.id` 加入 OpenTelemetry 屬性（預設關閉）\n• 新增 `/status` 列顯示供應商或 `DISABLE_TELEMETRY` 等變數關閉功能的狀態\n• 啟動警告：`--allowedTools`、`--disallowedTools` 或 `--tools` 包含不完整規則時顯示警告\n• VS Code：新增 `claudeCode.promptSuggestions` 設定\n\n**行為調整**\n• 組織中啟用「Claude Code + Cowork HIPAA」配置的 Terminal 和 VS Code Session 預設以 Auto 模式啟動\n• macOS、Linux 和 WSL 上的沙箱指令預設不再寫入部分敏感 home 目錄\n• Claude 的檔案工具拒絕寫入 `.credentials.json` 等登入檔案\n• `/plugin` 解除安裝、移除、切換問題改用方向鍵和 Enter 操作；`y`、`n`、`u` 不再作為回答\n• 首次執行設定預選「Auto（配合終端機）」主題\n• `--bare --bg` 在背景服務缺少 API 金鑰時以錯誤退出\n\n**主要修正（共 233 項）**\n• 修正 Bedrock、Vertex 和 Foundry 壓縮有時會回覆訊息而非摘要的問題\n• 修正崩潰後恢復 Session 時遺失近期對話輪次的問題\n• `/logout` 現在會重試撤銷登入\n• `/model` 顯示正確的預設模型名稱\n• 另有 59 項改進，包含更快的編輯速度、更低的閒置 CPU 使用率",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ipo-nasdaq-ant-2026-11-17",
     date: "2026-11-17",
     version: "ANT IPO",
