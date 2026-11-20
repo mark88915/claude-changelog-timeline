@@ -20,6 +20,24 @@ export const CHANGELOG = [
     }
   },
   {
+    id: "claude-code-v2-1-328-2026-11-19",
+    date: "2026-11-19",
+    version: "v2.1.328",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "Claude Code v2.1.328：雲端平台 Auto 模式、/code-review 聚焦 Bug 修正",
+    summary: "Claude Code v2.1.328 於 2026-11-19 發布，新增 Bedrock、GCP、Foundry 和 Gateway 上 Opus/Sonnet 4.6 Auto 模式、/code-review 縮減至僅報告 Bug 和 CLAUDE.md 違規、MCP Hook 新增 onFailure: block 選項，共 144 項 CLI 改動。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.328 於 2026-11-19 發布，包含以下新功能與改進：\n\n**主要新功能**\n• **雲端平台 Auto 模式**：Amazon Bedrock、Google Cloud Agent Platform、Microsoft Foundry 和 Claude apps gateway 上的 Opus 4.6 和 Sonnet 4.6 現支援 Auto 模式；未設定權限模式的互動 Session 預設以 Auto 模式啟動；可用 `disableAutoMode` 關閉\n• **/code-review 範圍調整**：/code-review 在大多數模型上現在僅報告 Bug 和 CLAUDE.md 違規，程式碼重用和簡化建議移至 /simplify\n• **MCP Hook onFailure: block**：mcp_tool Hook 新增 `onFailure: block` 選項，讓失敗的 Hook 呼叫阻擋相關動作\n• **子代理摘要優化**：在 Anthropic API 的終端機 Session 中，進度摘要改由預設的小型快速模型撰寫，消耗更少 token\n\n**Code Mode 改進**\n• 修正 Code Mode 的編輯處理、開發伺服器行為和 Windows Shell 相關問題\n\n**主要 Bug 修正**\n• 修正 Markdown 渲染在長文或格式錯誤輸入時凍結的問題\n• 修正罕見的畫面凍結問題\n\n**規模**：共 144 項 CLI 改動",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub Release v2.1.328", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.328", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-327-2026-11-17",
     date: "2026-11-17",
     version: "v2.1.327",
