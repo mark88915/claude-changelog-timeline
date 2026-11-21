@@ -1,6 +1,61 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-329-2026-11-20",
+    date: "2026-11-20",
+    version: "v2.1.329",
+    category: "enh",
+    area: "slash-command",
+    product: "claude-code",
+    title: "Claude Code v2.1.329：/tasks 顯示排程任務與 Fork、Gateway max_tokens 修正、Hook 信任對話框改進",
+    summary: "Claude Code v2.1.329 於 2026-11-20 發布，/tasks 新增排程任務與 Fork 顯示、Gateway 移除 max_tokens 重試避免超額計費、信任對話框顯示 Hook 宣告位置，共 130 項改動。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.329 於 2026-11-20 發布，包含以下新功能與改進：\n\n**主要新功能**\n• **/tasks 擴充**：/tasks 面板新增顯示排程任務（scheduled tasks）和 Fork；可從 /tasks 直接檢視和管理這些項目\n• **Gateway max_tokens 修正**：移除 Gateway 後端的 max_tokens 自動重試，避免在第三方 Gateway 後端造成非預期的超額 token 消耗\n• **Hook 信任對話框改進**：信任對話框現在會標示每個 Hook 的宣告位置（例如：來自 .claude/settings.json 或 CLAUDE.md），讓使用者更清楚知道哪個設定檔啟用了 Hook\n\n**Code Mode 修正**\n• 大幅減少 Code Mode 在長時間執行時的 UI 凍結問題\n\n**主要 Bug 修正**\n• 修正 Keychain 相關操作導致登出的問題\n• 修正多項穩定性與效能問題\n\n**規模**：共 130 項 CLI 改動",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "v2.1.329 Release Notes", href: "https://www.claudeupdates.dev/version/2.1.329", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-computer-use-team-enterprise-2026-11-20",
+    date: "2026-11-20",
+    version: "Computer Use Beta",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Computer Use Beta 開放 Team 和 Enterprise 方案",
+    summary: "Anthropic 於 2026-11-20 將 Computer Use（電腦使用）功能以 Beta 形式開放給 Team 和 Enterprise 方案用戶，支援 Claude Desktop、網頁版及行動版。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-20 宣布 Computer Use（電腦使用）功能以 Beta 形式正式開放給 Team 和 Enterprise 方案用戶。\n\n**功能說明**\n• Claude 可直接與使用者的螢幕互動，開啟應用程式、操作瀏覽器或執行工具\n• 支援平台：Claude Desktop（新版 Claude 體驗）、claude.ai 網頁版、Claude 行動版\n• 需在 Organization 設定 > 功能中開啟「電腦存取」選項\n\n**管理控制**\n• Enterprise 管理員可在組織設定中控制是否允許成員使用電腦存取功能\n• 關閉時，網頁版、行動版和排程任務均無法使用使用者的連結電腦\n\n**注意事項**\n• 此功能目前為研究預覽階段（Research Preview）\n• 新版統一 Claude 體驗預計於 2026-12-01 預設啟用",
+      links: [
+        { label: "Claude Apps Release Notes", href: "https://docs.anthropic.com/en/release-notes/claude-apps", kind: "doc" },
+        { label: "Claude Cowork 說明", href: "https://www.claude.com/cowork", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "anthropic-ipo-closed-2026-11-20",
+    date: "2026-11-20",
+    version: "ANT IPO 完成交割",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic IPO 完成交割：募集 $935 億美元成為史上最大 IPO",
+    summary: "Anthropic 於 2026-11-20 完成 IPO 交割，售出 11.27 億股 Class A 股，每股 $83，總募集金額約 $935 億美元，成為有史以來規模最大的 IPO。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-20 宣布完成其首次公開發行（IPO）的交割程序。\n\n**交割細節**\n• **發行股數**：1,127,000,000 股 Class A 普通股（含承銷商行使選擇權部分）\n• **發行價格**：每股 $83.00\n• **募集金額**：約 $935 億美元（史上最大 IPO）\n• **交易代號**：Nasdaq: ANT\n\n**背景**\n• IPO 於 2026-11-19 在 Nasdaq 開始交易\n• SEC 於 2026-11-18 宣告登記聲明生效\n• 此次 IPO 超越 Saudi Aramco 2019 年 $294 億美元的前紀錄",
+      links: [
+        { label: "Anthropic 官方 X 貼文", href: "https://x.com/AnthropicAI/status/2123196808675405860", kind: "doc" },
+        { label: "NBC News 直播報導", href: "https://www.nbcnews.com/business/markets/live-blog/anthropic-ipo-live-updates-rcna610159", kind: "doc" },
+        { label: "AI Daily Digest Nov 21", href: "https://dev.to/hiroki-ii-ai/ai-daily-digest-november-21-2026-anthropic-closes-a-935b-ipo-gemini-learns-to-drive-your-mac-5cj9", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "anthropic-ipo-ant-nasdaq-trading-2026-11-19",
     date: "2026-11-19",
     version: "ANT IPO 上市",
