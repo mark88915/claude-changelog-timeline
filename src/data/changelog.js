@@ -1,6 +1,25 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-330-2026-11-21",
+    date: "2026-11-21",
+    version: "v2.1.330",
+    category: "new",
+    area: "desktop",
+    product: "claude-code",
+    title: "Claude Code v2.1.330：新增 easel 圖表模組、Enterprise Admin Console 組織登入、修正 ExitWorktree 與凍結問題",
+    summary: "Claude Code v2.1.330 於 2026-11-21 發布，新增 easel 內建圖表繪製模組（Pro/Max 方案）、支援 Enterprise Admin Console 組織登入，修正 ExitWorktree 刪除使用中 worktree 的問題，並還原 max_tokens 重試行為。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.330 於 2026-11-21 發布，包含以下新功能與改進：\n\n**主要新功能**\n• **easel 內建圖表模組**：新增 easel 內建 Mod，可依要求繪製圖表，並在 MCP 指標結果下自動顯示；適用於 Pro 和 Max 方案，支援 macOS 和 Linux\n• **Enterprise Admin Console 組織登入**：新增對透過 Anthropic Enterprise Admin Console 管理的組織進行登入的支援\n\n**行為調整**\n• **還原 max_tokens 重試**：還原 v2.1.329 移除的「超出 max_tokens 限制時自動重試」功能\n\n**主要 Bug 修正**\n• 修正 ExitWorktree 在另一個執行中的 Session 正在使用 worktree 時可能將其刪除的問題\n• 修正壓縮長對話後發生凍結的問題\n• 修正變更使用者設定後遺失的問題",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "v2.1.330 更新解析", href: "https://dev.classmethod.jp/en/articles/20261121-cc-updates-v2-1-330/", kind: "doc" },
+        { label: "GitHub Mirror v2.1.330", href: "https://github.com/marckrenn/claude-code-changelog/releases/tag/v2.1.330", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-329-2026-11-20",
     date: "2026-11-20",
     version: "v2.1.329",
