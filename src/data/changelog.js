@@ -1,6 +1,43 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-ship-beta-2026-11-23",
+    date: "2026-11-23",
+    version: "Claude Ship Beta",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Claude Ship Beta 上線：AI 代理自動審查、修復並批准 GitHub Pull Request",
+    summary: "Anthropic 於 2026-11-23 推出 Claude Ship Beta，包含三個 AI 代理（Code Review、PR Steward、Claude Approvals）可自動完成 GitHub PR 的審查、修復和批准流程，支援 Team 和 Enterprise 方案。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-23 正式推出 Claude Ship Beta，這是一套整合至 GitHub 工作流程的 AI 代理系統，可自動化處理 Pull Request 的審查、修復和批准。\n\n**三個核心代理**\n• **Code Review**（正式版）：自動審查程式碼變更，提供詳細的程式碼品質回饋\n• **PR Steward**（Beta）：自動修復失敗的 CI 檢查、解決合併衝突和處理審查意見；不會自動批准或合併\n• **Claude Approvals**（Beta）：在符合團隊規則的情況下自動批准例行變更；建議先以觀察模式（observe-only）啟用\n\n**使用方式**\n• 在 Claude Code 中執行 `/ship` 命令啟動\n• 不需要 Claude Code 也可使用 Claude Ship\n• 費用依 token 使用量計費，可設定 Code Review 和 PR Steward 的消費上限\n\n**可用方案**\n• Team 和 Enterprise 方案可用\n• Enterprise 組織可在 2027-01-15 前申請至少 $10,000 的 Claude Ship 信用額度\n\n**注意事項**\n• Anthropic 警告此產品可能遺漏部分 Bug 或安全漏洞\n• 建議初期以觀察模式運行以建立對系統的信任",
+      links: [
+        { label: "TechCrunch 報導", href: "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/", kind: "doc" },
+        { label: "9to5Mac 報導", href: "https://9to5mac.com/2026/11/23/anthropic-launches-new-claude-ship-feature-for-builders", kind: "doc" },
+        { label: "MarkTechPost 分析", href: "https://www.marktechpost.com/2026/11/23/anthropic-claude-ship-pull-request-agents/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-code-v2-1-331-2026-11-23",
+    date: "2026-11-23",
+    version: "v2.1.331",
+    category: "enh",
+    area: "desktop",
+    product: "claude-code",
+    title: "Claude Code v2.1.331：多雲平台 Code Mode 支援、VS Code 大量改進、95 項 Bug 修正",
+    summary: "Claude Code v2.1.331 於 2026-11-23 發布，新增 Amazon Bedrock、Google Cloud、Microsoft Foundry、Claude Platform on AWS 的 Code Mode 終端支援；VS Code 新增「Fix with Claude Code」快速修復；修正 MCP 工具呼叫卡住 30 分鐘問題，共 95 項 Bug 修正。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.331 於 2026-11-23 發布，包含以下新功能與改進：\n\n**主要新功能**\n• **多雲平台 Code Mode 支援**：在 Amazon Bedrock、Google Cloud Agent Platform、Microsoft Foundry 和 Claude Platform on AWS 的終端 Session 中支援 Code Mode\n• **`claude doctor` API 連線診斷**：新增 API 連線檢測區段，可回報 HTTP 狀態或錯誤\n• **語音聽寫停止提示**：在 tap 模式語音聽寫因無聲（15 秒）或達 2 分鐘上限自動停止時顯示通知\n• **`CLAUDE_CODE_DISABLE_RESPONSE_COMPRESSION`**：新增環境變數，供會截斷壓縮回應的 Proxy 使用\n• **Plugin 選用依賴**：Plugin 清單新增 `optionalDependencies`，可隨 Plugin 安裝但可單獨停用\n\n**VS Code 擴充套件新功能**\n• **「Fix with Claude Code」快速修復**：錯誤、警告和測試失敗可直接送入對話框修復\n• **「Resolve Merge Conflicts」**：在合併衝突檔案的編輯器標題列新增按鈕\n• **「Add to Chat」**：在 Source Control 右鍵選單新增「加入對話」選項\n• **「Add Cell to Chat」**：在 Notebook 儲存格選單新增「加入對話」選項\n\n**主要 Bug 修正（95 項）**\n• MCP 工具呼叫在部分伺服器回傳格式錯誤時卡住長達 30 分鐘\n• hold-to-talk 語音聽寫在 Claude Code 忙碌時提前停止並遺失文字\n• `--resume`/`--continue` 在 Code Mode 下遺失 thinking 和 prompt cache\n• Rewind 在還原失敗後刪除檔案\n• 雲端 Session 中回應在 thinking 期間中斷時失敗，現已新增一次重試\n\n**效能改進**\n• 螢幕閱讀器模式下打字速度提升\n• 啟動速度優化（短時間內啟動的 Session 不再等待模型清單）\n• Windows 首次 Bash 命令速度提升\n• VS Code 長對話回應速度改善",
+      links: [
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" },
+        { label: "GitHub v2.1.331 Release", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.331", kind: "gh" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-330-2026-11-21",
     date: "2026-11-21",
     version: "v2.1.330",
