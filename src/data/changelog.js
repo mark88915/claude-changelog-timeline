@@ -1,6 +1,41 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-artifact-install-as-app-beta-2026-11-24",
+    date: "2026-11-24",
+    version: "Artifact Install as App Beta",
+    category: "new",
+    area: "desktop",
+    product: "claude",
+    title: "Artifact 可安裝為 Mac/Windows 原生桌面應用程式（Beta）",
+    summary: "Claude 新增 Beta 功能，可將 Claude 生成的 Artifact 直接安裝為 Mac 或 Windows 原生桌面應用程式，零設定即可使用。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-24 在 Claude 產品更新中推出 Beta 功能，允許使用者將 Claude 生成的 Artifact 直接安裝為 Mac 或 Windows 的原生桌面應用程式。\n\n**主要特色**\n• 無需任何設定，一鍵將 Artifact 轉換為原生桌面 App\n• 支援 macOS 和 Windows 平台\n• 目前處於 Beta 測試階段\n\n此功能讓開發者和使用者能更方便地將 Claude 建立的工具和應用程式部署到桌面環境，擴大 Artifact 的實用性。",
+      links: [
+        { label: "Claude Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "claude-monthly-recap-out-of-beta-2026-11-24",
+    date: "2026-11-24",
+    version: "Monthly Recap GA",
+    category: "enh",
+    area: "desktop",
+    product: "claude",
+    title: "Monthly Recap（每月回顧）正式離開 Beta，新增 Claude Code 與 Cowork 活動紀錄",
+    summary: "Claude 每月回顧功能（Reflect）正式上線，適用 Free、Pro、Max、Ultra 方案，新增 Claude Code Session 與 Cowork 任務活動顯示，並支援刪除回顧紀錄。",
+    body: {
+      kind: "feature",
+      description: "Anthropic 於 2026-11-24 宣布 Monthly Recap（每月回顧）功能正式離開 Beta 測試階段，現已全面開放。\n\n**主要更新**\n• **全方案開放**：Free、Pro、Max、Ultra 方案皆可使用\n• **跨平台支援**：Web、Claude Desktop、iOS、Android 均可存取\n• **新增 Claude Code 活動**：回顧中新增 Claude Code Session 的使用記錄\n• **新增 Cowork 任務**：回顧中新增 Claude Cowork 任務的活動顯示\n• **回顧刪除功能**：使用者可從設定頁面刪除已儲存的回顧紀錄\n\n**如何存取**\n• 在 Claude 設定（Settings）中找到「Reflect」區塊即可查看每月回顧",
+      links: [
+        { label: "Claude Release Notes", href: "https://support.claude.com/en/articles/12138966-release-notes", kind: "doc" },
+        { label: "Releasebot 更新紀錄", href: "https://releasebot.io/updates/anthropic/claude", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-ship-beta-2026-11-23",
     date: "2026-11-23",
     version: "Claude Ship Beta",
