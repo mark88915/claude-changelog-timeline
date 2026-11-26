@@ -1,6 +1,24 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "claude-code-v2-1-332-2026-11-25",
+    date: "2026-11-25",
+    version: "v2.1.332",
+    category: "enh",
+    area: "mcp",
+    product: "claude-code",
+    title: "Claude Code v2.1.332：MCP 伺服器技能 Beta、危險操作預設確認、150 項更新",
+    summary: "Claude Code v2.1.332 於 2026-11-25 發布，MCP 伺服器技能（Beta）在選單中顯示為 server:skill；新增「執行前確認」預設行為防止意外破壞性操作；新增 PreSkillShellCommand hook；共 150 項 CLI 更改。",
+    body: {
+      kind: "feature",
+      description: "Claude Code v2.1.332 於 2026-11-25 發布，包含以下新功能與改進：\n\n**主要新功能**\n• **MCP 伺服器技能（Beta）**：MCP 伺服器上的技能現在在 `/` 選單中顯示為 `server:skill`，支援遠端和本地技能使用\n• **危險操作預設確認**：Claude 現在預設在執行危險或破壞性操作前要求確認，防止意外資料遺失或有害命令\n• **PreSkillShellCommand hook**：新增 PreSkillShellCommand hook 事件，可拒絕技能或命令的內嵌 shell 命令\n\n**系統提示調整**\n• 新增「謹慎執行」規則：Claude 需評估操作的可逆性和影響範圍，對本地可逆操作可自由執行，但對破壞性、難以還原、影響共用狀態或上傳至第三方的操作，預設要求透明確認\n\n**主要 Bug 修正**\n• 修正長命令和 hook 導致的凍結問題\n• 修正 Web 搜尋在允許/封鎖網域清單為空或有重複項目時 API 錯誤的問題\n• 修正反覆自動壓縮失敗後的「Prompt is too long」錯誤\n• 修正 Ctrl+C 在提示處時，若停止的背景代理有未讀報告會啟動新回合的問題\n\n**其他變更**\n• Microsoft Foundry 預設模型改為 Sonnet 5.5\n• Bedrock Sonnet 別名現在對應至 Sonnet 5 而非 Haiku 4.5\n• 桌面 Code 標籤 Session 的預設 OpenTelemetry 服務名稱改為 claude-code-desktop\n\n**規模**：共 150 項 CLI 更改，1 項系統提示更改",
+      links: [
+        { label: "GitHub v2.1.332 Release", href: "https://github.com/anthropics/claude-code/releases/tag/v2.1.332", kind: "gh" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-artifact-install-as-app-beta-2026-11-24",
     date: "2026-11-24",
     version: "Artifact Install as App Beta",
