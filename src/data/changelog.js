@@ -1,6 +1,42 @@
 // Changelog data — richly populated with real Claude Code and Claude updates, ordered newest to oldest
 export const CHANGELOG = [
   {
+    id: "metr-evaluation-access-2026-11-27",
+    date: "2026-11-27",
+    version: "METR 評估存取",
+    category: "new",
+    area: "security",
+    product: "claude",
+    title: "Anthropic 授予 AI 評估機構 METR 類員工存取權限",
+    summary: "Anthropic 於 2026-11-27 宣布授予非營利 AI 評估機構 METR 類似員工的完整存取權限，以對前沿模型進行更深入的獨立安全評估。",
+    body: {
+      kind: "feature",
+      description: "2026-11-27，Anthropic 在官方新聞室宣布，將授予 AI 安全評估機構 METR（Model Evaluation & Threat Research，前身為 ARC Evals）類似員工的完整存取權限。\n\n**主要內容**\n• METR 是一家致力於評估前沿 AI 模型能力與危險性的非營利組織\n• 此存取權限讓 METR 能夠對 Anthropic 的前沿模型進行更深入、更全面的獨立安全評估\n• 此舉被視為 Anthropic 加強第三方 AI 安全評估機制的重要承諾\n\n此決定符合 Anthropic 一貫重視 AI 安全的立場，為業界建立了強化第三方評估的範例。",
+      links: [
+        { label: "Anthropic Newsroom", href: "https://www.anthropic.com/news", kind: "doc" },
+        { label: "The Neuron 報導", href: "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-november-27-2026/", kind: "doc" }
+      ]
+    }
+  },
+  {
+    id: "skills-over-mcp-beta-2026-11-26",
+    date: "2026-11-26",
+    version: "Skills over MCP Beta",
+    category: "new",
+    area: "mcp",
+    product: "claude",
+    title: "Skills over MCP 公開 Beta：MCP 伺服器可發布可重複使用的代理指令",
+    summary: "Anthropic 推出 Skills over MCP 公開 Beta，允許 MCP 伺服器發布可重複使用的代理指令（Skills），Pro、Max 及 Ultra 訂閱者預設啟用，同時適用於 Claude 和 Claude Code。",
+    body: {
+      kind: "feature",
+      description: "2026-11-26，Anthropic 宣布 Skills over MCP 公開 Beta 上線。\n\n**核心概念**\n• MCP 伺服器現在可以打包並發布「Skills」（技能）——可重複使用的代理指令集\n• 在 Claude 和 Claude Code 中，這些 Skills 透過 `/` 選單以 `server:skill` 格式顯示\n• 使用者可直接調用 MCP 伺服器提供的 Skills，無需手動撰寫相同的系統提示\n\n**可用範圍**\n• Pro、Max 及 Ultra 訂閱者預設啟用\n• 同時支援 Claude.ai 和 Claude Code CLI\n\n此功能讓 MCP 生態系更完整，伺服器開發者可將最佳實踐封裝為 Skills 分享給使用者，配合 Claude Code v2.1.332 中的 PreSkillShellCommand hook 可提供更細粒度的安全控制。",
+      links: [
+        { label: "Dataconomy 報導", href: "https://dataconomy.com/2026/11/26/anthropic-adds-skills-over-mcp-to-claude-and-claude-code", kind: "doc" },
+        { label: "Claude Code Changelog", href: "https://code.claude.com/docs/en/changelog", kind: "doc" }
+      ]
+    }
+  },
+  {
     id: "claude-code-v2-1-332-2026-11-25",
     date: "2026-11-25",
     version: "v2.1.332",
